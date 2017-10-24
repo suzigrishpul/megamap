@@ -43,7 +43,7 @@ var MapManager = function ($, d3, leaflet) {
     var GOTV_CENTER_ICON = L.icon({
       iconUrl: '//d2bq2yf31lju3q.cloudfront.net/img/icon/gotv-star.png',
       iconSize: [13, 10] });
-    var defaultCoord = options && options.defaultCoord ? options.defaultCoord : { center: [37.8, -96.9], zoom: 4 };
+    var defaultCoord = options && options.defaultCoord ? options.defaultCoord : { center: [23.4892774,-31.0004934], zoom: 3};
 
     var centralMap = new leaflet.Map("map-container", window.customMapCoord ? window.customMapCoord : defaultCoord).addLayer(mapboxTiles);
     if (centralMap) {}

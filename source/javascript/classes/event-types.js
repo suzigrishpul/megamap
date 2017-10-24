@@ -7,15 +7,11 @@ window.eventTypeFilters = [
   //   offItem: "<img style='width: 14px; height: 14px;' src='/img/icon/star-gray.png' />"
   // }
   {
-    name: 'Meet and Greet',
-    id: 'Meet-and-greet'
+    name: 'Action',
+    id: 'action'
   },
   {
-    name: 'Town Hall',
-    id: 'Town-Hall'
-  },
-  {
-    name: 'Volunteer event',
-    id: 'Volunteer-event'
+    name: 'Group',
+    id: 'group'
   }
 ];

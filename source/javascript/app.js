@@ -15,26 +15,11 @@
             d.filters = [];
             //Set filter info
             switch (d.event_type) {
-              case "Meet and Greet":
-                d.filters.push('Meet-and-greet');
+              case "Group":
+                d.filters.push('group');
                 break;
-              case "Phone bank":
-                d.filters.push('Phone-bank');
-                break;
-              case "Block walk":
-                d.filters.push('Block-walk');
-                break;
-              case "Rally":
-                d.filters.push('Rally');
-                break;
-              case "Town Hall":
-                d.filters.push('Town-Hall');
-                break;
-              case "Veteran town hall":
-                d.filters.push('Veteran-town-hall');
-                break;
-              case "Volunteer event":
-                d.filters.push('Volunteer-event');
+              case "Action":
+                d.filters.push('action');
                 break;
               default:
                 d.filters.push('other');
@@ -73,25 +58,25 @@
 
           /*** TOTALLY OPTIONAL AREA FOR FOCUSED AREAS. EXAMPLE IS CONNETICUT ***/
           /*** TODO: Repalace/Remove this ***/
-          $.ajax({
-            dataType: "json",
-            url: "/data/texas.json",
-            success: function(data) {
-              $(data.features[0].geometry).each(function(key, data) {
-                district_boundary
-                  .addData(data)
-                  .setStyle({
-                    fillColor: 'transparent',
-                    color: 'rgb(0, 0, 0)'
-                  });
-                if (!params.zipcode || params.zipcode === '') {
-                  window.mapManager.getMap()
-                    .fitBounds(district_boundary.getBounds(), { animate: false });
-                }
-              });
-              district_boundary.bringToBack();
-            }
-          }).error(function() {});
+          // $.ajax({
+          //   dataType: "json",
+          //   url: "/data/texas.json",
+          //   success: function(data) {
+          //     $(data.features[0].geometry).each(function(key, data) {
+          //       district_boundary
+          //         .addData(data)
+          //         .setStyle({
+          //           fillColor: 'transparent',
+          //           color: 'rgb(0, 0, 0)'
+          //         });
+          //       if (!params.zipcode || params.zipcode === '') {
+          //         window.mapManager.getMap()
+          //           .fitBounds(district_boundary.getBounds(), { animate: false });
+          //       }
+          //     });
+          //     district_boundary.bringToBack();
+          //   }
+          // }).error(function() {});
 
           // if ($("input[name='zipcode']").val() == '' && Cookies.get('map.bernie.zipcode') && window.location.hash == '') {
           //   $("input[name='zipcode']").val(Cookies.get('map.bernie.zipcode'));
