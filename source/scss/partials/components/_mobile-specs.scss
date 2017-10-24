@@ -1,0 +1,165 @@
+/** Mobile Only **/
+.mobile-only {
+  display: none;
+  @media screen and (max-width: 600px) {
+
+    display: inline-block;
+    margin: 5%;
+    padding: 5%;
+    font-size: 30px;
+    font-weight: 100;
+    line-height: 1.25;
+
+    &#init-item {
+      font-size: 24px;
+      line-height: 1.25;
+      margin-left: 15px;
+      padding-left: 15px;
+      border-left: 2px solid lightgray !important;
+      margin-top: 60px;
+    }
+
+    strong { font-weight: 600;}
+  }
+}
+
+/** MObile Specs **/
+@media only screen
+  and (max-width: 600px) {
+    nav#mobile-nav { display: block !important;
+      position: absolute;
+      top: 8px;
+      right: 7px;
+     }
+
+    #announcement{
+      bottom: 0;
+      z-index: 3000 !important;
+      font-size: 11px;
+    }
+    #mobile-announcement {
+      position: absolute;
+      font-size: 14px;
+      font-weight: 600;
+      bottom: -60px;
+      color: $highlight_color;
+    }
+
+    body {
+      section#header {
+        display: none;
+      }
+      section#activity-area {
+        height: 100%;
+
+        & > article {
+          width: 100% !important;
+          float: none;
+
+          &#events {
+            h4.title {
+              #screen-title { display: none; }
+              #mobile-title {
+                display: block; letter-spacing: 1px;
+                background-image: $mob_logo;
+                width: $mob_logo_width;
+                height: $mob_logo_height;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+
+              }
+            }
+             border: none;
+             #filters {
+              background-color: black;
+              border-radius: 0;
+              margin: 0;
+
+              input[type='number'] {
+                padding: 3px 0;
+                font-size: 17px;
+                border-radius: 0 !important;
+                border: 1px solid !important;
+                border-color: white !important;
+              }
+              select {
+                font-size: 13px;
+                border: 1px solid;
+                padding: 4px 0;
+                border-color: white;
+              }
+
+              h3#switch-link {
+                position: absolute;
+                right: 5px;
+                top: 230px;
+                display: block;
+                font-family: $serif;
+                z-index: 1000;
+                a {
+                  background-color: $lightgray;
+                  color: #939393;
+
+                  padding: 0px 0 0 8px;
+                  border-radius: 15px;
+                  font-size: 10px;
+                  text-transform: uppercase;
+                  letter-spacing: 0;
+                  font-weight: bold;
+
+                  * {
+                    vertical-align: middle;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &.map-view {
+        h3#switch-link {
+          a#to-map-view { display: none; }
+          a#to-list-view { display: inline-block; }
+        }
+        section#activity-area > article#events{
+          height: auto;
+          #event-list { display: none; }
+          footer { display: none; }
+          #hide-show-office { display: none;}
+        }
+        section#activity-area > article#map {
+          display: block;
+            visibility: visible;
+          position: absolute;
+          z-index: 100;
+          @include calc(height, '100% - 175px');
+        }
+      }
+
+
+      &.list-view {
+        h3#switch-link {
+          a#to-map-view { display: inline-block; }
+          a#to-list-view { display: none; }
+        }
+
+        section#activity-area > article#event-list { display: block; }
+        section#activity-area > article#map { visibility: hidden; z-index: -1; }
+      }
+    }
+
+    html article#events div#filters, body article#events div#filters {
+      background-color: $lightgray;
+      h5 { color: white;}
+    }
+
+    html article#events div#filters h4, body article#events div#filters h4 {
+      border-bottom: none;
+      font-weight: 300;
+      color: white;
+      border-bottom: 1px dotted rgba(255,255,255, 0.3);
+      display: inline-block;
+    }
+
+}
