@@ -41,24 +41,4 @@ html, body {
     // color: $secondary_color;
     color: black;
   }
-
-  .contribute.contribute-big {
-    font-weight: bold;
-    font-size: 12px;
-    background-color: $highlight_color;
-    letter-spacing: 0.15em;
-    margin: 0.3em auto 0;
-    border-radius: 3px;
-    padding: 0.7rem 1.7rem;
-    color: white;
-    display: inline-block;
-    text-transform: uppercase;
-
-    transition: $highlight_transition;
-
-    &:hover {
-      background-color: $darkred;
-      @extend .highlight_hover;
-    }
-  }
 }

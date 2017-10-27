@@ -13,14 +13,13 @@ section#header {
     li {
       a.contribute {
         color: white;
-        background-color: $highlight_color;
+        background-color: $teal-350;
         display: inline-block;
         padding: 8px 12px;
-        font-weight: 200;
-        font-family: $sans-serif;
-        text-transform: uppercase;
-        font-size: 25px;
-        letter-spacing: 2px;
+        font-weight: 800;
+        font-family: 'klima', sans-serif;
+        font-size: 20px;
+        border-radius: 20px;
 
         transition: $highlight_transition;
 

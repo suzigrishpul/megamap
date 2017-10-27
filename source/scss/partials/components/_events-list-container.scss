@@ -1,0 +1,42 @@
+div#event-list-container {
+  @include calc(height, '100% - 183px');
+
+  ul#event-list {
+    @include calc(min-height, '100% - 170px');
+
+    #init-item {
+      padding-left: 30px;
+      h2 {
+        font-family: 'klima', sans-serif;
+        font-weight: 800;
+        display: inline-block;
+        font-size: 24px;
+        color: $darkgray-350;
+        margin-top: 30px;
+
+        span {
+          position: relative;
+          z-index: 10;
+          display: inline-block;
+        }
+
+        @include orange-underline(10px, -1px);
+        &::after {
+          display: block;
+          clear:both;
+        }
+      } // init-item h2
+
+      p {
+        font-family: 'graph', 'sans-serif';
+        font-size: 20px;
+        color: $darkgray-350;
+        padding-right: 50%;
+      }
+    }
+
+    li {
+      @include eventListItem;
+    } // end of li
+  } //end of ul
+} //div#event-list-container

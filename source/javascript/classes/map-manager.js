@@ -120,11 +120,11 @@ var MapManager = function ($, d3, leaflet) {
             _popupEvents(e);
           }).addTo(overlays);
         } else if (item.className == 'group') {
-          L.circleMarker(item.latLng, { radius: 4, className: item.className, color: 'white', fillColor: '#FF3251', opacity: 0.6, fillOpacity: 0.9, weight: 2 }).on('click', function (e) {
+          L.circleMarker(item.latLng, { radius: 4, className: item.className, color: 'white', fillColor: 'rgb(255,97,18)', opacity: 0.6, fillOpacity: 0.9, weight: 2 }).on('click', function (e) {
             _popupEvents(e);
           }).addTo(overlays);
         } else {
-          L.circleMarker(item.latLng, { radius: 5, className: item.className, color: 'white', fillColor: '#FF3251', opacity: 0.8, fillOpacity: 0.7, weight: 2 }).on('click', function (e) {
+          L.circleMarker(item.latLng, { radius: 5, className: item.className, color: 'white', fillColor: 'rgb(255,97,18)', opacity: 0.8, fillOpacity: 0.7, weight: 2 }).on('click', function (e) {
             _popupEvents(e);
           }).addTo(overlays);
         }

@@ -5,37 +5,22 @@
  */
 article#events {
   float: right;
-  border-left: 2px solid $eventsbg-border-color;
-  background-color: $eventsbg-color;
-  width: 398px;
+  width: $events-listing-width;
   height: 100%;
+  background-color: $lightgray-350;
+  border-left: 2px solid $lightgray-350;
 
   #filter-list-area {
     display: none;
   }
-  .filter-button {
-    width: calc(100% - 10px);
-    display: inline-block;
-    text-align: center;
-    padding: 10px 5px;
-    background-color: $secondary_color;
-    margin: 10px 0;
-    border-radius: 2px;
-    color: white;
-    box-shadow: 1px 1px rgba(0, 0, 0, 0.01);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 30px;
-    transition: background-color 0.3s ease;
 
-    &:hover {
-      background-color: $darkdarkblue;
-    }
-  }
+
+  @import 'filters-area';
+  @import 'events-list-container';
 
   &.show-type-filter {
     .filter-button.show-filter {
-      display: none;
+      display: none !important;
     }
 
     #filter-popup-area {
@@ -175,205 +160,6 @@ article#events {
     }
   }
 
-  h4.title {
-    #screen-title {
-      display: block;
-      color: black;
-      font-size: 22px;
-    }
-    #mobile-title { display: none; }
-  }
 
-  div#event-list-container {
-
-    div.registration-msg {
-
-      padding: 20px;
-      background-color: $highlight_color;
-      margin-bottom: 20px;
-
-      h3 {
-
-            color: white;
-            font-size: 20px;
-            font-family: $sans-serif;
-            font-weight: 600;
-            margin-bottom: 5px;
-
-      }
-      p {
-
-
-            font-size: 12px;
-            color: white;
-            font-family: lato;
-            line-height: 1.25;
-            margin-top: 5px;
-
-        strong {
-
-              font-weight: 600;
-              text-decoration: underline;
-
-        }
-        a {
-
-    background-color: white;
-    display: inline-block;
-    padding: 2px 4px;
-    font-weight: 600;
-    border-radius: 4px;
-    margin-left: 4px;
-
-        }
-      }
-    }
-    #hide-show-office[data-count="0"] { display: none;}
-
-    background: transparent;
-
-    overflow-y: scroll; /* has to be scroll, not auto */
-    -webkit-overflow-scrolling: touch;
-
-    @include calc(height, '100% - 155px');
-
-    div#new-feature-notice {
-      display: none;
-      background-color: #DBE3D0;
-      padding: 10px;
-      width: 350px;
-      margin: 13px 10px;
-      border: #5C842B solid 1px;
-      font-family: $sans-serif;
-      font-size: 12px;
-      position: relative;
-      color: #333333;
-
-      a {
-        position: absolute;
-        top: 0;
-        right: 2px;
-        color: #333333;
-      }
-
-    }
-
-    ul#event-list {
-      #init-item span {
-        padding: 50px;
-        text-align: center;
-        display: inline-block;
-        font-size: 24px;
-        color: black;
-      }
-
-      li {
-        @include eventListItem;
-      } // end of li
-    } //end of ul
-
-    #hide-show-office{
-      text-align: left;
-      margin-bottom: 5px;
-
-      a {
-        display: inline-block;
-        margin: 10px 15px 0px;
-        padding: 6px 7px;
-        background-color: $secondary_color;
-        font-family: $sans-serif;
-        color: white;
-        font-size: 12px;
-        text-transform: uppercase;
-        font-weight: 300;
-        letter-spacing: 1px;
-        border-radius: 3px;
-        box-shadow: 0px 1px 1px rgba(0,0,0,0.2);
-
-        span { color: white;}
-
-        &:hover { background-color: #1270BE; }
-      }
-    }
-  } //div#event-list-container
-
-  div#filters {
-    min-height: 90px;
-    background-color: white;
-    margin-top: -15px;
-    margin-left: -2px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    position: relative;
-    border: black solid 2px;
-
-    div#loading-icon {
-      display: none;
-      position: absolute;
-      top: 110px;
-      left: 50%;
-      font-weight: 300;
-      @include compat(transform, 'translate(-50%, 0)');
-      background-color: $darkdarkblue;
-      color: white;
-      padding: 5px 8px;
-      border-radius: 4px;
-      // border: 1px solid $secondary_color;
-      z-index: 1000;
-    }
-    h3#switch-link { display: none; }
-
-    h4 {
-      font-size: 15px;
-      color: #333333;
-      padding: 4px 0;
-      margin-bottom: 10px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      border-bottom: 1px dotted rgba(255,255,255,0.7);
-    }
-    h5 {
-      font-family: $sans-serif;
-      color: black;
-      font-size: 16px;
-      font-weight: 300;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-      letter-spacing: 1px;
-    }
-
-    form {
-      input[type='text'], input[type='number'] {
-        margin-right: 15px;
-        padding: 5px 0;
-        color: black;
-        border: none;
-        background-color: #ececec;
-        text-align: center;
-        font-size: 16px;
-        width: 130px;
-        border-radius: 2px;
-      }
-      input[name='zipcode']::-webkit-outer-spin-button,
-      input[name='zipcode']::-webkit-inner-spin-button {
-        /* display: none; <- Crashes Chrome on hover */
-        -webkit-appearance: none;
-        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-      }
-      select { color: #333333;
-        /*background-color: $darkdarkblue;*/
-        background-color: #ececec;
-        font-size: 18px;
-        border-radius: 0;
-        border: 1px solid rgba(255,255,255,0.7);
-        &[name='distance'] {
-          margin-right: 15px;
-        }
-      }
-
-    }
-  }
 }
 //end of div#events

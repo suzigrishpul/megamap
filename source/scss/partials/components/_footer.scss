@@ -1,67 +1,22 @@
-footer {
-  font-family: $sans-serif;
-  padding-top: 30px;
-  text-align: center;
-  padding-bottom: 20px;
+footer #footer-area {
+  padding: 10px;
+  margin: 20px;
+  background-color: $blue-350;
+  border-radius: 5px;
 
-  div#footer-area {
-    h3 {
-      font-size: 18px;
-      font-weight: bold;
-    }
-    p {
-      font-size: 14px;
-      margin-top:5px;
-      line-height: 16px;
-    }
-        text-align: center;
-        margin-top: 40px;
-        // border: solid 3px #EEEEEE;
-        // border-width: 3px 0 0 0;
-        // padding-top: 10px;
+  #footer-logo {
+    background-image: $logo-350;
+    width: 94px;
+    height: 38px;
+    display: inline-block;
+    background-repeat: no-repeat;
+  }
 
-        #footer-billionaire {
-          svg image {
-            // transform: translate(-50%,0);
-            // -webkit-transform: translate(-50%,0);
-            // -moz-transform: translate(-50%, 0);
-            transform:translate(0,0);
-            -ms-transform:translate(0,0); /* IE 9 */
-            -moz-transform:translate(0,0); /* Firefox */
-            -webkit-transform:translate(0,0); /* Safari and Chrome */
-            -o-transform:translate(0,0); /* Opera */
+  p, sub {
 
-          }
-        }
-
-        h5,div#paid-for-bernie-box, sub {
-          text-transform: uppercase;
-          font-weight: normal;
-          letter-spacing: 0.15em;
-          margin: 0 0 5px 0;
-          color: #777777;
-        }
-        sub {
-          display: block;
-          font-size: 0.7em;
-        }
-
-        div#paid-for-bernie-box {
-          padding: 0.7em 1em;
-          border: 1px #AAA solid;
-          font-size: 0.8em;
-          display: inline-block;
-
-          margin-top: 10px;
-
-          &:after {
-            content: ' ';
-            clear: both;
-          }
-        }
-        span#footer-billionaire {
-          display: inline-block;
-        }
-
-      }
+    font-family: 'graph';
+    font-size: 17px;
+    color: white;
+    a { color: white; }
+  }
 }
