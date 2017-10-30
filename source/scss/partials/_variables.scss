@@ -41,8 +41,8 @@ $mob_logo_width: 112px;
 $mob_logo_height: 80px;
 
 /** BUTTON COLORS **/
-$highlight_color: #FF3251; //#a10000;
-$darkred: #EB2643; //#004661;
+$highlight_color: rgba(255,97,18, 0.8); //#a10000;
+$darkred: rgb(255,97,18); //#004661;
 $highlight_transition: 0.4s background-color, 0.4s color;
 
 .highlight_hover {
@@ -51,8 +51,8 @@ $highlight_transition: 0.4s background-color, 0.4s color;
 }
 
 
-$secondary_color: #FF3251; //#a10000;
-$darkdarkblue: #EB2643; //004661; //hover
+$secondary_color: rgb(255,97,18); //#a10000;
+$darkdarkblue: #40d7d4; //004661; //hover
 
 /** Background Colors **/
 $header-color: white; //rgb(225, 225, 225);
@@ -66,5 +66,5 @@ $eventsbg-border-color: #DCDCDC;
 $gray: rgb(110, 110, 110);
 $lightgray: #e1e1e1;
 
-$serif: 'acumin-pro', sans-serif;
-$sans-serif: 'abolition', sans-serif;
+$serif: 'klima', sans-serif;
+$sans-serif: 'klima', sans-serif;

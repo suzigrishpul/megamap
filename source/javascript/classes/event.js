@@ -23,10 +23,10 @@ var Event = function ($) {
     this.props = {};
     this.props.title = properties.title;
     this.props.url = properties.url; //properties.url.match(/^@/g) ? `http://twitter.com/${properties.url}` : properties.url;
-    this.props.start_datetime = properties.start_time;
+    this.props.start_datetime = properties.start_datetime;
     this.props.address = properties.venue;
     this.props.supergroup = properties.supergroup;
-    this.props.start_time = moment(properties.start_time, 'YYYY-MM-DD HH:mm:ss')._d;
+    this.props.start_time = moment(properties.start_datetime, 'YYYY-MM-DDTHH:mm:ss')._d;
 
     // Remove the timezone issue from
     this.props.start_time = new Date(this.props.start_time.valueOf());
@@ -102,5 +102,5 @@ var Event = function ($) {
       return rendered.html();
     };
   };
-  
+
 }(jQuery); //End of events

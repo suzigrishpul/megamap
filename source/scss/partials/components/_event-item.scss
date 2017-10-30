@@ -1,7 +1,7 @@
 @mixin eventListItem {
   position: relative;
-  padding: 15px 6px 15px 10px;
-  border-bottom: 1px dotted rgba(0,0,0,0.3);
+  padding: 25px 16px 15px 30px;
+  border-bottom: 1px solid rgba(200, 211, 222, 0.2);
   border-left: 4px solid rgba(0,0,0,0);
 
   h5.official-tag {
@@ -27,13 +27,16 @@
 
   h3 {
     font-size: 25px;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-bottom: 5px;
-    letter-spacing: 1px;
+
+    font-family: 'klima', sans-serif;
   }
   p {
     margin: 10px 0 5px;
     font-family: $serif;
+    font-size: 14px;
+    line-height: 18px;
   }
 
   &:last-child { border: none; }
@@ -99,9 +102,9 @@
 div.event-item {
   h3 {
     a {
-      color: black;
-      letter-spacing: 2px;
-      font-weight: normal;
+      color: #17292E;
+      font-weight: 600;
+      font-size: 18px;
 
       &:hover {
         color: $secondary_color;
@@ -130,14 +133,15 @@ div.event-item {
   }
 
   .rsvp-link {
-    padding: 5px 8px 5px;
+    padding: 8px 8px 5px;
+    border-radius: 20px;
     margin-top: 5px;
     display: inline-block;
     color: white;
     border-style: solid;
-    font-size: 19px;
-    letter-spacing: 2px;
-    font-family: $sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    font-family: 'klima', sans-serif;
 
     color: white;
     background-color: $darkdarkblue;

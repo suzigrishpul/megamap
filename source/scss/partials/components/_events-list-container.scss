@@ -1,4 +1,5 @@
 div#event-list-container {
+  overflow: auto;
   @include calc(height, '100% - 183px');
 
   ul#event-list {
