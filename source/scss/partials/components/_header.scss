@@ -3,7 +3,7 @@ section#header {
   height: 70px;
   // background-color: $secondary_color;
   background-color: $header-color;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #e6f0fa;
 
   nav {
     position: absolute;
@@ -70,22 +70,23 @@ section#header {
     }
   }
   div#spiel {
-    margin-top: 5px;
+    margin-top: 0;
     margin-left: 10px;
     font-weight: 300;
     display: inline-block;
     color: rgba(255,255,255,.52);
     background-image: $logo;
-    width: 162px;
-    height: 110px;
+    width: 89px;
+    height: 45px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
-
     position: absolute;
     z-index: 1000;
     left: 40px;
-    top: 10px;
+    top: 0px;
+
+    background-size: 75%;
+    background-color: #0f82e8;
     // float: left;
 
     strong {
