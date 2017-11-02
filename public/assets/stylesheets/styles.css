@@ -64,6 +64,12 @@ ul, li {
   padding: 0;
   list-style-type: none; }
 
+a {
+  color: #003DAA; }
+  a:hover {
+    color: #0046c3;
+    text-decoration: none; }
+
 .btn.btn-primary {
   font-family: 'klima', 'arial', sans-serif;
   background-color: #003DAA;
