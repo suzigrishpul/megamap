@@ -64,15 +64,85 @@ ul, li {
   padding: 0;
   list-style-type: none; }
 
+.btn.btn-primary {
+  font-family: 'klima', 'arial', sans-serif;
+  background-color: #003DAA;
+  border-color: #003DAA; }
+  .btn.btn-primary:hover {
+    background-color: #0046c3;
+    border-color: #0046c3; }
+
 #stage {
   height: inherit;
   display: flex;
   flex-direction: column; }
   #stage header.page-header {
-    background-color: red;
+    background-color: whitesmoke;
     height: 100px; }
-    #stage header.page-header .row {
-      height: 100%; }
+    #stage header.page-header nav {
+      height: inherit;
+      display: flex;
+      border-bottom: 2px solid gray; }
+      #stage header.page-header nav div.logo-area {
+        width: 300px;
+        height: 100%; }
+        #stage header.page-header nav div.logo-area h1 {
+          font-family: 'graph', 'arial', sans-serif;
+          font-size: 78px;
+          font-weight: 800; }
+          #stage header.page-header nav div.logo-area h1 img.logo {
+            height: 50px;
+            padding: 0 5px 0 7px; }
+      #stage header.page-header nav div.filters-area {
+        flex-grow: 1;
+        padding-top: 25px; }
+        #stage header.page-header nav div.filters-area form button {
+          cursor: pointer; }
+        #stage header.page-header nav div.filters-area form span.filter-item {
+          margin-right: 15px;
+          display: inline-block; }
+          #stage header.page-header nav div.filters-area form span.filter-item input {
+            visibility: hidden; }
+          #stage header.page-header nav div.filters-area form span.filter-item label {
+            position: relative;
+            cursor: pointer; }
+            #stage header.page-header nav div.filters-area form span.filter-item label:before {
+              content: ' ';
+              width: 18px;
+              height: 18px;
+              position: absolute;
+              left: -24px;
+              top: 2px;
+              background-repeat: no-repeat;
+              background-position: center center;
+              z-index: 1; }
+            #stage header.page-header nav div.filters-area form span.filter-item label:after {
+              content: ' ';
+              width: 28px;
+              height: 28px;
+              position: absolute;
+              background-color: lightgray;
+              left: -30px;
+              top: -3px;
+              border-radius: 50%;
+              border: 3px solid white; }
+          #stage header.page-header nav div.filters-area form span.filter-item input[value='events'] + label:before {
+            background-image: url(/img/human.svg); }
+          #stage header.page-header nav div.filters-area form span.filter-item input[value='events']:checked + label:after {
+            background-color: #0F81E8; }
+          #stage header.page-header nav div.filters-area form span.filter-item input[value='groups'] + label:before {
+            background-image: url(/img/flag.svg); }
+          #stage header.page-header nav div.filters-area form span.filter-item input[value='groups']:checked + label:after {
+            background-color: #40D7D4; }
+      #stage header.page-header nav div.cta-area {
+        height: 100%;
+        width: 200px; }
+        #stage header.page-header nav div.cta-area p {
+          margin: 0;
+          font-style: italic;
+          font-size: 25px;
+          margin-top: 10px;
+          font-family: 'klima', 'arial', sans-serif; }
   #stage div#activity-area {
     background-color: green;
     flex-grow: 1;
@@ -86,9 +156,9 @@ ul, li {
       background-color: whitesmoke;
       border-left: 2px solid gray;
       position: relative;
-      display: flex; }
+      display: flex;
+      flex-direction: column; }
       #stage div#activity-area section#events-list-container header.events-header {
-        position: absolute;
         text-transform: uppercase;
         font-size: 32px;
         height: 42px;
@@ -96,13 +166,12 @@ ul, li {
         text-align: center;
         background: orange;
         color: white;
-        width: inherit;
+        width: 100%;
         font-family: 'klima', 'arial', sans-serif; }
       #stage div#activity-area section#events-list-container div#events-list {
         flex-grow: 1;
         overflow: auto;
-        height: inherit;
-        padding-top: 42px; }
+        height: inherit; }
         #stage div#activity-area section#events-list-container div#events-list > ul > li {
           padding: 20px;
           border-bottom: 1px dashed gray; }
@@ -120,7 +189,30 @@ ul, li {
             font-family: 'klima', 'arial', sans-serif;
             margin-bottom: 0;
             line-height: 2.1rem;
-            font-weight: 600; }
+            font-weight: 600;
+            padding-left: 30px;
+            position: relative;
+            cursor: pointer; }
+            #stage div#activity-area section#events-list-container div#events-list > ul > li h2:before {
+              content: ' ';
+              width: 18px;
+              height: 18px;
+              position: absolute;
+              top: 2px;
+              background-repeat: no-repeat;
+              background-position: center center;
+              z-index: 1;
+              left: 6px; }
+            #stage div#activity-area section#events-list-container div#events-list > ul > li h2:after {
+              content: ' ';
+              width: 28px;
+              height: 28px;
+              position: absolute;
+              background-color: lightgray;
+              left: 0px;
+              top: -3px;
+              border-radius: 50%;
+              border: 3px solid white; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li h4 {
             text-transform: uppercase;
             font-family: 'graph', 'arial', sans-serif;
@@ -129,16 +221,22 @@ ul, li {
             margin-bottom: 0;
             line-height: 1.5;
             font-family: 'klima', 'arial', sans-serif; }
-          #stage div#activity-area section#events-list-container div#events-list > ul > li a.btn {
-            font-family: 'klima', 'arial', sans-serif;
+          #stage div#activity-area section#events-list-container div#events-list > ul > li a.btn.btn-primary {
             font-size: 13px;
             padding: 7px 12px 6px;
             font-weight: 600;
-            width: 140px;
-            background-color: #003DAA;
-            border-color: #003DAA; }
-            #stage div#activity-area section#events-list-container div#events-list > ul > li a.btn:hover {
-              background-color: #0046c3;
-              border-color: #0046c3; }
+            width: 140px; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event div.address-area {
             margin-bottom: 5px; }
+          #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event h2:before {
+            background-image: url(/img/human.svg); }
+          #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event h2:after {
+            background-color: #0F81E8; }
+          #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-group div.group-details-area {
+            margin-bottom: 5px; }
+          #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-group h2:after {
+            background-color: #40D7D4; }
+          #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-group h2:before {
+            background-image: url(/img/flag.svg); }
+          #stage div#activity-area section#events-list-container div#events-list > ul > li:last-child {
+            border-bottom: none; }

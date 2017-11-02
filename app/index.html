@@ -54,13 +54,40 @@
   }(document, 'script', 'facebook-jssdk'));</script>
 
   <div id='stage'>
-    <header class='page-header container-fluid'>
-      <div class='row'>
-        <div class='col-md-2'></div>
-        <div class='col-md-8' style='background-color: pink'>
+    <header class='page-header'>
+      <nav>
+        <div class='logo-area'>
+          <h1>
+            <img src='/img/orange-arrow.svg' class='logo' />350 map</h1>
         </div>
-        <div class='col-md-2'></div>
-      </div>
+        <div class='filters-area'>
+          <form>
+            <div class='row'>
+              <div class='col-md-5 offset-md-1 input-text'>
+                <input type="text" class="form-control" placeholder="City, State, or Country">
+              </div>
+              <div class='col-md-5 filter-area'>
+                <div class='filter-container'>
+                  <span class='filter-item'>
+                    <input type='checkbox' name='filter[]' id='events' value='events' checked/>
+                    <label for='events'>Show Events</label>
+                  </span>
+                  <span class='filter-item'>
+                    <input type='checkbox' name='filter[]' id='groups' value='groups' checked/>
+                    <label for='groups'>Show Groups</label>
+                  </span>
+                  <span>
+                    <button class='btn btn-primary'>Search</button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class='cta-area'>
+          <p>Find an event or group near you!</p>
+        </div>
+      </nav>
     </header>
     <div id='activity-area'>
       <section id='map'>
