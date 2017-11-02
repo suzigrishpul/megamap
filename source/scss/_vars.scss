@@ -1,0 +1,65 @@
+$orange: #FFA902;
+$indigo: #003DAA;
+$light-indigo: #0046c3;
+
+@mixin klima {
+  font-family: 'klima', 'arial', sans-serif;
+}
+
+@mixin graph {
+  font-family: 'graph', 'arial', sans-serif;
+}
+
+@mixin event-item {
+  ul.event-types-list {
+    margin-bottom: 15px;
+    li {
+      display: inline-block;
+      background-color: lightgray;
+      border: 1px solid lightgray;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: 12px;
+      @include klima;
+    }
+  }
+  h2 {
+    @include klima;
+    margin-bottom: 0;
+    line-height: 2.1rem;
+    font-weight: 600;
+  }
+  h4 {
+    text-transform: uppercase;
+    @include graph;
+    font-size: 1.3em;
+  }
+  p {
+    margin-bottom: 0;
+    line-height: 1.5;
+    @include klima;
+  }
+  a.btn {
+    @include klima;
+    font-size: 13px;
+    padding: 7px 12px 6px;
+    font-weight: 600;
+    width: 140px;
+    background-color: $indigo;
+    border-color: $indigo;
+    &:hover {
+      background-color: $light-indigo;
+      border-color: $light-indigo;
+    }
+  }
+
+  div.type-event {
+    div.address-area {
+      margin-bottom: 5px;
+    }
+  }
+  div.type-group {
+    div.group-details-area {}
+  }
+  @content;
+}

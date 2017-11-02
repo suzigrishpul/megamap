@@ -1,0 +1,40 @@
+section#events-list-container {
+  width: 400px;
+  height: inherit;
+  background-color: whitesmoke;
+  border-left: 2px solid gray;
+  position: relative;
+  display: flex;
+
+  header.events-header {
+    position: absolute;
+
+    text-transform: uppercase;
+    font-size: 32px;
+    height: 42px;
+    font-weight: 600;
+    text-align: center;
+    background: orange;
+    color: white;
+
+    width: inherit;
+
+    @include klima;
+  } // header.events-header
+
+  div#events-list {
+    flex-grow: 1;
+    overflow: auto;
+    height: inherit;
+    padding-top: 42px;
+    & > ul {
+
+      & > li {
+        @include event-item;
+        padding: 20px;
+
+        border-bottom: 1px dashed gray;
+      }
+    }
+  } //div#events-list
+}

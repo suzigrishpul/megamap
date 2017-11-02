@@ -2,6 +2,8 @@
 <!--
   – Google Analytics App ID?
   - Everything that has 350.org Map or [350 Map Image]
+
+  GOOGLE_ID -- ?
 -->
 <html>
 <head>
@@ -27,6 +29,8 @@
   <meta property="twitter:image" content="https://map.350.org/img/social.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
 
   <!-- inject:css -->
   <link rel="stylesheet" href="/stylesheets/vendor/font-awesome/css/font-awesome.css?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709">
@@ -39,7 +43,7 @@
 <!--[if lte IE 9]>
        <meta http-equiv="refresh" content="0; url=https://www.350.org" />
 <![endif]-->
-<body class='list-view initial-view'>
+<body class='header-heavy'>
   <div id="fb-root"></div>
   <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -49,140 +53,101 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 
-  <section id='header'>
-  <div id="header" class='primary_font'>
-
-    <div class="main-title-area">
-      <div style="margin-bottom: 4px;">
-        <div id='spiel'>
-          <a style="display: inline-block; width: 100%; height: 100%" href='//350.org'></a>
+  <div id='stage'>
+    <header class='page-header container-fluid'>
+      <div class='row'>
+        <div class='col-md-2'></div>
+        <div class='col-md-8' style='background-color: pink'>
         </div>
+        <div class='col-md-2'></div>
       </div>
-    </div>
-
-    <nav>
-      <ul id="nav" class='nav'>
-        <li>
-          <a class="twitter-share-button"
-            data-url="#"
-            url="#"
-            href="https://twitter.com/intent/tweet?text=350.orgtweet">
-            Tweet</a>
-        </li>
-        <li>
-          <div class="fb-share-button" data-href="http://map.350.org" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://map.350.org&amp;src=sdkpreparse">Share</a></div>
-        </li>
-        <li><a href="https://map.350.org" class="contribute" target="_blank">Host an Event</a></li>
-      </ul>
-    </nav>
-    <div style="clear: both"></div>
-  </div>
-  </section>
-  <section id='activity-area' class='clearfix'>
-    <article id='events'>
-      <div id='filters'>
-        <div id='loading-icon' class='primary_font'>Loading...</div>
-        <h3 id='switch-link'>
-            <a href='javascript: void(null)' onclick='window.mapManager.toMapView()' id='to-map-view'>
-              <span>List View</span>
-              <img src='/img/icon/list-icon.png' width='28px'/>
-            </a>
-            <a href='javascript: void(null)' onclick='window.mapManager.toListView()' id='to-list-view'>
-              <span>Map View</span>
-              <img src='/img/icon/map-icon.png' width='28px'/>
-            </a>
-        </h3>
-        <h4 class='primary_font title'>
-          <span id='screen-title'>Filters</span>
-          <a href="//350.org"><span id='mobile-title'></span></a>
-        </h4>
-        <form id='filter-form'>
-          <table>
-            <tr>
-              <td>
-                <h5 class='primary_font'>By Zipcode</h5>
-                <input type='number' name='zipcode' maxlength='5' placeholder='ZIPCODE' onclick="this.select();" >
-              </td>
-              <td>
-                <h5 class='primary_font'>Distance</h5>
-                <select name='distance'>
-                  <option value='5'>5mi</option>
-                  <option value='20'>20mi</option>
-                  <option value='50' selected='selected'>50mi</option>
-                  <option value='100'>100mi</option>
-                </select>
-              </td>
-              <td>
-                <h5 class='primary_font'>Sort By</h5>
-                <select name='sort'>
-                  <option value='time' selected='selected'>Time</option>
-                  <option value='distance'>Distance</option>
-                </select>
-                <input type='button' style='position: absolute; z-index: -1; opacity: 0;' id='hidden-button'/>
-              </td>
-            </tr>
-          </table>
-          <div id='filter-popup-area' class='primary_font'>
-            <a href='javascript: void(null)' class='filter-button show-filter' onclick='$("#events").addClass("show-type-filter");'>
-              Search by Type
-            </a>
-            <div id='filter-list-area'>
-              <h5>Search by Type</h5>
-              <div id='f-container'>
-                <div id='filter-list-container'>
-                  <ul id='filter-list'></ul>
+    </header>
+    <div id='activity-area'>
+      <section id='map'>
+      </section>
+      <section id='events-list-container'>
+        <header class='events-header'>
+          Activity in your area:
+        </header>
+        <div id='events-list'>
+          <ul>
+            <li>
+              <div class='type-event'>
+                <ul class='event-types-list'>
+                  <li>Event Type 1</li>
+                  <li>Event Type 2</li>
+                </ul>
+                <h2>Action 1</h2>
+                <h4>Friday &bull; October 27, 2017</h4>
+                <div class='address-area'>
+                  <p>Location Name</p>
+                  <p>1234 Address Lane</p>
+                  <p>Denver, CO 80219</p>
                 </div>
-                <div class='show-hide-all' style='text-align: center; font-size: 11px; margin-top: 10px; color: lightgray;'>
-                <a href='javascript: void(null)' id='show-all'
-                   onclick='$("#filter-list").find("input[type=checkbox]").prop("checked", true).trigger("change");'>Show All</a> &bull;
-                <a href='javascript: void(null)'
-                   onclick='$("#filter-list").find("input[type=checkbox]").prop("checked", false).trigger("change")'>Hide All</a>
+                <div class='call-to-action'>
+                  <a href='#' class='btn btn-primary'>RSVP</a>
                 </div>
               </div>
-              <p align='right'>
-                <a href='javascript: void(null)' class='filter-button'
-                   onclick='$("#events").removeClass("show-type-filter");'>
-                  Hide Legend
-                </a>
-              </p>
-            </div>
-          </div>
-          <nav id='mobile-nav'>
-            <a href="https://350.org" class="contribute" target="_blank"><img src='https://d80vmbqb0w49q.cloudfront.net/img/icon/add-icon.png' width='28px'/></a>
-          </nav>
-        </form>
-      </div>
-      <div id='event-list-container'>
-        <ul id='event-list'>
-          <li class='primary_font' id='init-item'>
-            <div>
-              <h2 class='lead-in'>
-                <span>Find an event near you!</span>
-              </h2>
-              <p>Type in your <strong>zipcode</strong> to view nearby meetings and events.</p>
-            </div>
-          </li></ul>
-        <footer>
-          <div id='footer-area' >
-            <span id='footer-logo'>
-            </span>
-            <p class='secondary_font'>
-                20 Jay St, Brooklyn, NY 11201<br/>
-                Email: <a href='mailto:feedback@350.org'>feedback@350.org</a>
-            </p>
-            <br/><br/>
-            <sub><a href='https://350.org/privacy/'>Privacy Policy</a></sub>
-          </div>
-
-          <!-- p class="paidfor">Paid for by 350.org</p -->
-
-        </footer>
-      </div>
-    </article>
-    <article id='map'>
-      <div id='map-container'></div>
-    </article>
-  </section>
+            </li>
+            <!-- Type Events -->
+            <li>
+              <div class='type-group'>
+                <h2>350 Colorado</h2>
+                <div class='group-details-area'>
+                  <p>Colorado, USA</p>
+                  <p>350 Colorado is working locally to help build the global
+                     350.org movement to solve the climate crisis and transition
+                     to a clean, renewable energy future.
+                  </p>
+                </div>
+                <div class='call-to-action'>
+                  <a href='#' class='btn btn-primary'>Get Involved</a>
+                </div>
+              </div>
+            </li>
+            <!-- Type Events -->
+            <li>
+              <div class='type-event'>
+                <ul class='event-types-list'>
+                  <li>Event Type 1</li>
+                  <li>Event Type 2</li>
+                </ul>
+                <h2>Action 2</h2>
+                <h4>Friday &bull; October 27, 2017</h4>
+                <div class='address-area'>
+                  <p>Location Name</p>
+                  <p>1234 Address Lane</p>
+                  <p>Denver, CO 80219</p>
+                </div>
+                <div class='call-to-action'>
+                  <a href='#' class='btn btn-primary'>RSVP</a>
+                </div>
+              </div>
+            </li>
+            <!-- Type Events -->
+            <li>
+              <div class='type-event'>
+                <ul class='event-types-list'>
+                  <li>Event Type 1</li>
+                  <li>Event Type 2</li>
+                </ul>
+                <h2>Action 3</h2>
+                <h4>Friday &bull; October 27, 2017</h4>
+                <div class='address-area'>
+                  <p>Location Name</p>
+                  <p>1234 Address Lane</p>
+                  <p>Denver, CO 80219</p>
+                </div>
+                <div class='call-to-action'>
+                  <a href='#' class='btn btn-primary'>RSVP</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
 
   <!-- inject:js -->
   <script src="/javascript/vendor/jquery.min.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
@@ -193,8 +158,7 @@
   <script src="/javascript/bundle.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
   <script src="/javascript/vendor/pip.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
   <!-- endinject -->
-
-
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <!-- SOCIAL -->
 <!-- Twitter -->
 <script>window.twttr = (function(d, s, id) {
@@ -221,7 +185,7 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-18936430-1', 'auto');
+  ga('create', '<<GOOGLE_ID>>', 'auto');
   ga('send', 'pageview');
 </script>
 

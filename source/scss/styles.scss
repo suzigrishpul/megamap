@@ -1,44 +1,29 @@
-@import 'partials/reset';
-@import 'partials/variables';
-@import 'partials/mixins';
-@import 'partials/base';
-@import 'partials/components/components';
+@import 'fonts';
+@import 'vars';
 
 html, body {
-  padding : 0;
+  height: 100%;
+}
+ul, li {
   margin: 0;
-  height: 100%;
-  position: relative;
+  padding: 0;
+  list-style-type: none;
+}
+#stage {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
 
-  height: 100%;
-  overflow: hidden;
+  @import 'components/header';
 
-  *.montserrat, .primary_font, *.lato {
-    font-family: $sans-serif;
-    font-weight: 200;
-  }
-  *.merriweather {
-    font-family: 'merriweather', serif;
-  }
+  div#activity-area {
+    background-color: green;
+    flex-grow: 1;
 
-  a.hide-office { display: none !important;}
-  a.show-office { display: inline-block;}
-  section#campaign-offices {
-    display: none;
-  }
-
-  &.show-office {
-    a.hide-office { display: inline-block !important;}
-    a.show-office { display: none !important;}
-    section#campaign-offices {
-      display: block;
-    }
-  }
+    display: flex;
 
 
-  a {
-    text-decoration: none;
-    // color: $secondary_color;
-    color: black;
+    @import 'components/map';
+    @import 'components/events_list';
   }
 }
