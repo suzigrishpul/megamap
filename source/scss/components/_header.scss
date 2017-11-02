@@ -21,13 +21,27 @@ header.page-header {
         }
       }
     } //div.logo-area
-    div.filters-area {
+    div.filters-form-area {
       flex-grow: 1;
       padding-top: 25px;
+
+      div.filter-area {
+        display: flex;
+        div.filter-container {
+          padding-top: 5px;
+        }
+        div.search-button {
+          flex-grow: 1;
+          text-align: left;
+        }
+      }
+
       form {
+        width: 100%;
+
         button { cursor: pointer; }
         span.filter-item {
-          margin-right: 15px;
+          margin-right: 20px;
           display: inline-block;
           input { visibility: hidden; }
           label {

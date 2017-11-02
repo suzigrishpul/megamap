@@ -93,47 +93,56 @@ ul, li {
           #stage header.page-header nav div.logo-area h1 img.logo {
             height: 50px;
             padding: 0 5px 0 7px; }
-      #stage header.page-header nav div.filters-area {
+      #stage header.page-header nav div.filters-form-area {
         flex-grow: 1;
         padding-top: 25px; }
-        #stage header.page-header nav div.filters-area form button {
-          cursor: pointer; }
-        #stage header.page-header nav div.filters-area form span.filter-item {
-          margin-right: 15px;
-          display: inline-block; }
-          #stage header.page-header nav div.filters-area form span.filter-item input {
-            visibility: hidden; }
-          #stage header.page-header nav div.filters-area form span.filter-item label {
-            position: relative;
+        #stage header.page-header nav div.filters-form-area div.filter-area {
+          display: flex; }
+          #stage header.page-header nav div.filters-form-area div.filter-area div.filter-container {
+            padding-top: 5px; }
+          #stage header.page-header nav div.filters-form-area div.filter-area div.search-button {
+            flex-grow: 1;
+            text-align: left; }
+        #stage header.page-header nav div.filters-form-area form {
+          width: 100%; }
+          #stage header.page-header nav div.filters-form-area form button {
             cursor: pointer; }
-            #stage header.page-header nav div.filters-area form span.filter-item label:before {
-              content: ' ';
-              width: 18px;
-              height: 18px;
-              position: absolute;
-              left: -24px;
-              top: 2px;
-              background-repeat: no-repeat;
-              background-position: center center;
-              z-index: 1; }
-            #stage header.page-header nav div.filters-area form span.filter-item label:after {
-              content: ' ';
-              width: 28px;
-              height: 28px;
-              position: absolute;
-              background-color: lightgray;
-              left: -30px;
-              top: -3px;
-              border-radius: 50%;
-              border: 3px solid white; }
-          #stage header.page-header nav div.filters-area form span.filter-item input[value='events'] + label:before {
-            background-image: url(/img/human.svg); }
-          #stage header.page-header nav div.filters-area form span.filter-item input[value='events']:checked + label:after {
-            background-color: #0F81E8; }
-          #stage header.page-header nav div.filters-area form span.filter-item input[value='groups'] + label:before {
-            background-image: url(/img/flag.svg); }
-          #stage header.page-header nav div.filters-area form span.filter-item input[value='groups']:checked + label:after {
-            background-color: #40D7D4; }
+          #stage header.page-header nav div.filters-form-area form span.filter-item {
+            margin-right: 20px;
+            display: inline-block; }
+            #stage header.page-header nav div.filters-form-area form span.filter-item input {
+              visibility: hidden; }
+            #stage header.page-header nav div.filters-form-area form span.filter-item label {
+              position: relative;
+              cursor: pointer; }
+              #stage header.page-header nav div.filters-form-area form span.filter-item label:before {
+                content: ' ';
+                width: 18px;
+                height: 18px;
+                position: absolute;
+                left: -24px;
+                top: 2px;
+                background-repeat: no-repeat;
+                background-position: center center;
+                z-index: 1; }
+              #stage header.page-header nav div.filters-form-area form span.filter-item label:after {
+                content: ' ';
+                width: 28px;
+                height: 28px;
+                position: absolute;
+                background-color: lightgray;
+                left: -30px;
+                top: -3px;
+                border-radius: 50%;
+                border: 3px solid white; }
+            #stage header.page-header nav div.filters-form-area form span.filter-item input[value='events'] + label:before {
+              background-image: url(/img/human.svg); }
+            #stage header.page-header nav div.filters-form-area form span.filter-item input[value='events']:checked + label:after {
+              background-color: #0F81E8; }
+            #stage header.page-header nav div.filters-form-area form span.filter-item input[value='groups'] + label:before {
+              background-image: url(/img/flag.svg); }
+            #stage header.page-header nav div.filters-form-area form span.filter-item input[value='groups']:checked + label:after {
+              background-color: #40D7D4; }
       #stage header.page-header nav div.cta-area {
         height: 100%;
         width: 200px; }
