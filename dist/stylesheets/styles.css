@@ -111,6 +111,19 @@ a {
             text-align: left; }
         #stage header.page-header nav div.filters-form-area form {
           width: 100%; }
+          #stage header.page-header nav div.filters-form-area form .twitter-typeahead {
+            width: 100%; }
+            #stage header.page-header nav div.filters-form-area form .twitter-typeahead .tt-dropdown-menu {
+              background-color: whitesmoke;
+              border: solid 1px lightgray;
+              padding: 5px 10px;
+              width: 100%;
+              z-index: 1000 !important; }
+              #stage header.page-header nav div.filters-form-area form .twitter-typeahead .tt-dropdown-menu .tt-dataset.tt-dataset-search-results {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                width: 100%;
+                overflow: hidden; }
           #stage header.page-header nav div.filters-form-area form button {
             cursor: pointer; }
           #stage header.page-header nav div.filters-form-area form span.filter-item {
@@ -204,7 +217,7 @@ a {
             margin-bottom: 0;
             line-height: 2.1rem;
             font-weight: 600;
-            padding-left: 30px;
+            text-indent: 30px;
             position: relative;
             cursor: pointer; }
             #stage div#activity-area section#events-list-container div#events-list > ul > li h2:before {
@@ -258,3 +271,9 @@ a {
               background-color: #dedede; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li:last-child {
             border-bottom: none; }
+    #stage div#activity-area #events-list-container #events-list ul li {
+      display: none; }
+    #stage div#activity-area #events-list-container #events-list.groups li.Groups {
+      display: block; }
+    #stage div#activity-area #events-list-container #events-list.events li.Action {
+      display: block; }

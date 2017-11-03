@@ -50,4 +50,5 @@ const AutocompleteManager = (function($) {
 const initializeAutocompleteCallback = () => {
   //console.log(("Autocomplete has been initialized"));
   //console.log((AutocompleteManager("input[name='search-location']")););
+  AutocompleteManager("input[name='search-location']");
 };
