@@ -42,5 +42,15 @@ a {
 
     @import 'components/map';
     @import 'components/events_list';
+
+    #events-list-container  {
+      #events-list {
+        ul li { display: none; }
+
+        &.groups li.Groups { display: block; }
+        &.events li.Action { display: block; }
+      }
+    }
+
   }
 }

@@ -9,7 +9,7 @@ const QueryManager = (($) => {
       lat = $target.find("input[name=lat]").val();
       lng = $target.find("input[name=lng]").val();
 
-      var form = $.deparam($("form").serialize());
+      var form = $.deparam($target.serialize());
       delete form['search-location'];
 
       window.location.hash = $.param(form);
@@ -21,20 +21,30 @@ const QueryManager = (($) => {
 
 
     return {
-      initialize: () => {
+      initialize: (callback) => {
         if (window.location.hash.length > 0) {
           var params = $.deparam(window.location.hash.substring(1))
           $target.find("input[name=lat]").val(params.lat);
           $target.find("input[name=lng]").val(params.lng);
 
-          // if (params.filter !== null && params.filter !== undefined) {
+          if (params.filter) {
             $target.find(".filter-item input[type=checkbox]").removeProp("checked");
             params.filter.forEach(item => {
-              console.log(".filter-item input[type=checkbox][value=" + item + "]");
+              //console.log((".filter-item input[type=checkbox][value=" + item + "]"););
               $target.find(".filter-item input[type=checkbox][value='" + item + "']").prop("checked", true);
             })
-          // }
+          }
         }
+
+        if (callback && typeof callback === 'function') {
+          callback();
+        }
+      },
+      getParameters: () => {
+        var parameters = $.deparam($target.serialize());
+        delete parameters['search-location'];
+
+        return parameters;
       },
       updateLocation: (lat, lng) => {
         $target.find("input[name=lat]").val(lat);

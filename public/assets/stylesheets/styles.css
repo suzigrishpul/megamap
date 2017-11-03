@@ -217,7 +217,7 @@ a {
             margin-bottom: 0;
             line-height: 2.1rem;
             font-weight: 600;
-            padding-left: 30px;
+            text-indent: 30px;
             position: relative;
             cursor: pointer; }
             #stage div#activity-area section#events-list-container div#events-list > ul > li h2:before {
@@ -271,3 +271,9 @@ a {
               background-color: #dedede; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li:last-child {
             border-bottom: none; }
+    #stage div#activity-area #events-list-container #events-list ul li {
+      display: none; }
+    #stage div#activity-area #events-list-container #events-list.groups li.Groups {
+      display: block; }
+    #stage div#activity-area #events-list-container #events-list.events li.Action {
+      display: block; }
