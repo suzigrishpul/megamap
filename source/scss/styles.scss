@@ -1,44 +1,56 @@
-@import 'partials/reset';
-@import 'partials/variables';
-@import 'partials/mixins';
-@import 'partials/base';
-@import 'partials/components/components';
+@import 'fonts';
+@import 'vars';
 
 html, body {
-  padding : 0;
+  height: 100%;
+}
+ul, li {
   margin: 0;
-  height: 100%;
-  position: relative;
-
-  height: 100%;
-  overflow: hidden;
-
-  *.montserrat, .primary_font, *.lato {
-    font-family: $sans-serif;
-    font-weight: 200;
-  }
-  *.merriweather {
-    font-family: 'merriweather', serif;
-  }
-
-  a.hide-office { display: none !important;}
-  a.show-office { display: inline-block;}
-  section#campaign-offices {
-    display: none;
-  }
-
-  &.show-office {
-    a.hide-office { display: inline-block !important;}
-    a.show-office { display: none !important;}
-    section#campaign-offices {
-      display: block;
-    }
-  }
-
-
-  a {
+  padding: 0;
+  list-style-type: none;
+}
+a {
+  color: $indigo;
+  &:hover {
+    color: $light-indigo;
     text-decoration: none;
-    // color: $secondary_color;
-    color: black;
+  }
+}
+.btn.btn-primary {
+  @include klima;
+  background-color: $indigo;
+  border-color: $indigo;
+  &:hover {
+    background-color: $light-indigo;
+    border-color: $light-indigo;
+  }
+}
+
+#stage {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+
+  @import 'components/header';
+
+  div#activity-area {
+    background-color: green;
+    flex-grow: 1;
+
+    display: flex;
+
+
+    @import 'components/map';
+    @import 'components/events_list';
+
+    #events-list-container  {
+      #events-list {
+        ul li { display: none; }
+
+        &.groups li.Groups { display: block; }
+        &.events li.Action { display: block; }
+      }
+    }
+
   }
 }

@@ -1,0 +1,51 @@
+section#events-list-container {
+  width: 400px;
+  height: inherit;
+  background-color: whitesmoke;
+  border-left: 2px solid gray;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  header.events-header {
+
+    text-transform: uppercase;
+    font-size: 32px;
+    height: 42px;
+    font-weight: 600;
+    text-align: center;
+    background: orange;
+    color: white;
+
+    width: 100%;
+
+    @include klima;
+  } // header.events-header
+
+  div#events-list {
+    flex-grow: 1;
+    overflow: auto;
+    height: inherit;
+
+    & > ul {
+
+      & > li {
+        @include event-item {
+          & > div {
+            padding: 20px;
+
+            &.type-group {
+              background-color: #dedede;
+            }
+          }
+        };
+
+        border-bottom: 1px dashed gray;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  } //div#events-list
+}
