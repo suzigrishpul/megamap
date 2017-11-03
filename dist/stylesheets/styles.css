@@ -188,7 +188,6 @@ a {
         overflow: auto;
         height: inherit; }
         #stage div#activity-area section#events-list-container div#events-list > ul > li {
-          padding: 20px;
           border-bottom: 1px dashed gray; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li ul.event-types-list {
             margin-bottom: 15px; }
@@ -253,5 +252,9 @@ a {
             background-color: #40D7D4; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-group h2:before {
             background-image: url(/img/flag.svg); }
+          #stage div#activity-area section#events-list-container div#events-list > ul > li > div {
+            padding: 20px; }
+            #stage div#activity-area section#events-list-container div#events-list > ul > li > div.type-group {
+              background-color: #dedede; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li:last-child {
             border-bottom: none; }

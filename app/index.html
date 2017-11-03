@@ -64,10 +64,17 @@
           </h1>
         </div>
         <div class='filters-form-area'>
-          <form>
+          <form id="filters-form">
             <div class='row'>
               <div class='col-md-5 offset-md-1 input-text'>
-                <input type="text" class="form-control" placeholder="City, State, or Country">
+                <input type="text"
+                      class="form-control typeahead"
+                      name='search-location'
+                      placeholder="City, State, or Country"
+                      data-provider="typeahead"
+                      autocomplete="off">
+                <input type='hidden' name='lng' />
+                <input type='hidden' name='lat' />
               </div>
               <div class='col-md-5 filter-area'>
                 <div class='filter-container'>
@@ -178,17 +185,21 @@
       </section>
     </div>
   </div>
+
   <!-- inject:js -->
   <script src="/javascript/vendor/jquery.min.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
   <script src="/javascript/vendor/leaflet.min.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
   <script src="/javascript/vendor/d3.min.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
   <script src="/javascript/vendor/deparam.min.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
   <script src="/javascript/vendor/moment.min.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
+  <script src="/javascript/vendor/typeahead.min.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
   <script src="/javascript/bundle.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
   <script src="/javascript/vendor/pip.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
   <!-- endinject -->
   <script type='text/javascript' src=''></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBujKTRw5uIXp_NHZgjYVDtBy1dbyNuGEM&callback=initializeAutocompleteCallback"
+    async defer></script>
 <!-- SOCIAL -->
 <!-- Twitter -->
 <script>window.twttr = (function(d, s, id) {

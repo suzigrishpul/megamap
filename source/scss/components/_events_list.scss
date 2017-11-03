@@ -30,8 +30,15 @@ section#events-list-container {
     & > ul {
 
       & > li {
-        @include event-item;
-        padding: 20px;
+        @include event-item {
+          & > div {
+            padding: 20px;
+
+            &.type-group {
+              background-color: #dedede;
+            }
+          }
+        };
 
         border-bottom: 1px dashed gray;
 

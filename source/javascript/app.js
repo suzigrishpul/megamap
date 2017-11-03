@@ -5,11 +5,11 @@
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors • <a href="//350.org">350.org</a>'
   }).addTo(map);
 
-
   // 1. google maps geocode
 
   // 2. focus map on geocode (via lat/lng)
-
+  const queryManager = QueryManager();
+        queryManager.initialize();
   // 3. markers on map
 
   // 4. filter out items in activity-area
