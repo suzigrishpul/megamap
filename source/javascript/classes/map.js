@@ -9,8 +9,11 @@ const MapManager = (($) => {
 
     return {
       $map: map,
-      setCenter: (center = [34.88593094075317, 5.097656250000001], zoom = 10) => {
+      setCenter: (center, zoom = 10) => {
         //console.log(("XXX"););
+        console.log(center);
+        if (!center || !center[0] || center[0] == ""
+              || !center[1] || center[1] == "") return;
         map.setView(center, zoom);
       },
       update: (p) => {

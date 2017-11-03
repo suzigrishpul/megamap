@@ -13,13 +13,13 @@ const ListManager = (($) => {
           <ul class="event-types-list">
             <li>${item.event_type}</li>
           </ul>
-          <h2><a href="${item.url}">${item.title}</a></h2>
+          <h2><a href="//${item.url}" target='_blank'>${item.title}</a></h2>
           <h4>${date}</h4>
           <div class="address-area">
             <p>${item.venue}</p>
           </div>
           <div class="call-to-action">
-            <a href="${item.url}" class="btn btn-primary">RSVP</a>
+            <a href="//${item.url}" target='_blank' class="btn btn-primary">RSVP</a>
           </div>
         </div>
       </li>
@@ -31,7 +31,7 @@ const ListManager = (($) => {
       return `
       <li>
         <div class="type-group">
-          <h2><a href="/">${item.title || `Group`}</a></h2>
+          <h2><a href="/" target='_blank'>${item.title || `Group`}</a></h2>
           <div class="group-details-area">
             <p>Colorado, USA</p>
             <p>${item.details || `350 Colorado is working locally to help build the global
@@ -40,7 +40,7 @@ const ListManager = (($) => {
             </p>
           </div>
           <div class="call-to-action">
-            <a href="${item.url}" class="btn btn-primary">Get Involved</a>
+            <a href="//${item.url}" target='_blank' class="btn btn-primary">Get Involved</a>
           </div>
         </div>
       </li>
