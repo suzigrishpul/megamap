@@ -1,4 +1,20 @@
 section#map {
   flex-grow: 1;
   background-color: whitesmoke;
+
+  div.leaflet-popup {
+    .leaflet-container a.leaflet-popup-close-button {
+      top: 10px;
+      right: 10px;
+    }
+    div.leaflet-popup-content {
+      min-width: 350px;
+      background-color:whitesmoke;
+      padding: 10px;
+      margin: 10px;
+      @include event-item {
+        a.btn-primary { color: white; }
+      };
+    }
+  }
 }

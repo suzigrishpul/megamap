@@ -178,6 +178,83 @@ a {
     #stage div#activity-area section#map {
       flex-grow: 1;
       background-color: whitesmoke; }
+      #stage div#activity-area section#map div.leaflet-popup .leaflet-container a.leaflet-popup-close-button {
+        top: 10px;
+        right: 10px; }
+      #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content {
+        min-width: 350px;
+        background-color: whitesmoke;
+        padding: 10px;
+        margin: 10px; }
+        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content ul.event-types-list {
+          margin-bottom: 15px; }
+          #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content ul.event-types-list li {
+            display: inline-block;
+            background-color: lightgray;
+            border: 1px solid lightgray;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-family: 'klima', 'arial', sans-serif; }
+        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content h2 {
+          font-family: 'klima', 'arial', sans-serif;
+          margin-bottom: 0;
+          line-height: 34px;
+          font-weight: 600;
+          font-size: 32px;
+          text-indent: 30px;
+          position: relative;
+          cursor: pointer; }
+          #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content h2:before {
+            content: ' ';
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            top: 2px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            z-index: 1;
+            left: 6px; }
+          #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content h2:after {
+            content: ' ';
+            width: 28px;
+            height: 28px;
+            position: absolute;
+            background-color: lightgray;
+            left: 0px;
+            top: -3px;
+            border-radius: 50%;
+            border: 3px solid white; }
+        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content h4 {
+          text-transform: uppercase;
+          font-family: 'graph', 'arial', sans-serif;
+          font-size: 20px; }
+        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content p {
+          margin-bottom: 0;
+          line-height: 1.5;
+          font-size: 16px;
+          font-family: 'klima', 'arial', sans-serif; }
+        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content a.btn.btn-primary {
+          font-size: 13px;
+          padding: 7px 12px 6px;
+          font-weight: 600;
+          width: 140px; }
+        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event div.address-area {
+          margin-bottom: 5px; }
+        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event h2:before {
+          background-image: url(/img/human.svg); }
+        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event h2:after {
+          background-color: #0F81E8; }
+        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event h2 a {
+          color: #003DAA; }
+        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-group div.group-details-area {
+          margin-bottom: 5px; }
+        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-group h2:after {
+          background-color: #40D7D4; }
+        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-group h2:before {
+          background-image: url(/img/flag.svg); }
+        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content a.btn-primary {
+          color: white; }
     #stage div#activity-area section#events-list-container {
       width: 400px;
       height: inherit;
@@ -215,8 +292,9 @@ a {
           #stage div#activity-area section#events-list-container div#events-list > ul > li h2 {
             font-family: 'klima', 'arial', sans-serif;
             margin-bottom: 0;
-            line-height: 2.1rem;
+            line-height: 34px;
             font-weight: 600;
+            font-size: 32px;
             text-indent: 30px;
             position: relative;
             cursor: pointer; }
@@ -243,10 +321,11 @@ a {
           #stage div#activity-area section#events-list-container div#events-list > ul > li h4 {
             text-transform: uppercase;
             font-family: 'graph', 'arial', sans-serif;
-            font-size: 1.3em; }
+            font-size: 20px; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li p {
             margin-bottom: 0;
             line-height: 1.5;
+            font-size: 16px;
             font-family: 'klima', 'arial', sans-serif; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li a.btn.btn-primary {
             font-size: 13px;
@@ -259,6 +338,8 @@ a {
             background-image: url(/img/human.svg); }
           #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event h2:after {
             background-color: #0F81E8; }
+          #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event h2 a {
+            color: #003DAA; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-group div.group-details-area {
             margin-bottom: 5px; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-group h2:after {

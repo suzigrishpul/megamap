@@ -30,6 +30,7 @@ section#events-list-container {
     & > ul {
 
       & > li {
+
         @include event-item {
           & > div {
             padding: 20px;

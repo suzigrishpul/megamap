@@ -15,7 +15,10 @@
     mapManager.setCenter([initParams.lat, initParams.lng]);
   }
 
-  // This will trigger the list update method
+  /***
+  * List Events
+  * This will trigger the list update method
+  */
   $(document).on('trigger-list-update', (event, options) => {
     listManager.populateList();
   });
@@ -25,10 +28,11 @@
     listManager.updateFilter(options);
   })
 
+  /***
+  * Map Events
+  */
   $(document).on('trigger-map-update', (event, options) => {
     // mapManager.setCenter([options.lat, options.lng]);
-
-
     if (!options || !options.bound1 || !options.bound2) {
       return;
     }
@@ -38,9 +42,12 @@
     mapManager.setBounds(bound1, bound2);
     // console.log(options)
   });
+  // 3. markers on map
+  $(document).on('trigger-map-plot', (e, opt) => {
+    mapManager.plotPoints(opt.data);
+  })
 
   $(window).on("hashchange", (event) => {
-
     const hash = window.location.hash;
     if (hash.length == 0) return;
     const parameters = $.deparam(hash.substring(1));
@@ -56,8 +63,6 @@
       $(document).trigger('trigger-map-update', parameters);
     }
   })
-
-  // 3. markers on map
 
   // 4. filter out items in activity-area
 
@@ -76,7 +81,8 @@
 
       $(document).trigger('trigger-list-update');
       // $(document).trigger('trigger-list-filter-update', parameters);
-      // $(document).trigger('trigger-map-update', parameters);
+      $(document).trigger('trigger-map-plot', { data: window.EVENTS_DATA });
+      //TODO: Make the geojson conversion happen on the backend
     }
   });
 
