@@ -21,12 +21,21 @@
   });
 
   $(document).on('trigger-list-filter-update', (event, options) => {
-    //console.log(("XXXX"););
+
     listManager.updateFilter(options);
   })
 
   $(document).on('trigger-map-update', (event, options) => {
-    mapManager.setCenter([options.lat, options.lng]);
+    // mapManager.setCenter([options.lat, options.lng]);
+
+    if (!options || !options.bound1 || !options.bound2) {
+      return;
+    }
+
+    var bound1 = JSON.parse(options.bound1);
+    var bound2 = JSON.parse(options.bound2);
+    mapManager.setBounds(bound1, bound2);
+    // console.log(options)
   });
 
   $(window).on("hashchange", () => {
@@ -53,7 +62,7 @@
     dataType: 'script',
     cache: true,
     success: (data) => {
-      //console.log((window.EVENT_DATA));
+
       $(document).trigger('trigger-list-update');
       $(document).trigger('trigger-list-filter-update', queryManager.getParameters());
       // $(document).trigger('trigger-map-update');

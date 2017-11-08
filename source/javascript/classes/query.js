@@ -30,7 +30,7 @@ const QueryManager = (($) => {
           if (params.filter) {
             $target.find(".filter-item input[type=checkbox]").removeProp("checked");
             params.filter.forEach(item => {
-              //console.log((".filter-item input[type=checkbox][value=" + item + "]"););
+
               $target.find(".filter-item input[type=checkbox][value='" + item + "']").prop("checked", true);
             })
           }
@@ -49,6 +49,14 @@ const QueryManager = (($) => {
       updateLocation: (lat, lng) => {
         $target.find("input[name=lat]").val(lat);
         $target.find("input[name=lng]").val(lng);
+        $target.trigger('submit');
+      },
+      updateViewport: (viewport) => {
+
+        const bounds = [[viewport.f.b, viewport.b.b], [viewport.f.f, viewport.b.f]];
+
+        $target.find("input[name=bound1]").val(JSON.stringify(bounds[0]));
+        $target.find("input[name=bound2]").val(JSON.stringify(bounds[1]));
         $target.trigger('submit');
       },
       triggerSubmit: () => {

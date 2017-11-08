@@ -32,8 +32,9 @@ const AutocompleteManager = (function($) {
             ).on('typeahead:selected', function (obj, datum) {
                 if(datum)
                 {
+
                   var geometry = datum.geometry;
-                  queryMgr.updateLocation(geometry.location.lat(), geometry.location.lng());
+                  queryMgr.updateViewport(geometry.viewport);
                   //  map.fitBounds(geometry.bounds? geometry.bounds : geometry.viewport);
                 }
             });
@@ -48,7 +49,7 @@ const AutocompleteManager = (function($) {
 }(jQuery));
 
 const initializeAutocompleteCallback = () => {
-  //console.log(("Autocomplete has been initialized"));
-  //console.log((AutocompleteManager("input[name='search-location']")););
+
+
   AutocompleteManager("input[name='search-location']");
 };

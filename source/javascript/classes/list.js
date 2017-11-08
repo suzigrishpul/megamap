@@ -53,13 +53,13 @@ const ListManager = (($) => {
         if(!p) return;
 
         // Remove Filters
-        //console.log(("ENTERED!"););
+
         $target.removeProp("class");
         $target.addClass(p.filter.join(" "))
       },
       populateList: () => {
         //using window.EVENT_DATA
-        //console.log(("Populating --> ", window.EVENTS_DATA));
+
         var $eventList = window.EVENTS_DATA.map(item => {
           return item.event_type !== 'Group' ? renderEvent(item) : renderGroup(item);
         })
