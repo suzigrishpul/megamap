@@ -55,7 +55,7 @@ const ListManager = (($) => {
         // Remove Filters
 
         $target.removeProp("class");
-        $target.addClass(p.filter.join(" "))
+        $target.addClass(p.filter ? p.filter.join(" ") : '')
       },
       populateList: () => {
         //using window.EVENT_DATA

@@ -45,6 +45,15 @@
   // 3. markers on map
   $(document).on('trigger-map-plot', (e, opt) => {
     mapManager.plotPoints(opt.data);
+    $(document).trigger('trigger-map-filter');
+  })
+
+  // Filter map
+  $(document).on('trigger-map-filter', (e, opt) => {
+    console.log(opt);
+    if (opt) {
+      mapManager.filterMap(opt.filter);
+    }
   })
 
   $(window).on("hashchange", (event) => {
@@ -57,6 +66,7 @@
     const oldHash = $.deparam(oldURL.substring(oldURL.search("#")+1));
 
     $(document).trigger('trigger-list-filter-update', parameters);
+    $(document).trigger('trigger-map-filter', parameters);
 
     // So that change in filters will not update this
     if (oldHash.bound1 !== parameters.bound1 || oldHash.bound2 !== parameters.bound2) {

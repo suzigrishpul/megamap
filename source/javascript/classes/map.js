@@ -77,25 +77,38 @@ const MapManager = (($) => {
               || !center[1] || center[1] == "") return;
         map.setView(center, zoom);
       },
+      filterMap: (filters) => {
+        console.log("filters >> ", filters);
+        $("#map").find(".event-item-popup").hide();
+        console.log($("#map").find(".event-item-popup"));
+
+        if (!filters) return;
+
+        filters.forEach((item) => {
+          console.log(".event-item-popup." + item.toLowerCase());
+          $("#map").find(".event-item-popup." + item.toLowerCase()).show();
+        })
+      },
       plotPoints: (list) => {
-        console.log(list);
+
         const geojson = {
           type: "FeatureCollection",
           features: renderGeojson(list)
         };
 
-        console.log(JSON.stringify(geojson));
+
 
         L.geoJSON(geojson, {
             pointToLayer: (feature, latlng) => {
-              console.log(feature, latlng);
+              const eventType = feature.properties.eventProperties.event_type;
               var geojsonMarkerOptions = {
                   radius: 8,
-                  fillColor: feature.properties.eventProperties.event_type === 'Group' ? "#40D7D4" : "#0F81E8",
+                  fillColor:  eventType === 'Group' ? "#40D7D4" : "#0F81E8",
                   color: "white",
-                  weight: 1,
-                  opacity: 1,
-                  fillOpacity: 0.8
+                  weight: 2,
+                  opacity: 0.5,
+                  fillOpacity: 0.8,
+                  className: (eventType === 'Group' ? 'groups' : 'events') + ' event-item-popup'
               };
               return L.circleMarker(latlng, geojsonMarkerOptions);
             },
