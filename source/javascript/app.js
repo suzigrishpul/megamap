@@ -28,6 +28,7 @@
   $(document).on('trigger-map-update', (event, options) => {
     // mapManager.setCenter([options.lat, options.lng]);
 
+
     if (!options || !options.bound1 || !options.bound2) {
       return;
     }
@@ -38,13 +39,22 @@
     // console.log(options)
   });
 
-  $(window).on("hashchange", () => {
+  $(window).on("hashchange", (event) => {
+
     const hash = window.location.hash;
     if (hash.length == 0) return;
     const parameters = $.deparam(hash.substring(1));
+    const oldURL = event.originalEvent.oldURL;
+
+
+    const oldHash = $.deparam(oldURL.substring(oldURL.search("#")+1));
 
     $(document).trigger('trigger-list-filter-update', parameters);
-    $(document).trigger('trigger-map-update', parameters);
+
+    // So that change in filters will not update this
+    if (oldHash.bound1 !== parameters.bound1 || oldHash.bound2 !== parameters.bound2) {
+      $(document).trigger('trigger-map-update', parameters);
+    }
   })
 
   // 3. markers on map
@@ -62,15 +72,18 @@
     dataType: 'script',
     cache: true,
     success: (data) => {
+      var parameters = queryManager.getParameters();
 
       $(document).trigger('trigger-list-update');
-      $(document).trigger('trigger-list-filter-update', queryManager.getParameters());
-      // $(document).trigger('trigger-map-update');
+      // $(document).trigger('trigger-list-filter-update', parameters);
+      // $(document).trigger('trigger-map-update', parameters);
     }
   });
 
   setTimeout(() => {
     $(document).trigger('trigger-list-filter-update', queryManager.getParameters());
-  }, 1000);
+    $(document).trigger('trigger-map-update', queryManager.getParameters());
+    console.log(queryManager.getParameters())
+  }, 100);
 
 })(jQuery);

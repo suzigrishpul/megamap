@@ -4,6 +4,8 @@ const QueryManager = (($) => {
     let lat = null;
     let lng = null;
 
+    let previous = {};
+
     $target.on('submit', (e) => {
       e.preventDefault();
       lat = $target.find("input[name=lat]").val();
@@ -26,13 +28,14 @@ const QueryManager = (($) => {
           var params = $.deparam(window.location.hash.substring(1))
           $target.find("input[name=lat]").val(params.lat);
           $target.find("input[name=lng]").val(params.lng);
+          $target.find("input[name=bound1]").val(params.bound1);
+          $target.find("input[name=bound2]").val(params.bound2);
 
           if (params.filter) {
             $target.find(".filter-item input[type=checkbox]").removeProp("checked");
             params.filter.forEach(item => {
-
               $target.find(".filter-item input[type=checkbox][value='" + item + "']").prop("checked", true);
-            })
+            });
           }
         }
 
@@ -49,7 +52,7 @@ const QueryManager = (($) => {
       updateLocation: (lat, lng) => {
         $target.find("input[name=lat]").val(lat);
         $target.find("input[name=lng]").val(lng);
-        $target.trigger('submit');
+        // $target.trigger('submit');
       },
       updateViewport: (viewport) => {
 
