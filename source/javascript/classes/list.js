@@ -8,8 +8,8 @@ const ListManager = (($) => {
 
       var date = moment(item.start_datetime).format("dddd • MMM DD h:mma");
       return `
-      <li class='${item.event_type}' data-lat='${item.lat}' data-lng='${item.lng}'>
-        <div class="type-event">
+      <li class='${item.event_type || ''} Action' data-lat='${item.lat}' data-lng='${item.lng}'>
+        <div class="type-event type-action">
           <ul class="event-types-list">
             <li>${item.event_type}</li>
           </ul>

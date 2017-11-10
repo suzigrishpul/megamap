@@ -7,7 +7,7 @@ const MapManager = (($) => {
     <div class='popup-item ${item.event_type}' data-lat='${item.lat}' data-lng='${item.lng}'>
       <div class="type-event">
         <ul class="event-types-list">
-          <li>${item.event_type}</li>
+          <li>${item.event_type || 'Action'}</li>
         </ul>
         <h2><a href="//${item.url}" target='_blank'>${item.title}</a></h2>
         <h4>${date}</h4>
@@ -44,6 +44,14 @@ const MapManager = (($) => {
 
   const renderGeojson = (list) => {
     return list.map((item) => {
+      // rendered eventType
+      let rendered;
+      if (!item.event_type || !item.event_type.toLowerCase() !== 'group') {
+        rendered = renderEvent(item);
+      } else {
+        rendered = renderGroup(item);
+      }
+
       return {
         "type": "Feature",
         geometry: {
@@ -52,7 +60,7 @@ const MapManager = (($) => {
         },
         properties: {
           eventProperties: item,
-          popupContent: item.event_type.toLowerCase() ==='group' ? renderGroup(item) : renderEvent(item)
+          popupContent: rendered
         }
       }
     })

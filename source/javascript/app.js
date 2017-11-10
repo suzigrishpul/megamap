@@ -83,12 +83,15 @@
   // 7. present group elements
 
   $.ajax({
-    url: 'https://dnb6leangx6dc.cloudfront.net/output/350org.js.gz', //'|**DATA_SOURCE**|',
+    url: 'https://s3-us-west-2.amazonaws.com/pplsmap-data/output/350org-test.js.gz', //'|**DATA_SOURCE**|',
     dataType: 'script',
     cache: true,
     success: (data) => {
       var parameters = queryManager.getParameters();
 
+      window.EVENTS_DATA.forEach((item) => {
+        item['event_type'] = !item.event_type ? 'Action' : item.event_type;
+      })
       $(document).trigger('trigger-list-update');
       // $(document).trigger('trigger-list-filter-update', parameters);
       $(document).trigger('trigger-map-plot', { data: window.EVENTS_DATA });
