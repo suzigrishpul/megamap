@@ -360,3 +360,46 @@ a {
       display: block; }
     #stage div#activity-area #events-list-container #events-list.events li.Action {
       display: block; }
+
+@media (max-width: 990px) {
+  body div#stage {
+    display: flex;
+    flex-direction: column; }
+    body div#stage header.page-header {
+      height: auto; }
+      body div#stage header.page-header nav {
+        display: flex;
+        flex-direction: column;
+        border-bottom: none; }
+        body div#stage header.page-header nav div.logo-area {
+          text-align: center;
+          width: 100%; }
+        body div#stage header.page-header nav div.filters-form-area {
+          padding-top: 0;
+          padding: 0 20px 10px; }
+          body div#stage header.page-header nav div.filters-form-area .input-text {
+            background-color: #f5f5f5; }
+          body div#stage header.page-header nav div.filters-form-area div.filter-container {
+            margin-left: 20px;
+            margin-top: 10px; }
+            body div#stage header.page-header nav div.filters-form-area div.filter-container span {
+              display: block; }
+          body div#stage header.page-header nav div.filters-form-area div.search-button {
+            display: none; }
+        body div#stage header.page-header nav div.cta-area {
+          width: 100%;
+          text-align: center;
+          display: none; }
+          body div#stage header.page-header nav div.cta-area p {
+            font-size: 14px;
+            font-weight: bold;
+            color: gray; }
+    body div#stage div#activity-area {
+      flex-grow: 1; }
+      body div#stage div#activity-area section#map {
+        display: none; }
+      body div#stage div#activity-area section#events-list-container {
+        border-left: none; }
+        body div#stage div#activity-area section#events-list-container header.events-header {
+          font-size: 24px;
+          padding-top: 5px; } }
