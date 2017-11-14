@@ -10,7 +10,7 @@
   const mapManager = MapManager();
 
   const languageManager = LanguageManager();
-  languageManager.initialize('en');
+  languageManager.initialize('fr');
 
   const listManager = ListManager();
 
