@@ -3,30 +3,28 @@ const LanguageManager = (($) => {
   //keyValue
 
   //targets are the mappings for the language
-  return (lang = 'fr') => {
-    let language = lang;
+  return () => {
+    let language;
     let dictionary = {};
     let $targets = $("[data-lang-target][data-lang-key]");
 
-    console.log($targets);
     const updatePageLanguage = () => {
+
+      let targetLanguage = dictionary.rows.filter((i) => i.lang === language)[0];
 
       $targets.each((index, item) => {
         let targetAttribute = $(item).data('lang-target');
         let langTarget = $(item).data('lang-key');
 
-        let targetItem = dictionary.rows.filter((i) => i.key === langTarget)[0];
-        console.log("YYYI", targetItem);
-
         switch(targetAttribute) {
           case 'text':
-            $(item).text(targetItem[language]);
+            $(item).text(targetLanguage[langTarget]);
             break;
           case 'value':
-            $(item).val(targetItem[language]);
+            $(item).val(targetLanguage[langTarget]);
             break;
           default:
-            $(item).attr(targetAttribute, targetItem[language]);
+            $(item).attr(targetAttribute, targetLanguage[langTarget]);
             break;
         }
       })
@@ -37,6 +35,7 @@ const LanguageManager = (($) => {
       targets: $targets,
       dictionary,
       initialize: (lang) => {
+        console.log("$targets", lang);
         $.ajax({
           url: 'http://gsx2json.com/api?id=1O3eByjL1vlYf7Z7am-_htRTQi73PafqIfNBdLmXe8SM&sheet=1',
           dataType: 'json',
@@ -47,7 +46,10 @@ const LanguageManager = (($) => {
           }
         });
       },
-      changeLanguage: (lang) => {
+      updateLanguage: (lang) => {
+        console.log("New Lang ::: ", lang);
+        language = lang;
+        updatePageLanguage();
       }
     }
   };

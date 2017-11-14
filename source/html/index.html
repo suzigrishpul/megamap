@@ -54,13 +54,17 @@
       <nav>
         <div class='logo-area'>
           <h1>
-            <a href='//350.org'>
-              <img src='/img/orange-arrow.svg' class='logo' />350 map
+            <a href='//350.org' class='title-area'>
+              <img src='/img/orange-arrow.svg' class='logo' />
+              <span
+                data-lang-target='text'
+                data-lang-key='title'></span>
             </a>
           </h1>
         </div>
         <div class='filters-form-area'>
           <form id="filters-form">
+            <input type='hidden' name='lang' value='en'/>
             <div class='row'>
               <div class='col-md-5 offset-md-1 input-text'>
                 <input type="text"
@@ -84,21 +88,21 @@
                     <label for='events'
                         data-lang-target='text'
                         data-lang-key='show-events'
-                    ></label>
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                   </span>
                   <span class='filter-item'>
                     <input type='checkbox' name='filter[]' id='groups' value='groups' checked/>
                     <label for='groups'
                     data-lang-target='text'
                     data-lang-key='show-groups'
-                    ></label>
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                   </span>
                 </div>
                 <div class='search-button'>
                   <button class='btn btn-primary'
                   data-lang-target='text'
                   data-lang-key='search-button'
-                  ></button>
+                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
                 </div>
               </div>
             </div>

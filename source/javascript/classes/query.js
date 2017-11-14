@@ -26,6 +26,7 @@ const QueryManager = (($) => {
       initialize: (callback) => {
         if (window.location.hash.length > 0) {
           var params = $.deparam(window.location.hash.substring(1))
+          $target.find("input[name=lang]").val(params.lang);
           $target.find("input[name=lat]").val(params.lat);
           $target.find("input[name=lng]").val(params.lng);
           $target.find("input[name=bound1]").val(params.bound1);

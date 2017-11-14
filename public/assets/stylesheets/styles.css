@@ -96,6 +96,8 @@ a {
           font-family: 'graph', 'arial', sans-serif;
           font-size: 78px;
           font-weight: 800; }
+          #stage header.page-header nav div.logo-area h1 a {
+            white-space: nowrap; }
           #stage header.page-header nav div.logo-area h1 img.logo {
             height: 50px;
             padding: 0 5px 0 7px; }

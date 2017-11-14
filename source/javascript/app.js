@@ -10,7 +10,8 @@
   const mapManager = MapManager();
 
   const languageManager = LanguageManager();
-  languageManager.initialize('fr');
+  console.log(queryManager, queryManager.getParameters(), initParams);
+  languageManager.initialize(initParams['lang'] || 'en');
 
   const listManager = ListManager();
 
@@ -53,11 +54,16 @@
 
   // Filter map
   $(document).on('trigger-map-filter', (e, opt) => {
-    console.log(opt);
     if (opt) {
       mapManager.filterMap(opt.filter);
     }
-  })
+  });
+
+  $(document).on('trigger-language-update', (e, opt) => {
+    if (opt) {
+      languageManager.updateLanguage(opt.lang);
+    }
+  });
 
   $(window).on("hashchange", (event) => {
     const hash = window.location.hash;
@@ -74,6 +80,11 @@
     // So that change in filters will not update this
     if (oldHash.bound1 !== parameters.bound1 || oldHash.bound2 !== parameters.bound2) {
       $(document).trigger('trigger-map-update', parameters);
+    }
+
+    // Change items
+    if (oldHash.lang !== parameters.lang) {
+      $(document).trigger('trigger-language-update', parameters);
     }
   })
 
