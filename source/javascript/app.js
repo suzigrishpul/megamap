@@ -9,6 +9,9 @@
   const initParams = queryManager.getParameters();
   const mapManager = MapManager();
 
+  const languageManager = LanguageManager();
+  languageManager.initialize('en');
+
   const listManager = ListManager();
 
   if(initParams.lat && initParams.lng) {
