@@ -58,21 +58,28 @@
       <nav>
         <div class='logo-area'>
           <h1>
-            <a href='//350.org'>
-              <img src='/img/orange-arrow.svg' class='logo' />350 map
+            <a href='//350.org' class='title-area'>
+              <img src='/img/orange-arrow.svg' class='logo' />
+              <span
+                data-lang-target='text'
+                data-lang-key='title'></span>
             </a>
           </h1>
         </div>
         <div class='filters-form-area'>
           <form id="filters-form">
+            <input type='hidden' name='lang' value='en'/>
             <div class='row'>
               <div class='col-md-5 offset-md-1 input-text'>
                 <input type="text"
                       class="form-control typeahead"
                       name='search-location'
-                      placeholder="City, State, or Country"
+                      placeholder=""
                       data-provider="typeahead"
-                      autocomplete="off">
+                      autocomplete="off"
+                      data-lang-target='placeholder'
+                      data-lang-key='search'
+                  >
                 <input type='hidden' name='lng' />
                 <input type='hidden' name='lat' />
                 <input type='hidden' name='bound1' />
@@ -82,22 +89,40 @@
                 <div class='filter-container'>
                   <span class='filter-item'>
                     <input type='checkbox' name='filter[]' id='events' value='events' checked/>
-                    <label for='events'>Show Events</label>
+                    <label for='events'
+                        data-lang-target='text'
+                        data-lang-key='show-events'
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                   </span>
                   <span class='filter-item'>
                     <input type='checkbox' name='filter[]' id='groups' value='groups' checked/>
-                    <label for='groups'>Show Groups</label>
+                    <label for='groups'
+                    data-lang-target='text'
+                    data-lang-key='show-groups'
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                   </span>
                 </div>
                 <div class='search-button'>
-                  <button class='btn btn-primary'>Search</button>
+                  <button class='btn btn-primary'
+                  data-lang-target='text'
+                  data-lang-key='search-button'
+                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
                 </div>
+
+                <button class='btn btn-primary' id="show-hide-map">
+                  <span class='show-map' data-lang-target='text'
+                  data-lang-key='map-view'></span>
+                  <span class='show-list' data-lang-target='text'
+                  data-lang-key='list-view'></span>
+                </button>
               </div>
             </div>
           </form>
         </div>
         <div class='cta-area'>
-          <p>Find an event or group near you!</p>
+          <p
+            data-lang-target='text'
+            data-lang-key='find-cta'></p>
         </div>
       </nav>
     </header>
@@ -105,9 +130,10 @@
       <section id='map'>
       </section>
       <section id='events-list-container'>
-        <header class='events-header'>
-          Activity in your area:
-        </header>
+        <header class='events-header'
+          data-lang-target='text'
+          data-lang-key='activity-in-area'
+        ></header>
         <div id='events-list'>
           <ul>
             <li>

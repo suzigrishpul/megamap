@@ -65,6 +65,10 @@
     }
   });
 
+  $(document).on('click', 'button#show-hide-map', (e, opt) => {
+    $('body').toggleClass('map-view')
+  });
+
   $(window).on("hashchange", (event) => {
     const hash = window.location.hash;
     if (hash.length == 0) return;

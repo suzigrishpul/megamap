@@ -361,7 +361,27 @@ a {
     #stage div#activity-area #events-list-container #events-list.events li.Action {
       display: block; }
 
+#show-hide-map {
+  display: none; }
+
 @media (max-width: 990px) {
+  body #show-hide-map {
+    display: block; }
+    body #show-hide-map .show-map {
+      display: block; }
+    body #show-hide-map .show-list {
+      display: none; }
+  body.map-view #show-hide-map .show-list {
+    display: block; }
+  body.map-view #show-hide-map .show-map {
+    display: none; }
+  body.map-view div#activity-area {
+    flex-grow: 1; }
+    body.map-view div#activity-area section#map {
+      opacity: 1 !important;
+      z-index: 1000 !important; }
+    body.map-view div#activity-area section#events-list-container {
+      display: none !important; }
   body div#stage {
     display: flex;
     flex-direction: column; }
@@ -376,7 +396,7 @@ a {
           width: 100%; }
         body div#stage header.page-header nav div.filters-form-area {
           padding-top: 0;
-          padding: 0 20px 10px; }
+          padding: 0 10px 5px; }
           body div#stage header.page-header nav div.filters-form-area .input-text {
             background-color: #f5f5f5; }
           body div#stage header.page-header nav div.filters-form-area div.filter-container {
@@ -386,6 +406,10 @@ a {
               display: block; }
           body div#stage header.page-header nav div.filters-form-area div.search-button {
             display: none; }
+          body div#stage header.page-header nav div.filters-form-area button#show-hide-map {
+            position: absolute;
+            right: 16px;
+            top: 24px; }
         body div#stage header.page-header nav div.cta-area {
           width: 100%;
           text-align: center;
@@ -397,7 +421,9 @@ a {
     body div#stage div#activity-area {
       flex-grow: 1; }
       body div#stage div#activity-area section#map {
-        display: none; }
+        opacity: 0;
+        z-index: 0;
+        position: relative; }
       body div#stage div#activity-area section#events-list-container {
         border-left: none; }
         body div#stage div#activity-area section#events-list-container header.events-header {
