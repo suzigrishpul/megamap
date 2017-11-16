@@ -1,3 +1,6 @@
+let autocompleteManager;
+let mapManager;
+
 (function($) {
 
   // 1. google maps geocode
@@ -7,10 +10,25 @@
         queryManager.initialize();
 
   const initParams = queryManager.getParameters();
-  const mapManager = MapManager();
+  mapManager = MapManager();
+
+  window.initializeAutocompleteCallback = () => {
+    autocompleteManager = AutocompleteManager("input[name='loc']");
+    autocompleteManager.initialize();
+    
+    if (initParams.loc && initParams.loc !== '') {
+      mapManager.initialize(() => {
+//console.log(initParams.loc);
+        mapManager.getCenterByLocation(initParams.loc, (result) => {
+//console.log(result.geometry);
+          queryManager.updateViewport(result.geometry.viewport);
+        });
+      })
+    }
+//console.log("MAP ", mapManager);
 
   const languageManager = LanguageManager();
-  console.log(queryManager, queryManager.getParameters(), initParams);
+//console.log(queryManager, queryManager.getParameters(), initParams);
   languageManager.initialize(initParams['lang'] || 'en');
 
   const listManager = ListManager();
@@ -48,6 +66,7 @@
   });
   // 3. markers on map
   $(document).on('trigger-map-plot', (e, opt) => {
+//console.log(opt);
     mapManager.plotPoints(opt.data);
     $(document).trigger('trigger-map-filter');
   })
@@ -120,7 +139,7 @@
   setTimeout(() => {
     $(document).trigger('trigger-list-filter-update', queryManager.getParameters());
     $(document).trigger('trigger-map-update', queryManager.getParameters());
-    console.log(queryManager.getParameters())
+//console.log(queryManager.getParameters())
   }, 100);
 
 })(jQuery);

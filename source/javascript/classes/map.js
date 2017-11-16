@@ -66,16 +66,22 @@ const MapManager = (($) => {
     })
   }
 
-  return () => {
+  return (callback) => {
     var map = L.map('map').setView([34.88593094075317, 5.097656250000001], 2);
 
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors • <a href="//350.org">350.org</a>'
     }).addTo(map);
 
-    // map.fitBounds([ [[40.7216015197085, -73.85174698029152], [40.7242994802915, -73.8490490197085]] ]);
+    let geocoder = null;
     return {
       $map: map,
+      initialize: (callback) => {
+        geocoder = new google.maps.Geocoder();
+        if (callback && typeof callback === 'function') {
+            callback();
+        }
+      },
       setBounds: (bounds1, bounds2) => {
         const bounds = [bounds1, bounds2];
         map.fitBounds(bounds);
@@ -85,15 +91,25 @@ const MapManager = (($) => {
               || !center[1] || center[1] == "") return;
         map.setView(center, zoom);
       },
+      // Center location by geocoded
+      getCenterByLocation: (location, callback) => {
+//console.log("Finding location of ", location);
+        geocoder.geocode({ address: location }, function (results, status) {
+//console.log("LOCATION MATCH:: ", results, status);
+          if (callback && typeof callback === 'function') {
+            callback(results[0])
+          }
+        });
+      },
       filterMap: (filters) => {
-        console.log("filters >> ", filters);
+//console.log("filters >> ", filters);
         $("#map").find(".event-item-popup").hide();
-        console.log($("#map").find(".event-item-popup"));
+//console.log($("#map").find(".event-item-popup"));
 
         if (!filters) return;
 
         filters.forEach((item) => {
-          console.log(".event-item-popup." + item.toLowerCase());
+//console.log(".event-item-popup." + item.toLowerCase());
           $("#map").find(".event-item-popup." + item.toLowerCase()).show();
         })
       },
