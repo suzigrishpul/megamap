@@ -354,6 +354,39 @@ a {
               background-color: #dedede; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li:last-child {
             border-bottom: none; }
+    #stage div#activity-area #embed-area {
+      width: 100%;
+      position: relative; }
+      #stage div#activity-area #embed-area button.btn.more-items {
+        position: absolute;
+        top: -38px;
+        right: 15px;
+        color: white;
+        background-color: #1081e8;
+        border-radius: 0.25rem 0.25rem 0 0;
+        cursor: pointer; }
+      #stage div#activity-area #embed-area button {
+        cursor: pointer; }
+      #stage div#activity-area #embed-area div.viewport {
+        max-height: 0;
+        transition: max-height 0.5s; }
+        #stage div#activity-area #embed-area div.viewport div.content {
+          background-color: #1081e8;
+          width: 100%;
+          padding: 10px; }
+          #stage div#activity-area #embed-area div.viewport div.content h4 {
+            color: white;
+            font-weight: bold; }
+          #stage div#activity-area #embed-area div.viewport div.content p {
+            padding: 0;
+            color: white; }
+          #stage div#activity-area #embed-area div.viewport div.content #embed-form {
+            display: flex; }
+            #stage div#activity-area #embed-area div.viewport div.content #embed-form input[name='embed'] {
+              flex-grow: 1;
+              margin-right: 10px; }
+      #stage div#activity-area #embed-area.open div.viewport {
+        max-height: 200px; }
     #stage div#activity-area #events-list-container #events-list ul li {
       display: none; }
     #stage div#activity-area #events-list-container #events-list.groups li.Groups {
