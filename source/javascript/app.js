@@ -1,3 +1,6 @@
+let autocompleteManager;
+let mapManager;
+
 (function($) {
 
   // 1. google maps geocode
@@ -7,10 +10,25 @@
         queryManager.initialize();
 
   const initParams = queryManager.getParameters();
-  const mapManager = MapManager();
+  mapManager = MapManager();
+//console.log("Initialized");
+  window.initializeAutocompleteCallback = () => {
+//console.log("Initialized");
+    autocompleteManager = AutocompleteManager("input[name='loc']");
+    autocompleteManager.initialize();
+//console.log("Initialized");
+    if (initParams.loc && initParams.loc !== '') {
+      mapManager.initialize(() => {
+        mapManager.getCenterByLocation(initParams.loc, (result) => {
+          queryManager.updateViewport(result.geometry.viewport);
+        });
+      })
+    }
+  }
+//console.log("MAP ", mapManager);
 
   const languageManager = LanguageManager();
-  console.log(queryManager, queryManager.getParameters(), initParams);
+//console.log(queryManager, queryManager.getParameters(), initParams);
   languageManager.initialize(initParams['lang'] || 'en');
 
   const listManager = ListManager();
@@ -24,7 +42,7 @@
   * This will trigger the list update method
   */
   $(document).on('trigger-list-update', (event, options) => {
-    listManager.populateList();
+    listManager.populateList(options.params);
   });
 
   $(document).on('trigger-list-filter-update', (event, options) => {
@@ -48,7 +66,8 @@
   });
   // 3. markers on map
   $(document).on('trigger-map-plot', (e, opt) => {
-    mapManager.plotPoints(opt.data);
+//console.log(opt);
+    mapManager.plotPoints(opt.data, opt.params);
     $(document).trigger('trigger-map-filter');
   })
 
@@ -69,6 +88,21 @@
     $('body').toggleClass('map-view')
   });
 
+  $(document).on('click', 'button.btn.more-items', (e, opt) => {
+    $('#embed-area').toggleClass('open');
+  })
+
+  $(document).on('trigger-update-embed', (e, opt) => {
+    //update embed line
+    var copy = JSON.parse(JSON.stringify(opt));
+    delete copy['lng'];
+    delete copy['lat'];
+    delete copy['bound1'];
+    delete copy['bound2'];
+
+    $('#embed-area input[name=embed]').val('http://map.350.org.s3-website-us-east-1.amazonaws.com#' + $.param(copy));
+  });
+
   $(window).on("hashchange", (event) => {
     const hash = window.location.hash;
     if (hash.length == 0) return;
@@ -80,6 +114,7 @@
 
     $(document).trigger('trigger-list-filter-update', parameters);
     $(document).trigger('trigger-map-filter', parameters);
+    $(document).trigger('trigger-update-embed', parameters);
 
     // So that change in filters will not update this
     if (oldHash.bound1 !== parameters.bound1 || oldHash.bound2 !== parameters.bound2) {
@@ -110,9 +145,10 @@
       window.EVENTS_DATA.forEach((item) => {
         item['event_type'] = !item.event_type ? 'Action' : item.event_type;
       })
-      $(document).trigger('trigger-list-update');
+      $(document).trigger('trigger-list-update', { params: parameters });
       // $(document).trigger('trigger-list-filter-update', parameters);
-      $(document).trigger('trigger-map-plot', { data: window.EVENTS_DATA });
+      $(document).trigger('trigger-map-plot', { data: window.EVENTS_DATA, params: parameters });
+      $(document).trigger('trigger-update-embed', parameters);
       //TODO: Make the geojson conversion happen on the backend
     }
   });
@@ -120,7 +156,7 @@
   setTimeout(() => {
     $(document).trigger('trigger-list-filter-update', queryManager.getParameters());
     $(document).trigger('trigger-map-update', queryManager.getParameters());
-    console.log(queryManager.getParameters())
+//console.log(queryManager.getParameters())
   }, 100);
 
 })(jQuery);

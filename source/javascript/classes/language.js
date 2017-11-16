@@ -35,7 +35,7 @@ const LanguageManager = (($) => {
       targets: $targets,
       dictionary,
       initialize: (lang) => {
-        console.log("$targets", lang);
+//console.log("$targets", lang);
         $.ajax({
           url: 'http://gsx2json.com/api?id=1O3eByjL1vlYf7Z7am-_htRTQi73PafqIfNBdLmXe8SM&sheet=1',
           dataType: 'json',
@@ -47,7 +47,7 @@ const LanguageManager = (($) => {
         });
       },
       updateLanguage: (lang) => {
-        console.log("New Lang ::: ", lang);
+//console.log("New Lang ::: ", lang);
         language = lang;
         updatePageLanguage();
       }

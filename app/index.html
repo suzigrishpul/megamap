@@ -73,13 +73,14 @@
               <div class='col-md-5 offset-md-1 input-text'>
                 <input type="text"
                       class="form-control typeahead"
-                      name='search-location'
+                      name='loc'
                       placeholder=""
                       data-provider="typeahead"
                       autocomplete="off"
                       data-lang-target='placeholder'
                       data-lang-key='search'
                   >
+                <input type='hidden' name='key' />
                 <input type='hidden' name='lng' />
                 <input type='hidden' name='lat' />
                 <input type='hidden' name='bound1' />
@@ -130,13 +131,6 @@
       <section id='map'>
       </section>
       <section id='events-list-container'>
-        <aside id='embed-area'>
-          <h3>Embed this map</h3>
-          <div>
-            <input type='text' value='http://map.350.org.s3-website-us-east-1.amazonaws.com'/>
-            <button class='btn btn-info'><i class="fa fa-clipboard" aria-hidden="true"></i></button>
-          </div>
-        </aside>
         <header class='events-header'
           data-lang-target='text'
           data-lang-key='activity-in-area'
@@ -217,6 +211,21 @@
             </li>
           </ul>
         </div>
+        <aside id='embed-area'>
+          <button class='btn more-items'>
+            <i class="fa fa-chevron-up" aria-hidden="true"></i>
+          </button>
+          <div class='viewport'>
+            <div class='content'>
+              <h4>Embed this map</h4>
+              <p>Click the clipboard to copy</p>
+              <div id='embed-form'>
+                <input type='text' name='embed'/>
+                <button class='btn btn-info'><i class="fa fa-clipboard" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </div>
+        </aside>
       </section>
     </div>
   </div>
@@ -234,7 +243,7 @@
 
   <script type='text/javascript' src=''></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBujKTRw5uIXp_NHZgjYVDtBy1dbyNuGEM&callback=initializeAutocompleteCallback"
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHjNicQUZks7i0dLFEwskTHF6bdVty8Ck&callback=window.initializeAutocompleteCallback"
     async defer></script>
 <!-- SOCIAL -->
 <!-- Twitter -->

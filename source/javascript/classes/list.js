@@ -57,11 +57,19 @@ const ListManager = (($) => {
         $target.removeProp("class");
         $target.addClass(p.filter ? p.filter.join(" ") : '')
       },
-      populateList: () => {
+      populateList: (hardFilters) => {
         //using window.EVENT_DATA
+        const keySet = !hardFilters.key ? [] : hardFilters.key.split(',');
 
         var $eventList = window.EVENTS_DATA.map(item => {
-          return item.event_type !== 'Group' ? renderEvent(item) : renderGroup(item);
+          if (keySet.length == 0) {
+            return item.event_type !== 'Group' ? renderEvent(item) : renderGroup(item);
+          } else if (keySet.length > 0 && keySet.includes(item.event_type)) {
+            return item.event_type !== 'Group' ? renderEvent(item) : renderGroup(item);
+          }
+
+          return null;
+
         })
         $target.find('ul li').remove();
         $target.find('ul').append($eventList);
