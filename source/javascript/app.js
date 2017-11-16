@@ -12,19 +12,20 @@ let mapManager;
   const initParams = queryManager.getParameters();
   mapManager = MapManager();
 
+  console.log("Initialized");
   window.initializeAutocompleteCallback = () => {
+    console.log("Initialized");
     autocompleteManager = AutocompleteManager("input[name='loc']");
     autocompleteManager.initialize();
-    
+    console.log("Initialized");
     if (initParams.loc && initParams.loc !== '') {
       mapManager.initialize(() => {
-//console.log(initParams.loc);
         mapManager.getCenterByLocation(initParams.loc, (result) => {
-//console.log(result.geometry);
           queryManager.updateViewport(result.geometry.viewport);
         });
       })
     }
+  }
 //console.log("MAP ", mapManager);
 
   const languageManager = LanguageManager();
@@ -88,6 +89,17 @@ let mapManager;
     $('body').toggleClass('map-view')
   });
 
+  $(document).on('trigger-update-embed', (e, opt) => {
+    //update embed line
+    var copy = JSON.parse(JSON.stringify(opt));
+    delete copy['lng'];
+    delete copy['lat'];
+    delete copy['bound1'];
+    delete copy['bound2'];
+
+    $('#embed-area input[name=embed]').val('http://map.350.org.s3-website-us-east-1.amazonaws.com#' + $.param(copy));
+  });
+
   $(window).on("hashchange", (event) => {
     const hash = window.location.hash;
     if (hash.length == 0) return;
@@ -99,6 +111,7 @@ let mapManager;
 
     $(document).trigger('trigger-list-filter-update', parameters);
     $(document).trigger('trigger-map-filter', parameters);
+    $(document).trigger('trigger-update-embed', parameters);
 
     // So that change in filters will not update this
     if (oldHash.bound1 !== parameters.bound1 || oldHash.bound2 !== parameters.bound2) {
