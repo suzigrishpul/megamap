@@ -365,6 +365,8 @@ a {
         background-color: #1081e8;
         border-radius: 0.25rem 0.25rem 0 0;
         cursor: pointer; }
+        #stage div#activity-area #embed-area button.btn.more-items i {
+          transition: transform 0.5s; }
       #stage div#activity-area #embed-area button {
         cursor: pointer; }
       #stage div#activity-area #embed-area div.viewport {
@@ -385,6 +387,8 @@ a {
             #stage div#activity-area #embed-area div.viewport div.content #embed-form input[name='embed'] {
               flex-grow: 1;
               margin-right: 10px; }
+      #stage div#activity-area #embed-area.open i.fa-chevron-up {
+        transform: rotate(180deg); }
       #stage div#activity-area #embed-area.open div.viewport {
         max-height: 200px; }
     #stage div#activity-area #events-list-container #events-list ul li {

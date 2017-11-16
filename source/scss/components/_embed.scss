@@ -9,6 +9,8 @@
     background-color: #1081e8;
     border-radius: 0.25rem 0.25rem 0 0;
     cursor: pointer;
+
+    i { transition: transform 0.5s; }
   }
   button { cursor: pointer; }
 
@@ -38,7 +40,10 @@
   }
 
 
-  &.open div.viewport {
-    max-height: 200px;
+  &.open {
+    i.fa-chevron-up { transform: rotate(180deg); }
+    div.viewport {
+      max-height: 200px;
+    }
   }
 }
