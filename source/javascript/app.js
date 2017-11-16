@@ -11,13 +11,12 @@ let mapManager;
 
   const initParams = queryManager.getParameters();
   mapManager = MapManager();
-
-  console.log("Initialized");
+//console.log("Initialized");
   window.initializeAutocompleteCallback = () => {
-    console.log("Initialized");
+//console.log("Initialized");
     autocompleteManager = AutocompleteManager("input[name='loc']");
     autocompleteManager.initialize();
-    console.log("Initialized");
+//console.log("Initialized");
     if (initParams.loc && initParams.loc !== '') {
       mapManager.initialize(() => {
         mapManager.getCenterByLocation(initParams.loc, (result) => {
@@ -43,7 +42,7 @@ let mapManager;
   * This will trigger the list update method
   */
   $(document).on('trigger-list-update', (event, options) => {
-    listManager.populateList();
+    listManager.populateList(options.params);
   });
 
   $(document).on('trigger-list-filter-update', (event, options) => {
@@ -68,7 +67,7 @@ let mapManager;
   // 3. markers on map
   $(document).on('trigger-map-plot', (e, opt) => {
 //console.log(opt);
-    mapManager.plotPoints(opt.data);
+    mapManager.plotPoints(opt.data, opt.params);
     $(document).trigger('trigger-map-filter');
   })
 
@@ -88,6 +87,10 @@ let mapManager;
   $(document).on('click', 'button#show-hide-map', (e, opt) => {
     $('body').toggleClass('map-view')
   });
+
+  $(document).on('click', 'button.btn.more-items', (e, opt) => {
+    $('#embed-area').toggleClass('open');
+  })
 
   $(document).on('trigger-update-embed', (e, opt) => {
     //update embed line
@@ -142,9 +145,10 @@ let mapManager;
       window.EVENTS_DATA.forEach((item) => {
         item['event_type'] = !item.event_type ? 'Action' : item.event_type;
       })
-      $(document).trigger('trigger-list-update');
+      $(document).trigger('trigger-list-update', { params: parameters });
       // $(document).trigger('trigger-list-filter-update', parameters);
-      $(document).trigger('trigger-map-plot', { data: window.EVENTS_DATA });
+      $(document).trigger('trigger-map-plot', { data: window.EVENTS_DATA, params: parameters });
+      $(document).trigger('trigger-update-embed', parameters);
       //TODO: Make the geojson conversion happen on the backend
     }
   });

@@ -113,7 +113,14 @@ const MapManager = (($) => {
           $("#map").find(".event-item-popup." + item.toLowerCase()).show();
         })
       },
-      plotPoints: (list) => {
+      plotPoints: (list, hardFilters) => {
+
+        const keySet = !hardFilters.key ? [] : hardFilters.key.split(',');
+        console.log(keySet, list);
+        if (keySet.length > 0) {
+          list = list.filter((item) => keySet.includes(item.event_type))
+        }
+        console.log(list);;
 
         const geojson = {
           type: "FeatureCollection",
