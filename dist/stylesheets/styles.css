@@ -361,11 +361,16 @@ a {
     #stage div#activity-area #events-list-container #events-list.events li.Action {
       display: block; }
 
+#show-hide-map {
+  display: none; }
+
 @media (max-width: 990px) {
-  body #show-hide-map .show-map {
+  body #show-hide-map {
     display: block; }
-  body #show-hide-map .show-list {
-    display: none; }
+    body #show-hide-map .show-map {
+      display: block; }
+    body #show-hide-map .show-list {
+      display: none; }
   body.map-view #show-hide-map .show-list {
     display: block; }
   body.map-view #show-hide-map .show-map {
