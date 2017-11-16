@@ -6,6 +6,7 @@ section#events-list-container {
   position: relative;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
   header.events-header {
 

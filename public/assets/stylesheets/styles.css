@@ -264,7 +264,8 @@ a {
       border-left: 2px solid gray;
       position: relative;
       display: flex;
-      flex-direction: column; }
+      flex-direction: column;
+      overflow: hidden; }
       #stage div#activity-area section#events-list-container header.events-header {
         text-transform: uppercase;
         font-size: 32px;
