@@ -2,7 +2,7 @@ section#events-list-container {
   width: 400px;
   height: inherit;
   background-color: whitesmoke;
-  border-left: 2px solid gray;
+  border-left: 1px solid rgba(0,0,0,0.3);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -26,7 +26,11 @@ section#events-list-container {
     flex-grow: 1;
     overflow: auto;
     height: inherit;
-
+    .event-date, .event-address{
+      color:rgba(21,35,45,0.8);
+      font-size:0.95em;}
+    .event-date{
+      font-weight:bold;}
     & > ul {
 
       & > li {

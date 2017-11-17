@@ -6,38 +6,37 @@ $red: #FF6112;
 $teal: #40D7D4;
 
 @mixin klima {
-  font-family: 'klima', 'arial', sans-serif;
+  font-family: 'KlimaWeb', -apple-system, BlinkMacSystemFont, 'arial', sans-serif;
 }
 
 @mixin graph {
-  font-family: 'graph', 'arial', sans-serif;
+  font-family: 'GraphCondensedWeb', -apple-system, BlinkMacSystemFont, 'arial', sans-serif;
 }
+$font-secondary: 'Overpass Mono',Menlo,monaco,courier,monospace;
 
 @mixin event-item {
   ul.event-types-list {
-    margin-bottom: 15px;
+    margin-bottom: 8px;
     li {
+      border-radius: 4px;
       display: inline-block;
       background-color: lightgray;
       border: 1px solid lightgray;
-      padding: 2px 5px;
-      border-radius: 4px;
+      margin-bottom:0.3em;
+      padding: 2px 5px 0;
       font-size: 12px;
-      @include klima;
     }
   }
 
   h2 {
     @include klima;
     margin-bottom: 0;
-    line-height: 34px;
-    font-weight: 600;
-    font-size: 32px;
-    text-indent: 30px;
-    position: relative;
+    line-height: 1.2;
+    font-weight:700;
+    font-size:24px;
 
     cursor: pointer;
-    &:before {
+  /*  &:before {
       content: ' ';
       width: 18px;
       height: 18px;
@@ -57,26 +56,13 @@ $teal: #40D7D4;
       left: 0px;
       top: -3px;
       border-radius: 50%;
-      border: 3px solid white;
-    }
+    } */
   }
-  h4 {
-    text-transform: uppercase;
-    @include graph;
-    font-size: 20px;
-  }
-  p {
-    margin-bottom: 0;
-    line-height: 1.5;
-    font-size: 16px;
-    @include klima;
-  }
+
   a.btn.btn-primary {
     font-size: 13px;
     padding: 7px 12px 6px;
     font-weight: 600;
-    width: 140px;
-
   }
 
   div.type-event {

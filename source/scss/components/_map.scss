@@ -1,19 +1,31 @@
 section#map {
   flex-grow: 1;
   background-color: whitesmoke;
+  font-size:1rem;
+  @include klima;
 
   div.leaflet-popup {
     .leaflet-container a.leaflet-popup-close-button {
       top: 10px;
       right: 10px;
     }
+    .leaflet-popup-content-wrapper{
+      border-radius:5px;}
+    .event-date, .event-address{
+      color:rgba(21,35,45,0.8);
+      font-size:0.95em;}
+    .event-date{
+      font-weight:bold;}
     div.leaflet-popup-content {
       min-width: 350px;
-      background-color:whitesmoke;
       padding: 10px;
       margin: 10px;
+      p{
+        margin-top:0;}
       @include event-item {
         a.btn-primary { color: white; }
+        .event-title{
+          margin-bottom:0.5rem;}
       };
     }
   }

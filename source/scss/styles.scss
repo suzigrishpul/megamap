@@ -3,6 +3,7 @@
 
 html, body {
   height: 100%;
+  font-size:16px;
 }
 ul, li {
   margin: 0;
@@ -17,12 +18,32 @@ a {
   }
 }
 .btn.btn-primary {
-  @include klima;
-  background-color: $indigo;
-  border-color: $indigo;
+  background-color:$teal;
+  border-color:$teal;
+  color:#fff;
+  font-weight:bold;
   &:hover {
-    background-color: $light-indigo;
-    border-color: $light-indigo;
+    background-color: $blue;
+  }
+}
+.btn.btn-secondary {
+  background-color:transparent;
+  border-color: $indigo;
+  border-width:2px;
+  border-style:solid;
+  color:$indigo;
+  &:hover {
+    background-color: $indigo;
+    color:#fff;
+  }
+}
+.btn.btn-tertiary {
+  background-color:#d4d6d7;
+  border-color:#d4d6d7;
+  border-width:1px;
+  border-style:solid;
+  &:hover {
+    background-color:#c4c6c7;
   }
 }
 
