@@ -6,11 +6,12 @@
     top: -38px;
     right: 15px;
     color: white;
-    background-color: #1081e8;
+    background-color: lightgray;
     border-radius: 0.25rem 0.25rem 0 0;
     cursor: pointer;
-
-    i { transition: transform 0.5s; }
+    outline: 0;
+    &:focus { outline: none !important; }
+    i { color: #333; transition: transform 0.5s; }
   }
   button { cursor: pointer; }
 
@@ -18,16 +19,16 @@
     max-height: 0;
     transition: max-height 0.5s;
     div.content {
-      background-color: #1081e8;
+      background-color: lightgray;
       width: 100%;
       padding: 10px;
 
       h4 {
-        color: white;
+        color: #333333;
         font-weight: bold;
       }
 
-      p { padding: 0; color: white;}
+      p { padding: 0; color: #333333;}
 
       #embed-form {
         display: flex;

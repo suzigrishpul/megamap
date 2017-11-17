@@ -56,12 +56,13 @@
   <div id='stage'>
     <header class='page-header'>
       <nav>
+            <!--  Removed at develop-m
             <a href='//350.org' class='title-area'>
               <img src='/img/orange-arrow.svg' class='logo' />
               <span
                 data-lang-target='text'
                 data-lang-key='title'></span>
-            </a>
+            </a> -->
         <div class='filters-form-area'>
           <form id="filters-form">
             <input type='hidden' name='lang' value='en'/>
@@ -82,7 +83,11 @@
                 <input type='hidden' name='bound1' />
                 <input type='hidden' name='bound2' />
                 <div class='search-button'>
-                  <button class='btn btn-tertiary'>Search</button>
+                  <button
+                    class='btn btn-tertiary'
+                    data-lang-target='text'
+                    data-lang-key='search-button'
+                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
                 </div>
               </div>
               <div class='col-md-4 filter-area'>
@@ -102,10 +107,10 @@
                     >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                   </span>
                 </div>
-                  <button class='btn btn-primary'
+                  <!-- <button class='btn btn-primary'
                   data-lang-target='text'
                   data-lang-key='search-button'
-                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button> -->
 
                 <button class='btn btn-primary' id="show-hide-map">
                   <span class='show-map' data-lang-target='text'
@@ -117,9 +122,9 @@
             </div>
           </form>
         </div>
-          <p
+          <!-- <p
             data-lang-target='text'
-            data-lang-key='find-cta'></p>
+            data-lang-key='find-cta'></p> -->
       </nav>
     </header>
     <div id='activity-area'>

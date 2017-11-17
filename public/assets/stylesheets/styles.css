@@ -328,10 +328,14 @@ a {
         top: -38px;
         right: 15px;
         color: white;
-        background-color: #1081e8;
+        background-color: lightgray;
         border-radius: 0.25rem 0.25rem 0 0;
-        cursor: pointer; }
+        cursor: pointer;
+        outline: 0; }
+        #stage div#activity-area #embed-area button.btn.more-items:focus {
+          outline: none !important; }
         #stage div#activity-area #embed-area button.btn.more-items i {
+          color: #333;
           transition: transform 0.5s; }
       #stage div#activity-area #embed-area button {
         cursor: pointer; }
@@ -339,15 +343,15 @@ a {
         max-height: 0;
         transition: max-height 0.5s; }
         #stage div#activity-area #embed-area div.viewport div.content {
-          background-color: #1081e8;
+          background-color: lightgray;
           width: 100%;
           padding: 10px; }
           #stage div#activity-area #embed-area div.viewport div.content h4 {
-            color: white;
+            color: #333333;
             font-weight: bold; }
           #stage div#activity-area #embed-area div.viewport div.content p {
             padding: 0;
-            color: white; }
+            color: #333333; }
           #stage div#activity-area #embed-area div.viewport div.content #embed-form {
             display: flex; }
             #stage div#activity-area #embed-area div.viewport div.content #embed-form input[name='embed'] {
