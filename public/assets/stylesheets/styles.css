@@ -63,6 +63,8 @@ a {
       display: flex; }
       #stage header.page-header nav a {
         white-space: nowrap; }
+          #stage header.page-header nav div.logo-area h1 a {
+            white-space: nowrap; }
       #stage header.page-header nav div.filters-form-area {
         flex-grow: 1; }
         #stage header.page-header nav div.filters-form-area .row {
