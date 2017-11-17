@@ -1,48 +1,45 @@
 header.page-header {
-  background-color: whitesmoke;
-  height: 100px;
+  background-color:#eaedef;
+  padding:1.5em;
+  border-bottom: 1px solid rgba(0,0,0,0.13);
 
   nav {
     height: inherit;
     display: flex;
-    border-bottom: 2px solid gray;
-    div.logo-area {
-      width: 300px;
-      height: 100%;
-
-      h1 {
-        @include graph;
-        font-size: 78px;
-        font-weight: 800;
         a { white-space: nowrap; }
-        img.logo {
-          height: 50px;
-          padding: 0 5px 0 7px;
-        }
-      }
-    } //div.logo-area
     div.filters-form-area {
       flex-grow: 1;
-      padding-top: 25px;
 
+      .row{
+        justify-content: space-between;}
       div.filter-area {
         display: flex;
         div.filter-container {
           padding-top: 5px;
-        }
-        div.search-button {
-          flex-grow: 1;
-          text-align: left;
+          text-align: right;
+          width: 100%;
         }
       }
 
       form {
         width: 100%;
+        .search-wrapper{
+          display:flex;}
+          div.search-button {
+            flex-grow: 1;
+            text-align: left;
+
+            .btn{
+              border-radius:0 4px 4px 0;
+              left:-5px;
+              position:relative;}
+          }
         .twitter-typeahead {
-          width: 100%;
+          width: 85%;
+          width:calc(100% - 120px);
 
           .tt-dropdown-menu {
-            background-color: whitesmoke;
+            background-color: #fafeff;
             border: solid 1px lightgray;
             padding: 5px 10px;
             width: 100%;
@@ -56,6 +53,9 @@ header.page-header {
             }
           }
         }
+        .search-button{
+          display:inline-block;
+          width:120px;}
         button { cursor: pointer; }
         span.filter-item {
           margin-right: 20px;
@@ -77,20 +77,19 @@ header.page-header {
             }
             &:after {
               content: ' ';
-              width: 28px;
-              height: 28px;
+              width: 1.3em;
+              height: 1.3em;
               position: absolute;
               background-color: lightgray;
-              left: -30px;
-              top: -3px;
+              left: -1.5em;
+              top: .15em;
               border-radius: 50%;
-              border: 3px solid white;
             }
           } //label
           input[value='events'] {
             & + label{
               &:before {
-                background-image: url(/img/human.svg);
+                // background-image: url(/img/human.svg);
               }
             }
             &:checked + label:after {
@@ -101,7 +100,7 @@ header.page-header {
           input[value='groups'] {
             & + label {
               &:before {
-                background-image: url(/img/flag.svg);
+                // background-image: url(/img/flag.svg);
               }
             }
 

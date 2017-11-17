@@ -6,9 +6,6 @@ section#header {
   border-bottom: 2px solid #e6f0fa;
 
   nav {
-    position: absolute;
-    top: 6px;
-    right: 3px;
 
     li {
       a.contribute {
@@ -67,44 +64,6 @@ section#header {
         }
 
       }
-    }
-  }
-  div#spiel {
-    margin-top: 0;
-    margin-left: 10px;
-    font-weight: 300;
-    display: inline-block;
-    color: rgba(255,255,255,.52);
-    background-image: $logo;
-    width: 89px;
-    height: 45px;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: absolute;
-    z-index: 1000;
-    left: 40px;
-    top: 0px;
-
-    background-size: 75%;
-    background-color: #0f82e8;
-    // float: left;
-
-    strong {
-      text-transform: uppercase;
-      letter-spacing: 5px;
-      font-size: 36px;
-      padding: 4px;
-      display: inline-block;
-
-    }
-  }
-  a#header-logo {
-    img {
-      float: left;
-      margin-left: 10px;
-      height: 43px;
-      margin-top: 10px;
-      width: auto;
     }
   }
 }

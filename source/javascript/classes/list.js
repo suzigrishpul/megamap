@@ -6,20 +6,20 @@ const ListManager = (($) => {
 
     const renderEvent = (item) => {
 
-      var date = moment(item.start_datetime).format("dddd • MMM DD h:mma");
+      var date = moment(item.start_datetime).format("dddd MMM DD – h:mma");
       return `
-      <li class='${item.event_type || ''} Action' data-lat='${item.lat}' data-lng='${item.lng}'>
+      <li class='${item.event_type}' data-lat='${item.lat}' data-lng='${item.lng}'>
         <div class="type-event type-action">
           <ul class="event-types-list">
-            <li>${item.event_type}</li>
+            <li class='tag-${item.event_type} tag'>${item.event_type}</li>
           </ul>
-          <h2><a href="//${item.url}" target='_blank'>${item.title}</a></h2>
-          <h4>${date}</h4>
-          <div class="address-area">
+          <h2 class="event-title"><a href="//${item.url}" target='_blank'>${item.title}</a></h2>
+          <div class="event-date date">${date}</div>
+          <div class="event-address address-area">
             <p>${item.venue}</p>
           </div>
           <div class="call-to-action">
-            <a href="//${item.url}" target='_blank' class="btn btn-primary">RSVP</a>
+            <a href="//${item.url}" target='_blank' class="btn btn-secondary">RSVP</a>
           </div>
         </div>
       </li>
@@ -40,7 +40,7 @@ const ListManager = (($) => {
             </p>
           </div>
           <div class="call-to-action">
-            <a href="//${item.url}" target='_blank' class="btn btn-primary">Get Involved</a>
+            <a href="//${item.url}" target='_blank' class="btn btn-secondary">Get Involved</a>
           </div>
         </div>
       </li>
