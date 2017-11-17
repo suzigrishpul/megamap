@@ -12,7 +12,6 @@ const QueryManager = (($) => {
       lng = $target.find("input[name=lng]").val();
 
       var form = $.deparam($target.serialize());
-      delete form['search-location'];
 
       window.location.hash = $.param(form);
     })
@@ -26,10 +25,13 @@ const QueryManager = (($) => {
       initialize: (callback) => {
         if (window.location.hash.length > 0) {
           var params = $.deparam(window.location.hash.substring(1))
+          $target.find("input[name=lang]").val(params.lang);
           $target.find("input[name=lat]").val(params.lat);
           $target.find("input[name=lng]").val(params.lng);
           $target.find("input[name=bound1]").val(params.bound1);
           $target.find("input[name=bound2]").val(params.bound2);
+          $target.find("input[name=loc]").val(params.loc);
+          $target.find("input[name=key]").val(params.key);
 
           if (params.filter) {
             $target.find(".filter-item input[type=checkbox]").removeProp("checked");
@@ -45,7 +47,13 @@ const QueryManager = (($) => {
       },
       getParameters: () => {
         var parameters = $.deparam($target.serialize());
-        delete parameters['search-location'];
+        // parameters['location'] ;
+
+        for (const key in parameters) {
+          if ( !parameters[key] || parameters[key] == "") {
+            delete parameters[key];
+          }
+        }
 
         return parameters;
       },

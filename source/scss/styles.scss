@@ -63,7 +63,8 @@ a {
 
     @import 'components/map';
     @import 'components/events_list';
-
+    @import 'components/embed';
+    
     #events-list-container  {
       #events-list {
         ul li { display: none; }
@@ -75,3 +76,6 @@ a {
 
   }
 }
+
+
+@import 'mobile/mobile';
