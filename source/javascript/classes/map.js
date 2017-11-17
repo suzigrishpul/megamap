@@ -2,20 +2,20 @@
 const MapManager = (($) => {
 
   const renderEvent = (item) => {
-    var date = moment(item.start_datetime).format("dddd • MMM DD h:mma");
+    var date = moment(item.start_datetime).format("dddd MMM DD, h:mma");
     return `
     <div class='popup-item ${item.event_type}' data-lat='${item.lat}' data-lng='${item.lng}'>
       <div class="type-event">
         <ul class="event-types-list">
-          <li>${item.event_type || 'Action'}</li>
+          <li class="tag tag-${item.event_type}">${item.event_type || 'Action'}</li>
         </ul>
-        <h2><a href="//${item.url}" target='_blank'>${item.title}</a></h2>
-        <h4>${date}</h4>
-        <div class="address-area">
+        <h2 class="event-title"><a href="//${item.url}" target='_blank'>${item.title}</a></h2>
+        <div class="event-date">${date}</div>
+        <div class="event-address address-area">
           <p>${item.venue}</p>
         </div>
         <div class="call-to-action">
-          <a href="//${item.url}" target='_blank' class="btn btn-primary">RSVP</a>
+          <a href="//${item.url}" target='_blank' class="btn btn-secondary">RSVP</a>
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@ const MapManager = (($) => {
           </p>
         </div>
         <div class="call-to-action">
-          <a href="//${item.url}" target='_blank' class="btn btn-primary">Get Involved</a>
+          <a href="//${item.url}" target='_blank' class="btn btn-secondary">Get Involved</a>
         </div>
       </div>
     </div>

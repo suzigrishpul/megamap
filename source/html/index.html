@@ -52,29 +52,25 @@
   <div id='stage'>
     <header class='page-header'>
       <nav>
-        <div class='logo-area'>
-          <h1>
-            <a href='//350.org'>
-              <img src='/img/orange-arrow.svg' class='logo' />350 map
-            </a>
-          </h1>
-        </div>
         <div class='filters-form-area'>
           <form id="filters-form">
             <div class='row'>
-              <div class='col-md-5 offset-md-1 input-text'>
+              <div class='col-md-8 input-text search-wrapper'>
                 <input type="text"
                       class="form-control typeahead"
                       name='search-location'
-                      placeholder="City, State, or Country"
+                      placeholder="Search the map for a location... (Country, Region, City)"
                       data-provider="typeahead"
                       autocomplete="off">
                 <input type='hidden' name='lng' />
                 <input type='hidden' name='lat' />
                 <input type='hidden' name='bound1' />
                 <input type='hidden' name='bound2' />
+                <div class='search-button'>
+                  <button class='btn btn-tertiary'>Search</button>
+                </div>
               </div>
-              <div class='col-md-5 filter-area'>
+              <div class='col-md-4 filter-area'>
                 <div class='filter-container'>
                   <span class='filter-item'>
                     <input type='checkbox' name='filter[]' id='events' value='events' checked/>
@@ -85,15 +81,9 @@
                     <label for='groups'>Show Groups</label>
                   </span>
                 </div>
-                <div class='search-button'>
-                  <button class='btn btn-primary'>Search</button>
-                </div>
               </div>
             </div>
           </form>
-        </div>
-        <div class='cta-area'>
-          <p>Find an event or group near you!</p>
         </div>
       </nav>
     </header>
@@ -101,9 +91,6 @@
       <section id='map'>
       </section>
       <section id='events-list-container'>
-        <header class='events-header'>
-          Activity in your area:
-        </header>
         <div id='events-list'>
           <ul>
             <li>
