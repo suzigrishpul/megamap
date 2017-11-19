@@ -4,19 +4,6 @@
   border-bottom: 1px solid rgba(200, 211, 222, 0.2);
   border-left: 4px solid rgba(0,0,0,0);
 
-  h5.official-tag {
-    font-size: 9px;
-    text-transform: uppercase;
-    color: #F55B5B;
-    font-weight: 400;
-    border-radius: 2px;
-    border: 1px solid;
-    display: inline-block;
-    padding: 2px 3px;
-    line-height: 14px;
-    margin: 4px 0;
-  }
-
   h5 {
     font-weight: 300;
     color: #929292;
@@ -33,12 +20,10 @@
     display: inline-block;
     font-family: 'klima', sans-serif;
   }
-  p {
-    margin: 10px 0 5px;
-    font-family: $serif;
-    font-size: 14px;
-    line-height: 18px;
-  }
+
+  .tag-Action{
+    background-color:$indigo;
+    color:#fff;}
 
   &:last-child { border: none; }
   div.social-area {

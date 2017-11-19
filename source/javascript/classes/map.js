@@ -2,20 +2,20 @@
 const MapManager = (($) => {
 
   const renderEvent = (item) => {
-    var date = moment(item.start_datetime).format("dddd • MMM DD h:mma");
+    var date = moment(item.start_datetime).format("dddd MMM DD, h:mma");
     return `
     <div class='popup-item ${item.event_type}' data-lat='${item.lat}' data-lng='${item.lng}'>
       <div class="type-event">
         <ul class="event-types-list">
-          <li>${item.event_type || 'Action'}</li>
+          <li class="tag tag-${item.event_type}">${item.event_type || 'Action'}</li>
         </ul>
-        <h2><a href="//${item.url}" target='_blank'>${item.title}</a></h2>
-        <h4>${date}</h4>
-        <div class="address-area">
+        <h2 class="event-title"><a href="//${item.url}" target='_blank'>${item.title}</a></h2>
+        <div class="event-date">${date}</div>
+        <div class="event-address address-area">
           <p>${item.venue}</p>
         </div>
         <div class="call-to-action">
-          <a href="//${item.url}" target='_blank' class="btn btn-primary">RSVP</a>
+          <a href="//${item.url}" target='_blank' class="btn btn-secondary">RSVP</a>
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@ const MapManager = (($) => {
           </p>
         </div>
         <div class="call-to-action">
-          <a href="//${item.url}" target='_blank' class="btn btn-primary">Get Involved</a>
+          <a href="//${item.url}" target='_blank' class="btn btn-secondary">Get Involved</a>
         </div>
       </div>
     </div>
@@ -66,16 +66,22 @@ const MapManager = (($) => {
     })
   }
 
-  return () => {
+  return (callback) => {
     var map = L.map('map').setView([34.88593094075317, 5.097656250000001], 2);
 
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors • <a href="//350.org">350.org</a>'
     }).addTo(map);
 
-    // map.fitBounds([ [[40.7216015197085, -73.85174698029152], [40.7242994802915, -73.8490490197085]] ]);
+    let geocoder = null;
     return {
       $map: map,
+      initialize: (callback) => {
+        geocoder = new google.maps.Geocoder();
+        if (callback && typeof callback === 'function') {
+            callback();
+        }
+      },
       setBounds: (bounds1, bounds2) => {
         const bounds = [bounds1, bounds2];
         map.fitBounds(bounds);
@@ -85,19 +91,36 @@ const MapManager = (($) => {
               || !center[1] || center[1] == "") return;
         map.setView(center, zoom);
       },
+      // Center location by geocoded
+      getCenterByLocation: (location, callback) => {
+//console.log("Finding location of ", location);
+        geocoder.geocode({ address: location }, function (results, status) {
+//console.log("LOCATION MATCH:: ", results, status);
+          if (callback && typeof callback === 'function') {
+            callback(results[0])
+          }
+        });
+      },
       filterMap: (filters) => {
-        console.log("filters >> ", filters);
+//console.log("filters >> ", filters);
         $("#map").find(".event-item-popup").hide();
-        console.log($("#map").find(".event-item-popup"));
+//console.log($("#map").find(".event-item-popup"));
 
         if (!filters) return;
 
         filters.forEach((item) => {
-          console.log(".event-item-popup." + item.toLowerCase());
+//console.log(".event-item-popup." + item.toLowerCase());
           $("#map").find(".event-item-popup." + item.toLowerCase()).show();
         })
       },
-      plotPoints: (list) => {
+      plotPoints: (list, hardFilters) => {
+
+        const keySet = !hardFilters.key ? [] : hardFilters.key.split(',');
+        console.log(keySet, list);
+        if (keySet.length > 0) {
+          list = list.filter((item) => keySet.includes(item.event_type))
+        }
+        console.log(list);;
 
         const geojson = {
           type: "FeatureCollection",
