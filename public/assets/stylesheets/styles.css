@@ -393,7 +393,8 @@ a {
     display: flex;
     flex-direction: column; }
     body div#stage header.page-header {
-      height: auto; }
+      height: auto;
+      padding: 5px; }
       body div#stage header.page-header nav {
         display: flex;
         flex-direction: column;
@@ -405,18 +406,33 @@ a {
           padding-top: 0;
           padding: 0 10px 5px; }
           body div#stage header.page-header nav div.filters-form-area .input-text {
-            background-color: #f5f5f5; }
-          body div#stage header.page-header nav div.filters-form-area div.filter-container {
-            margin-left: 20px;
+            background-color: none;
             margin-top: 10px; }
-            body div#stage header.page-header nav div.filters-form-area div.filter-container span {
-              display: block; }
-          body div#stage header.page-header nav div.filters-form-area div.search-button {
-            display: none; }
+            body div#stage header.page-header nav div.filters-form-area .input-text span.twitter-typeahead {
+              display: block;
+              flex-grow: 1;
+              flex: 0 1 100%; }
+            body div#stage header.page-header nav div.filters-form-area .input-text div.search-button {
+              flex-grow: 0; }
+          body div#stage header.page-header nav div.filters-form-area .filter-area {
+            flex-direction: column; }
+            body div#stage header.page-header nav div.filters-form-area .filter-area div.filter-container {
+              display: flex;
+              margin: 0;
+              margin-top: 10px;
+              padding: 0; }
+              body div#stage header.page-header nav div.filters-form-area .filter-area div.filter-container span {
+                display: block;
+                flex: 0 0 50%;
+                text-align: left;
+                margin: 0;
+                margin-left: 10px; }
+                body div#stage header.page-header nav div.filters-form-area .filter-area div.filter-container span label {
+                  display: inline-block;
+                  max-width: calc(100% - 50px);
+                  font-size: 14px; }
           body div#stage header.page-header nav div.filters-form-area button#show-hide-map {
-            position: absolute;
-            right: 16px;
-            top: 24px; }
+            margin-top: 10px; }
         body div#stage header.page-header nav div.cta-area {
           width: 100%;
           text-align: center;
