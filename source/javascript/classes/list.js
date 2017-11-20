@@ -6,7 +6,7 @@ const ListManager = (($) => {
 
     const renderEvent = (item) => {
 
-      var date = moment(item.start_datetime).format("dddd MMM DD – h:mma");
+      var date = moment(item.start_datetime).format("dddd MMM DD, h:mma");
       return `
       <li class='${item.event_type} event-obj' data-lat='${item.lat}' data-lng='${item.lng}'>
         <div class="type-event type-action">
