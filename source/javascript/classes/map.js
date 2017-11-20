@@ -128,7 +128,10 @@ const MapManager = (($) => {
       },
       getBounds: () => {
 
-        return map.getBounds();
+        let sw = [map.getBounds()._southWest.lat, map.getBounds()._southWest.lng];
+        let ne = [map.getBounds()._northEast.lat, map.getBounds()._northEast.lng];
+
+        return [sw, ne];
       },
       // Center location by geocoded
       getCenterByLocation: (location, callback) => {

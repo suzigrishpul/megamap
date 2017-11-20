@@ -56,12 +56,16 @@ let mapManager;
   });
 
   $(document).on('trigger-list-filter-by-bound', (event, options) => {
+    let bound1, bound2;
+    
     if (!options || !options.bound1 || !options.bound2) {
-      return;
+      [bound1, bound2] = mapManager.getBounds();
+    } else {
+      bound1 = JSON.parse(options.bound1);
+      bound2 = JSON.parse(options.bound2);
     }
 
-    var bound1 = JSON.parse(options.bound1);
-    var bound2 = JSON.parse(options.bound2);
+
 
     listManager.updateBounds(bound1, bound2)
   })
