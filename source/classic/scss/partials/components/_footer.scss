@@ -1,0 +1,22 @@
+footer #footer-area {
+  padding: 10px;
+  margin: 20px;
+  background-color: $blue-350;
+  border-radius: 5px;
+
+  #footer-logo {
+    background-image: $logo-350;
+    width: 94px;
+    height: 38px;
+    display: inline-block;
+    background-repeat: no-repeat;
+  }
+
+  p, sub {
+
+    font-family: 'graph';
+    font-size: 17px;
+    color: white;
+    a { color: white; }
+  }
+}

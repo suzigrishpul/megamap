@@ -1,64 +1,88 @@
-@import 'partials/reset';
-@import 'partials/variables';
-@import 'partials/mixins';
-@import 'partials/base';
-@import 'partials/components/components';
+@import 'fonts';
+@import 'vars';
 
 html, body {
-  padding : 0;
+  height: 100%;
+  font-size:16px;
+}
+ul, li {
   margin: 0;
-  height: 100%;
-  position: relative;
-
-  height: 100%;
-  overflow: hidden;
-
-  *.montserrat, .primary_font, *.lato {
-    font-family: $sans-serif;
-    font-weight: 200;
-  }
-  *.merriweather {
-    font-family: 'merriweather', serif;
-  }
-
-  a.hide-office { display: none !important;}
-  a.show-office { display: inline-block;}
-  section#campaign-offices {
-    display: none;
-  }
-
-  &.show-office {
-    a.hide-office { display: inline-block !important;}
-    a.show-office { display: none !important;}
-    section#campaign-offices {
-      display: block;
-    }
-  }
-
-
-  a {
+  padding: 0;
+  list-style-type: none;
+}
+a {
+  color: $indigo;
+  &:hover {
+    color: $light-indigo;
     text-decoration: none;
-    // color: $secondary_color;
-    color: black;
-  }
-
-  .contribute.contribute-big {
-    font-weight: bold;
-    font-size: 12px;
-    background-color: $highlight_color;
-    letter-spacing: 0.15em;
-    margin: 0.3em auto 0;
-    border-radius: 3px;
-    padding: 0.7rem 1.7rem;
-    color: white;
-    display: inline-block;
-    text-transform: uppercase;
-
-    transition: $highlight_transition;
-
-    &:hover {
-      background-color: $darkred;
-      @extend .highlight_hover;
-    }
   }
 }
+.btn.btn-primary {
+  background-color:$teal;
+  border-color:$teal;
+  color:#fff;
+  font-weight:bold;
+  &:hover {
+    background-color: $blue;
+  }
+}
+.btn.btn-secondary {
+  background-color:transparent;
+  border-color: $indigo;
+  border-width:2px;
+  border-style:solid;
+  color:$indigo;
+  &:hover {
+    background-color: $indigo;
+    color:#fff;
+  }
+}
+.btn.btn-tertiary {
+  background-color:#d4d6d7;
+  border-color:#d4d6d7;
+  border-width:1px;
+  border-style:solid;
+  &:hover {
+    background-color:#c4c6c7;
+  }
+}
+
+#stage {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+
+  @import 'components/header';
+
+  div#activity-area {
+    background-color: green;
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+
+
+    @import 'components/map';
+    @import 'components/events_list';
+    @import 'components/embed';
+
+    #events-list-container  {
+      #events-list {
+        ul li { display: none; }
+
+        &.groups li.group-obj {
+          display: block;
+          &:not(.within-bound) { display: none; }
+        }
+        &.events li.event-obj {
+          display: block;
+
+          &:not(.within-bound) { display: none; }
+        }
+      }
+    }
+
+  }
+}
+
+
+@import 'mobile/mobile';

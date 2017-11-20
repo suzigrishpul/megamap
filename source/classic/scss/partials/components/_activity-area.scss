@@ -1,0 +1,110 @@
+section#activity-area {
+  @include calc(height, '100% - 70px');
+article#map {
+  position: relative;
+  div#map-container { width: 100%; height: 100%;}
+  float: left;
+  // &.map-view {
+  .leaflet-popup-close-button { z-index: 100;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+  @include calc(width, '100% - 400px');
+  height: 100%;
+
+  div#announcement {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    text-align: center;
+    background-color: $highlight_color;
+     color: white;
+     padding: 5px 0;
+  }
+
+  background-color: whitesmoke;
+  // }
+  .leaflet-popup-content-wrapper {
+    padding: 10px 10px;
+    border-radius: 3px;
+    border-top: 2px solid black;
+
+    .leaflet-popup-content {
+      margin: 0px;
+
+      min-height: 140px;
+      position: relative;
+      h3.sched-count {
+        margin: -5px 0 0 -5px;
+        display: inline-block;
+        position: absolute;
+        top: -23px;
+        left: 4px;
+        padding: 4px 10px 3px;
+        background-color: $secondary_color;
+        color: white;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-family: $sans-serif;
+        letter-spacing: 1px;
+        border-radius: 10px 10px 0 0;
+      }
+    }
+  }
+  div.popup-list-container {
+    max-height: 310px;
+    overflow: auto;
+
+    ul.popup-list {
+      li {
+        a.rsvp-link {
+          padding: 6px 8px 2px;
+        }
+      }
+      div.campaign-office {
+        img { /*display: none;*/ width: 100%; }
+        .time-info {
+          display: none;
+        }
+      }
+    }
+    ul {
+      li {
+        @include eventListItem;
+
+        h5 {
+          font-size: 14px;
+          font-weight: 300;
+          color: gray;
+          margin-bottom: 0px;
+        }
+        h3,p { margin-bottom: 0; }
+
+        padding: 10px 0;
+        border-bottom: 1px dotted rgba(0,0,0, 0.4);
+
+        &:first-child { padding-top: 0; }
+        &:last-child { padding-bottom: 0; border: none;}
+
+        div.rsvp-attending {
+          a { color: white;}
+          line-height: 1;
+          &:after {
+            left: 128px;
+            bottom: 0px;
+          }
+        }
+
+        div.event-rsvp-activity {
+          top: auto;
+          bottom: 1px;
+          left: 0px;
+        }
+      }
+    }
+  }
+}
+//end of div#map
+
+}

@@ -1,203 +1,190 @@
-(function($, d3) {
-  var date = new Date();
-  $("#loading-icon").show();
+let autocompleteManager;
+let mapManager;
 
-  $.ajax({
-    url: 'https://dnb6leangx6dc.cloudfront.net/output/350org.js.gz', //'|**DATA_SOURCE**|',
-    dataType: 'script',
-    cache: true, // otherwise will get fresh copy every page load
-    success: function(data) {
-      d3.csv('//d1y0otadi3knf6.cloudfront.net/d/us_postal_codes.gz',
-        function(zipcodes) {
-          $("#loading-icon").hide();
-          //Clean data
-          window.EVENTS_DATA.forEach(function(d) {
-            d.filters = [];
-            //Set filter info
-            switch (d.event_type) {
-              case "Group":
-                d.filters.push('group');
-                break;
-              case "Action":
-                d.filters.push('action');
-                break;
-              default:
-                d.filters.push('other');
-                break;
-            }
+(function($) {
 
-            d.is_official = d.is_official == "1";
-            if (d.is_official) {
-              d.filters.push("official-event");
-            }
-          });
-          var params = $.deparam(window.location.hash.substring(1))
-          var oldDate = new Date();
+  // 1. google maps geocode
 
-          /* Extract default lat lon */
-          var m = /.*\?c=(.+?),(.+?),(\d+)z#?.*/g.exec(window.location.href)
-          if (m && m[1] && m[2] && m[3]) {
-            var defaultCoord = {
-              center: [parseFloat(m[1]), parseFloat(m[2])],
-              zoom: parseInt(m[3])
-            };
-            window.mapManager = MapManager(window.EVENTS_DATA, campaignOffices, zipcodes, {
-              defaultCoord: defaultCoord
-            });
+  // 2. focus map on geocode (via lat/lng)
+  const queryManager = QueryManager();
+        queryManager.initialize();
 
-            window.mapManager.filterByCoords(defaultCoord.center, 50, params.sort, params.f);
-          } else {
-            window.mapManager = MapManager(window.EVENTS_DATA, null, zipcodes);
-          }
+  const initParams = queryManager.getParameters();
+  mapManager = MapManager({
+    onMove: (sw, ne) => {
+      // When the map moves around, we update the list
+      queryManager.updateViewportByBound(sw, ne);
+      //update Query
+    }
+  });
 
-          // Load Connecticut area
-          var district_boundary = new L.geoJson(null, {
-            clickable: false
-          });
-          district_boundary.addTo(window.mapManager.getMap());
+  window.initializeAutocompleteCallback = () => {
 
-          /*** TOTALLY OPTIONAL AREA FOR FOCUSED AREAS. EXAMPLE IS CONNETICUT ***/
-          /*** TODO: Repalace/Remove this ***/
-          // $.ajax({
-          //   dataType: "json",
-          //   url: "/data/texas.json",
-          //   success: function(data) {
-          //     $(data.features[0].geometry).each(function(key, data) {
-          //       district_boundary
-          //         .addData(data)
-          //         .setStyle({
-          //           fillColor: 'transparent',
-          //           color: 'rgb(0, 0, 0)'
-          //         });
-          //       if (!params.zipcode || params.zipcode === '') {
-          //         window.mapManager.getMap()
-          //           .fitBounds(district_boundary.getBounds(), { animate: false });
-          //       }
-          //     });
-          //     district_boundary.bringToBack();
-          //   }
-          // }).error(function() {});
+    autocompleteManager = AutocompleteManager("input[name='loc']");
+    autocompleteManager.initialize();
 
-          // if ($("input[name='zipcode']").val() == '' && Cookies.get('map.bernie.zipcode') && window.location.hash == '') {
-          //   $("input[name='zipcode']").val(Cookies.get('map.bernie.zipcode'));
-          //   window.location.hash = $("#filter-form").serialize();
-          // } else {
-          $(window).trigger("hashchange");
-          // }
+    if (initParams.loc && initParams.loc !== '' && (!initParams.bound1 && !initParams.bound2)) {
+      mapManager.initialize(() => {
+        mapManager.getCenterByLocation(initParams.loc, (result) => {
+          queryManager.updateViewport(result.geometry.viewport);
         });
+      })
     }
-  });
-
-  /** initial loading before activating listeners...*/
-  var params = $.deparam(window.location.hash.substring(1));
-  if (params.zipcode) {
-    $("input[name='zipcode']").val(params.zipcode);
   }
 
-  if (params.distance) {
-    $("select[name='distance']").val(params.distance);
-  }
-  if (params.sort) {
-    $("select[name='sort']").val(params.sort);
-  }
 
-  /* Prepare filters */
-  $("#filter-list").append(
-    window.eventTypeFilters.map(function(d) {
-      return $("<li />")
-        .append(
-          $("<input type='checkbox' class='filter-type' />")
-          .attr('name', 'f[]')
-          .attr("value", d.id)
-          .attr("id", d.id)
-          .prop("checked", !params.f ? true : $.inArray(d.id, params.f) >= 0)
-        )
-        .append($("<label />").attr('for', d.id)
-        .append($("<span />").addClass('filter-on')
-        .append(d.onItem ? d.onItem : $("<span>").addClass('circle-button default-on')))
-        .append($("<span />").addClass('filter-off')
-        .append(d.offItem ? d.offItem : $("<span>").addClass('circle-button default-off')))
-        .append($("<span>").text(d.name)));
-    })
-  );
-  /***
-   *  define events
-   */
-  //only numbers
-  $("input[name='zipcode']").on('keyup keydown', function(e) {
-    if (e.type == 'keydown' && (e.keyCode < 48 || e.keyCode > 57) &&
-      e.keyCode != 8 && !(e.keyCode >= 37 || e.keyCode <= 40)) {
-      return false;
-    }
+  const languageManager = LanguageManager();
 
-    if (e.type == 'keyup' && $(this).val().length == 5) {
-      if (!(e.keyCode >= 37 && e.keyCode <= 40)) {
-        $(this).closest("form#filter-form").submit();
-        $("#hidden-button").focus();
-      }
-    }
-  });
+  languageManager.initialize(initParams['lang'] || 'en');
+
+  const listManager = ListManager();
+
+  if(initParams.lat && initParams.lng) {
+    mapManager.setCenter([initParams.lat, initParams.lng]);
+  }
 
   /***
-   *  onchange of select
-   */
-  $("select[name='distance'],select[name='sort']").on('change', function(e) {
-    $(this).closest("form#filter-form").submit();
+  * List Events
+  * This will trigger the list update method
+  */
+  $(document).on('trigger-list-update', (event, options) => {
+    listManager.populateList(options.params);
   });
 
-  /**
-   * On filter type change
-   */
-  $(".filter-type").on('change', function(e) {
-    $(this).closest("form#filter-form").submit();
+  $(document).on('trigger-list-filter-update', (event, options) => {
+    listManager.updateFilter(options);
+  });
+
+  $(document).on('trigger-list-filter-by-bound', (event, options) => {
+    if (!options || !options.bound1 || !options.bound2) {
+      return;
+    }
+
+    var bound1 = JSON.parse(options.bound1);
+    var bound2 = JSON.parse(options.bound2);
+
+    listManager.updateBounds(bound1, bound2)
   })
 
-  //On submit
-  $("form#filter-form").on('submit', function(e) {
-    var serial = $(this).serialize();
-    window.location.hash = serial;
-    e.preventDefault();
-    return false;
-  });
-
-  $(window).on('hashchange', function(e) {
-
-    var hash = window.location.hash;
-    if (hash.length == 0 || hash.substring(1) == 0) {
-      $("#loading-icon").hide();
-      return false;
+  /***
+  * Map Events
+  */
+  $(document).on('trigger-map-update', (event, options) => {
+    // mapManager.setCenter([options.lat, options.lng]);
+    if (!options || !options.bound1 || !options.bound2) {
+      return;
     }
 
-    var params = $.deparam(hash.substring(1));
+    var bound1 = JSON.parse(options.bound1);
+    var bound2 = JSON.parse(options.bound2);
+    mapManager.setBounds(bound1, bound2);
+    // console.log(options)
+  });
+  // 3. markers on map
+  $(document).on('trigger-map-plot', (e, opt) => {
 
-    //Custom feature for specific default lat/lon
-    //lat=40.7415479&lon=-73.8239609&zoom=17
-    setTimeout(function() {
-      $("#loading-icon").show();
+    mapManager.plotPoints(opt.data, opt.params);
+    $(document).trigger('trigger-map-filter');
+  })
 
-      if (window.mapManager._options && window.mapManager._options.defaultCoord && params.zipcode.length != 5) {
-        window.mapManager.filterByType(params.f);
-        window.mapManager.filterByCoords(window.mapManager._options.defaultCoord.center, params.distance, params.sort, params.f);
-      } else {
-        window.mapManager.filterByType(params.f);
-        window.mapManager.filter(params.zipcode, params.distance, params.sort, params.f);
-      }
-      $("#loading-icon").hide();
-
-    }, 10);
-    // $("#loading-icon").hide();
-    if (params.zipcode.length == 5 && $("body").hasClass("initial-view")) {
-      $("#events").removeClass("show-type-filter");
-      $("body").removeClass("initial-view");
+  // Filter map
+  $(document).on('trigger-map-filter', (e, opt) => {
+    if (opt) {
+      mapManager.filterMap(opt.filter);
     }
   });
 
-  var pre = $.deparam(window.location.hash.substring(1));
-  if ($("body").hasClass("initial-view")) {
-    if ($(window).width() >= 600 && (!pre.zipcode || pre && pre.zipcode.length != 5)) {
-      $("#events").addClass("show-type-filter");
+  $(document).on('trigger-language-update', (e, opt) => {
+    if (opt) {
+      languageManager.updateLanguage(opt.lang);
     }
-  }
+  });
+
+  $(document).on('click', 'button#show-hide-map', (e, opt) => {
+    $('body').toggleClass('map-view')
+  });
+
+  $(document).on('click', 'button.btn.more-items', (e, opt) => {
+    $('#embed-area').toggleClass('open');
+  })
+
+  $(document).on('trigger-update-embed', (e, opt) => {
+    //update embed line
+    var copy = JSON.parse(JSON.stringify(opt));
+    delete copy['lng'];
+    delete copy['lat'];
+    delete copy['bound1'];
+    delete copy['bound2'];
+
+    $('#embed-area input[name=embed]').val('https://new-map.350.org#' + $.param(copy));
+  });
+
+  $(window).on("resize", (e) => {
+    mapManager.refreshMap();
+  });
+
+  $(window).on("hashchange", (event) => {
+    const hash = window.location.hash;
+    if (hash.length == 0) return;
+    const parameters = $.deparam(hash.substring(1));
+    const oldURL = event.originalEvent.oldURL;
 
 
-})(jQuery, d3);
+    const oldHash = $.deparam(oldURL.substring(oldURL.search("#")+1));
+
+    $(document).trigger('trigger-list-filter-update', parameters);
+    $(document).trigger('trigger-map-filter', parameters);
+    $(document).trigger('trigger-update-embed', parameters);
+
+    // So that change in filters will not update this
+    if (oldHash.bound1 !== parameters.bound1 || oldHash.bound2 !== parameters.bound2) {
+
+      $(document).trigger('trigger-map-update', parameters);
+      $(document).trigger('trigger-list-filter-by-bound', parameters);
+    }
+
+    // Change items
+    if (oldHash.lang !== parameters.lang) {
+      $(document).trigger('trigger-language-update', parameters);
+    }
+  })
+
+  // 4. filter out items in activity-area
+
+  // 5. get map elements
+
+  // 6. get Group data
+
+  // 7. present group elements
+
+  $.ajax({
+    url: 'https://s3-us-west-2.amazonaws.com/pplsmap-data/output/350org.js.gz', //'|**DATA_SOURCE**|',
+    dataType: 'script',
+    cache: true,
+    success: (data) => {
+      var parameters = queryManager.getParameters();
+
+      window.EVENTS_DATA.forEach((item) => {
+        item['event_type'] = !item.event_type ? 'Action' : item.event_type;
+      })
+      $(document).trigger('trigger-list-update', { params: parameters });
+      // $(document).trigger('trigger-list-filter-update', parameters);
+      $(document).trigger('trigger-map-plot', { data: window.EVENTS_DATA, params: parameters });
+      $(document).trigger('trigger-update-embed', parameters);
+      //TODO: Make the geojson conversion happen on the backend
+
+      //Refresh things
+      setTimeout(() => {
+        let p = queryManager.getParameters();
+        $(document).trigger('trigger-map-update', p);
+        $(document).trigger('trigger-map-filter', p);
+        $(document).trigger('trigger-list-filter-update', p);
+        $(document).trigger('trigger-list-filter-by-bound', p);
+        //console.log(queryManager.getParameters())
+      }, 100);
+    }
+  });
+
+
+
+})(jQuery);
