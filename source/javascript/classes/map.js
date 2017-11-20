@@ -4,6 +4,7 @@ const MapManager = (($) => {
 
   const renderEvent = (item) => {
     var date = moment(item.start_datetime).format("dddd MMM DD, h:mma");
+    let url = item.url.match(/^https{0,1}:/) ? item.url : "//" + item.url;
     return `
     <div class='popup-item ${item.event_type}' data-lat='${item.lat}' data-lng='${item.lng}'>
       <div class="type-event">
@@ -16,7 +17,7 @@ const MapManager = (($) => {
           <p>${item.venue}</p>
         </div>
         <div class="call-to-action">
-          <a href="//${item.url}" target='_blank' class="btn btn-secondary">RSVP</a>
+          <a href="${url}" target='_blank' class="btn btn-secondary">RSVP</a>
         </div>
       </div>
     </div>
@@ -24,22 +25,26 @@ const MapManager = (($) => {
   };
 
   const renderGroup = (item) => {
+
+    let url = item.website.match(/^https{0,1}:/) ? item.website : "//" + item.website;
     return `
-    <div class='popup-item ${item.event_type}' data-lat='${item.lat}' data-lng='${item.lng}'>
-      <div class="type-group">
-        <h2><a href="/" target='_blank'>${item.title || `Group`}</a></h2>
+    <li>
+      <div class="type-group group-obj">
+        <ul class="event-types-list">
+          <li class="tag tag-${item.supergroup}">${item.supergroup}</li>
+        </ul>
+        <h2><a href="/" target='_blank'>${item.name}</a></h2>
         <div class="group-details-area">
-          <p>Colorado, USA</p>
-          <p>${item.details || `350 Colorado is working locally to help build the global
-             350.org movement to solve the climate crisis and transition
-             to a clean, renewable energy future.`}
-          </p>
+          <div class="group-location location">${item.location}</div>
+          <div class="group-description">
+            <p>${item.description}</p>
+          </div>
         </div>
         <div class="call-to-action">
-          <a href="//${item.url}" target='_blank' class="btn btn-secondary">Get Involved</a>
+          <a href="${url}" target='_blank' class="btn btn-secondary">Get Involved</a>
         </div>
       </div>
-    </div>
+    </li>
     `
   };
 
@@ -47,10 +52,20 @@ const MapManager = (($) => {
     return list.map((item) => {
       // rendered eventType
       let rendered;
-      if (!item.event_type || !item.event_type.toLowerCase() !== 'group') {
-        rendered = renderEvent(item);
-      } else {
+
+      if (item.event_type && item.event_type.toLowerCase() == 'group') {
         rendered = renderGroup(item);
+
+      } else {
+        rendered = renderEvent(item);
+      }
+
+      // format check
+      if (isNaN(parseFloat(parseFloat(item.lng)))) {
+        item.lng = item.lng.substring(1)
+      }
+      if (isNaN(parseFloat(parseFloat(item.lat)))) {
+        item.lat = item.lat.substring(1)
       }
 
       return {
@@ -75,13 +90,13 @@ const MapManager = (($) => {
 
     if (options.onMove) {
       map.on('dragend', (event) => {
-        console.log(event, "Drag has ended", map.getBounds());
+
 
         let sw = [map.getBounds()._southWest.lat, map.getBounds()._southWest.lng];
         let ne = [map.getBounds()._northEast.lat, map.getBounds()._northEast.lng];
         options.onMove(sw, ne);
       }).on('zoomend', (event) => {
-        console.log(event, "Zoom has ended", map.getBounds());
+
 
         let sw = [map.getBounds()._southWest.lat, map.getBounds()._southWest.lng];
         let ne = [map.getBounds()._northEast.lat, map.getBounds()._northEast.lng];
@@ -112,14 +127,14 @@ const MapManager = (($) => {
         map.setView(center, zoom);
       },
       getBounds: () => {
-        console.log(map.getBounds());
+
         return map.getBounds();
       },
       // Center location by geocoded
       getCenterByLocation: (location, callback) => {
-//console.log("Finding location of ", location);
+
         geocoder.geocode({ address: location }, function (results, status) {
-//console.log("LOCATION MATCH:: ", results, status);
+
           if (callback && typeof callback === 'function') {
             callback(results[0])
           }
@@ -132,25 +147,25 @@ const MapManager = (($) => {
         console.log("map is resized")
       },
       filterMap: (filters) => {
-//console.log("filters >> ", filters);
+
         $("#map").find(".event-item-popup").hide();
-//console.log($("#map").find(".event-item-popup"));
+
 
         if (!filters) return;
 
         filters.forEach((item) => {
-//console.log(".event-item-popup." + item.toLowerCase());
+
           $("#map").find(".event-item-popup." + item.toLowerCase()).show();
         })
       },
       plotPoints: (list, hardFilters) => {
 
         const keySet = !hardFilters.key ? [] : hardFilters.key.split(',');
-        console.log(keySet, list);
+
         if (keySet.length > 0) {
           list = list.filter((item) => keySet.includes(item.event_type))
         }
-        console.log(list);;
+
 
         const geojson = {
           type: "FeatureCollection",
@@ -161,15 +176,16 @@ const MapManager = (($) => {
 
         L.geoJSON(geojson, {
             pointToLayer: (feature, latlng) => {
+              //
               const eventType = feature.properties.eventProperties.event_type;
               var geojsonMarkerOptions = {
                   radius: 8,
-                  fillColor:  eventType === 'Group' ? "#40D7D4" : "#0F81E8",
+                  fillColor:  eventType && eventType.toLowerCase() === 'group' ? "#40D7D4" : "#0F81E8",
                   color: "white",
                   weight: 2,
                   opacity: 0.5,
                   fillOpacity: 0.8,
-                  className: (eventType === 'Group' ? 'groups' : 'events') + ' event-item-popup'
+                  className: (eventType && eventType.toLowerCase() === 'group' ? 'groups' : 'events') + ' event-item-popup'
               };
               return L.circleMarker(latlng, geojsonMarkerOptions);
             },

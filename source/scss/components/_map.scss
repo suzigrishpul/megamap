@@ -11,10 +11,10 @@ section#map {
     }
     .leaflet-popup-content-wrapper{
       border-radius:5px;}
-    .event-date, .event-address{
+    .event-date, .event-address, .group-location.location, .group-description{
       color:rgba(21,35,45,0.8);
       font-size:0.95em;}
-    .event-date{
+    .event-date, .group-location.location{
       font-weight:bold;}
     div.leaflet-popup-content {
       min-width: 350px;
