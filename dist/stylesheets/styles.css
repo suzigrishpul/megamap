@@ -57,7 +57,8 @@ a {
   #stage header.page-header {
     background-color: #eaedef;
     padding: 1.5em;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.13); }
+    border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+    z-index: 10; }
     #stage header.page-header nav {
       height: inherit;
       display: flex; }
@@ -146,11 +147,13 @@ a {
   #stage div#activity-area {
     background-color: green;
     flex-grow: 1;
+    position: relative;
     display: flex; }
     #stage div#activity-area section#map {
       flex-grow: 1;
       background-color: whitesmoke;
       font-size: 1rem;
+      z-index: 0;
       font-family: 'KlimaWeb', -apple-system, BlinkMacSystemFont, 'arial', sans-serif; }
       #stage div#activity-area section#map div.leaflet-popup .leaflet-container a.leaflet-popup-close-button {
         top: 10px;
@@ -371,7 +374,7 @@ a {
 #show-hide-map {
   display: none; }
 
-@media (max-width: 990px) {
+@media (max-width: 600px) {
   body #show-hide-map {
     display: block; }
     body #show-hide-map .show-map {
@@ -385,15 +388,17 @@ a {
   body.map-view div#activity-area {
     flex-grow: 1; }
     body.map-view div#activity-area section#map {
-      opacity: 1 !important;
-      z-index: 1000 !important; }
+      visibility: visible !important;
+      z-index: 100 !important; }
     body.map-view div#activity-area section#events-list-container {
-      display: none !important; }
+      display: none !important;
+      visibility: hidden !important; }
   body div#stage {
     display: flex;
     flex-direction: column; }
     body div#stage header.page-header {
-      height: auto; }
+      height: auto;
+      padding: 5px; }
       body div#stage header.page-header nav {
         display: flex;
         flex-direction: column;
@@ -405,18 +410,33 @@ a {
           padding-top: 0;
           padding: 0 10px 5px; }
           body div#stage header.page-header nav div.filters-form-area .input-text {
-            background-color: #f5f5f5; }
-          body div#stage header.page-header nav div.filters-form-area div.filter-container {
-            margin-left: 20px;
+            background-color: none;
             margin-top: 10px; }
-            body div#stage header.page-header nav div.filters-form-area div.filter-container span {
-              display: block; }
-          body div#stage header.page-header nav div.filters-form-area div.search-button {
-            display: none; }
+            body div#stage header.page-header nav div.filters-form-area .input-text span.twitter-typeahead {
+              display: block;
+              flex-grow: 1;
+              flex: 0 1 100%; }
+            body div#stage header.page-header nav div.filters-form-area .input-text div.search-button {
+              flex-grow: 0; }
+          body div#stage header.page-header nav div.filters-form-area .filter-area {
+            flex-direction: column; }
+            body div#stage header.page-header nav div.filters-form-area .filter-area div.filter-container {
+              display: flex;
+              margin: 0;
+              margin-top: 10px;
+              padding: 0; }
+              body div#stage header.page-header nav div.filters-form-area .filter-area div.filter-container span {
+                display: block;
+                flex: 0 0 50%;
+                text-align: left;
+                margin: 0;
+                margin-left: 10px; }
+                body div#stage header.page-header nav div.filters-form-area .filter-area div.filter-container span label {
+                  display: inline-block;
+                  max-width: calc(100% - 50px);
+                  font-size: 14px; }
           body div#stage header.page-header nav div.filters-form-area button#show-hide-map {
-            position: absolute;
-            right: 16px;
-            top: 24px; }
+            margin-top: 10px; }
         body div#stage header.page-header nav div.cta-area {
           width: 100%;
           text-align: center;
@@ -426,13 +446,21 @@ a {
             font-weight: bold;
             color: gray; }
     body div#stage div#activity-area {
-      flex-grow: 1; }
+      flex-grow: 1;
+      display: flex;
+      position: relative; }
       body div#stage div#activity-area section#map {
-        opacity: 0;
-        z-index: 0;
-        position: relative; }
+        visibility: hidden;
+        z-index: -1;
+        position: absolute !important;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0; }
       body div#stage div#activity-area section#events-list-container {
-        border-left: none; }
+        visibility: visible;
+        border-left: none;
+        width: 100%; }
         body div#stage div#activity-area section#events-list-container header.events-header {
           font-size: 24px;
           padding-top: 5px; } }
