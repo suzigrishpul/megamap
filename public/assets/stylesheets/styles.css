@@ -160,10 +160,10 @@ a {
         right: 10px; }
       #stage div#activity-area section#map div.leaflet-popup .leaflet-popup-content-wrapper {
         border-radius: 5px; }
-      #stage div#activity-area section#map div.leaflet-popup .event-date, #stage div#activity-area section#map div.leaflet-popup .event-address {
+      #stage div#activity-area section#map div.leaflet-popup .event-date, #stage div#activity-area section#map div.leaflet-popup .event-address, #stage div#activity-area section#map div.leaflet-popup .group-location.location, #stage div#activity-area section#map div.leaflet-popup .group-description {
         color: rgba(21, 35, 45, 0.8);
         font-size: 0.95em; }
-      #stage div#activity-area section#map div.leaflet-popup .event-date {
+      #stage div#activity-area section#map div.leaflet-popup .event-date, #stage div#activity-area section#map div.leaflet-popup .group-location.location {
         font-weight: bold; }
       #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content {
         min-width: 350px;
@@ -365,10 +365,14 @@ a {
         max-height: 200px; }
     #stage div#activity-area #events-list-container #events-list ul li {
       display: none; }
-    #stage div#activity-area #events-list-container #events-list.groups li.Groups {
+    #stage div#activity-area #events-list-container #events-list.groups li.group-obj {
       display: block; }
-    #stage div#activity-area #events-list-container #events-list.events li.Action {
+      #stage div#activity-area #events-list-container #events-list.groups li.group-obj:not(.within-bound) {
+        display: none; }
+    #stage div#activity-area #events-list-container #events-list.events li.event-obj {
       display: block; }
+      #stage div#activity-area #events-list-container #events-list.events li.event-obj:not(.within-bound) {
+        display: none; }
 
 #show-hide-map {
   display: none; }

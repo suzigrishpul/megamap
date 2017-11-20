@@ -17,12 +17,12 @@ let mapManager;
       //update Query
     }
   });
-//console.log("Initialized");
+
   window.initializeAutocompleteCallback = () => {
-//console.log("Initialized");
+
     autocompleteManager = AutocompleteManager("input[name='loc']");
     autocompleteManager.initialize();
-//console.log("Initialized");
+
     if (initParams.loc && initParams.loc !== '' && (!initParams.bound1 && !initParams.bound2)) {
       mapManager.initialize(() => {
         mapManager.getCenterByLocation(initParams.loc, (result) => {
@@ -31,10 +31,10 @@ let mapManager;
       })
     }
   }
-//console.log("MAP ", mapManager);
+
 
   const languageManager = LanguageManager();
-//console.log(queryManager, queryManager.getParameters(), initParams);
+
   languageManager.initialize(initParams['lang'] || 'en');
 
   const listManager = ListManager();
@@ -56,11 +56,16 @@ let mapManager;
   });
 
   $(document).on('trigger-list-filter-by-bound', (event, options) => {
+    let bound1, bound2;
+    
     if (!options || !options.bound1 || !options.bound2) {
-      return;
+      [bound1, bound2] = mapManager.getBounds();
+    } else {
+      bound1 = JSON.parse(options.bound1);
+      bound2 = JSON.parse(options.bound2);
     }
-    var bound1 = JSON.parse(options.bound1);
-    var bound2 = JSON.parse(options.bound2);
+
+
 
     listManager.updateBounds(bound1, bound2)
   })
@@ -81,7 +86,7 @@ let mapManager;
   });
   // 3. markers on map
   $(document).on('trigger-map-plot', (e, opt) => {
-//console.log(opt);
+
     mapManager.plotPoints(opt.data, opt.params);
     $(document).trigger('trigger-map-filter');
   })
@@ -121,6 +126,7 @@ let mapManager;
   $(window).on("resize", (e) => {
     mapManager.refreshMap();
   });
+
   $(window).on("hashchange", (event) => {
     const hash = window.location.hash;
     if (hash.length == 0) return;
@@ -170,15 +176,19 @@ let mapManager;
       $(document).trigger('trigger-map-plot', { data: window.EVENTS_DATA, params: parameters });
       $(document).trigger('trigger-update-embed', parameters);
       //TODO: Make the geojson conversion happen on the backend
+
+      //Refresh things
+      setTimeout(() => {
+        let p = queryManager.getParameters();
+        $(document).trigger('trigger-map-update', p);
+        $(document).trigger('trigger-map-filter', p);
+        $(document).trigger('trigger-list-filter-update', p);
+        $(document).trigger('trigger-list-filter-by-bound', p);
+        //console.log(queryManager.getParameters())
+      }, 100);
     }
   });
 
-  setTimeout(() => {
-    let p = queryManager.getParameters();
-    $(document).trigger('trigger-map-update', p);
-    $(document).trigger('trigger-list-filter-update', p);
-    $(document).trigger('trigger-list-filter-by-bound', p);
-//console.log(queryManager.getParameters())
-  }, 100);
+
 
 })(jQuery);
