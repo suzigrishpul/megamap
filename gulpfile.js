@@ -11,7 +11,8 @@ var gulp = require('gulp'),
     hash = require('gulp-hash'),
     uglify = require('gulp-uglify'),
     order = require('gulp-order'),
-    s3   = require('gulp-s3')
+    s3   = require('gulp-s3'),
+    cloudfront = require("gulp-cloudfront");
 
 
 // If you want details of the error in the console
@@ -131,9 +132,12 @@ gulp.task('export', function() {
     "key":    process.env.AWS_ACCESS_KEY,
     "secret": process.env.AWS_SECRET_KEY,
     "bucket": process.env.AWS_BUCKET_NAME,
-    "region": process.env.AWS_REGION
+    "region": process.env.AWS_REGION,
+    "distributionId": process.env.CLOUDFRONT_ID
   }
 
-  gulp.src('./dist/**').pipe(s3(AWS));
+  gulp.src('./dist/**')
+    .pipe(s3(AWS))
+    .pipe(cloudfront(AWS));
 
 })
