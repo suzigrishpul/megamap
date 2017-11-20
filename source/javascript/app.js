@@ -115,7 +115,7 @@ let mapManager;
     delete copy['bound1'];
     delete copy['bound2'];
 
-    $('#embed-area input[name=embed]').val('http://map.350.org.s3-website-us-east-1.amazonaws.com#' + $.param(copy));
+    $('#embed-area input[name=embed]').val('https://new-map.350.org#' + $.param(copy));
   });
 
   $(window).on("resize", (e) => {
