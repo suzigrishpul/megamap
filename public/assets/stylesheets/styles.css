@@ -385,10 +385,11 @@ a {
   body.map-view div#activity-area {
     flex-grow: 1; }
     body.map-view div#activity-area section#map {
-      opacity: 1 !important;
-      z-index: 1000 !important; }
+      visibility: visible !important;
+      z-index: 100 !important; }
     body.map-view div#activity-area section#events-list-container {
-      display: none !important; }
+      display: none !important;
+      visibility: hidden !important; }
   body div#stage {
     display: flex;
     flex-direction: column; }
@@ -442,12 +443,19 @@ a {
             font-weight: bold;
             color: gray; }
     body div#stage div#activity-area {
-      flex-grow: 1; }
+      flex-grow: 1;
+      display: flex;
+      position: relative; }
       body div#stage div#activity-area section#map {
-        opacity: 0;
-        z-index: 0;
-        position: relative; }
+        visibility: hidden;
+        z-index: -1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0; }
       body div#stage div#activity-area section#events-list-container {
+        visibility: visible;
         border-left: none; }
         body div#stage div#activity-area section#events-list-container header.events-header {
           font-size: 24px;
