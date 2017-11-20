@@ -156,7 +156,7 @@ let mapManager;
   // 7. present group elements
 
   $.ajax({
-    url: 'https://s3-us-west-2.amazonaws.com/pplsmap-data/output/350org-test.js.gz', //'|**DATA_SOURCE**|',
+    url: 'https://s3-us-west-2.amazonaws.com/pplsmap-data/output/350org.js.gz', //'|**DATA_SOURCE**|',
     dataType: 'script',
     cache: true,
     success: (data) => {
