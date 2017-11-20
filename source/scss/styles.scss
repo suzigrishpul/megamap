@@ -69,8 +69,15 @@ a {
       #events-list {
         ul li { display: none; }
 
-        &.groups li.group-obj { display: block; }
-        &.events li.event-obj { display: block; }
+        &.groups li.group-obj {
+          display: block;
+          &:not(.within-bound) { display: none; }
+        }
+        &.events li.event-obj {
+          display: block;
+
+          &:not(.within-bound) { display: none; }
+        }
       }
     }
 

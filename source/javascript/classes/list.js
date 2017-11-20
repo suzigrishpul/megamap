@@ -70,10 +70,12 @@ const ListManager = (($) => {
           let _lat = $(item).data('lat'),
               _lng = $(item).data('lng');
 
+          // console.log("updateBounds", item)
           if (bound1[0] <= _lat && bound2[0] >= _lat && bound1[1] <= _lng && bound2[1] >= _lng) {
-            $(item).show();
+            console.log("Adding bounds");
+            $(item).addClass('within-bound');
           } else {
-            $(item).hide();
+            $(item).removeClass('within-bound');
           }
         });
       },

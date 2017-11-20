@@ -243,7 +243,6 @@ a {
       #stage div#activity-area section#events-list-container header.events-header {
         text-transform: uppercase;
         font-size: 32px;
-        height: 42px;
         font-weight: 600;
         text-align: center;
         background: orange;
@@ -368,8 +367,12 @@ a {
       display: none; }
     #stage div#activity-area #events-list-container #events-list.groups li.group-obj {
       display: block; }
+      #stage div#activity-area #events-list-container #events-list.groups li.group-obj:not(.within-bound) {
+        display: none; }
     #stage div#activity-area #events-list-container #events-list.events li.event-obj {
       display: block; }
+      #stage div#activity-area #events-list-container #events-list.events li.event-obj:not(.within-bound) {
+        display: none; }
 
 #show-hide-map {
   display: none; }

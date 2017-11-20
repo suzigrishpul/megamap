@@ -59,6 +59,7 @@ let mapManager;
     if (!options || !options.bound1 || !options.bound2) {
       return;
     }
+
     var bound1 = JSON.parse(options.bound1);
     var bound2 = JSON.parse(options.bound2);
 
@@ -176,6 +177,7 @@ let mapManager;
       setTimeout(() => {
         let p = queryManager.getParameters();
         $(document).trigger('trigger-map-update', p);
+        $(document).trigger('trigger-map-filter', p);
         $(document).trigger('trigger-list-filter-update', p);
         $(document).trigger('trigger-list-filter-by-bound', p);
         //console.log(queryManager.getParameters())
