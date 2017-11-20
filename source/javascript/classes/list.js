@@ -8,7 +8,7 @@ const ListManager = (($) => {
 
       var date = moment(item.start_datetime).format("dddd MMM DD, h:mma");
       return `
-      <li class='${item.event_type}' data-lat='${item.lat}' data-lng='${item.lng}'>
+      <li class='${item.event_type} event-obj' data-lat='${item.lat}' data-lng='${item.lng}'>
         <div class="type-event type-action">
           <ul class="event-types-list">
             <li class='tag-${item.event_type} tag'>${item.event_type}</li>
@@ -56,6 +56,23 @@ const ListManager = (($) => {
 
         $target.removeProp("class");
         $target.addClass(p.filter ? p.filter.join(" ") : '')
+      },
+      updateBounds: (bound1, bound2) => {
+
+        // const bounds = [p.bounds1, p.bounds2];
+        console.log(bound1, bound2);
+
+        $target.find('ul li.event-obj').each((ind, item)=> {
+
+          let _lat = $(item).data('lat'),
+              _lng = $(item).data('lng');
+
+          if (bound1[0] <= _lat && bound2[0] >= _lat && bound1[1] <= _lng && bound2[1] >= _lng) {
+            $(item).show();
+          } else {
+            $(item).hide();
+          }
+        });
       },
       populateList: (hardFilters) => {
         //using window.EVENT_DATA

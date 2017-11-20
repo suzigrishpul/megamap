@@ -1,63 +1,17 @@
 @font-face {
-  font-family: klima;
+  font-family: KlimaWeb;
   src: url(/stylesheets/vendor/fonts/klima/Klima-Regular.otf) format("opentype");
   font-weight: 400; }
 
 @font-face {
-  font-family: klima;
+  font-family: KlimaWeb;
   src: url(/stylesheets/vendor/fonts/klima/Klima-Bold.otf) format("opentype");
-  font-weight: 600;
-  font-style: normal; }
-
-@font-face {
-  font-family: klima;
-  src: url(/stylesheets/vendor/fonts/klima/Klima-Black.otf) format("opentype");
-  font-weight: 800;
-  font-style: normal; }
-
-@font-face {
-  font-family: graph;
-  src: url(/stylesheets/vendor/fonts/graph/GraphCondensed-Bold.otf) format("opentype");
-  font-weight: 400; }
-
-@font-face {
-  font-family: graph;
-  src: url(/stylesheets/vendor/fonts/graph/Graph-Bold.otf) format("opentype");
-  font-weight: 600;
-  font-style: normal; }
-
-@font-face {
-  font-family: graph;
-  src: url(/stylesheets/vendor/fonts/graph/Graph-Black.otf) format("opentype");
-  font-weight: 800;
-  font-style: normal; }
-
-@font-face {
-  font-family: overpass;
-  src: url(/stylesheets/vendor/fonts/overpass/overpass-mono-light.otf) format("opentype");
-  font-weight: 200;
-  font-style: normal; }
-
-@font-face {
-  font-family: overpass;
-  src: url(/stylesheets/vendor/fonts/overpass/overpass-mono-regular.otf) format("opentype");
-  font-weight: 400;
-  font-style: normal; }
-
-@font-face {
-  font-family: overpass;
-  src: url(/stylesheets/vendor/fonts/overpass/overpass-mono-semibold.otf) format("opentype");
-  font-weight: 600;
-  font-style: normal; }
-
-@font-face {
-  font-family: overpass;
-  src: url(/stylesheets/vendor/fonts/overpass/overpass-mono-bold.otf) format("opentype");
-  font-weight: 800;
+  font-weight: 700;
   font-style: normal; }
 
 html, body {
-  height: 100%; }
+  height: 100%;
+  font-size: 16px; }
 
 ul, li {
   margin: 0;
@@ -71,52 +25,71 @@ a {
     text-decoration: none; }
 
 .btn.btn-primary {
-  font-family: 'klima', 'arial', sans-serif;
-  background-color: #003DAA;
-  border-color: #003DAA; }
+  background-color: #40D7D4;
+  border-color: #40D7D4;
+  color: #fff;
+  font-weight: bold; }
   .btn.btn-primary:hover {
-    background-color: #0046c3;
-    border-color: #0046c3; }
+    background-color: #0F81E8; }
+
+.btn.btn-secondary {
+  background-color: transparent;
+  border-color: #003DAA;
+  border-width: 2px;
+  border-style: solid;
+  color: #003DAA; }
+  .btn.btn-secondary:hover {
+    background-color: #003DAA;
+    color: #fff; }
+
+.btn.btn-tertiary {
+  background-color: #d4d6d7;
+  border-color: #d4d6d7;
+  border-width: 1px;
+  border-style: solid; }
+  .btn.btn-tertiary:hover {
+    background-color: #c4c6c7; }
 
 #stage {
   height: inherit;
   display: flex;
   flex-direction: column; }
   #stage header.page-header {
-    background-color: whitesmoke;
-    height: 100px; }
+    background-color: #eaedef;
+    padding: 1.5em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+    z-index: 10; }
     #stage header.page-header nav {
       height: inherit;
-      display: flex;
-      border-bottom: 2px solid gray; }
-      #stage header.page-header nav div.logo-area {
-        width: 300px;
-        height: 100%; }
-        #stage header.page-header nav div.logo-area h1 {
-          font-family: 'graph', 'arial', sans-serif;
-          font-size: 78px;
-          font-weight: 800; }
-          #stage header.page-header nav div.logo-area h1 a {
-            white-space: nowrap; }
-          #stage header.page-header nav div.logo-area h1 img.logo {
-            height: 50px;
-            padding: 0 5px 0 7px; }
+      display: flex; }
+      #stage header.page-header nav a {
+        white-space: nowrap; }
       #stage header.page-header nav div.filters-form-area {
-        flex-grow: 1;
-        padding-top: 25px; }
+        flex-grow: 1; }
+        #stage header.page-header nav div.filters-form-area .row {
+          justify-content: space-between; }
         #stage header.page-header nav div.filters-form-area div.filter-area {
           display: flex; }
           #stage header.page-header nav div.filters-form-area div.filter-area div.filter-container {
-            padding-top: 5px; }
-          #stage header.page-header nav div.filters-form-area div.filter-area div.search-button {
-            flex-grow: 1;
-            text-align: left; }
+            padding-top: 5px;
+            text-align: right;
+            width: 100%; }
         #stage header.page-header nav div.filters-form-area form {
           width: 100%; }
+          #stage header.page-header nav div.filters-form-area form .search-wrapper {
+            display: flex; }
+          #stage header.page-header nav div.filters-form-area form div.search-button {
+            flex-grow: 1;
+            text-align: left; }
+            #stage header.page-header nav div.filters-form-area form div.search-button .btn {
+              border-radius: 0 4px 4px 0;
+              left: -5px;
+              position: relative; }
           #stage header.page-header nav div.filters-form-area form .twitter-typeahead {
-            width: 100%; }
+            width: 85%;
+            width: calc(100% - 120px); }
             #stage header.page-header nav div.filters-form-area form .twitter-typeahead .tt-dropdown-menu {
-              background-color: whitesmoke;
+              background-color: #fafeff;
               border: solid 1px lightgray;
               padding: 5px 10px;
               width: 100%;
@@ -126,6 +99,9 @@ a {
                 text-overflow: ellipsis;
                 width: 100%;
                 overflow: hidden; }
+          #stage header.page-header nav div.filters-form-area form .search-button {
+            display: inline-block;
+            width: 120px; }
           #stage header.page-header nav div.filters-form-area form button {
             cursor: pointer; }
           #stage header.page-header nav div.filters-form-area form span.filter-item {
@@ -148,20 +124,15 @@ a {
                 z-index: 1; }
               #stage header.page-header nav div.filters-form-area form span.filter-item label:after {
                 content: ' ';
-                width: 28px;
-                height: 28px;
+                width: 1.3em;
+                height: 1.3em;
                 position: absolute;
                 background-color: lightgray;
-                left: -30px;
-                top: -3px;
-                border-radius: 50%;
-                border: 3px solid white; }
-            #stage header.page-header nav div.filters-form-area form span.filter-item input[value='events'] + label:before {
-              background-image: url(/img/human.svg); }
+                left: -1.5em;
+                top: .15em;
+                border-radius: 50%; }
             #stage header.page-header nav div.filters-form-area form span.filter-item input[value='events']:checked + label:after {
               background-color: #0F81E8; }
-            #stage header.page-header nav div.filters-form-area form span.filter-item input[value='groups'] + label:before {
-              background-image: url(/img/flag.svg); }
             #stage header.page-header nav div.filters-form-area form span.filter-item input[value='groups']:checked + label:after {
               background-color: #40D7D4; }
       #stage header.page-header nav div.cta-area {
@@ -172,75 +143,76 @@ a {
           font-style: italic;
           font-size: 25px;
           margin-top: 10px;
-          font-family: 'klima', 'arial', sans-serif; }
+          font-family: 'KlimaWeb', -apple-system, BlinkMacSystemFont, 'arial', sans-serif; }
   #stage div#activity-area {
     background-color: green;
     flex-grow: 1;
+    position: relative;
     display: flex; }
     #stage div#activity-area section#map {
       flex-grow: 1;
-      background-color: whitesmoke; }
+      background-color: whitesmoke;
+      font-size: 1rem;
+      z-index: 0;
+      font-family: 'KlimaWeb', -apple-system, BlinkMacSystemFont, 'arial', sans-serif; }
       #stage div#activity-area section#map div.leaflet-popup .leaflet-container a.leaflet-popup-close-button {
         top: 10px;
         right: 10px; }
+      #stage div#activity-area section#map div.leaflet-popup .leaflet-popup-content-wrapper {
+        border-radius: 5px; }
+      #stage div#activity-area section#map div.leaflet-popup .event-date, #stage div#activity-area section#map div.leaflet-popup .event-address {
+        color: rgba(21, 35, 45, 0.8);
+        font-size: 0.95em; }
+      #stage div#activity-area section#map div.leaflet-popup .event-date {
+        font-weight: bold; }
       #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content {
         min-width: 350px;
-        background-color: whitesmoke;
         padding: 10px;
         margin: 10px; }
+        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content p {
+          margin-top: 0; }
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content ul.event-types-list {
-          margin-bottom: 15px; }
+          margin-bottom: 8px; }
           #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content ul.event-types-list li {
+            border-radius: 4px;
             display: inline-block;
             background-color: lightgray;
             border: 1px solid lightgray;
-            padding: 2px 5px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-family: 'klima', 'arial', sans-serif; }
+            margin-bottom: 0.3em;
+            padding: 2px 5px 0;
+            font-size: 12px; }
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content h2 {
-          font-family: 'klima', 'arial', sans-serif;
+          font-family: 'KlimaWeb', -apple-system, BlinkMacSystemFont, 'arial', sans-serif;
           margin-bottom: 0;
-          line-height: 34px;
-          font-weight: 600;
-          font-size: 32px;
-          text-indent: 30px;
-          position: relative;
-          cursor: pointer; }
-          #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content h2:before {
-            content: ' ';
-            width: 18px;
-            height: 18px;
-            position: absolute;
-            top: 2px;
-            background-repeat: no-repeat;
-            background-position: center center;
-            z-index: 1;
-            left: 6px; }
-          #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content h2:after {
-            content: ' ';
-            width: 28px;
-            height: 28px;
-            position: absolute;
-            background-color: lightgray;
-            left: 0px;
-            top: -3px;
-            border-radius: 50%;
-            border: 3px solid white; }
-        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content h4 {
-          text-transform: uppercase;
-          font-family: 'graph', 'arial', sans-serif;
-          font-size: 20px; }
-        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content p {
-          margin-bottom: 0;
-          line-height: 1.5;
-          font-size: 16px;
-          font-family: 'klima', 'arial', sans-serif; }
+          line-height: 1.2;
+          font-weight: 700;
+          font-size: 24px;
+          cursor: pointer;
+          /*  &:before {
+      content: ' ';
+      width: 18px;
+      height: 18px;
+      position: absolute;
+      top: 2px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      z-index: 1;
+      left: 6px;
+    }
+    &:after {
+      content: ' ';
+      width: 28px;
+      height: 28px;
+      position: absolute;
+      background-color: lightgray;
+      left: 0px;
+      top: -3px;
+      border-radius: 50%;
+    } */ }
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content a.btn.btn-primary {
           font-size: 13px;
           padding: 7px 12px 6px;
-          font-weight: 600;
-          width: 140px; }
+          font-weight: 600; }
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event div.address-area {
           margin-bottom: 5px; }
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event h2:before {
@@ -257,11 +229,13 @@ a {
           background-image: url(/img/flag.svg); }
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content a.btn-primary {
           color: white; }
+        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content .event-title {
+          margin-bottom: 0.5rem; }
     #stage div#activity-area section#events-list-container {
       width: 400px;
       height: inherit;
       background-color: whitesmoke;
-      border-left: 2px solid gray;
+      border-left: 1px solid rgba(0, 0, 0, 0.3);
       position: relative;
       display: flex;
       flex-direction: column;
@@ -275,66 +249,60 @@ a {
         background: orange;
         color: white;
         width: 100%;
-        font-family: 'klima', 'arial', sans-serif; }
+        font-family: 'KlimaWeb', -apple-system, BlinkMacSystemFont, 'arial', sans-serif; }
       #stage div#activity-area section#events-list-container div#events-list {
         flex-grow: 1;
         overflow: auto;
         height: inherit; }
+        #stage div#activity-area section#events-list-container div#events-list .event-date, #stage div#activity-area section#events-list-container div#events-list .event-address {
+          color: rgba(21, 35, 45, 0.8);
+          font-size: 0.95em; }
+        #stage div#activity-area section#events-list-container div#events-list .event-date {
+          font-weight: bold; }
         #stage div#activity-area section#events-list-container div#events-list > ul > li {
           border-bottom: 1px dashed gray; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li ul.event-types-list {
-            margin-bottom: 15px; }
+            margin-bottom: 8px; }
             #stage div#activity-area section#events-list-container div#events-list > ul > li ul.event-types-list li {
+              border-radius: 4px;
               display: inline-block;
               background-color: lightgray;
               border: 1px solid lightgray;
-              padding: 2px 5px;
-              border-radius: 4px;
-              font-size: 12px;
-              font-family: 'klima', 'arial', sans-serif; }
+              margin-bottom: 0.3em;
+              padding: 2px 5px 0;
+              font-size: 12px; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li h2 {
-            font-family: 'klima', 'arial', sans-serif;
+            font-family: 'KlimaWeb', -apple-system, BlinkMacSystemFont, 'arial', sans-serif;
             margin-bottom: 0;
-            line-height: 34px;
-            font-weight: 600;
-            font-size: 32px;
-            text-indent: 30px;
-            position: relative;
-            cursor: pointer; }
-            #stage div#activity-area section#events-list-container div#events-list > ul > li h2:before {
-              content: ' ';
-              width: 18px;
-              height: 18px;
-              position: absolute;
-              top: 2px;
-              background-repeat: no-repeat;
-              background-position: center center;
-              z-index: 1;
-              left: 6px; }
-            #stage div#activity-area section#events-list-container div#events-list > ul > li h2:after {
-              content: ' ';
-              width: 28px;
-              height: 28px;
-              position: absolute;
-              background-color: lightgray;
-              left: 0px;
-              top: -3px;
-              border-radius: 50%;
-              border: 3px solid white; }
-          #stage div#activity-area section#events-list-container div#events-list > ul > li h4 {
-            text-transform: uppercase;
-            font-family: 'graph', 'arial', sans-serif;
-            font-size: 20px; }
-          #stage div#activity-area section#events-list-container div#events-list > ul > li p {
-            margin-bottom: 0;
-            line-height: 1.5;
-            font-size: 16px;
-            font-family: 'klima', 'arial', sans-serif; }
+            line-height: 1.2;
+            font-weight: 700;
+            font-size: 24px;
+            cursor: pointer;
+            /*  &:before {
+      content: ' ';
+      width: 18px;
+      height: 18px;
+      position: absolute;
+      top: 2px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      z-index: 1;
+      left: 6px;
+    }
+    &:after {
+      content: ' ';
+      width: 28px;
+      height: 28px;
+      position: absolute;
+      background-color: lightgray;
+      left: 0px;
+      top: -3px;
+      border-radius: 50%;
+    } */ }
           #stage div#activity-area section#events-list-container div#events-list > ul > li a.btn.btn-primary {
             font-size: 13px;
             padding: 7px 12px 6px;
-            font-weight: 600;
-            width: 140px; }
+            font-weight: 600; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event div.address-area {
             margin-bottom: 5px; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event h2:before {
@@ -363,10 +331,14 @@ a {
         top: -38px;
         right: 15px;
         color: white;
-        background-color: #1081e8;
+        background-color: lightgray;
         border-radius: 0.25rem 0.25rem 0 0;
-        cursor: pointer; }
+        cursor: pointer;
+        outline: 0; }
+        #stage div#activity-area #embed-area button.btn.more-items:focus {
+          outline: none !important; }
         #stage div#activity-area #embed-area button.btn.more-items i {
+          color: #333;
           transition: transform 0.5s; }
       #stage div#activity-area #embed-area button {
         cursor: pointer; }
@@ -374,15 +346,15 @@ a {
         max-height: 0;
         transition: max-height 0.5s; }
         #stage div#activity-area #embed-area div.viewport div.content {
-          background-color: #1081e8;
+          background-color: lightgray;
           width: 100%;
           padding: 10px; }
           #stage div#activity-area #embed-area div.viewport div.content h4 {
-            color: white;
+            color: #333333;
             font-weight: bold; }
           #stage div#activity-area #embed-area div.viewport div.content p {
             padding: 0;
-            color: white; }
+            color: #333333; }
           #stage div#activity-area #embed-area div.viewport div.content #embed-form {
             display: flex; }
             #stage div#activity-area #embed-area div.viewport div.content #embed-form input[name='embed'] {
@@ -402,7 +374,7 @@ a {
 #show-hide-map {
   display: none; }
 
-@media (max-width: 990px) {
+@media (max-width: 600px) {
   body #show-hide-map {
     display: block; }
     body #show-hide-map .show-map {
@@ -416,15 +388,17 @@ a {
   body.map-view div#activity-area {
     flex-grow: 1; }
     body.map-view div#activity-area section#map {
-      opacity: 1 !important;
-      z-index: 1000 !important; }
+      visibility: visible !important;
+      z-index: 100 !important; }
     body.map-view div#activity-area section#events-list-container {
-      display: none !important; }
+      display: none !important;
+      visibility: hidden !important; }
   body div#stage {
     display: flex;
     flex-direction: column; }
     body div#stage header.page-header {
-      height: auto; }
+      height: auto;
+      padding: 5px; }
       body div#stage header.page-header nav {
         display: flex;
         flex-direction: column;
@@ -436,18 +410,33 @@ a {
           padding-top: 0;
           padding: 0 10px 5px; }
           body div#stage header.page-header nav div.filters-form-area .input-text {
-            background-color: #f5f5f5; }
-          body div#stage header.page-header nav div.filters-form-area div.filter-container {
-            margin-left: 20px;
+            background-color: none;
             margin-top: 10px; }
-            body div#stage header.page-header nav div.filters-form-area div.filter-container span {
-              display: block; }
-          body div#stage header.page-header nav div.filters-form-area div.search-button {
-            display: none; }
+            body div#stage header.page-header nav div.filters-form-area .input-text span.twitter-typeahead {
+              display: block;
+              flex-grow: 1;
+              flex: 0 1 100%; }
+            body div#stage header.page-header nav div.filters-form-area .input-text div.search-button {
+              flex-grow: 0; }
+          body div#stage header.page-header nav div.filters-form-area .filter-area {
+            flex-direction: column; }
+            body div#stage header.page-header nav div.filters-form-area .filter-area div.filter-container {
+              display: flex;
+              margin: 0;
+              margin-top: 10px;
+              padding: 0; }
+              body div#stage header.page-header nav div.filters-form-area .filter-area div.filter-container span {
+                display: block;
+                flex: 0 0 50%;
+                text-align: left;
+                margin: 0;
+                margin-left: 10px; }
+                body div#stage header.page-header nav div.filters-form-area .filter-area div.filter-container span label {
+                  display: inline-block;
+                  max-width: calc(100% - 50px);
+                  font-size: 14px; }
           body div#stage header.page-header nav div.filters-form-area button#show-hide-map {
-            position: absolute;
-            right: 16px;
-            top: 24px; }
+            margin-top: 10px; }
         body div#stage header.page-header nav div.cta-area {
           width: 100%;
           text-align: center;
@@ -457,13 +446,21 @@ a {
             font-weight: bold;
             color: gray; }
     body div#stage div#activity-area {
-      flex-grow: 1; }
+      flex-grow: 1;
+      display: flex;
+      position: relative; }
       body div#stage div#activity-area section#map {
-        opacity: 0;
-        z-index: 0;
-        position: relative; }
+        visibility: hidden;
+        z-index: -1;
+        position: absolute !important;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0; }
       body div#stage div#activity-area section#events-list-container {
-        border-left: none; }
+        visibility: visible;
+        border-left: none;
+        width: 100%; }
         body div#stage div#activity-area section#events-list-container header.events-header {
           font-size: 24px;
           padding-top: 5px; } }

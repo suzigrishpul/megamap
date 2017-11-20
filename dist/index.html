@@ -56,21 +56,18 @@
   <div id='stage'>
     <header class='page-header'>
       <nav>
-        <div class='logo-area'>
-          <h1>
+            <!--  Removed at develop-m
             <a href='//350.org' class='title-area'>
               <img src='/img/orange-arrow.svg' class='logo' />
               <span
                 data-lang-target='text'
                 data-lang-key='title'></span>
-            </a>
-          </h1>
-        </div>
+            </a> -->
         <div class='filters-form-area'>
           <form id="filters-form">
             <input type='hidden' name='lang' value='en'/>
             <div class='row'>
-              <div class='col-md-5 offset-md-1 input-text'>
+              <div class='col-md-8 input-text search-wrapper'>
                 <input type="text"
                       class="form-control typeahead"
                       name='loc'
@@ -85,8 +82,15 @@
                 <input type='hidden' name='lat' />
                 <input type='hidden' name='bound1' />
                 <input type='hidden' name='bound2' />
+                <div class='search-button'>
+                  <button
+                    class='btn btn-tertiary'
+                    data-lang-target='text'
+                    data-lang-key='search-button'
+                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                </div>
               </div>
-              <div class='col-md-5 filter-area'>
+              <div class='col-md-4 filter-area'>
                 <div class='filter-container'>
                   <span class='filter-item'>
                     <input type='checkbox' name='filter[]' id='events' value='events' checked/>
@@ -103,12 +107,10 @@
                     >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                   </span>
                 </div>
-                <div class='search-button'>
-                  <button class='btn btn-primary'
+                  <!-- <button class='btn btn-primary'
                   data-lang-target='text'
                   data-lang-key='search-button'
-                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-                </div>
+                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button> -->
 
                 <button class='btn btn-primary' id="show-hide-map">
                   <span class='show-map' data-lang-target='text'
@@ -120,11 +122,9 @@
             </div>
           </form>
         </div>
-        <div class='cta-area'>
-          <p
+          <!-- <p
             data-lang-target='text'
-            data-lang-key='find-cta'></p>
-        </div>
+            data-lang-key='find-cta'></p> -->
       </nav>
     </header>
     <div id='activity-area'>

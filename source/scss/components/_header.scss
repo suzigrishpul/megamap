@@ -2,7 +2,7 @@ header.page-header {
   background-color:#eaedef;
   padding:1.5em;
   border-bottom: 1px solid rgba(0,0,0,0.13);
-
+  z-index: 10;
   nav {
     height: inherit;
     display: flex;

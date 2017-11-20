@@ -10,14 +10,20 @@ let mapManager;
         queryManager.initialize();
 
   const initParams = queryManager.getParameters();
-  mapManager = MapManager();
+  mapManager = MapManager({
+    onMove: (sw, ne) => {
+      // When the map moves around, we update the list
+      queryManager.updateViewportByBound(sw, ne);
+      //update Query
+    }
+  });
 //console.log("Initialized");
   window.initializeAutocompleteCallback = () => {
 //console.log("Initialized");
     autocompleteManager = AutocompleteManager("input[name='loc']");
     autocompleteManager.initialize();
 //console.log("Initialized");
-    if (initParams.loc && initParams.loc !== '') {
+    if (initParams.loc && initParams.loc !== '' && (!initParams.bound1 && !initParams.bound2)) {
       mapManager.initialize(() => {
         mapManager.getCenterByLocation(initParams.loc, (result) => {
           queryManager.updateViewport(result.geometry.viewport);
@@ -46,8 +52,17 @@ let mapManager;
   });
 
   $(document).on('trigger-list-filter-update', (event, options) => {
-
     listManager.updateFilter(options);
+  });
+
+  $(document).on('trigger-list-filter-by-bound', (event, options) => {
+    if (!options || !options.bound1 || !options.bound2) {
+      return;
+    }
+    var bound1 = JSON.parse(options.bound1);
+    var bound2 = JSON.parse(options.bound2);
+
+    listManager.updateBounds(bound1, bound2)
   })
 
   /***
@@ -100,9 +115,12 @@ let mapManager;
     delete copy['bound1'];
     delete copy['bound2'];
 
-    $('#embed-area input[name=embed]').val('http://map.350.org.s3-website-us-east-1.amazonaws.com#' + $.param(copy));
+    $('#embed-area input[name=embed]').val('https://new-map.350.org#' + $.param(copy));
   });
 
+  $(window).on("resize", (e) => {
+    mapManager.refreshMap();
+  });
   $(window).on("hashchange", (event) => {
     const hash = window.location.hash;
     if (hash.length == 0) return;
@@ -118,7 +136,9 @@ let mapManager;
 
     // So that change in filters will not update this
     if (oldHash.bound1 !== parameters.bound1 || oldHash.bound2 !== parameters.bound2) {
+
       $(document).trigger('trigger-map-update', parameters);
+      $(document).trigger('trigger-list-filter-by-bound', parameters);
     }
 
     // Change items
@@ -136,7 +156,7 @@ let mapManager;
   // 7. present group elements
 
   $.ajax({
-    url: 'https://s3-us-west-2.amazonaws.com/pplsmap-data/output/350org-test.js.gz', //'|**DATA_SOURCE**|',
+    url: 'https://s3-us-west-2.amazonaws.com/pplsmap-data/output/350org.js.gz', //'|**DATA_SOURCE**|',
     dataType: 'script',
     cache: true,
     success: (data) => {
@@ -154,8 +174,10 @@ let mapManager;
   });
 
   setTimeout(() => {
-    $(document).trigger('trigger-list-filter-update', queryManager.getParameters());
-    $(document).trigger('trigger-map-update', queryManager.getParameters());
+    let p = queryManager.getParameters();
+    $(document).trigger('trigger-map-update', p);
+    $(document).trigger('trigger-list-filter-update', p);
+    $(document).trigger('trigger-list-filter-by-bound', p);
 //console.log(queryManager.getParameters())
   }, 100);
 

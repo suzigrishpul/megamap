@@ -1,5 +1,6 @@
 
 const MapManager = (($) => {
+  let LANGUAGE = 'en';
 
   const renderEvent = (item) => {
     var date = moment(item.start_datetime).format("dddd MMM DD, h:mma");
@@ -66,10 +67,29 @@ const MapManager = (($) => {
     })
   }
 
-  return (callback) => {
+  return (options) => {
+    var accessToken = 'pk.eyJ1IjoibWF0dGhldzM1MCIsImEiOiJaTVFMUkUwIn0.wcM3Xc8BGC6PM-Oyrwjnhg';
     var map = L.map('map').setView([34.88593094075317, 5.097656250000001], 2);
 
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    LANGUAGE = options.lang || 'en';
+
+    if (options.onMove) {
+      map.on('dragend', (event) => {
+        console.log(event, "Drag has ended", map.getBounds());
+
+        let sw = [map.getBounds()._southWest.lat, map.getBounds()._southWest.lng];
+        let ne = [map.getBounds()._northEast.lat, map.getBounds()._northEast.lng];
+        options.onMove(sw, ne);
+      }).on('zoomend', (event) => {
+        console.log(event, "Zoom has ended", map.getBounds());
+
+        let sw = [map.getBounds()._southWest.lat, map.getBounds()._southWest.lng];
+        let ne = [map.getBounds()._northEast.lat, map.getBounds()._northEast.lng];
+        options.onMove(sw, ne);
+      })
+    }
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/matthew350/cja41tijk27d62rqod7g0lx4b/tiles/256/{z}/{x}/{y}?access_token=' + accessToken, {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors • <a href="//350.org">350.org</a>'
     }).addTo(map);
 
@@ -91,6 +111,10 @@ const MapManager = (($) => {
               || !center[1] || center[1] == "") return;
         map.setView(center, zoom);
       },
+      getBounds: () => {
+        console.log(map.getBounds());
+        return map.getBounds();
+      },
       // Center location by geocoded
       getCenterByLocation: (location, callback) => {
 //console.log("Finding location of ", location);
@@ -100,6 +124,12 @@ const MapManager = (($) => {
             callback(results[0])
           }
         });
+      },
+      refreshMap: () => {
+        map.invalidateSize(false);
+        // map._onResize();
+
+        console.log("map is resized")
       },
       filterMap: (filters) => {
 //console.log("filters >> ", filters);

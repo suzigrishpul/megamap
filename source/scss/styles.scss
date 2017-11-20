@@ -57,14 +57,14 @@ a {
   div#activity-area {
     background-color: green;
     flex-grow: 1;
-
+    position: relative;
     display: flex;
 
 
     @import 'components/map';
     @import 'components/events_list';
     @import 'components/embed';
-    
+
     #events-list-container  {
       #events-list {
         ul li { display: none; }
