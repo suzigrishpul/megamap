@@ -14,7 +14,7 @@ const ListManager = (($) => {
           <ul class="event-types-list">
             <li class='tag-${item.event_type} tag'>${item.event_type}</li>
           </ul>
-          <h2 class="event-title"><a href="//${item.url}" target='_blank'>${item.title}</a></h2>
+          <h2 class="event-title"><a href="${url}" target='_blank'>${item.title}</a></h2>
           <div class="event-date date">${date}</div>
           <div class="event-address address-area">
             <p>${item.venue}</p>
