@@ -1,5 +1,6 @@
 
 const MapManager = (($) => {
+  let LANGUAGE = 'en';
 
   const renderEvent = (item) => {
     var date = moment(item.start_datetime).format("dddd MMM DD, h:mma");
@@ -67,7 +68,10 @@ const MapManager = (($) => {
   }
 
   return (options) => {
+    var accessToken = 'pk.eyJ1IjoibWF0dGhldzM1MCIsImEiOiJaTVFMUkUwIn0.wcM3Xc8BGC6PM-Oyrwjnhg';
     var map = L.map('map').setView([34.88593094075317, 5.097656250000001], 2);
+
+    LANGUAGE = options.lang || 'en';
 
     if (options.onMove) {
       map.on('dragend', (event) => {
@@ -85,7 +89,7 @@ const MapManager = (($) => {
       })
     }
 
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    L.tileLayer('https://api.mapbox.com/styles/v1/matthew350/cja41tijk27d62rqod7g0lx4b/tiles/256/{z}/{x}/{y}?access_token=' + accessToken, {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors • <a href="//350.org">350.org</a>'
     }).addTo(map);
 
