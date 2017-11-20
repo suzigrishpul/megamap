@@ -29,6 +29,7 @@ You will need the following Environment Variables set
 | AWS_SECRET_KEY | Secret Key for AWS S3 bucket |
 | AWS_BUCKET_NAME | Bucket name for the AWS Bucket |
 | AWS_REGION | Region for the AWS s3 Bucket|
+| CLOUDFRONT_ID | Distribution ID for your cloudfront instance |
 
 To export:
 
