@@ -118,6 +118,9 @@ let mapManager;
     $('#embed-area input[name=embed]').val('http://map.350.org.s3-website-us-east-1.amazonaws.com#' + $.param(copy));
   });
 
+  $(window).on("resize", (e) => {
+    mapManager.refreshMap();
+  });
   $(window).on("hashchange", (event) => {
     const hash = window.location.hash;
     if (hash.length == 0) return;

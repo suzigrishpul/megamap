@@ -125,6 +125,12 @@ const MapManager = (($) => {
           }
         });
       },
+      refreshMap: () => {
+        map.invalidateSize(false);
+        // map._onResize();
+
+        console.log("map is resized")
+      },
       filterMap: (filters) => {
 //console.log("filters >> ", filters);
         $("#map").find(".event-item-popup").hide();
