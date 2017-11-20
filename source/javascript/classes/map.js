@@ -66,8 +66,24 @@ const MapManager = (($) => {
     })
   }
 
-  return (callback) => {
+  return (options) => {
     var map = L.map('map').setView([34.88593094075317, 5.097656250000001], 2);
+
+    if (options.onMove) {
+      map.on('dragend', (event) => {
+        console.log(event, "Drag has ended", map.getBounds());
+
+        let sw = [map.getBounds()._southWest.lat, map.getBounds()._southWest.lng];
+        let ne = [map.getBounds()._northEast.lat, map.getBounds()._northEast.lng];
+        options.onMove(sw, ne);
+      }).on('zoomend', (event) => {
+        console.log(event, "Zoom has ended", map.getBounds());
+
+        let sw = [map.getBounds()._southWest.lat, map.getBounds()._southWest.lng];
+        let ne = [map.getBounds()._northEast.lat, map.getBounds()._northEast.lng];
+        options.onMove(sw, ne);
+      })
+    }
 
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors • <a href="//350.org">350.org</a>'
@@ -90,6 +106,10 @@ const MapManager = (($) => {
         if (!center || !center[0] || center[0] == ""
               || !center[1] || center[1] == "") return;
         map.setView(center, zoom);
+      },
+      getBounds: () => {
+        console.log(map.getBounds());
+        return map.getBounds();
       },
       // Center location by geocoded
       getCenterByLocation: (location, callback) => {

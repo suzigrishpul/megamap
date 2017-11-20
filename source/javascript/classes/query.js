@@ -70,6 +70,15 @@ const QueryManager = (($) => {
         $target.find("input[name=bound2]").val(JSON.stringify(bounds[1]));
         $target.trigger('submit');
       },
+      updateViewportByBound: (sw, ne) => {
+
+        const bounds = [sw, ne];////////
+
+        console.log(bounds);
+        $target.find("input[name=bound1]").val(JSON.stringify(bounds[0]));
+        $target.find("input[name=bound2]").val(JSON.stringify(bounds[1]));
+        $target.trigger('submit');
+      },
       triggerSubmit: () => {
         $target.trigger('submit');
       }
