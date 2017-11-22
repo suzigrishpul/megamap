@@ -72,7 +72,7 @@ const ListManager = (($) => {
 
           // console.log("updateBounds", item)
           if (bound1[0] <= _lat && bound2[0] >= _lat && bound1[1] <= _lng && bound2[1] >= _lng) {
-            console.log("Adding bounds");
+            // console.log("Adding bounds");
             $(item).addClass('within-bound');
           } else {
             $(item).removeClass('within-bound');

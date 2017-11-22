@@ -57,7 +57,7 @@ let mapManager;
 
   $(document).on('trigger-list-filter-by-bound', (event, options) => {
     let bound1, bound2;
-    
+
     if (!options || !options.bound1 || !options.bound2) {
       [bound1, bound2] = mapManager.getBounds();
     } else {
@@ -162,7 +162,7 @@ let mapManager;
   // 7. present group elements
 
   $.ajax({
-    url: 'https://s3-us-west-2.amazonaws.com/pplsmap-data/output/350org.js.gz', //'|**DATA_SOURCE**|',
+    url: '//new-map.350.org/output/350org.js.gz', //'|**DATA_SOURCE**|',
     dataType: 'script',
     cache: true,
     success: (data) => {
