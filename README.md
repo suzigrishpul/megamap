@@ -40,3 +40,7 @@ Contact:
 
 * Rapi Castillo – rapicastillo.work@gmail.com
 * suzi grishpul
+
+Note:
+
+* Currently working on auto-deploy
