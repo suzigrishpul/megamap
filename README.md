@@ -40,4 +40,4 @@ To export:
 Contact:
 
 * Rapi Castillo – rapicastillo.work@gmail.com
-* suzi grishpul - 350
+* suzi grishpul - 350.org
