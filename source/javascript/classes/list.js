@@ -14,7 +14,7 @@ const ListManager = (($) => {
           <ul class="event-types-list">
             <li class='tag-${item.event_type} tag'>${item.event_type}</li>
           </ul>
-          <h2 class="event-title"><a href="//${item.url}" target='_blank'>${item.title}</a></h2>
+          <h2 class="event-title"><a href="${url}" target='_blank'>${item.title}</a></h2>
           <div class="event-date date">${date}</div>
           <div class="event-address address-area">
             <p>${item.venue}</p>
@@ -35,7 +35,7 @@ const ListManager = (($) => {
           <ul class="event-types-list">
             <li class="tag tag-${item.supergroup}">${item.supergroup}</li>
           </ul>
-          <h2><a href="/" target='_blank'>${item.name}</a></h2>
+          <h2><a href="${url}" target='_blank'>${item.name}</a></h2>
           <div class="group-details-area">
             <div class="group-location location">${item.location}</div>
             <div class="group-description">
@@ -72,7 +72,7 @@ const ListManager = (($) => {
 
           // console.log("updateBounds", item)
           if (bound1[0] <= _lat && bound2[0] >= _lat && bound1[1] <= _lng && bound2[1] >= _lng) {
-            console.log("Adding bounds");
+            // console.log("Adding bounds");
             $(item).addClass('within-bound');
           } else {
             $(item).removeClass('within-bound');
