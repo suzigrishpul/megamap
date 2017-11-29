@@ -84,7 +84,7 @@ const MapManager = (($) => {
 
   return (options) => {
     var accessToken = 'pk.eyJ1IjoibWF0dGhldzM1MCIsImEiOiJaTVFMUkUwIn0.wcM3Xc8BGC6PM-Oyrwjnhg';
-    var map = L.map('map').setView([34.88593094075317, 5.097656250000001], 2);
+    var map = L.map('map', { dragging: !L.Browser.mobile }).setView([34.88593094075317, 5.097656250000001], 2);
 
     LANGUAGE = options.lang || 'en';
 
