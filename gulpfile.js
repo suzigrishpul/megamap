@@ -22,7 +22,7 @@ function swallowError (error) {
   this.emit('end')
 }
 
-gulp.task('default', ['build-css', 'build-js', 'inject', 'webserver', 'watch']);
+gulp.task('default', ['build-css', 'build-js', 'inject', 'webserver', 'watch', 'prepare-export']);
 
 // Watch JS hints
 gulp.task('jshint', function() {
@@ -102,7 +102,7 @@ gulp.task('inject', function () {
 gulp.task('watch', function() {
   gulp.watch('source/javascript/**/*.js', ['build-js', 'jshint']);
   gulp.watch('source/scss/**/*.scss', ['build-css']);
-  gulp.watch('source/**', ['inject']);
+  gulp.watch('source/**', ['inject', 'prepare-export']);
 });
 
 gulp.task('publish', ['build-css', 'build-js', 'inject', 'prepare-export', 'export']);
