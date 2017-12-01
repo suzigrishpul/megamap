@@ -147,7 +147,7 @@ const MapManager = (($) => {
         map.invalidateSize(false);
         // map._onResize();
 
-        console.log("map is resized")
+        // console.log("map is resized")
       },
       filterMap: (filters) => {
 
