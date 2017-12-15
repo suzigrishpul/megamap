@@ -86,6 +86,10 @@ const MapManager = (($) => {
     var accessToken = 'pk.eyJ1IjoibWF0dGhldzM1MCIsImEiOiJaTVFMUkUwIn0.wcM3Xc8BGC6PM-Oyrwjnhg';
     var map = L.map('map', { dragging: !L.Browser.mobile }).setView([34.88593094075317, 5.097656250000001], 2);
 
+    if (!L.Browser.mobile) {
+      map.scrollWheelZoom.disable();
+    }
+
     LANGUAGE = options.lang || 'en';
 
     if (options.onMove) {
