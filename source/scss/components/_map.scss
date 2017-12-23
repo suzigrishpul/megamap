@@ -24,7 +24,8 @@ section#map {
         margin-top:0;}
       @include event-item {
         a.btn-primary { color: white; }
-        .event-title{
+        .event-title,
+        .group-header{
           margin-bottom:0.5rem;}
       };
     }

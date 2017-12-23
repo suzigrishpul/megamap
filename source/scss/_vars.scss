@@ -74,7 +74,7 @@ $font-secondary: 'Overpass Mono',Menlo,monaco,courier,monospace;
         background-image: url(/img/human.svg);
       }
       &:after {
-        background-color: $blue;
+        background-color: $teal;
       }
 
       a { color: $indigo}
@@ -86,7 +86,7 @@ $font-secondary: 'Overpass Mono',Menlo,monaco,courier,monospace;
     }
     h2 {
       &:after {
-        background-color: $teal;
+        background-color: $blue;
       }
       &:before {
         background-image: url(/img/flag.svg);

@@ -24,6 +24,12 @@ a {
     color: #0046c3;
     text-decoration: none; }
 
+.leaflet-container a {
+  color: #003DAA; }
+  .leaflet-container a:hover {
+    color: #0046c3;
+    text-decoration: none; }
+
 .btn.btn-primary {
   background-color: #40D7D4;
   border-color: #40D7D4;
@@ -132,9 +138,9 @@ a {
                 top: .15em;
                 border-radius: 50%; }
             #stage header.page-header nav div.filters-form-area form span.filter-item input[value='events']:checked + label:after {
-              background-color: #0F81E8; }
-            #stage header.page-header nav div.filters-form-area form span.filter-item input[value='groups']:checked + label:after {
               background-color: #40D7D4; }
+            #stage header.page-header nav div.filters-form-area form span.filter-item input[value='groups']:checked + label:after {
+              background-color: #0F81E8; }
       #stage header.page-header nav div.cta-area {
         height: 100%;
         width: 200px; }
@@ -218,18 +224,19 @@ a {
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event h2:before {
           background-image: url(/img/human.svg); }
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event h2:after {
-          background-color: #0F81E8; }
+          background-color: #40D7D4; }
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event h2 a {
           color: #003DAA; }
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-group div.group-details-area {
           margin-bottom: 5px; }
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-group h2:after {
-          background-color: #40D7D4; }
+          background-color: #0F81E8; }
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-group h2:before {
           background-image: url(/img/flag.svg); }
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content a.btn-primary {
           color: white; }
-        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content .event-title {
+        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content .event-title,
+        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content .group-header {
           margin-bottom: 0.5rem; }
     #stage div#activity-area section#events-list-container {
       width: 400px;
@@ -307,19 +314,19 @@ a {
           #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event h2:before {
             background-image: url(/img/human.svg); }
           #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event h2:after {
-            background-color: #0F81E8; }
+            background-color: #40D7D4; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event h2 a {
             color: #003DAA; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-group div.group-details-area {
             margin-bottom: 5px; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-group h2:after {
-            background-color: #40D7D4; }
+            background-color: #0F81E8; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-group h2:before {
             background-image: url(/img/flag.svg); }
           #stage div#activity-area section#events-list-container div#events-list > ul > li > div {
             padding: 20px; }
             #stage div#activity-area section#events-list-container div#events-list > ul > li > div.type-group {
-              background-color: #dedede; }
+              background-color: #e9eaef; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li:last-child {
             border-bottom: none; }
     #stage div#activity-area #embed-area {

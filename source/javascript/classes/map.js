@@ -33,9 +33,11 @@ const MapManager = (($) => {
         <ul class="event-types-list">
           <li class="tag tag-${item.supergroup}">${item.supergroup}</li>
         </ul>
-        <h2><a href="${url}" target='_blank'>${item.name}</a></h2>
-        <div class="group-details-area">
+        <div class="group-header">
+          <h2><a href="${url}" target='_blank'>${item.name}</a></h2>
           <div class="group-location location">${item.location}</div>
+        </div>
+        <div class="group-details-area">
           <div class="group-description">
             <p>${item.description}</p>
           </div>
@@ -183,18 +185,24 @@ const MapManager = (($) => {
 
         L.geoJSON(geojson, {
             pointToLayer: (feature, latlng) => {
-              //
+              // Icons for markers
               const eventType = feature.properties.eventProperties.event_type;
+              var groupIcon = L.icon({
+                iconUrl: eventType && eventType.toLowerCase() === 'group' ? '/img/group.svg' : '/img/event.svg',
+                iconSize: [22, 22],
+                iconAnchor: [12, 8],
+                className: 'groups event-item-popup'
+              });
+              var eventIcon = L.icon({
+                iconUrl: eventType && eventType.toLowerCase() === 'group' ? '/img/group.svg' : '/img/event.svg',
+                iconSize: [18, 18],
+                iconAnchor: [9, 9],
+                className: 'events event-item-popup'
+              });
               var geojsonMarkerOptions = {
-                  radius: 8,
-                  fillColor:  eventType && eventType.toLowerCase() === 'group' ? "#40D7D4" : "#0F81E8",
-                  color: "white",
-                  weight: 2,
-                  opacity: 0.5,
-                  fillOpacity: 0.8,
-                  className: (eventType && eventType.toLowerCase() === 'group' ? 'groups' : 'events') + ' event-item-popup'
+                icon: eventType && eventType.toLowerCase() === 'group' ? groupIcon : eventIcon,
               };
-              return L.circleMarker(latlng, geojsonMarkerOptions);
+              return L.marker(latlng, geojsonMarkerOptions);
             },
 
           onEachFeature: (feature, layer) => {
