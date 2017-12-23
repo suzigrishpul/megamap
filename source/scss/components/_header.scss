@@ -93,7 +93,7 @@ header.page-header {
               }
             }
             &:checked + label:after {
-              background-color: $blue;
+              background-color: $teal;
             }
           }
 
@@ -105,7 +105,7 @@ header.page-header {
             }
 
             &:checked + label:after {
-              background-color: $teal;
+              background-color: $blue;
             }
           }
         } //span.filter-item

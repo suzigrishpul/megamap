@@ -17,6 +17,14 @@ a {
     text-decoration: none;
   }
 }
+.leaflet-container a{
+  color:$indigo;
+
+  &:hover {
+    color: $light-indigo;
+    text-decoration: none;
+  }
+}
 .btn.btn-primary {
   background-color:$teal;
   border-color:$teal;
