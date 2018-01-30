@@ -28,7 +28,11 @@ const ListManager = (($) => {
     };
 
     const renderGroup = (item) => {
-      let url = item.website.match(/^https{0,1}:/) ? item.website : "//" + item.website;
+      let url = item.website == '' ? 'javascript: void(0)' :
+        (item.website.match(/^https{0,1}:/) ? item.website : "//" + item.website);
+
+      let hideButton = item.website == '';
+
       return `
       <li class='${item.event_type} group-obj' data-lat='${item.lat}' data-lng='${item.lng}'>
         <div class="type-group group-obj">
@@ -43,7 +47,9 @@ const ListManager = (($) => {
             </div>
           </div>
           <div class="call-to-action">
-            <a href="${url}" target='_blank' class="btn btn-secondary">Get Involved</a>
+            <a href="${url}" target='_blank' class="btn btn-secondary" style="${hideButton ? 'display: none' : ''}">
+              Get Involved
+            </a>
           </div>
         </div>
       </li>

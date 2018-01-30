@@ -26,7 +26,11 @@ const MapManager = (($) => {
 
   const renderGroup = (item) => {
 
-    let url = item.website.match(/^https{0,1}:/) ? item.website : "//" + item.website;
+    let url = item.website == '' ? 'javascript: void(0)' :
+      (item.website.match(/^https{0,1}:/) ? item.website : "//" + item.website);
+
+    let hideButton = item.website == '';
+
     return `
     <li>
       <div class="type-group group-obj">
@@ -43,7 +47,9 @@ const MapManager = (($) => {
           </div>
         </div>
         <div class="call-to-action">
-          <a href="${url}" target='_blank' class="btn btn-secondary">Get Involved</a>
+          <a href="${url}" target='_blank' class="btn btn-secondary" style="${hideButton ? 'display: none' : ''}">
+            Get Involved
+          </a>
         </div>
       </div>
     </li>
