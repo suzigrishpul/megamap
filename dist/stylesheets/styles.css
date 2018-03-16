@@ -80,6 +80,11 @@ a {
             padding-top: 5px;
             text-align: right;
             width: 100%; }
+            #stage header.page-header nav div.filters-form-area div.filter-area div.filter-container span.multiselect-native-select .multiselect-container {
+              right: -40px;
+              left: auto !important; }
+              #stage header.page-header nav div.filters-form-area div.filter-area div.filter-container span.multiselect-native-select .multiselect-container li label {
+                padding: 3px 40px 3px 20px; }
         #stage header.page-header nav div.filters-form-area form {
           width: 100%; }
           #stage header.page-header nav div.filters-form-area form .search-wrapper {
@@ -326,7 +331,7 @@ a {
           #stage div#activity-area section#events-list-container div#events-list > ul > li > div {
             padding: 20px; }
             #stage div#activity-area section#events-list-container div#events-list > ul > li > div.type-group {
-              background-color: #dedede; }
+              background-color: #e9eaef; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li:last-child {
             border-bottom: none; }
     #stage div#activity-area #embed-area {

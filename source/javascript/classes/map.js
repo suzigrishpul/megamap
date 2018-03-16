@@ -5,8 +5,10 @@ const MapManager = (($) => {
   const renderEvent = (item) => {
     var date = moment(item.start_datetime).format("dddd MMM DD, h:mma");
     let url = item.url.match(/^https{0,1}:/) ? item.url : "//" + item.url;
+
+    let superGroup = window.slugify(item.supergroup);
     return `
-    <div class='popup-item ${item.event_type}' data-lat='${item.lat}' data-lng='${item.lng}'>
+    <div class='popup-item ${item.event_type} ${superGroup}' data-lat='${item.lat}' data-lng='${item.lng}'>
       <div class="type-event">
         <ul class="event-types-list">
           <li class="tag tag-${item.event_type}">${item.event_type || 'Action'}</li>
@@ -27,11 +29,12 @@ const MapManager = (($) => {
   const renderGroup = (item) => {
 
     let url = item.website.match(/^https{0,1}:/) ? item.website : "//" + item.website;
+    let superGroup = window.slugify(item.supergroup);
     return `
     <li>
-      <div class="type-group group-obj">
+      <div class="type-group group-obj ${superGroup}">
         <ul class="event-types-list">
-          <li class="tag tag-${item.supergroup}">${item.supergroup}</li>
+          <li class="tag tag-${item.supergroup} ${superGroup}">${item.supergroup}</li>
         </ul>
         <div class="group-header">
           <h2><a href="${url}" target='_blank'>${item.name}</a></h2>
@@ -159,7 +162,7 @@ const MapManager = (($) => {
 
         $("#map").find(".event-item-popup").hide();
 
-
+        console.log(filters);
         if (!filters) return;
 
         filters.forEach((item) => {
@@ -187,11 +190,12 @@ const MapManager = (($) => {
             pointToLayer: (feature, latlng) => {
               // Icons for markers
               const eventType = feature.properties.eventProperties.event_type;
+              const slugged = window.slugify(feature.properties.eventProperties.supergroup);
               var groupIcon = L.icon({
                 iconUrl: eventType && eventType.toLowerCase() === 'group' ? '/img/group.svg' : '/img/event.svg',
                 iconSize: [22, 22],
                 iconAnchor: [12, 8],
-                className: 'groups event-item-popup'
+                className: slugged + ' event-item-popup'
               });
               var eventIcon = L.icon({
                 iconUrl: eventType && eventType.toLowerCase() === 'group' ? '/img/group.svg' : '/img/event.svg',

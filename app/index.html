@@ -29,10 +29,11 @@
   <meta property="twitter:image" content="https://map.350.org/img/social.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
 
   <!-- inject:css -->
+  <link rel="stylesheet" href="/stylesheets/vendor/bootstrap-multiselect.css?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709">
+  <link rel="stylesheet" href="/stylesheets/vendor/bootstrap.css?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709">
   <link rel="stylesheet" href="/stylesheets/vendor/font-awesome/css/font-awesome.css?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709">
   <link rel="stylesheet" href="/stylesheets/vendor/font-awesome/css/font-awesome.min.css?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709">
   <link rel="stylesheet" href="/stylesheets/vendor/leaflet/leaflet.css?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709">
@@ -92,7 +93,7 @@
               </div>
               <div class='col-md-4 filter-area'>
                 <div class='filter-container'>
-                  <span class='filter-item'>
+                  <!-- <span class='filter-item'>
                     <input type='checkbox' name='filter[]' id='events' value='events' checked/>
                     <label for='events'
                         data-lang-target='text'
@@ -105,7 +106,11 @@
                     data-lang-target='text'
                     data-lang-key='show-groups'
                     >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                  </span>
+                  </span> -->
+                  <select multiple='multiple' name='filter[]' id='filter-items'>
+                    <option data-lang-target='text' selected='selected' data-lang-key='show-events' value='events'>T&nbsp;&nbsp;&nbsp;</option>
+                    <!-- <option data-lang-target='text' selected='selected' data-lang-key='show-groups' value='groups'>T&nbsp;&nbsp;&nbsp;</option> -->
+                  </select>
                 </div>
                   <!-- <button class='btn btn-primary'
                   data-lang-target='text'
@@ -136,7 +141,7 @@
           data-lang-target='text'
           data-lang-key='activity-in-area'
         ></header>
--->        
+-->
         <div id='events-list'>
           <ul>
             <li>
@@ -232,9 +237,14 @@
     </div>
   </div>
 
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHjNicQUZks7i0dLFEwskTHF6bdVty8Ck&callback=window.initializeAutocompleteCallback"
+    async defer></script>
   <!-- inject:js -->
   <script src="/javascript/vendor/jquery.min.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
   <script src="/javascript/vendor/leaflet.min.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
+  <script src="/javascript/vendor/bootstrap.bundle.min.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
+  <script src="/javascript/vendor/bootstrap-multiselect.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
   <script src="/javascript/vendor/d3.min.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
   <script src="/javascript/vendor/deparam.min.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
   <script src="/javascript/vendor/moment.min.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
@@ -244,9 +254,6 @@
   <!-- endinject -->
 
   <script type='text/javascript' src=''></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHjNicQUZks7i0dLFEwskTHF6bdVty8Ck&callback=window.initializeAutocompleteCallback"
-    async defer></script>
 <!-- SOCIAL -->
 <!-- Twitter -->
 <script>window.twttr = (function(d, s, id) {

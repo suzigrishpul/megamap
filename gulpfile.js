@@ -86,6 +86,8 @@ gulp.task('inject', function () {
                           .pipe(order([
                             'public/assets/javascript/vendor/jquery.min.js',
                             'public/assets/javascript/vendor/leaflet.min.js',
+                            'public/assets/javascript/vendor/bootstrap.bundle.min.js',
+                            'public/assets/javascript/vendor/bootstrap-multiselect.js',
                             'public/assets/javascript/vendor/*.min.js',
                             'public/assets/javascript/**/*.js',
                             'public/assets/stylesheets/vendor/**/*.css',
