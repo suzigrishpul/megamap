@@ -105,13 +105,19 @@ const MapManager = (($) => {
         let ne = [map.getBounds()._northEast.lat, map.getBounds()._northEast.lng];
         options.onMove(sw, ne);
       }).on('zoomend', (event) => {
-
+        if (map.getZoom() <= 4) {
+          $("#map").addClass("zoomed-out");
+        } else {
+          $("#map").removeClass("zoomed-out");
+        }
 
         let sw = [map.getBounds()._southWest.lat, map.getBounds()._southWest.lng];
         let ne = [map.getBounds()._northEast.lat, map.getBounds()._northEast.lng];
         options.onMove(sw, ne);
       })
     }
+
+    map.fireEvent('zoomend');
 
     L.tileLayer('https://api.mapbox.com/styles/v1/matthew350/cja41tijk27d62rqod7g0lx4b/tiles/256/{z}/{x}/{y}?access_token=' + accessToken, {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors • <a href="//350.org">350.org</a>'
@@ -162,7 +168,7 @@ const MapManager = (($) => {
 
         $("#map").find(".event-item-popup").hide();
 
-        console.log(filters);
+        // console.log(filters);
         if (!filters) return;
 
         filters.forEach((item) => {
@@ -191,6 +197,7 @@ const MapManager = (($) => {
               // Icons for markers
               const eventType = feature.properties.eventProperties.event_type;
               const slugged = window.slugify(feature.properties.eventProperties.supergroup);
+
               var groupIcon = L.icon({
                 iconUrl: eventType && eventType.toLowerCase() === 'group' ? '/img/group.svg' : '/img/event.svg',
                 iconSize: [22, 22],
@@ -203,6 +210,7 @@ const MapManager = (($) => {
                 iconAnchor: [9, 9],
                 className: 'events event-item-popup'
               });
+
               var geojsonMarkerOptions = {
                 icon: eventType && eventType.toLowerCase() === 'group' ? groupIcon : eventIcon,
               };

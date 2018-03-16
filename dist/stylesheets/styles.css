@@ -243,6 +243,16 @@ a {
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content .event-title,
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content .group-header {
           margin-bottom: 0.5rem; }
+      #stage div#activity-area section#map.zoomed-out img.local-groups, #stage div#activity-area section#map.zoomed-out img.fossil-free-groups, #stage div#activity-area section#map.zoomed-out img.regional-hubs {
+        width: 11px !important;
+        height: 11px !important;
+        margin-top: 0px !important;
+        margin-left: -3px !important; }
+      #stage div#activity-area section#map.zoomed-out img.events {
+        width: 9px !important;
+        height: 9px !important;
+        margin-top: 0px !important;
+        margin-left: 0px !important; }
     #stage div#activity-area section#events-list-container {
       width: 400px;
       height: inherit;

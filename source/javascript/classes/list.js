@@ -11,7 +11,7 @@ const ListManager = (($) => {
       // let superGroup = window.slugify(item.supergroup);
 
       return `
-      <li class='${window.slugify(item.event_type)} event-obj' data-lat='${item.lat}' data-lng='${item.lng}'>
+      <li class='${window.slugify(item.event_type)} events event-obj' data-lat='${item.lat}' data-lng='${item.lng}'>
         <div class="type-event type-action">
           <ul class="event-types-list">
             <li class='tag-${item.event_type} tag'>${item.event_type}</li>
@@ -32,7 +32,7 @@ const ListManager = (($) => {
     const renderGroup = (item) => {
       let url = item.website.match(/^https{0,1}:/) ? item.website : "//" + item.website;
       let superGroup = window.slugify(item.supergroup);
-      console.log(superGroup);
+      // console.log(superGroup);
       return `
       <li class='${item.event_type} ${superGroup} group-obj' data-lat='${item.lat}' data-lng='${item.lng}'>
         <div class="type-group group-obj">
@@ -63,6 +63,14 @@ const ListManager = (($) => {
 
         $target.removeProp("class");
         $target.addClass(p.filter ? p.filter.join(" ") : '')
+
+        $target.find('li.event-obj, li.group-obj').hide();
+
+        if (p.filter) {
+          p.filter.forEach((fil)=>{
+            $target.find(`li.${fil}`).show();
+          })
+        }
       },
       updateBounds: (bound1, bound2) => {
 
