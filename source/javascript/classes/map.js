@@ -117,7 +117,7 @@ const MapManager = (($) => {
       })
     }
 
-    map.fireEvent('zoomend');
+    // map.fireEvent('zoomend');
 
     L.tileLayer('https://api.mapbox.com/styles/v1/matthew350/cja41tijk27d62rqod7g0lx4b/tiles/256/{z}/{x}/{y}?access_token=' + accessToken, {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors • <a href="//350.org">350.org</a>'
@@ -158,9 +158,13 @@ const MapManager = (($) => {
           }
         });
       },
+      triggerZoomEnd: () => {
+        map.fireEvent('zoomend');
+      },
       refreshMap: () => {
         map.invalidateSize(false);
         // map._onResize();
+        // map.fireEvent('zoomend');
 
         // console.log("map is resized")
       },

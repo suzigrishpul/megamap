@@ -90,6 +90,11 @@ window.slugify = (text) => text.toString().toLowerCase()
     var bound1 = JSON.parse(options.bound1);
     var bound2 = JSON.parse(options.bound2);
     mapManager.setBounds(bound1, bound2);
+    // mapManager.triggerZoomEnd();
+
+    setTimeout(() => {
+      mapManager.triggerZoomEnd();
+    }, 10);
     // console.log(options)
   });
   // 3. markers on map
@@ -111,6 +116,7 @@ window.slugify = (text) => text.toString().toLowerCase()
     // Re-initialize
     queryManager.initialize();
     $('select#filter-items').multiselect('rebuild');
+    mapManager.refreshMap();
   })
 
   // Filter map
