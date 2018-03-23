@@ -199,11 +199,13 @@ window.slugify = (text) => text.toString().toLowerCase()
   // 7. present group elements
 
   $.ajax({
-    url: '/data/test.json', //'|**DATA_SOURCE**|',
-    dataType: 'json',
+    url: 'https://new-map.350.org/output/350org-new-layout.js.gz', //'|**DATA_SOURCE**|',
+    dataType: 'script',
     cache: true,
     success: (data) => {
-      window.EVENTS_DATA = data;
+      // window.EVENTS_DATA = data;
+
+      // console.log(window.EVENTS_DATA);
 
       //Load groups
       $(document).trigger('trigger-load-groups', { groups: window.EVENTS_DATA.groups });
