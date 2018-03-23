@@ -55,86 +55,7 @@
   }(document, 'script', 'facebook-jssdk'));</script>
 
   <div id='stage'>
-    <header class='page-header'>
-      <nav>
-            <!--  Removed at develop-m
-            <a href='//350.org' class='title-area'>
-              <img src='/img/orange-arrow.svg' class='logo' />
-              <span
-                data-lang-target='text'
-                data-lang-key='title'></span>
-            </a> -->
-        <div class='filters-form-area'>
-          <form id="filters-form">
-            <input type='hidden' name='lang' value='en'/>
-            <div class='row'>
-              <div class='col-md-8 input-text search-wrapper'>
-                <input type="text"
-                      class="form-control typeahead"
-                      name='loc'
-                      placeholder=""
-                      data-provider="typeahead"
-                      autocomplete="off"
-                      data-lang-target='placeholder'
-                      data-lang-key='search'
-                  >
-                <input type='hidden' name='key' />
-                <input type='hidden' name='lng' />
-                <input type='hidden' name='lat' />
-                <input type='hidden' name='bound1' />
-                <input type='hidden' name='bound2' />
-                <div class='search-button'>
-                  <button
-                    class='btn btn-tertiary'
-                    data-lang-target='text'
-                    data-lang-key='search-button'
-                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-                </div>
-              </div>
-              <div class='col-md-4 filter-area'>
-                <div class='filter-container'>
-                  <!-- <span class='filter-item'>
-                    <input type='checkbox' name='filter[]' id='events' value='events' checked/>
-                    <label for='events'
-                        data-lang-target='text'
-                        data-lang-key='show-events'
-                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                  </span>
-                  <span class='filter-item'>
-                    <input type='checkbox' name='filter[]' id='groups' value='groups' checked/>
-                    <label for='groups'
-                    data-lang-target='text'
-                    data-lang-key='show-groups'
-                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                  </span> -->
-                  <select multiple='multiple' name='filter[]' id='filter-items'>
-                    <option data-lang-target='text' selected='selected' data-lang-key='show-events' value='events'>T&nbsp;&nbsp;&nbsp;</option>
-                    <!-- <option data-lang-target='text' selected='selected' data-lang-key='show-groups' value='groups'>T&nbsp;&nbsp;&nbsp;</option> -->
-                  </select>
-                </div>
-                  <!-- <button class='btn btn-primary'
-                  data-lang-target='text'
-                  data-lang-key='search-button'
-                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button> -->
-
-                <button class='btn btn-primary' id="show-hide-map">
-                  <span class='show-map' data-lang-target='text'
-                  data-lang-key='map-view'></span>
-                  <span class='show-list' data-lang-target='text'
-                  data-lang-key='list-view'></span>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-          <!-- <p
-            data-lang-target='text'
-            data-lang-key='find-cta'></p> -->
-      </nav>
-    </header>
     <div id='activity-area'>
-      <section id='map'>
-      </section>
       <section id='events-list-container'>
 <!--
         <header class='events-header'
@@ -142,6 +63,87 @@
           data-lang-key='activity-in-area'
         ></header>
 -->
+        <header class='page-header'>
+          <nav>
+                <!--  Removed at develop-m
+                <a href='//350.org' class='title-area'>
+                  <img src='/img/orange-arrow.svg' class='logo' />
+                  <span
+                    data-lang-target='text'
+                    data-lang-key='title'></span>
+                </a> -->
+            <div class='filters-form-area'>
+              <form id="filters-form">
+                <input type='hidden' name='lang' value='en'/>
+                <div class='row'>
+                  <div class='col-md-12 input-text search-wrapper'>
+                    <input type="text"
+                          class="form-control typeahead"
+                          name='loc'
+                          placeholder=""
+                          data-provider="typeahead"
+                          autocomplete="off"
+                          data-lang-target='placeholder'
+                          data-lang-key='search'
+                      >
+                    <input type='hidden' name='key' />
+                    <input type='hidden' name='lng' />
+                    <input type='hidden' name='lat' />
+                    <input type='hidden' name='bound1' />
+                    <input type='hidden' name='bound2' />
+                    <div class='search-button'>
+                      <button
+                        class='btn btn-tertiary'
+                        data-lang-target='text'
+                        data-lang-key='search-button'
+                      >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    </div>
+                  </div>
+                </div>
+                <div class='row'>
+                  <div class='col-md-12 filter-area'>
+                    <div class='filter-container'>
+                      <!-- <span class='filter-item'>
+                        <input type='checkbox' name='filter[]' id='events' value='events' checked/>
+                        <label for='events'
+                            data-lang-target='text'
+                            data-lang-key='show-events'
+                        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                      </span>
+                      <span class='filter-item'>
+                        <input type='checkbox' name='filter[]' id='groups' value='groups' checked/>
+                        <label for='groups'
+                        data-lang-target='text'
+                        data-lang-key='show-groups'
+                        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                      </span> -->
+                      <select multiple='multiple' name='filter[]' id='filter-items'>
+                        <option data-lang-target='text' selected='selected' data-lang-key='show-events' value='events'>T&nbsp;&nbsp;&nbsp;</option>
+                        <!-- <option data-lang-target='text' selected='selected' data-lang-key='show-groups' value='groups'>T&nbsp;&nbsp;&nbsp;</option> -->
+                      </select>
+                    </div>
+                      <!-- <button class='btn btn-primary'
+                      data-lang-target='text'
+                      data-lang-key='search-button'
+                      >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button> -->
+
+                    <button class='btn btn-primary' id="show-hide-map">
+                      <span class='show-map' data-lang-target='text'
+                      data-lang-key='map-view'></span>
+                      <span class='show-list' data-lang-target='text'
+                      data-lang-key='list-view'></span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+              <!-- <p
+                data-lang-target='text'
+                data-lang-key='find-cta'></p> -->
+          </nav>
+        </header>
+        <!-- End of search area-->
+
         <div id='events-list'>
           <ul>
             <li>
@@ -233,6 +235,10 @@
             </div>
           </div>
         </aside>
+      </section>
+
+      
+      <section id='map'>
       </section>
     </div>
   </div>

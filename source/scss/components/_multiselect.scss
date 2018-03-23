@@ -1,0 +1,20 @@
+div.filter-container {
+  span.multiselect-native-select {
+    div.btn-group {
+      text-align: right;
+      button.multiselect.dropdown-toggle {
+        img { width: 16px; }
+        font-size: 12px;
+        background: transparent;
+        &:after {
+          display: none;
+        }
+      }
+
+      ul.multiselect-container.dropdown-menu {
+        left: auto !important;
+        right: 0 !important;
+      }
+    }
+  }
+}

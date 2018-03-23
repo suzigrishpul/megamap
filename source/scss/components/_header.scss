@@ -21,8 +21,8 @@ header.page-header {
 
           span.multiselect-native-select {
             .multiselect-container {
-              right: -40px;
-              left: auto !important;
+              // right: -40px;
+              // left: auto !important;
 
               li {
                 label {
@@ -49,8 +49,7 @@ header.page-header {
               position:relative;}
           }
         .twitter-typeahead {
-          width: 85%;
-          width:calc(100% - 120px);
+          width: 100%;
 
           .tt-dropdown-menu {
             background-color: #fafeff;
@@ -69,7 +68,7 @@ header.page-header {
         }
         .search-button{
           display:inline-block;
-          width:120px;}
+          width:70px;}
         button { cursor: pointer; }
         span.filter-item {
           margin-right: 20px;

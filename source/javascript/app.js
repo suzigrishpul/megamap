@@ -10,7 +10,12 @@ window.slugify = (text) => text.toString().toLowerCase()
 
 (function($) {
   // Load things
-  $('select#filter-items').multiselect();
+  $('select#filter-items').multiselect({
+    templates: {
+      button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"><span>Show Filters</span> <img src="/img/filter.png" /></button>',
+    },
+    dropRight: true
+  });
   // 1. google maps geocode
 
   // 2. focus map on geocode (via lat/lng)

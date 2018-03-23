@@ -80,11 +80,8 @@ a {
             padding-top: 5px;
             text-align: right;
             width: 100%; }
-            #stage header.page-header nav div.filters-form-area div.filter-area div.filter-container span.multiselect-native-select .multiselect-container {
-              right: -40px;
-              left: auto !important; }
-              #stage header.page-header nav div.filters-form-area div.filter-area div.filter-container span.multiselect-native-select .multiselect-container li label {
-                padding: 3px 40px 3px 20px; }
+            #stage header.page-header nav div.filters-form-area div.filter-area div.filter-container span.multiselect-native-select .multiselect-container li label {
+              padding: 3px 40px 3px 20px; }
         #stage header.page-header nav div.filters-form-area form {
           width: 100%; }
           #stage header.page-header nav div.filters-form-area form .search-wrapper {
@@ -97,8 +94,7 @@ a {
               left: -5px;
               position: relative; }
           #stage header.page-header nav div.filters-form-area form .twitter-typeahead {
-            width: 85%;
-            width: calc(100% - 120px); }
+            width: 100%; }
             #stage header.page-header nav div.filters-form-area form .twitter-typeahead .tt-dropdown-menu {
               background-color: #fafeff;
               border: solid 1px lightgray;
@@ -112,7 +108,7 @@ a {
                 overflow: hidden; }
           #stage header.page-header nav div.filters-form-area form .search-button {
             display: inline-block;
-            width: 120px; }
+            width: 70px; }
           #stage header.page-header nav div.filters-form-area form button {
             cursor: pointer; }
           #stage header.page-header nav div.filters-form-area form span.filter-item {
@@ -257,7 +253,7 @@ a {
       width: 400px;
       height: inherit;
       background-color: whitesmoke;
-      border-left: 1px solid rgba(0, 0, 0, 0.3);
+      border-right: 1px solid rgba(0, 0, 0, 0.3);
       position: relative;
       display: flex;
       flex-direction: column;
@@ -489,3 +485,16 @@ a {
         body div#stage div#activity-area section#events-list-container header.events-header {
           font-size: 24px;
           padding-top: 5px; } }
+
+div.filter-container span.multiselect-native-select div.btn-group {
+  text-align: right; }
+  div.filter-container span.multiselect-native-select div.btn-group button.multiselect.dropdown-toggle {
+    font-size: 12px;
+    background: transparent; }
+    div.filter-container span.multiselect-native-select div.btn-group button.multiselect.dropdown-toggle img {
+      width: 16px; }
+    div.filter-container span.multiselect-native-select div.btn-group button.multiselect.dropdown-toggle:after {
+      display: none; }
+  div.filter-container span.multiselect-native-select div.btn-group ul.multiselect-container.dropdown-menu {
+    left: auto !important;
+    right: 0 !important; }
