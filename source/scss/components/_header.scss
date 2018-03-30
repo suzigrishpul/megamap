@@ -1,6 +1,6 @@
 header.page-header {
   background-color:#eaedef;
-  padding:1.5em;
+  padding:1.5em 1.5em 0;
   border-bottom: 1px solid rgba(0,0,0,0.13);
   z-index: 10;
   nav {
@@ -26,7 +26,10 @@ header.page-header {
 
               li {
                 label {
-                  padding: 3px 40px 3px 20px ;
+                  padding: 3px 40px 3px 0px ;
+                  width: 100%;
+                  font-size: 13px;
+                  color: #333333;
                 }
               }
             }
@@ -46,7 +49,17 @@ header.page-header {
             .btn{
               border-radius:0 4px 4px 0;
               left:-5px;
-              position:relative;}
+              position:relative;
+
+              background-color: $indigo;
+              color: white;
+              text-transform: uppercase;
+              font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+              font-size: 13px;
+              font-weight: 600;
+              padding: 9px 15px;
+
+            }
           }
         .twitter-typeahead {
           width: 100%;
@@ -138,3 +151,34 @@ header.page-header {
     } //div.cta-area
   } //nav
 }//header.page-header
+
+div.filter-container span.multiselect-native-select div.btn-group {
+  display: block;
+  button {
+    padding-left: 0;
+    width: 100%;
+    text-align: left;
+    color: gray;
+    border-radius: 0;
+  }
+  ul.multiselect-container.dropdown-menu {
+    position: relative !important;
+    background:transparent !important;
+    display: block !important;
+    width: 100% !important;
+    transform: none !important;
+    border: none !important;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: max-height 0.4s;
+  }
+  &.show {
+    button {
+      border-bottom: 1px solid gray;
+    }
+    ul.multiselect-container.dropdown-menu {
+      max-height: 1000vh;
+    }
+  }
+}

@@ -12,7 +12,7 @@ window.slugify = (text) => text.toString().toLowerCase()
   // Load things
   $('select#filter-items').multiselect({
     templates: {
-      button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"><span>Show Filters</span> <img src="/img/filter.png" /></button>',
+      button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"><span>More Search Options</span> <span class="fa fa-caret-down"></span></button>',
     },
     dropRight: true
   });
