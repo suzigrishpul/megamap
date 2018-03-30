@@ -65,6 +65,7 @@ window.slugify = (text) => text.toString().toLowerCase()
   });
 
   $(document).on('trigger-list-filter-update', (event, options) => {
+    // console.log("Filter", options);
     listManager.updateFilter(options);
   });
 
@@ -94,6 +95,7 @@ window.slugify = (text) => text.toString().toLowerCase()
 
     var bound1 = JSON.parse(options.bound1);
     var bound2 = JSON.parse(options.bound2);
+    // console.log("map.98", options);
     mapManager.setBounds(bound1, bound2);
     // mapManager.triggerZoomEnd();
 
@@ -173,14 +175,15 @@ window.slugify = (text) => text.toString().toLowerCase()
 
     const oldHash = $.deparam(oldURL.substring(oldURL.search("#")+1));
 
+    // console.log("177", parameters, oldHash);
     $(document).trigger('trigger-list-filter-update', parameters);
     $(document).trigger('trigger-map-filter', parameters);
     $(document).trigger('trigger-update-embed', parameters);
 
     // So that change in filters will not update this
     if (oldHash.bound1 !== parameters.bound1 || oldHash.bound2 !== parameters.bound2) {
-
-      $(document).trigger('trigger-map-update', parameters);
+      // console.log("185", parameters);
+      // $(document).trigger('trigger-map-update', parameters);
       $(document).trigger('trigger-list-filter-by-bound', parameters);
     }
 
@@ -225,8 +228,10 @@ window.slugify = (text) => text.toString().toLowerCase()
       //Refresh things
       setTimeout(() => {
         let p = queryManager.getParameters();
+        // console.log("231", p);
         $(document).trigger('trigger-map-update', p);
         $(document).trigger('trigger-map-filter', p);
+        // console.log("232", p);
         $(document).trigger('trigger-list-filter-update', p);
         $(document).trigger('trigger-list-filter-by-bound', p);
         //console.log(queryManager.getParameters())
