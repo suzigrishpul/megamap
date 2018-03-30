@@ -133,6 +133,7 @@ const MapManager = (($) => {
         }
       },
       setBounds: (bounds1, bounds2) => {
+        // console.log("XXX");
         const bounds = [bounds1, bounds2];
         map.fitBounds(bounds);
       },

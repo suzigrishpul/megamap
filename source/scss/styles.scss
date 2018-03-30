@@ -77,14 +77,14 @@ a {
       #events-list {
         ul li { display: none; }
 
-        &.groups li.group-obj {
+        li.group-obj {
           display: block;
-          &:not(.within-bound) { display: none; }
+          &:not(.within-bound) { display: none !important; }
         }
         &.events li.event-obj {
           display: block;
 
-          &:not(.within-bound) { display: none; }
+          &:not(.within-bound) { display: none !important; }
         }
       }
     }
