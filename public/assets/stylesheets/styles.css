@@ -416,14 +416,14 @@ a {
         max-height: 200px; }
     #stage div#activity-area #events-list-container #events-list ul li {
       display: none; }
-    #stage div#activity-area #events-list-container #events-list.groups li.group-obj {
+    #stage div#activity-area #events-list-container #events-list li.group-obj {
       display: block; }
-      #stage div#activity-area #events-list-container #events-list.groups li.group-obj:not(.within-bound) {
-        display: none; }
+      #stage div#activity-area #events-list-container #events-list li.group-obj:not(.within-bound) {
+        display: none !important; }
     #stage div#activity-area #events-list-container #events-list.events li.event-obj {
       display: block; }
       #stage div#activity-area #events-list-container #events-list.events li.event-obj:not(.within-bound) {
-        display: none; }
+        display: none !important; }
 
 #show-hide-map {
   display: none; }

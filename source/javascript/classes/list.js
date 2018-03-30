@@ -64,7 +64,7 @@ const ListManager = (($) => {
         $target.removeProp("class");
         $target.addClass(p.filter ? p.filter.join(" ") : '')
 
-        $target.find('li.event-obj, li.group-obj').hide();
+        $target.find('li').hide();
 
         if (p.filter) {
           p.filter.forEach((fil)=>{
