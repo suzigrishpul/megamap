@@ -5,8 +5,10 @@ const MapManager = (($) => {
   const renderEvent = (item) => {
     var date = moment(item.start_datetime).format("dddd MMM DD, h:mma");
     let url = item.url.match(/^https{0,1}:/) ? item.url : "//" + item.url;
+
+    let superGroup = window.slugify(item.supergroup);
     return `
-    <div class='popup-item ${item.event_type}' data-lat='${item.lat}' data-lng='${item.lng}'>
+    <div class='popup-item ${item.event_type} ${superGroup}' data-lat='${item.lat}' data-lng='${item.lng}'>
       <div class="type-event">
         <ul class="event-types-list">
           <li class="tag tag-${item.event_type}">${item.event_type || 'Action'}</li>
@@ -27,11 +29,12 @@ const MapManager = (($) => {
   const renderGroup = (item) => {
 
     let url = item.website.match(/^https{0,1}:/) ? item.website : "//" + item.website;
+    let superGroup = window.slugify(item.supergroup);
     return `
     <li>
-      <div class="type-group group-obj">
+      <div class="type-group group-obj ${superGroup}">
         <ul class="event-types-list">
-          <li class="tag tag-${item.supergroup}">${item.supergroup}</li>
+          <li class="tag tag-${item.supergroup} ${superGroup}">${item.supergroup}</li>
         </ul>
         <div class="group-header">
           <h2><a href="${url}" target='_blank'>${item.name}</a></h2>
@@ -102,13 +105,19 @@ const MapManager = (($) => {
         let ne = [map.getBounds()._northEast.lat, map.getBounds()._northEast.lng];
         options.onMove(sw, ne);
       }).on('zoomend', (event) => {
-
+        if (map.getZoom() <= 4) {
+          $("#map").addClass("zoomed-out");
+        } else {
+          $("#map").removeClass("zoomed-out");
+        }
 
         let sw = [map.getBounds()._southWest.lat, map.getBounds()._southWest.lng];
         let ne = [map.getBounds()._northEast.lat, map.getBounds()._northEast.lng];
         options.onMove(sw, ne);
       })
     }
+
+    // map.fireEvent('zoomend');
 
     L.tileLayer('https://api.mapbox.com/styles/v1/matthew350/cja41tijk27d62rqod7g0lx4b/tiles/256/{z}/{x}/{y}?access_token=' + accessToken, {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors • <a href="//350.org">350.org</a>'
@@ -149,9 +158,13 @@ const MapManager = (($) => {
           }
         });
       },
+      triggerZoomEnd: () => {
+        map.fireEvent('zoomend');
+      },
       refreshMap: () => {
         map.invalidateSize(false);
         // map._onResize();
+        // map.fireEvent('zoomend');
 
         // console.log("map is resized")
       },
@@ -159,7 +172,7 @@ const MapManager = (($) => {
 
         $("#map").find(".event-item-popup").hide();
 
-
+        // console.log(filters);
         if (!filters) return;
 
         filters.forEach((item) => {
@@ -187,11 +200,13 @@ const MapManager = (($) => {
             pointToLayer: (feature, latlng) => {
               // Icons for markers
               const eventType = feature.properties.eventProperties.event_type;
+              const slugged = window.slugify(feature.properties.eventProperties.supergroup);
+
               var groupIcon = L.icon({
                 iconUrl: eventType && eventType.toLowerCase() === 'group' ? '/img/group.svg' : '/img/event.svg',
                 iconSize: [22, 22],
                 iconAnchor: [12, 8],
-                className: 'groups event-item-popup'
+                className: slugged + ' event-item-popup'
               });
               var eventIcon = L.icon({
                 iconUrl: eventType && eventType.toLowerCase() === 'group' ? '/img/group.svg' : '/img/event.svg',
@@ -199,6 +214,7 @@ const MapManager = (($) => {
                 iconAnchor: [9, 9],
                 className: 'events event-item-popup'
               });
+
               var geojsonMarkerOptions = {
                 icon: eventType && eventType.toLowerCase() === 'group' ? groupIcon : eventIcon,
               };

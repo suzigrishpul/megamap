@@ -8,8 +8,10 @@ const ListManager = (($) => {
 
       var date = moment(new Date(item.start_datetime).toGMTString()).format("dddd MMM DD, h:mma");
       let url = item.url.match(/^https{0,1}:/) ? item.url : "//" + item.url;
+      // let superGroup = window.slugify(item.supergroup);
+
       return `
-      <li class='${item.event_type} event-obj' data-lat='${item.lat}' data-lng='${item.lng}'>
+      <li class='${window.slugify(item.event_type)} events event-obj' data-lat='${item.lat}' data-lng='${item.lng}'>
         <div class="type-event type-action">
           <ul class="event-types-list">
             <li class='tag-${item.event_type} tag'>${item.event_type}</li>
@@ -29,8 +31,10 @@ const ListManager = (($) => {
 
     const renderGroup = (item) => {
       let url = item.website.match(/^https{0,1}:/) ? item.website : "//" + item.website;
+      let superGroup = window.slugify(item.supergroup);
+      // console.log(superGroup);
       return `
-      <li class='${item.event_type} group-obj' data-lat='${item.lat}' data-lng='${item.lng}'>
+      <li class='${item.event_type} ${superGroup} group-obj' data-lat='${item.lat}' data-lng='${item.lng}'>
         <div class="type-group group-obj">
           <ul class="event-types-list">
             <li class="tag tag-${item.supergroup}">${item.supergroup}</li>
@@ -59,6 +63,14 @@ const ListManager = (($) => {
 
         $target.removeProp("class");
         $target.addClass(p.filter ? p.filter.join(" ") : '')
+
+        $target.find('li.event-obj, li.group-obj').hide();
+
+        if (p.filter) {
+          p.filter.forEach((fil)=>{
+            $target.find(`li.${fil}`).show();
+          })
+        }
       },
       updateBounds: (bound1, bound2) => {
 
@@ -83,7 +95,7 @@ const ListManager = (($) => {
         //using window.EVENT_DATA
         const keySet = !hardFilters.key ? [] : hardFilters.key.split(',');
 
-        var $eventList = window.EVENTS_DATA.map(item => {
+        var $eventList = window.EVENTS_DATA.data.map(item => {
           if (keySet.length == 0) {
             return item.event_type && item.event_type.toLowerCase() == 'group' ? renderGroup(item) : renderEvent(item);
           } else if (keySet.length > 0 && item.event_type != 'group' && keySet.includes(item.event_type)) {

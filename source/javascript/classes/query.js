@@ -16,7 +16,7 @@ const QueryManager = (($) => {
       window.location.hash = $.param(form);
     })
 
-    $(document).on('change', '.filter-item input[type=checkbox]', () => {
+    $(document).on('change', 'select#filter-items', () => {
       $target.trigger('submit');
     })
 
@@ -34,9 +34,9 @@ const QueryManager = (($) => {
           $target.find("input[name=key]").val(params.key);
 
           if (params.filter) {
-            $target.find(".filter-item input[type=checkbox]").removeProp("checked");
+            $target.find("#filter-items option").removeProp("selected");
             params.filter.forEach(item => {
-              $target.find(".filter-item input[type=checkbox][value='" + item + "']").prop("checked", true);
+              $target.find("#filter-items option[value='" + item + "']").prop("selected", true);
             });
           }
         }
@@ -74,7 +74,7 @@ const QueryManager = (($) => {
 
         const bounds = [sw, ne];////////
 
-        
+
         $target.find("input[name=bound1]").val(JSON.stringify(bounds[0]));
         $target.find("input[name=bound2]").val(JSON.stringify(bounds[1]));
         $target.trigger('submit');
