@@ -1,8 +1,21 @@
 let autocompleteManager;
 let mapManager;
 
-(function($) {
+window.slugify = (text) => text.toString().toLowerCase()
+                            .replace(/\s+/g, '-')           // Replace spaces with -
+                            .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+                            .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+                            .replace(/^-+/, '')             // Trim - from start of text
+                            .replace(/-+$/, '');            // Trim - from end of text
 
+(function($) {
+  // Load things
+  $('select#filter-items').multiselect({
+    templates: {
+      button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"><span>More Search Options</span> <span class="fa fa-caret-down"></span></button>',
+    },
+    dropRight: true
+  });
   // 1. google maps geocode
 
   // 2. focus map on geocode (via lat/lng)
@@ -82,6 +95,11 @@ let mapManager;
     var bound1 = JSON.parse(options.bound1);
     var bound2 = JSON.parse(options.bound2);
     mapManager.setBounds(bound1, bound2);
+    // mapManager.triggerZoomEnd();
+
+    setTimeout(() => {
+      mapManager.triggerZoomEnd();
+    }, 10);
     // console.log(options)
   });
   // 3. markers on map
@@ -89,6 +107,21 @@ let mapManager;
 
     mapManager.plotPoints(opt.data, opt.params);
     $(document).trigger('trigger-map-filter');
+  })
+
+  // load groups
+
+  $(document).on('trigger-load-groups', (e, opt) => {
+
+    opt.groups.forEach((item) => {
+      let slugged = window.slugify(item.supergroup);
+      $('select#filter-items').append(`<option value='${slugged}' selected='selected'>${item.supergroup}</option>`)
+    });
+
+    // Re-initialize
+    queryManager.initialize();
+    $('select#filter-items').multiselect('rebuild');
+    mapManager.refreshMap();
   })
 
   // Filter map
@@ -103,6 +136,10 @@ let mapManager;
       languageManager.updateLanguage(opt.lang);
     }
   });
+
+  $(document).on('trigger-language-loaded', (e, opt) => {
+    $('select#filter-items').multiselect('rebuild');
+  })
 
   $(document).on('click', 'button#show-hide-map', (e, opt) => {
     $('body').toggleClass('map-view')
@@ -162,18 +199,26 @@ let mapManager;
   // 7. present group elements
 
   $.ajax({
-    url: '//new-map.350.org/output/350org.js.gz', //'|**DATA_SOURCE**|',
+    url: 'https://new-map.350.org/output/350org-new-layout.js.gz', //'|**DATA_SOURCE**|',
     dataType: 'script',
     cache: true,
     success: (data) => {
+      // window.EVENTS_DATA = data;
+
+      // console.log(window.EVENTS_DATA);
+
+      //Load groups
+      $(document).trigger('trigger-load-groups', { groups: window.EVENTS_DATA.groups });
+
+
       var parameters = queryManager.getParameters();
 
-      window.EVENTS_DATA.forEach((item) => {
+      window.EVENTS_DATA.data.forEach((item) => {
         item['event_type'] = !item.event_type ? 'Action' : item.event_type;
       })
       $(document).trigger('trigger-list-update', { params: parameters });
       // $(document).trigger('trigger-list-filter-update', parameters);
-      $(document).trigger('trigger-map-plot', { data: window.EVENTS_DATA, params: parameters });
+      $(document).trigger('trigger-map-plot', { data: window.EVENTS_DATA.data, params: parameters });
       $(document).trigger('trigger-update-embed', parameters);
       //TODO: Make the geojson conversion happen on the backend
 

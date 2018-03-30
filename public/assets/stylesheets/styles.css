@@ -62,7 +62,7 @@ a {
   flex-direction: column; }
   #stage header.page-header {
     background-color: #eaedef;
-    padding: 1.5em;
+    padding: 1.5em 1.5em 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.13);
     z-index: 10; }
     #stage header.page-header nav {
@@ -80,6 +80,11 @@ a {
             padding-top: 5px;
             text-align: right;
             width: 100%; }
+            #stage header.page-header nav div.filters-form-area div.filter-area div.filter-container span.multiselect-native-select .multiselect-container li label {
+              padding: 3px 40px 3px 0px;
+              width: 100%;
+              font-size: 13px;
+              color: #333333; }
         #stage header.page-header nav div.filters-form-area form {
           width: 100%; }
           #stage header.page-header nav div.filters-form-area form .search-wrapper {
@@ -90,10 +95,16 @@ a {
             #stage header.page-header nav div.filters-form-area form div.search-button .btn {
               border-radius: 0 4px 4px 0;
               left: -5px;
-              position: relative; }
+              position: relative;
+              background-color: #003DAA;
+              color: white;
+              text-transform: uppercase;
+              font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+              font-size: 13px;
+              font-weight: 600;
+              padding: 9px 15px; }
           #stage header.page-header nav div.filters-form-area form .twitter-typeahead {
-            width: 85%;
-            width: calc(100% - 120px); }
+            width: 100%; }
             #stage header.page-header nav div.filters-form-area form .twitter-typeahead .tt-dropdown-menu {
               background-color: #fafeff;
               border: solid 1px lightgray;
@@ -107,7 +118,7 @@ a {
                 overflow: hidden; }
           #stage header.page-header nav div.filters-form-area form .search-button {
             display: inline-block;
-            width: 120px; }
+            width: 70px; }
           #stage header.page-header nav div.filters-form-area form button {
             cursor: pointer; }
           #stage header.page-header nav div.filters-form-area form span.filter-item {
@@ -150,6 +161,29 @@ a {
           font-size: 25px;
           margin-top: 10px;
           font-family: 'KlimaWeb', -apple-system, BlinkMacSystemFont, 'arial', sans-serif; }
+  #stage div.filter-container span.multiselect-native-select div.btn-group {
+    display: block; }
+    #stage div.filter-container span.multiselect-native-select div.btn-group button {
+      padding-left: 0;
+      width: 100%;
+      text-align: left;
+      color: gray;
+      border-radius: 0; }
+    #stage div.filter-container span.multiselect-native-select div.btn-group ul.multiselect-container.dropdown-menu {
+      position: relative !important;
+      background: transparent !important;
+      display: block !important;
+      width: 100% !important;
+      transform: none !important;
+      border: none !important;
+      max-height: 0;
+      overflow: hidden;
+      padding: 0;
+      transition: max-height 0.4s; }
+    #stage div.filter-container span.multiselect-native-select div.btn-group.show button {
+      border-bottom: 1px solid gray; }
+    #stage div.filter-container span.multiselect-native-select div.btn-group.show ul.multiselect-container.dropdown-menu {
+      max-height: 1000vh; }
   #stage div#activity-area {
     background-color: green;
     flex-grow: 1;
@@ -238,11 +272,21 @@ a {
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content .event-title,
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content .group-header {
           margin-bottom: 0.5rem; }
+      #stage div#activity-area section#map.zoomed-out img.local-groups, #stage div#activity-area section#map.zoomed-out img.fossil-free-groups, #stage div#activity-area section#map.zoomed-out img.regional-hubs {
+        width: 11px !important;
+        height: 11px !important;
+        margin-top: 0px !important;
+        margin-left: -3px !important; }
+      #stage div#activity-area section#map.zoomed-out img.events {
+        width: 9px !important;
+        height: 9px !important;
+        margin-top: 0px !important;
+        margin-left: 0px !important; }
     #stage div#activity-area section#events-list-container {
       width: 400px;
       height: inherit;
       background-color: whitesmoke;
-      border-left: 1px solid rgba(0, 0, 0, 0.3);
+      border-right: 1px solid rgba(0, 0, 0, 0.3);
       position: relative;
       display: flex;
       flex-direction: column;
@@ -474,3 +518,16 @@ a {
         body div#stage div#activity-area section#events-list-container header.events-header {
           font-size: 24px;
           padding-top: 5px; } }
+
+div.filter-container span.multiselect-native-select div.btn-group {
+  text-align: right; }
+  div.filter-container span.multiselect-native-select div.btn-group button.multiselect.dropdown-toggle {
+    font-size: 12px;
+    background: transparent; }
+    div.filter-container span.multiselect-native-select div.btn-group button.multiselect.dropdown-toggle img {
+      width: 16px; }
+    div.filter-container span.multiselect-native-select div.btn-group button.multiselect.dropdown-toggle:after {
+      display: none; }
+  div.filter-container span.multiselect-native-select div.btn-group ul.multiselect-container.dropdown-menu {
+    left: auto !important;
+    right: 0 !important; }

@@ -44,6 +44,8 @@ const LanguageManager = (($) => {
             dictionary = data;
             language = lang;
             updatePageLanguage();
+
+            $(document).trigger('trigger-language-loaded');
           }
         });
       },

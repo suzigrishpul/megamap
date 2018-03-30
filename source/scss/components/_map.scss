@@ -30,4 +30,20 @@ section#map {
       };
     }
   }
+
+  &.zoomed-out {
+    img.local-groups, img.fossil-free-groups, img.regional-hubs {
+      width: 11px !important;
+      height: 11px !important;
+      margin-top: 0px !important;
+      margin-left: -3px !important;
+    }
+
+    img.events {
+      width: 9px !important;
+      height: 9px !important;
+      margin-top: 0px !important;
+      margin-left: 0px !important;
+    }
+  }
 }
