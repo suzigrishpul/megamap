@@ -32,7 +32,7 @@ window.slugify = (text) => text.toString().toLowerCase()
   });
 
   window.initializeAutocompleteCallback = () => {
-
+    // console.log("It is called");
     autocompleteManager = AutocompleteManager("input[name='loc']");
     autocompleteManager.initialize();
 
@@ -183,8 +183,12 @@ window.slugify = (text) => text.toString().toLowerCase()
     // So that change in filters will not update this
     if (oldHash.bound1 !== parameters.bound1 || oldHash.bound2 !== parameters.bound2) {
       // console.log("185", parameters);
-      // $(document).trigger('trigger-map-update', parameters);
       $(document).trigger('trigger-list-filter-by-bound', parameters);
+    }
+
+    if (oldHash.log !== parameters.loc) {
+      $(document).trigger('trigger-map-update', parameters);
+      // console.log("Calling it")
     }
 
     // Change items
