@@ -12,6 +12,15 @@ $teal: #40D7D4;
 @mixin graph {
   font-family: 'GraphCondensedWeb', -apple-system, BlinkMacSystemFont, 'arial', sans-serif;
 }
+
+@mixin is_hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; padding: 0; border: 0;
+  // Visually hidden.
+}
 $font-secondary: 'Overpass Mono',Menlo,monaco,courier,monospace;
 
 @mixin event-item {

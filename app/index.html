@@ -118,7 +118,7 @@
                         >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                       </span> -->
                       <select multiple='multiple' name='filter[]' id='filter-items'>
-                        <option data-lang-target='text' selected='selected' data-lang-key='show-events' value='events'>T&nbsp;&nbsp;&nbsp;</option>
+                        <option data-lang-target='text' selected='selected' data-lang-key='show-events' value='events'>&nbsp;&nbsp;&nbsp;</option>
                         <!-- <option data-lang-target='text' selected='selected' data-lang-key='show-groups' value='groups'>T&nbsp;&nbsp;&nbsp;</option> -->
                       </select>
                     </div>
@@ -219,6 +219,11 @@
               </div>
             </li>
           </ul>
+
+          <div id='is-empty-msg'>
+            <span data-lang-key='is-empty-msg' data-lang-target='text'>There are no results click button below to zoom out.</span>
+            <button data-lang-key='zoom-out' class="btn btn-tertiary" id="zoom-out" data-lang-target='text'>Zoom out</button>
+          </div>
         </div>
         <aside id='embed-area'>
           <button class='btn more-items'>
@@ -259,7 +264,7 @@
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHjNicQUZks7i0dLFEwskTHF6bdVty8Ck&callback=window.initializeAutocompleteCallback"
     async defer></script>
-    
+
   <script type='text/javascript' src=''></script>
 <!-- SOCIAL -->
 <!-- Twitter -->

@@ -16,6 +16,7 @@ window.slugify = (text) => text.toString().toLowerCase()
     },
     dropRight: true
   });
+
   // 1. google maps geocode
 
   // 2. focus map on geocode (via lat/lng)
@@ -117,11 +118,14 @@ window.slugify = (text) => text.toString().toLowerCase()
 
     opt.groups.forEach((item) => {
       let slugged = window.slugify(item.supergroup);
-      $('select#filter-items').append(`<option value='${slugged}' selected='selected'>${item.supergroup}</option>`)
+      let valueText = languageManager.getTranslation(item.translation);
+      $('select#filter-items').append(`<option value='${slugged}' selected='selected' data-lang-target='text' data-lang-key='${item.translation}' >${valueText}</option>`)
     });
 
     // Re-initialize
     queryManager.initialize();
+    $(document).trigger('trigger-language-update');
+
     $('select#filter-items').multiselect('rebuild');
     mapManager.refreshMap();
   })
@@ -161,6 +165,11 @@ window.slugify = (text) => text.toString().toLowerCase()
 
     $('#embed-area input[name=embed]').val('https://new-map.350.org#' + $.param(copy));
   });
+
+
+  $(document).on('click', 'button#zoom-out', (e, opt) => {
+    mapManager.zoomOutOnce();
+  })
 
   $(window).on("resize", (e) => {
     mapManager.refreshMap();

@@ -90,6 +90,15 @@ const ListManager = (($) => {
             $(item).removeClass('within-bound');
           }
         });
+
+        let _visible = $target.find('ul li.event-obj.within-bound, ul li.group-obj.within-bound').length;
+        if (_visible == 0) {
+          // The list is empty
+          $target.addClass("is-empty");
+        } else {
+          $target.removeClass("is-empty");
+        }
+
       },
       populateList: (hardFilters) => {
         //using window.EVENT_DATA

@@ -52,5 +52,16 @@ section#events-list-container {
         }
       }
     }
+
+    #is-empty-msg {
+      padding: 20px;
+      button {
+        margin-top: 20px;
+        display: block;
+      }
+    }
+    &:not(.is-empty) {
+      #is-empty-msg { @include is_hidden; }
+    }
   } //div#events-list
 }
