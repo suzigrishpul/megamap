@@ -373,6 +373,20 @@ a {
               background-color: #e9eaef; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li:last-child {
             border-bottom: none; }
+        #stage div#activity-area section#events-list-container div#events-list #is-empty-msg {
+          padding: 20px; }
+          #stage div#activity-area section#events-list-container div#events-list #is-empty-msg button {
+            margin-top: 20px;
+            display: block; }
+        #stage div#activity-area section#events-list-container div#events-list:not(.is-empty) #is-empty-msg {
+          position: absolute;
+          overflow: hidden;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          width: 1px;
+          margin: -1px;
+          padding: 0;
+          border: 0; }
     #stage div#activity-area #embed-area {
       width: 100%;
       position: relative; }
