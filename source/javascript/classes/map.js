@@ -162,6 +162,9 @@ const MapManager = (($) => {
       triggerZoomEnd: () => {
         map.fireEvent('zoomend');
       },
+      zoomOutOnce: () => {
+        map.zoomOut(1);
+      },
       refreshMap: () => {
         map.invalidateSize(false);
         // map._onResize();

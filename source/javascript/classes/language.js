@@ -53,6 +53,12 @@ const LanguageManager = (($) => {
 
         language = lang;
         updatePageLanguage();
+      },
+      getTranslation: (key) => {
+
+        let targetLanguage = dictionary.rows.filter((i) => i.lang === language)[0];
+        console.log(targetLanguage, "!!!");
+        return targetLanguage[key];
       }
     }
   };
