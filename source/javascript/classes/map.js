@@ -207,13 +207,13 @@ const MapManager = (($) => {
               const slugged = window.slugify(feature.properties.eventProperties.supergroup);
 
               var groupIcon = L.icon({
-                iconUrl: eventType && eventType.toLowerCase() === 'group' ? '/img/group.svg' : '/img/event.svg',
+                iconUrl: eventType && eventType.toLowerCase() === 'group' ? '/img/group.png' : '/img/event.png',
                 iconSize: [22, 22],
                 iconAnchor: [12, 8],
                 className: slugged + ' event-item-popup'
               });
               var eventIcon = L.icon({
-                iconUrl: eventType && eventType.toLowerCase() === 'group' ? '/img/group.svg' : '/img/event.svg',
+                iconUrl: eventType && eventType.toLowerCase() === 'group' ? '/img/group.png' : '/img/event.png',
                 iconSize: [18, 18],
                 iconAnchor: [9, 9],
                 className: 'events event-item-popup'
