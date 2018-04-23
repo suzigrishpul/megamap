@@ -229,9 +229,20 @@
             <div class='content'>
               <h4>Embed this map</h4>
               <p>Click the clipboard to copy</p>
+              <div id='language-options'>
+                <select id="language-opts">
+                  <option value='es' label="<img src='/img/icon/es.png' /> Español"></option>
+                  <option value='en' label="<img src='/img/icon/en.png' /> English"></option>
+                  <option value='fr' label="<img src='/img/icon/fr.png' /> Francaise"></option>
+                  <option value='pt' label="<img src='/img/icon/pt.png' /> Português"></option>
+                  <option value='de' label="<img src='/img/icon/de.png' /> Deutsche"></option>
+                  <option value='ru' label="<img src='/img/icon/ru.png' /> русский"></option>
+                  <option value='tr' label="<img src='/img/icon/tr.png' /> Türk"></option>
+                </select>
+              </div>
               <div id='embed-form'>
-                <input type='text' name='embed'/>
-                <button class='btn btn-info'><i class="fa fa-clipboard" aria-hidden="true"></i></button>
+                <input type='text' name='embed' id='embed-text'/>
+                <button class='btn btn-info' id="copy-embed"><i class="fa fa-clipboard" aria-hidden="true"></i></button>
               </div>
             </div>
           </div>

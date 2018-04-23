@@ -18,6 +18,62 @@
   div.viewport {
     max-height: 0;
     transition: max-height 0.5s;
+
+    div#language-options {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    div.btn-group {
+      button.lang-but {
+        span {
+          display: inline-block;
+          width: 100px;
+          text-align: left;
+        }
+
+        white-space: nowrap;
+        font-size: 18px;
+        margin-bottom: 0;
+        img {
+          width: 24px;
+        }
+
+        * {
+          vertical-align: top;
+          margin-top: 2px;
+        }
+      }
+
+      ul.multiselect-container {
+        min-width: 8rem;
+        li.lang-opt {
+          &.lang-sel {
+            label { font-weight: bold; }
+          }
+          label {
+            padding: 5px 5px 5px 10px;
+            white-space: nowrap;
+            font-size: 16px;
+            color: #333333;
+            width: 100%;
+            img { width: 20px; }
+            input {
+              position: absolute;
+              left: -9000px;
+              top: -9000px;
+            }
+
+            * {
+              vertical-align: top;
+              margin-top: 2px;
+            }
+          }
+        }
+      }
+    }
+
     div.content {
       background-color: lightgray;
       width: 100%;

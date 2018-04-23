@@ -13,6 +13,18 @@ const AutocompleteManager = (function($) {
     return {
       $target: $(targetItem),
       target: targetItem,
+      forceSearch: (q) => {
+        geocoder.geocode({ address: q }, function (results, status) {
+          if (results[0]) {
+            let geometry = results[0].geometry;
+            queryMgr.updateViewport(geometry.viewport);
+            $(targetItem).val(results[0].formatted_address);
+          }
+          // var geometry = datum.geometry;
+          // queryMgr.updateViewport(geometry.viewport);
+
+        });
+      },
       initialize: () => {
         $(targetItem).typeahead({
                     hint: true,
