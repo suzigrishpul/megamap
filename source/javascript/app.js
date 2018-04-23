@@ -103,6 +103,7 @@ window.slugify = (text) => text.toString().toLowerCase()
     listManager.updateBounds(bound1, bound2)
   })
 
+
   /***
   * Map Events
   */
@@ -198,6 +199,27 @@ window.slugify = (text) => text.toString().toLowerCase()
 
   $(window).on("resize", (e) => {
     mapManager.refreshMap();
+  });
+
+  /**
+  Filter Changes
+  */
+  $(document).on("click", ".search-button button", (e) => {
+    e.preventDefault();
+    $(document).trigger("search.force-search-location");
+    return false;
+  });
+
+  $(document).on("keyup", "input[name='loc']", (e) => {
+    if (e.keyCode == 13) {
+      $(document).trigger('search.force-search-location');
+    }
+  });
+
+  $(document).on('search.force-search-location', () => {
+    let _query = $("input[name='loc']").val();
+    autocompleteManager.forceSearch(_query);
+    // Search google and get the first result... autocomplete?
   });
 
   $(window).on("hashchange", (event) => {
