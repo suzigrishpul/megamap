@@ -165,6 +165,19 @@ const MapManager = (($) => {
       zoomOutOnce: () => {
         map.zoomOut(1);
       },
+      zoomUntilHit: () => {
+        var $this = this;
+        map.zoomOut(1);
+        let intervalHandler = null;
+        intervalHandler = setInterval(() => {
+          var _visible = $(document).find('ul li.event-obj.within-bound, ul li.group-obj.within-bound').length;
+          if (_visible == 0) {
+            map.zoomOut(1);
+          } else {
+            clearInterval(intervalHandler);
+          }
+        }, 200);
+      },
       refreshMap: () => {
         map.invalidateSize(false);
         // map._onResize();

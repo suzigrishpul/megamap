@@ -194,7 +194,10 @@ window.slugify = (text) => text.toString().toLowerCase()
 
 
   $(document).on('click', 'button#zoom-out', (e, opt) => {
-    mapManager.zoomOutOnce();
+
+    // mapManager.zoomOutOnce();
+
+    mapManager.zoomUntilHit();
   })
 
   $(window).on("resize", (e) => {
