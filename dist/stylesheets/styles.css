@@ -409,6 +409,42 @@ a {
       #stage div#activity-area #embed-area div.viewport {
         max-height: 0;
         transition: max-height 0.5s; }
+        #stage div#activity-area #embed-area div.viewport div#language-options {
+          position: absolute;
+          top: 10px;
+          right: 10px; }
+        #stage div#activity-area #embed-area div.viewport div.btn-group button.lang-but {
+          white-space: nowrap;
+          font-size: 18px;
+          margin-bottom: 0; }
+          #stage div#activity-area #embed-area div.viewport div.btn-group button.lang-but span {
+            display: inline-block;
+            width: 100px;
+            text-align: left; }
+          #stage div#activity-area #embed-area div.viewport div.btn-group button.lang-but img {
+            width: 24px; }
+          #stage div#activity-area #embed-area div.viewport div.btn-group button.lang-but * {
+            vertical-align: top;
+            margin-top: 2px; }
+        #stage div#activity-area #embed-area div.viewport div.btn-group ul.multiselect-container {
+          min-width: 8rem; }
+          #stage div#activity-area #embed-area div.viewport div.btn-group ul.multiselect-container li.lang-opt.lang-sel label {
+            font-weight: bold; }
+          #stage div#activity-area #embed-area div.viewport div.btn-group ul.multiselect-container li.lang-opt label {
+            padding: 5px 5px 5px 10px;
+            white-space: nowrap;
+            font-size: 16px;
+            color: #333333;
+            width: 100%; }
+            #stage div#activity-area #embed-area div.viewport div.btn-group ul.multiselect-container li.lang-opt label img {
+              width: 20px; }
+            #stage div#activity-area #embed-area div.viewport div.btn-group ul.multiselect-container li.lang-opt label input {
+              position: absolute;
+              left: -9000px;
+              top: -9000px; }
+            #stage div#activity-area #embed-area div.viewport div.btn-group ul.multiselect-container li.lang-opt label * {
+              vertical-align: top;
+              margin-top: 2px; }
         #stage div#activity-area #embed-area div.viewport div.content {
           background-color: lightgray;
           width: 100%;

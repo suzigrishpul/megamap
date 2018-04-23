@@ -17,6 +17,26 @@ window.slugify = (text) => text.toString().toLowerCase()
     dropRight: true
   });
 
+  $('select#language-opts').multiselect({
+    enableHTML: true,
+    optionClass: () => 'lang-opt',
+    selectedClass: () => 'lang-sel',
+    buttonClass: () => 'lang-but',
+    dropRight: true,
+    optionLabel: (e) => {
+      // let el = $( '<div></div>' );
+      // el.append(() + "");
+
+      return unescape($(e).attr('label')) || $(e).html();
+    },
+    onChange: (option, checked, select) => {
+      // console.log(option.val())
+      const parameters = queryManager.getParameters();
+      parameters['lang'] = option.val();
+      $(document).trigger('trigger-update-embed', parameters);
+    }
+  })
+
   // 1. google maps geocode
 
   // 2. focus map on geocode (via lat/lng)
@@ -80,10 +100,9 @@ window.slugify = (text) => text.toString().toLowerCase()
       bound2 = JSON.parse(options.bound2);
     }
 
-
-
     listManager.updateBounds(bound1, bound2)
   })
+
 
   /***
   * Map Events
@@ -105,6 +124,13 @@ window.slugify = (text) => text.toString().toLowerCase()
     }, 10);
     // console.log(options)
   });
+
+  $(document).on('click', "#copy-embed", (e) => {
+    var copyText = document.getElementById("embed-text");
+    copyText.select();
+    document.execCommand("Copy");
+  });
+
   // 3. markers on map
   $(document).on('trigger-map-plot', (e, opt) => {
 
@@ -168,11 +194,35 @@ window.slugify = (text) => text.toString().toLowerCase()
 
 
   $(document).on('click', 'button#zoom-out', (e, opt) => {
-    mapManager.zoomOutOnce();
+
+    // mapManager.zoomOutOnce();
+
+    mapManager.zoomUntilHit();
   })
 
   $(window).on("resize", (e) => {
     mapManager.refreshMap();
+  });
+
+  /**
+  Filter Changes
+  */
+  $(document).on("click", ".search-button button", (e) => {
+    e.preventDefault();
+    $(document).trigger("search.force-search-location");
+    return false;
+  });
+
+  $(document).on("keyup", "input[name='loc']", (e) => {
+    if (e.keyCode == 13) {
+      $(document).trigger('search.force-search-location');
+    }
+  });
+
+  $(document).on('search.force-search-location', () => {
+    let _query = $("input[name='loc']").val();
+    autocompleteManager.forceSearch(_query);
+    // Search google and get the first result... autocomplete?
   });
 
   $(window).on("hashchange", (event) => {
