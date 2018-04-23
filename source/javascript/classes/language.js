@@ -46,6 +46,8 @@ const LanguageManager = (($) => {
             updatePageLanguage();
 
             $(document).trigger('trigger-language-loaded');
+
+            $("#language-opts").multiselect('select', lang);
           }
         });
       },
@@ -55,9 +57,7 @@ const LanguageManager = (($) => {
         updatePageLanguage();
       },
       getTranslation: (key) => {
-
         let targetLanguage = dictionary.rows.filter((i) => i.lang === language)[0];
-        console.log(targetLanguage, "!!!");
         return targetLanguage[key];
       }
     }

@@ -17,6 +17,26 @@ window.slugify = (text) => text.toString().toLowerCase()
     dropRight: true
   });
 
+  $('select#language-opts').multiselect({
+    enableHTML: true,
+    optionClass: () => 'lang-opt',
+    selectedClass: () => 'lang-sel',
+    buttonClass: () => 'lang-but',
+    dropRight: true,
+    optionLabel: (e) => {
+      // let el = $( '<div></div>' );
+      // el.append(() + "");
+
+      return unescape($(e).attr('label')) || $(e).html();
+    },
+    onChange: (option, checked, select) => {
+      // console.log(option.val())
+      const parameters = queryManager.getParameters();
+      parameters['lang'] = option.val();
+      $(document).trigger('trigger-update-embed', parameters);
+    }
+  })
+
   // 1. google maps geocode
 
   // 2. focus map on geocode (via lat/lng)
@@ -80,8 +100,6 @@ window.slugify = (text) => text.toString().toLowerCase()
       bound2 = JSON.parse(options.bound2);
     }
 
-
-
     listManager.updateBounds(bound1, bound2)
   })
 
@@ -105,6 +123,13 @@ window.slugify = (text) => text.toString().toLowerCase()
     }, 10);
     // console.log(options)
   });
+
+  $(document).on('click', "#copy-embed", (e) => {
+    var copyText = document.getElementById("embed-text");
+    copyText.select();
+    document.execCommand("Copy");
+  });
+
   // 3. markers on map
   $(document).on('trigger-map-plot', (e, opt) => {
 
