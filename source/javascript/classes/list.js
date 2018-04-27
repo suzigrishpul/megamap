@@ -6,7 +6,7 @@ const ListManager = (($) => {
 
     const renderEvent = (item) => {
 
-      var date = moment(new Date(item.start_datetime).toGMTString()).format("dddd MMM DD, h:mma");
+      var date = moment(item.start_datetime).format("dddd MMM DD, h:mma");
       let url = item.url.match(/^https{0,1}:/) ? item.url : "//" + item.url;
       // let superGroup = window.slugify(item.supergroup);
 
