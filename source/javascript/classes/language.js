@@ -16,8 +16,10 @@ const LanguageManager = (($) => {
         let targetAttribute = $(item).data('lang-target');
         let langTarget = $(item).data('lang-key');
 
+        // console.log(langTarget);
         switch(targetAttribute) {
           case 'text':
+            // console.log($(item), "TARGET :: ", langTarget, " --- ", targetLanguage[langTarget]);
             $(item).text(targetLanguage[langTarget]);
             break;
           case 'value':
@@ -50,6 +52,9 @@ const LanguageManager = (($) => {
             $("#language-opts").multiselect('select', lang);
           }
         });
+      },
+      refresh: () => {
+        updatePageLanguage(language);
       },
       updateLanguage: (lang) => {
 

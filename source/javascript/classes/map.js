@@ -197,7 +197,7 @@ const MapManager = (($) => {
           $("#map").find(".event-item-popup." + item.toLowerCase()).show();
         })
       },
-      plotPoints: (list, hardFilters) => {
+      plotPoints: (list, hardFilters, groups) => {
 
         const keySet = !hardFilters.key ? [] : hardFilters.key.split(',');
 
@@ -212,28 +212,26 @@ const MapManager = (($) => {
         };
 
 
-
         L.geoJSON(geojson, {
             pointToLayer: (feature, latlng) => {
               // Icons for markers
               const eventType = feature.properties.eventProperties.event_type;
-              const slugged = window.slugify(feature.properties.eventProperties.supergroup);
 
-              var groupIcon = L.icon({
-                iconUrl: eventType && eventType.toLowerCase() === 'group' ? '/img/group.png' : '/img/event.png',
-                iconSize: [22, 22],
-                iconAnchor: [12, 8],
-                className: slugged + ' event-item-popup'
-              });
-              var eventIcon = L.icon({
-                iconUrl: eventType && eventType.toLowerCase() === 'group' ? '/img/group.png' : '/img/event.png',
+              // If no supergroup, it's an event.
+              const supergroup = groups[feature.properties.eventProperties.supergroup] ? feature.properties.eventProperties.supergroup : "Events";
+              const slugged = window.slugify(supergroup);
+              const iconUrl = groups[supergroup] ? groups[supergroup].iconurl || "/img/event.png"  : "/img/event.png" ;
+
+              const smallIcon =  L.icon({
+                iconUrl: iconUrl,
                 iconSize: [18, 18],
                 iconAnchor: [9, 9],
-                className: 'events event-item-popup'
+                className: slugged + ' event-item-popup'
               });
 
+
               var geojsonMarkerOptions = {
-                icon: eventType && eventType.toLowerCase() === 'group' ? groupIcon : eventIcon,
+                icon: smallIcon,
               };
               return L.marker(latlng, geojsonMarkerOptions);
             },
