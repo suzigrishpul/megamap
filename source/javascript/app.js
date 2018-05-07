@@ -1,6 +1,6 @@
 let autocompleteManager;
 let mapManager;
-
+window.DEFAULT_ICON = "/img/event.png";
 window.slugify = (text) => text.toString().toLowerCase()
                             .replace(/\s+/g, '-')           // Replace spaces with -
                             .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
@@ -11,10 +11,21 @@ window.slugify = (text) => text.toString().toLowerCase()
 (function($) {
   // Load things
   $('select#filter-items').multiselect({
+    enableHTML: true,
     templates: {
-      button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"><span>More Search Options</span> <span class="fa fa-caret-down"></span></button>',
+      button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"><span data-lang-target="text" data-lang-key="more-search-options">More Search Options</span> <span class="fa fa-caret-down"></span></button>',
+      li: '<li><a href="javascript:void(0);"><label></label></a></li>'
     },
-    dropRight: true
+    dropRight: true,
+    onInitialized: () => {
+      // console.log("XXX");
+    },
+    optionLabel: (e) => {
+      // let el = $( '<div></div>' );
+      // el.append(() + "");
+
+      return unescape($(e).attr('label')) || $(e).html();
+    },
   });
 
   $('select#language-opts').multiselect({
@@ -44,6 +55,15 @@ window.slugify = (text) => text.toString().toLowerCase()
         queryManager.initialize();
 
   const initParams = queryManager.getParameters();
+
+
+
+  const languageManager = LanguageManager();
+
+  languageManager.initialize(initParams['lang'] || 'en');
+
+  const listManager = ListManager();
+
   mapManager = MapManager({
     onMove: (sw, ne) => {
       // When the map moves around, we update the list
@@ -65,13 +85,6 @@ window.slugify = (text) => text.toString().toLowerCase()
       })
     }
   }
-
-
-  const languageManager = LanguageManager();
-
-  languageManager.initialize(initParams['lang'] || 'en');
-
-  const listManager = ListManager();
 
   if(initParams.lat && initParams.lng) {
     mapManager.setCenter([initParams.lat, initParams.lng]);
@@ -133,8 +146,8 @@ window.slugify = (text) => text.toString().toLowerCase()
 
   // 3. markers on map
   $(document).on('trigger-map-plot', (e, opt) => {
-
-    mapManager.plotPoints(opt.data, opt.params);
+    console.log(opt);
+    mapManager.plotPoints(opt.data, opt.params, opt.groups);
     $(document).trigger('trigger-map-filter');
   })
 
@@ -143,17 +156,26 @@ window.slugify = (text) => text.toString().toLowerCase()
   $(document).on('trigger-load-groups', (e, opt) => {
 
     opt.groups.forEach((item) => {
+      console.log(item);
       let slugged = window.slugify(item.supergroup);
       let valueText = languageManager.getTranslation(item.translation);
-      $('select#filter-items').append(`<option value='${slugged}' selected='selected' data-lang-target='text' data-lang-key='${item.translation}' >${valueText}</option>`)
+      $('select#filter-items').append(`
+            <option value='${slugged}'
+              selected='selected'
+              label="<span data-lang-target='text' data-lang-key='${item.translation}'>${valueText}</span><img src='${item.iconurl || window.DEFAULT_ICON}' />">
+            </option>`)
     });
 
     // Re-initialize
     queryManager.initialize();
+    // $('select#filter-items').multiselect('destroy');
+    $('select#filter-items').multiselect('rebuild');
+    console.log("REbuilding");
+    mapManager.refreshMap();
+
+    // console.log("Refreshing");
     $(document).trigger('trigger-language-update');
 
-    $('select#filter-items').multiselect('rebuild');
-    mapManager.refreshMap();
   })
 
   // Filter map
@@ -164,8 +186,12 @@ window.slugify = (text) => text.toString().toLowerCase()
   });
 
   $(document).on('trigger-language-update', (e, opt) => {
+
     if (opt) {
       languageManager.updateLanguage(opt.lang);
+    } else {
+      console.log("Refreshing Language");
+      languageManager.refresh();
     }
   });
 
@@ -266,6 +292,7 @@ window.slugify = (text) => text.toString().toLowerCase()
 
   $.ajax({
     url: 'https://new-map.350.org/output/350org-new-layout.js.gz', //'|**DATA_SOURCE**|',
+    // url: '/data/test.js', //'|**DATA_SOURCE**|',
     dataType: 'script',
     cache: true,
     success: (data) => {
@@ -284,7 +311,12 @@ window.slugify = (text) => text.toString().toLowerCase()
       })
       $(document).trigger('trigger-list-update', { params: parameters });
       // $(document).trigger('trigger-list-filter-update', parameters);
-      $(document).trigger('trigger-map-plot', { data: window.EVENTS_DATA.data, params: parameters });
+      $(document).trigger('trigger-map-plot', {
+          data: window.EVENTS_DATA.data,
+          params: parameters,
+          groups: window.EVENTS_DATA.groups.reduce((dict, item)=>{ dict[item.supergroup] = item; return dict; }, {})
+      });
+// });
       $(document).trigger('trigger-update-embed', parameters);
       //TODO: Make the geojson conversion happen on the backend
 
