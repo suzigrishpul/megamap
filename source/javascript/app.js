@@ -10,23 +10,27 @@ window.slugify = (text) => text.toString().toLowerCase()
 
 (function($) {
   // Load things
-  $('select#filter-items').multiselect({
-    enableHTML: true,
-    templates: {
-      button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"><span data-lang-target="text" data-lang-key="more-search-options">More Search Options</span> <span class="fa fa-caret-down"></span></button>',
-      li: '<li><a href="javascript:void(0);"><label></label></a></li>'
-    },
-    dropRight: true,
-    onInitialized: () => {
-      // console.log("XXX");
-    },
-    optionLabel: (e) => {
-      // let el = $( '<div></div>' );
-      // el.append(() + "");
 
-      return unescape($(e).attr('label')) || $(e).html();
-    },
-  });
+  const buildFilters = () => {$('select#filter-items').multiselect({
+      enableHTML: true,
+      templates: {
+        button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"><span data-lang-target="text" data-lang-key="more-search-options"></span> <span class="fa fa-caret-down"></span></button>',
+        li: '<li><a href="javascript:void(0);"><label></label></a></li>'
+      },
+      dropRight: true,
+      onInitialized: () => {
+
+      },
+      optionLabel: (e) => {
+        // let el = $( '<div></div>' );
+        // el.append(() + "");
+
+        return unescape($(e).attr('label')) || $(e).html();
+      },
+    });
+  };
+  buildFilters();
+
 
   $('select#language-opts').multiselect({
     enableHTML: true,
@@ -41,10 +45,12 @@ window.slugify = (text) => text.toString().toLowerCase()
       return unescape($(e).attr('label')) || $(e).html();
     },
     onChange: (option, checked, select) => {
-      // console.log(option.val())
+
       const parameters = queryManager.getParameters();
       parameters['lang'] = option.val();
       $(document).trigger('trigger-update-embed', parameters);
+      $(document).trigger('trigger-reset-map', parameters);
+
     }
   })
 
@@ -73,7 +79,7 @@ window.slugify = (text) => text.toString().toLowerCase()
   });
 
   window.initializeAutocompleteCallback = () => {
-    // console.log("It is called");
+
     autocompleteManager = AutocompleteManager("input[name='loc']");
     autocompleteManager.initialize();
 
@@ -99,7 +105,7 @@ window.slugify = (text) => text.toString().toLowerCase()
   });
 
   $(document).on('trigger-list-filter-update', (event, options) => {
-    // console.log("Filter", options);
+
     listManager.updateFilter(options);
   });
 
@@ -114,7 +120,27 @@ window.slugify = (text) => text.toString().toLowerCase()
     }
 
     listManager.updateBounds(bound1, bound2)
-  })
+  });
+
+  $(document).on('trigger-reset-map', (event, options) => {
+    var copy = JSON.parse(JSON.stringify(options));
+    delete copy['lng'];
+    delete copy['lat'];
+    delete copy['bound1'];
+    delete copy['bound2'];
+
+    window.location.hash = $.param(copy);
+
+
+    $(document).trigger("trigger-language-update", copy);
+    $("select#filter-items").multiselect('destroy');
+    buildFilters();
+    $(document).trigger('trigger-load-groups', { groups: window.EVENTS_DATA.groups });
+    setTimeout(() => {
+
+      $(document).trigger("trigger-language-update", copy);
+    }, 1000);
+  });
 
 
   /***
@@ -128,14 +154,14 @@ window.slugify = (text) => text.toString().toLowerCase()
 
     var bound1 = JSON.parse(options.bound1);
     var bound2 = JSON.parse(options.bound2);
-    // console.log("map.98", options);
+
     mapManager.setBounds(bound1, bound2);
     // mapManager.triggerZoomEnd();
 
     setTimeout(() => {
       mapManager.triggerZoomEnd();
     }, 10);
-    // console.log(options)
+
   });
 
   $(document).on('click', "#copy-embed", (e) => {
@@ -146,7 +172,7 @@ window.slugify = (text) => text.toString().toLowerCase()
 
   // 3. markers on map
   $(document).on('trigger-map-plot', (e, opt) => {
-    console.log(opt);
+
     mapManager.plotPoints(opt.data, opt.params, opt.groups);
     $(document).trigger('trigger-map-filter');
   })
@@ -154,9 +180,9 @@ window.slugify = (text) => text.toString().toLowerCase()
   // load groups
 
   $(document).on('trigger-load-groups', (e, opt) => {
-
+    $('select#filter-items').empty();
     opt.groups.forEach((item) => {
-      console.log(item);
+
       let slugged = window.slugify(item.supergroup);
       let valueText = languageManager.getTranslation(item.translation);
       $('select#filter-items').append(`
@@ -170,10 +196,10 @@ window.slugify = (text) => text.toString().toLowerCase()
     queryManager.initialize();
     // $('select#filter-items').multiselect('destroy');
     $('select#filter-items').multiselect('rebuild');
-    console.log("REbuilding");
+
     mapManager.refreshMap();
 
-    // console.log("Refreshing");
+
     $(document).trigger('trigger-language-update');
 
   })
@@ -188,9 +214,10 @@ window.slugify = (text) => text.toString().toLowerCase()
   $(document).on('trigger-language-update', (e, opt) => {
 
     if (opt) {
+
       languageManager.updateLanguage(opt.lang);
     } else {
-      console.log("Refreshing Language");
+
       languageManager.refresh();
     }
   });
@@ -260,20 +287,20 @@ window.slugify = (text) => text.toString().toLowerCase()
 
     const oldHash = $.deparam(oldURL.substring(oldURL.search("#")+1));
 
-    // console.log("177", parameters, oldHash);
+
     $(document).trigger('trigger-list-filter-update', parameters);
     $(document).trigger('trigger-map-filter', parameters);
     $(document).trigger('trigger-update-embed', parameters);
 
     // So that change in filters will not update this
     if (oldHash.bound1 !== parameters.bound1 || oldHash.bound2 !== parameters.bound2) {
-      // console.log("185", parameters);
+
       $(document).trigger('trigger-list-filter-by-bound', parameters);
     }
 
     if (oldHash.log !== parameters.loc) {
       $(document).trigger('trigger-map-update', parameters);
-      // console.log("Calling it")
+
     }
 
     // Change items
@@ -298,7 +325,7 @@ window.slugify = (text) => text.toString().toLowerCase()
     success: (data) => {
       // window.EVENTS_DATA = data;
 
-      // console.log(window.EVENTS_DATA);
+
 
       //Load groups
       $(document).trigger('trigger-load-groups', { groups: window.EVENTS_DATA.groups });
@@ -323,13 +350,13 @@ window.slugify = (text) => text.toString().toLowerCase()
       //Refresh things
       setTimeout(() => {
         let p = queryManager.getParameters();
-        // console.log("231", p);
+
         $(document).trigger('trigger-map-update', p);
         $(document).trigger('trigger-map-filter', p);
-        // console.log("232", p);
+
         $(document).trigger('trigger-list-filter-update', p);
         $(document).trigger('trigger-list-filter-by-bound', p);
-        //console.log(queryManager.getParameters())
+
       }, 100);
     }
   });

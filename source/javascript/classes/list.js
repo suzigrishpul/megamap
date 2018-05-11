@@ -32,7 +32,7 @@ const ListManager = (($) => {
     const renderGroup = (item) => {
       let url = item.website.match(/^https{0,1}:/) ? item.website : "//" + item.website;
       let superGroup = window.slugify(item.supergroup);
-      // console.log(superGroup);
+
       return `
       <li class='${item.event_type} ${superGroup} group-obj' data-lat='${item.lat}' data-lng='${item.lng}'>
         <div class="type-group group-obj">
@@ -82,9 +82,9 @@ const ListManager = (($) => {
           let _lat = $(item).data('lat'),
               _lng = $(item).data('lng');
 
-          // console.log("updateBounds", item)
+
           if (bound1[0] <= _lat && bound2[0] >= _lat && bound1[1] <= _lng && bound2[1] >= _lng) {
-            // console.log("Adding bounds");
+
             $(item).addClass('within-bound');
           } else {
             $(item).removeClass('within-bound');

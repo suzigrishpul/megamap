@@ -133,7 +133,7 @@ const MapManager = (($) => {
         }
       },
       setBounds: (bounds1, bounds2) => {
-        // console.log("XXX");
+
         const bounds = [bounds1, bounds2];
         map.fitBounds(bounds);
       },
@@ -183,13 +183,13 @@ const MapManager = (($) => {
         // map._onResize();
         // map.fireEvent('zoomend');
 
-        // console.log("map is resized")
+
       },
       filterMap: (filters) => {
 
         $("#map").find(".event-item-popup").hide();
 
-        // console.log(filters);
+
         if (!filters) return;
 
         filters.forEach((item) => {

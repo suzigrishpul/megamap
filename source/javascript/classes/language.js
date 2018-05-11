@@ -13,14 +13,20 @@ const LanguageManager = (($) => {
       let targetLanguage = dictionary.rows.filter((i) => i.lang === language)[0];
 
       $targets.each((index, item) => {
+
         let targetAttribute = $(item).data('lang-target');
         let langTarget = $(item).data('lang-key');
 
-        // console.log(langTarget);
+
+
+
         switch(targetAttribute) {
           case 'text':
-            // console.log($(item), "TARGET :: ", langTarget, " --- ", targetLanguage[langTarget]);
-            $(item).text(targetLanguage[langTarget]);
+
+            $((`[data-lang-key="${langTarget}"]`)).text(targetLanguage[langTarget]);
+            if (langTarget == "more-search-options") {
+
+            }
             break;
           case 'value':
             $(item).val(targetLanguage[langTarget]);
