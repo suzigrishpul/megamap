@@ -1,22 +1,6 @@
 window.EVENTS_DATA={
 	"groups": [{
 		"sheet_id": "0",
-		"supergroup": "Events",
-		"classes": "groups-gdoc event",
-		"translation": "show-events",
-		"iconurl": "",
-		"iconurloff": "",
-		"shadowurl": "",
-		"shadowwidth": "",
-		"shadowheight": "",
-		"iconanchorx": "",
-		"iconanchory": "",
-		"shadowanchorx": "",
-		"shadowanchory": "",
-		"popupanchorx": "",
-		"popupanchory": ""
-	}, {
-		"sheet_id": "0",
 		"supergroup": "Local Groups",
 		"classes": "groups-gdoc groups-local-groups",
 		"translation": "local-groups",
@@ -36,7 +20,23 @@ window.EVENTS_DATA={
 		"supergroup": "Fossil Free Groups",
 		"classes": "groups-gdoc groups-fossil-free-groups",
 		"translation": "fossil-free-groups",
-		"iconurl": "https://s3.amazonaws.com/s3.350.org/images/350-map-pin-group-ff.png",
+		"iconurl": "https://s3.amazonaws.com/s3.350.org/images/350-map-pin-group-ff-transparent.png",
+		"iconurloff": "",
+		"shadowurl": "",
+		"shadowwidth": "",
+		"shadowheight": "",
+		"iconanchorx": "",
+		"iconanchory": "",
+		"shadowanchorx": "",
+		"shadowanchory": "",
+		"popupanchorx": "",
+		"popupanchory": ""
+	}, {
+		"sheet_id": "",
+		"supergroup": "Events",
+		"classes": "groups-gdoc event",
+		"translation": "show-events",
+		"iconurl": "",
 		"iconurloff": "",
 		"shadowurl": "",
 		"shadowwidth": "",
@@ -67,26 +67,6 @@ window.EVENTS_DATA={
 	"data": [{
 		"supergroup": "350.org",
 		"group": "350 NH",
-		"venue": "350NH Coworking Space. 1 Washington Street (Suite 320) Dover NH US 03820",
-		"start_datetime": "2018-05-10 18:30:00",
-		"title": "Nurturing Ourselves, Nurturing The Earth: The Work That Reconnects",
-		"url": "https://actionnetwork.org/ticketed_events/nurturing-ourselves-nurturing-the-earth-the-work-that-reconnects",
-		"lat": 43.1951605,
-		"lng": -70.87182980000001,
-		"event_type": "Action"
-	}, {
-		"supergroup": "350.org",
-		"group": "350 Aotearoa",
-		"venue": "Auckland Town Hall. Queen Street Auckland  NZ 1010",
-		"start_datetime": "2018-05-07 19:00:00",
-		"title": "Fossil Free Acceleration Tour: Bill McKibben, Auckland ",
-		"url": "https://actionnetwork.org/ticketed_events/fossil-free-acceleration-tour-bill-mckibben-auckland",
-		"lat": -36.8508999,
-		"lng": 174.7645171,
-		"event_type": "Action"
-	}, {
-		"supergroup": "350.org",
-		"group": "350 NH",
 		"venue": "Sylvia and Neal's Home. 24 Woodridge Rd Durham NH US 03824",
 		"start_datetime": "2018-06-07 18:00:00",
 		"title": "Granite Bridge Awareness House Party",
@@ -114,94 +94,6 @@ window.EVENTS_DATA={
 		"lat": 43.0598742,
 		"lng": -71.06286469999999,
 		"event_type": "Action"
-	}, {
-		"group_url": "https://actionnetwork.org/groups/climate-conversations-north-central-washington",
-		"group": "350wenatchee",
-		"supergroup": "350.org",
-		"title": "Wenatchee Shut Down Chase---Day of Action !",
-		"url": "https://actionnetwork.org/events/wenatchee-shut-down-chase-day-of-action",
-		"lat": 47.42319192477932,
-		"lng": -120.31192656829579,
-		"venue": "Chase Bank. 30 S Mission St, Wenatchee, WA 98801 Wenatchee WA US 98802",
-		"start_datetime": "2018-05-07 09:00:00",
-		"event_type": null
-	}, {
-		"group_url": "https://actionnetwork.org/groups/350-seattle",
-		"group": "350 Seattle - 350.org",
-		"supergroup": "350.org",
-		"title": "#ShutDownChase - 2018",
-		"url": "https://actionnetwork.org/events/shutdownchase-2018-3",
-		"lat": 47.526282200000026,
-		"lng": -122.2701854,
-		"venue": "Chase Branches. Everywhere, Seattle Seattle WA US 98118",
-		"start_datetime": "2018-05-07 09:00:00",
-		"event_type": null
-	}, {
-		"group_url": "https://actionnetwork.org/groups/350-conejo",
-		"group": "350 Conejo / San Fernando Valley",
-		"supergroup": "350.org",
-		"title": "There is OIL on J.P. Morgan's Face!",
-		"url": "https://actionnetwork.org/events/there-is-oil-on-jpmorgans-face",
-		"lat": 34.15384847646912,
-		"lng": -118.75728956189755,
-		"venue": "Chase Bank. 5695 Kanan Rd Agoura Hills CA US 91301",
-		"start_datetime": "2018-05-07 11:00:00",
-		"event_type": null
-	}, {
-		"group_url": "https://actionnetwork.org/groups/fossil-free-california",
-		"group": "Fossil Free California",
-		"supergroup": "350.org",
-		"title": "Dump Chase Bank!",
-		"url": "https://actionnetwork.org/events/dump-chase-bank",
-		"lat": 37.89145745325739,
-		"lng": -122.27810244907378,
-		"venue": "Oaks Theater solano avenue. 1875 Solano Ave. Berkeley CA US 94707",
-		"start_datetime": "2018-05-07 16:30:00",
-		"event_type": null
-	}, {
-		"group_url": "https://actionnetwork.org/groups/climate-conversations-north-central-washington",
-		"group": "350wenatchee",
-		"supergroup": "350.org",
-		"title": "Building a non-violent direct action campaign training Signup",
-		"url": "https://actionnetwork.org/events/building-a-non-violent-direct-action-campaign-training-signup",
-		"lat": 47.417860000000076,
-		"lng": -120.28663999999992,
-		"venue": "Wenatchee venue TBD. tbd Wenatchee WA US 98802",
-		"start_datetime": "2018-05-07 18:00:00",
-		"event_type": null
-	}, {
-		"group_url": null,
-		"group": null,
-		"supergroup": "350.org",
-		"title": "350 Fossil Free Collaboration ",
-		"url": "https://actionnetwork.org/events/350-fossil-free-collaboration",
-		"lat": 44.69718453344107,
-		"lng": -73.45532092010475,
-		"venue": "Plattsburgh Public Library. 19 Oak Street Plattsburgh NY US 12901",
-		"start_datetime": "2018-05-08 17:30:00",
-		"event_type": "Spring Forward to Fossil Free"
-	}, {
-		"group_url": "https://actionnetwork.org/groups/justica-climatica",
-		"group": "Justi\u00e7a Clim\u00e1tica",
-		"supergroup": "350.org",
-		"title": "Reuni\u00e3o aberta",
-		"url": "https://actionnetwork.org/events/reuniao-aberta-2",
-		"lat": 38.744650000000206,
-		"lng": -9.146889999999928,
-		"venue": "CIDAC - Centro De Interven\u00e7\u00e3o Para O Desenvolvimento Am\u00edlcar Cabral. Rua Tom\u00e1s Ribeiro, 3-9 Lisboa  PT 1069-069",
-		"start_datetime": "2018-05-08 19:30:00",
-		"event_type": "Agenda pelo Clima"
-	}, {
-		"group_url": "https://actionnetwork.org/groups/justica-climatica",
-		"group": "Justi\u00e7a Clim\u00e1tica",
-		"supergroup": "350.org",
-		"title": "Sustent'Algarve 2018",
-		"url": "https://actionnetwork.org/events/sustentalgarve-2018",
-		"lat": 37.015641,
-		"lng": -7.934728500000006,
-		"venue": "Jardim Manuel B\u00edvar. Pra\u00e7a Dom Francisco Gomes 12 Faro  PT 8000-168",
-		"start_datetime": "2018-05-10 17:00:00",
-		"event_type": "Agenda pelo Clima"
 	}, {
 		"group_url": "https://actionnetwork.org/groups/350indiana-calumet",
 		"group": "350 Indiana-Calumet",
@@ -250,6 +142,28 @@ window.EVENTS_DATA={
 		"group_url": null,
 		"group": null,
 		"supergroup": "350.org",
+		"title": "Oil and Gas Setbacks Initiative Signature Gathering",
+		"url": "https://actionnetwork.org/events/oil-and-gas-setbacks-initiative-signature-gathering",
+		"lat": 39.74399017317799,
+		"lng": -104.99067078463837,
+		"venue": "Meet in front of Hard Rock Cafe at Denver Pavillions. 500 16th St. Denver CO US 80202",
+		"start_datetime": "2018-05-14 10:00:00",
+		"event_type": "Spring Forward to Fossil Free"
+	}, {
+		"group_url": null,
+		"group": null,
+		"supergroup": "350.org",
+		"title": "Sign the Colorado Rising Ballot Initiative!",
+		"url": "https://actionnetwork.org/events/sign-the-colorado-rising-ballot-initiative",
+		"lat": 38.911751447754064,
+		"lng": -104.77512536849514,
+		"venue": "East Library. 5550 N Union Colorado Springs CO US 80918",
+		"start_datetime": "2018-05-14 12:00:00",
+		"event_type": "Spring Forward to Fossil Free"
+	}, {
+		"group_url": null,
+		"group": null,
+		"supergroup": "350.org",
 		"title": "350 Columbia Spring Forward to Fossil Free",
 		"url": "https://actionnetwork.org/events/350-columbia-spring-forward-to-fossil-free",
 		"lat": 34.008954727162624,
@@ -291,6 +205,17 @@ window.EVENTS_DATA={
 		"start_datetime": "2018-05-14 17:30:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
+		"group_url": null,
+		"group": null,
+		"supergroup": "350.org",
+		"title": "Going Fossil Free in Montana: What Does That Mean?",
+		"url": "https://actionnetwork.org/events/going-fossil-free-in-montana-what-does-that-mean",
+		"lat": 46.871865000000014,
+		"lng": -114.00819015625761,
+		"venue": "Silver Park Picnic Area. Cregg Lane just west of the Missoula Osprey Field Missoula MT US 59801",
+		"start_datetime": "2018-05-14 17:30:00",
+		"event_type": "Spring Forward to Fossil Free"
+	}, {
 		"group_url": "https://actionnetwork.org/groups/350-spokane",
 		"group": "350 Spokane",
 		"supergroup": "350.org",
@@ -324,6 +249,39 @@ window.EVENTS_DATA={
 		"start_datetime": "2018-05-14 19:00:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
+		"group_url": "https://actionnetwork.org/groups/350-dallas",
+		"group": "350 Dallas",
+		"supergroup": "350.org",
+		"title": "Protest JP Morgan Chase's Annual Shareholders Meeting",
+		"url": "https://actionnetwork.org/events/protest-jp-morgan-chases-annual-shareholders-meeting",
+		"lat": 33.08698744463038,
+		"lng": -96.8275762927171,
+		"venue": "JP Morgan Chase - grassy area close to entrance. 8181 Communications Pkwy Plano TX US 75024",
+		"start_datetime": "2018-05-15 09:00:00",
+		"event_type": "Spring Forward to Fossil Free"
+	}, {
+		"group_url": null,
+		"group": null,
+		"supergroup": "350.org",
+		"title": "Spring to Fossil Free- Petition Signing Event ",
+		"url": "https://actionnetwork.org/events/spring-to-fossil-free-petition-signing-event",
+		"lat": 39.070853360811356,
+		"lng": -108.56278786283058,
+		"venue": "Mesa County Public Library . 443 N 6th Street Grand Junction  CO US 81501",
+		"start_datetime": "2018-05-15 10:00:00",
+		"event_type": "Spring Forward to Fossil Free"
+	}, {
+		"group_url": "https://actionnetwork.org/groups/justica-climatica",
+		"group": "Justi\u00e7a Clim\u00e1tica",
+		"supergroup": "350.org",
+		"title": "Conversas com Energia, Aveiro",
+		"url": "https://actionnetwork.org/events/conversas-com-energia-aveiro",
+		"lat": 40.63814724101576,
+		"lng": -8.658035931293961,
+		"venue": "F\u00e1brica Centro Ci\u00eancia Viva De Aveiro. Rua dos Santos M\u00e1rtires, n\u00ba 1A Aveiro  PT 3810",
+		"start_datetime": "2018-05-15 18:00:00",
+		"event_type": "Agenda pelo Clima"
+	}, {
 		"group_url": null,
 		"group": null,
 		"supergroup": "350.org",
@@ -334,6 +292,39 @@ window.EVENTS_DATA={
 		"venue": "Peace United Church. 900 High St Santa Cruz CA US 95060",
 		"start_datetime": "2018-05-15 19:00:00",
 		"event_type": "December Fossil Free Meetings"
+	}, {
+		"group_url": "https://actionnetwork.org/groups/justica-climatica",
+		"group": "Justi\u00e7a Clim\u00e1tica",
+		"supergroup": "350.org",
+		"title": "Reuni\u00e3o aberta - Clim\u00e1ximo",
+		"url": "https://actionnetwork.org/events/reuniao-aberta-climaximo-12",
+		"lat": 38.744650000000206,
+		"lng": -9.146889999999928,
+		"venue": "CIDAC - Centro De Interven\u00e7\u00e3o Para O Desenvolvimento Am\u00edlcar Cabral. Rua Tom\u00e1s Ribeiro, 3-9 Lisboa  PT 1069-069",
+		"start_datetime": "2018-05-15 19:30:00",
+		"event_type": "Agenda pelo Clima"
+	}, {
+		"group_url": "https://actionnetwork.org/groups/350-colorado",
+		"group": "350 Colorado",
+		"supergroup": "350.org",
+		"title": "#PushBacktheFrack2018 Fundraising Dinner with 350.org Founder May Boeve",
+		"url": "https://actionnetwork.org/events/pushbackthefrack2018-fundraising-dinner-with-350org-founder-may-boeve",
+		"lat": 39.66446552262104,
+		"lng": -104.97817784243216,
+		"venue": "Bray Home. 2890 S Clarkson St Englewood CO US 80113",
+		"start_datetime": "2018-05-16 18:00:00",
+		"event_type": null
+	}, {
+		"group_url": "https://actionnetwork.org/groups/justica-climatica",
+		"group": "Justi\u00e7a Clim\u00e1tica",
+		"supergroup": "350.org",
+		"title": "Reuni\u00e3o aberta - Clim\u00e1ximo",
+		"url": "https://actionnetwork.org/events/reuniao-aberta-climaximo-11",
+		"lat": 41.150990095475805,
+		"lng": -8.621196438109502,
+		"venue": "Gato Vadio. Rua do Ros\u00e1rio, 281 Porto  PT 4050-525",
+		"start_datetime": "2018-05-16 19:00:00",
+		"event_type": "Agenda pelo Clima"
 	}, {
 		"group_url": null,
 		"group": null,
@@ -346,6 +337,17 @@ window.EVENTS_DATA={
 		"start_datetime": "2018-05-17 16:30:00",
 		"event_type": "Agenda pelo Clima"
 	}, {
+		"group_url": "https://actionnetwork.org/groups/justica-climatica",
+		"group": "Justi\u00e7a Clim\u00e1tica",
+		"supergroup": "350.org",
+		"title": "Palestra P\u00fablica na Galp sobre as Altera\u00e7\u00f5es clim\u00e1ticas",
+		"url": "https://actionnetwork.org/events/palestra-publica-na-galp-sobre-as-alteracoes-climaticas",
+		"lat": 38.75605200000001,
+		"lng": -9.176429249999991,
+		"venue": "GALP Energia. Rua Tom\u00e1s da Fonseca Lisboa  PT 1600-209",
+		"start_datetime": "2018-05-18 18:00:00",
+		"event_type": "Agenda pelo Clima"
+	}, {
 		"group_url": null,
 		"group": null,
 		"supergroup": "350.org",
@@ -355,6 +357,17 @@ window.EVENTS_DATA={
 		"lng": -67.45786386511051,
 		"venue": "Machias Bay Area Chamber of Commerce. 11 Main Street Machias ME US 04654",
 		"start_datetime": "2018-05-19 11:00:00",
+		"event_type": "Spring Forward to Fossil Free"
+	}, {
+		"group_url": null,
+		"group": null,
+		"supergroup": "350.org",
+		"title": "Stop Fracking in Colorado! Colorado Rising Ballot Initiative signing and singature gathering training",
+		"url": "https://actionnetwork.org/events/stop-fracking-in-colorado-colorado-rising-ballot-initiative-signing-and-singature-gathering-training",
+		"lat": 39.756189638323264,
+		"lng": -105.22572611431727,
+		"venue": "Golden Library. 1019 10th St Golden CO US 80401",
+		"start_datetime": "2018-05-19 11:30:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
 		"group_url": "https://actionnetwork.org/groups/justica-climatica",
@@ -390,6 +403,17 @@ window.EVENTS_DATA={
 		"start_datetime": "2018-05-21 17:00:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
+		"group_url": "https://actionnetwork.org/groups/justica-climatica",
+		"group": "Justi\u00e7a Clim\u00e1tica",
+		"supergroup": "350.org",
+		"title": "Conversas com Energia - Com a Cooperativa Coop\u00e9rnico",
+		"url": "https://actionnetwork.org/events/conversas-com-energia-com-a-cooperativa-coopernico",
+		"lat": 38.64688892312112,
+		"lng": -8.221063673236026,
+		"venue": "Cooperativa Integral Minga Montemor. Largo Machado dos Santos, n\u00ba10 Montemor-O-Novo  PT 7050-135",
+		"start_datetime": "2018-05-21 18:00:00",
+		"event_type": "Agenda pelo Clima"
+	}, {
 		"group_url": "https://actionnetwork.org/groups/350-nh",
 		"group": "350 NH",
 		"supergroup": "350.org",
@@ -400,6 +424,17 @@ window.EVENTS_DATA={
 		"venue": "350NH Dover Office. 1 Washington Street Suite 320 Dover NH US 03820",
 		"start_datetime": "2018-05-21 19:00:00",
 		"event_type": null
+	}, {
+		"group_url": "https://actionnetwork.org/groups/350-dallas",
+		"group": "350 Dallas",
+		"supergroup": "350.org",
+		"title": "Protest ExxonMobil's Annual Shareholders Meeting",
+		"url": "https://actionnetwork.org/events/protest-exxonmobils-annual-shareholders-meeting",
+		"lat": 32.7895729392887,
+		"lng": -96.79810303488222,
+		"venue": "Meyerson Symphony Center. 2301 Flora St Dallas TX US 75201",
+		"start_datetime": "2018-05-30 07:30:00",
+		"event_type": "Spring Forward to Fossil Free"
 	}, {
 		"group_url": "https://actionnetwork.org/groups/350-seattle",
 		"group": "350 Seattle - 350.org",
@@ -475,6 +510,17 @@ window.EVENTS_DATA={
 		"lat": 34.05349000000007,
 		"lng": -118.24531999999999,
 		"venue": "To Be Determined. TBD Los Angeles CA US 90189",
+		"start_datetime": "2018-09-08 11:00:00",
+		"event_type": null
+	}, {
+		"group_url": "https://actionnetwork.org/groups/350-louisville",
+		"group": "350 Louisville",
+		"supergroup": "350.org",
+		"title": "Rise for Climate Action Louisville",
+		"url": "https://actionnetwork.org/events/rise-for-climate-action-louisville",
+		"lat": 38.25118000000003,
+		"lng": -85.75270989999996,
+		"venue": "TBD. TBD Louisville KY US 40202",
 		"start_datetime": "2018-09-08 11:00:00",
 		"event_type": null
 	}, {
@@ -4573,18 +4619,6 @@ window.EVENTS_DATA={
 		"hide": "",
 		"event_type": "group"
 	}, {
-		"title": "Kino Am Hof - Disobedience Movie Screening",
-		"url": "act.350.org/event/disobedience/14068",
-		"supergroup": "350.org",
-		"group": "350.org",
-		"event_type": "Action",
-		"start_datetime": "2018-05-09T18:00:00",
-		"venue": "Biohof Vogt. Hauptstra\u00dfe 36  Wolkersdorf  Austria 2120",
-		"campaign_name": "disobedience",
-		"campaign_title": "\"Disobedience\": Movie Screenings and House Parties Copy",
-		"lat": 48.3839,
-		"lng": 16.5168
-	}, {
 		"title": "Filmvorf\u00fchrung \u201eDisobedience\u201d",
 		"url": "act.350.org/event/disobedience/14067",
 		"supergroup": "350.org",
@@ -4596,6 +4630,42 @@ window.EVENTS_DATA={
 		"campaign_title": "\"Disobedience\": Movie Screenings and House Parties Copy",
 		"lat": 54.0887,
 		"lng": 12.1405
+	}, {
+		"title": "Let's Make Bagerhat Fossil Free",
+		"url": "act.350.org/event/fossil-free-gathering/14094",
+		"supergroup": "350.org",
+		"group": "350.org",
+		"event_type": "Action",
+		"start_datetime": "2018-05-27T10:00:00",
+		"venue": "Bagerhat  City at  Bagerhat district in Bangladesh.. Badhon.org,  Holding # 42/50, Pachadighi Road, Dashani Traffic Moor.  Bagerhat  Bangladesh 9300",
+		"campaign_name": "fossil-free-gathering",
+		"campaign_title": "Fossil Free Gathering",
+		"lat": 22.8521,
+		"lng": 89.8
+	}, {
+		"title": "Let's Make Bagerhat Fossil Free",
+		"url": "act.350.org/event/fossil-free-gathering/14100",
+		"supergroup": "350.org",
+		"group": "350.org",
+		"event_type": "Action",
+		"start_datetime": "2018-05-27T10:00:00",
+		"venue": "Bagerhat  City at  Bagerhat district in Bangladesh.. Badhon (BMUS), Holding # 42/50, Pachadighi Road,, Dashani trafic moor,  Bagerhat  Bangladesh 9300",
+		"campaign_name": "fossil-free-gathering",
+		"campaign_title": "Fossil Free Gathering",
+		"lat": 22.8521,
+		"lng": 89.8
+	}, {
+		"title": "Let's Make Bagerhat Fossil Free",
+		"url": "act.350.org/event/fossil-free-gathering/14116",
+		"supergroup": "350.org",
+		"group": "350.org",
+		"event_type": "Action",
+		"start_datetime": "2018-05-27T10:00:00",
+		"venue": "Bagerhat district in Bangladesh.. Badhon(bmus), Dashani Traffic Moor, holding # 42/50, Rampal road, oppoite of dist. Shilpakala Academy, Bagerhat-930, Bangladesh.  Bagerhat  Bangladesh 9300",
+		"campaign_name": "fossil-free-gathering",
+		"campaign_title": "Fossil Free Gathering",
+		"lat": 22.8521,
+		"lng": 89.8
 	}, {
 		"title": "Let's Make [Mymensingh, Bangladesh] Fossil Free",
 		"url": "act.350.org/event/fossil-free-gathering/14090",
@@ -4616,6 +4686,18 @@ window.EVENTS_DATA={
 		"event_type": "Action",
 		"start_datetime": "2018-05-31T17:00:00",
 		"venue": "TSC, Bangladesh Agricultural University, Mymensingh.. TSC, BAU.  Mymensingh  Bangladesh 2202",
+		"campaign_name": "fossil-free-gathering",
+		"campaign_title": "Fossil Free Gathering",
+		"lat": 23.1833,
+		"lng": 90.1333
+	}, {
+		"title": "Let's Make [Mymensingh, Bangladesh] Fossil Free",
+		"url": "act.350.org/event/fossil-free-gathering/14092",
+		"supergroup": "350.org",
+		"group": "350.org",
+		"event_type": "Action",
+		"start_datetime": "2018-07-10T17:00:00",
+		"venue": "Bangladesh Agricultural University,Mymensingh -2202.. TSC, BAU  Mymensigh  Bangladesh 2202",
 		"campaign_name": "fossil-free-gathering",
 		"campaign_title": "Fossil Free Gathering",
 		"lat": 23.1833,
@@ -4645,6 +4727,18 @@ window.EVENTS_DATA={
 		"lat": 40.9288,
 		"lng": -124.06
 	}, {
+		"title": "Lib\u00e9rons [votre ville] des fossiles",
+		"url": "act.350.org/event/fossil-free-gathering/14105",
+		"supergroup": "350.org",
+		"group": "350.org",
+		"event_type": "Action",
+		"start_datetime": "2018-06-16T20:00:00",
+		"venue": "RESTAURANT LOU REGALIDO. LE MEJANEL  PEGAIROLLES DE BUEGES  France 34380",
+		"campaign_name": "fossil-free-gathering",
+		"campaign_title": "Fossil Free Gathering",
+		"lat": 43.7833,
+		"lng": 3.7333
+	}, {
 		"title": "\u041c\u0456\u0441\u0442\u043e \u0434\u043b\u044f \u0436\u0438\u0442\u0442\u044f!",
 		"url": "act.350.org/event/fossil-free-gathering/14052",
 		"supergroup": "350.org",
@@ -4669,18 +4763,6 @@ window.EVENTS_DATA={
 		"lat": 49.5139,
 		"lng": 8.21
 	}, {
-		"title": "Keep it in the Ground",
-		"url": "act.350.org/event/fossil-free-gathering/13922",
-		"supergroup": "350.org",
-		"group": "350.org",
-		"event_type": "Action",
-		"start_datetime": "2018-05-08T19:30:00",
-		"venue": "Meeting room, Watling Gardens Estate (Kilburn). 97-135 Shoot-Up Hill  London  United Kingdom NW2 3UB",
-		"campaign_name": "fossil-free-gathering",
-		"campaign_title": "Fossil Free Gathering",
-		"lat": 51.55,
-		"lng": -0.225
-	}, {
 		"title": "Let's Make [Your Town] Fossil Free",
 		"url": "act.350.org/event/fossil-free-gathering/14007",
 		"supergroup": "350.org",
@@ -4693,125 +4775,29 @@ window.EVENTS_DATA={
 		"lat": 52.1167,
 		"lng": 0.9
 	}, {
-		"title": "People vs Kinder Morgan-MP of Finance Morneau",
-		"url": "act.350.org/event/stop-km-national-actions-trudeau/14069",
+		"title": "Break Free From [Fossil Fuels]",
+		"url": "act.350.org/event/break-free-fossil-fuels-2018/14115",
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-07T16:00:00",
-		"venue": "430 Parliament St, Toronto, ON M5A 3A2. 430 Parliament St, Toronto, ON M5A 3A2  Toronto  Canada ",
-		"campaign_name": "stop-km-national-actions-trudeau",
-		"campaign_title": "Stop Kinder Morgan Trudeau",
-		"lat": 43.7001,
-		"lng": -79.4163
+		"start_datetime": "2018-05-25T15:00:00",
+		"venue": "Drodsty Lawns. Drostdy Arch, Somerset St, Grahamstown  Grahamstown  South Africa 6139",
+		"campaign_name": "break-free-fossil-fuels-2018",
+		"campaign_title": "Break Free from Fossil Fuels 2018",
+		"lat": -33.3,
+		"lng": 26.5333
 	}, {
-		"title": "Calling on Toronto MPs to StopKM",
-		"url": "act.350.org/event/stop-km-national-actions-trudeau/14086",
+		"title": "Workshop - Break Free From Fossil Fuel",
+		"url": "act.350.org/event/break-free-fossil-fuels-2018/14113",
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-07T09:00:00",
-		"venue": "Toronto. 215 Spadina Avenue  Toronto  Canada ",
-		"campaign_name": "stop-km-national-actions-trudeau",
-		"campaign_title": "Stop Kinder Morgan Trudeau",
-		"lat": 43.7001,
-		"lng": -79.4163
-	}, {
-		"title": "Say \"No!\" to a KM Bailout",
-		"url": "act.350.org/event/stop-km-national-actions-trudeau/14087",
-		"supergroup": "350.org",
-		"group": "350.org",
-		"event_type": "Action",
-		"start_datetime": "2018-05-07T13:30:00",
-		"venue": "Constituency Office of Adam Vaughan. 215 Spadina Avenue  Toronto  Canada ",
-		"campaign_name": "stop-km-national-actions-trudeau",
-		"campaign_title": "Stop Kinder Morgan Trudeau",
-		"lat": 43.7001,
-		"lng": -79.4163
-	}, {
-		"title": "Stop the Kinder Morgan Bailout",
-		"url": "act.350.org/event/stop-km-national-actions-trudeau/14048",
-		"supergroup": "350.org",
-		"group": "350.org",
-		"event_type": "Action",
-		"start_datetime": "2018-05-09T17:30:00",
-		"venue": "MP Mark Gerretsen's Office. 841 Princess Street  Kingston  Canada K7L 1G7",
-		"campaign_name": "stop-km-national-actions-trudeau",
-		"campaign_title": "Stop Kinder Morgan Trudeau",
-		"lat": 44.231,
-		"lng": -76.4791
-	}, {
-		"title": "Pipelines at the Crossroads",
-		"url": "act.350.org/event/stop-km-national-actions-trudeau/14040",
-		"supergroup": "350.org",
-		"group": "350.org",
-		"event_type": "Action",
-		"start_datetime": "2018-05-07T12:00:00",
-		"venue": "The corner of George St and Hunter St.. The corner of George St and Hunter St  Peterborough  Canada K9J5Z6",
-		"campaign_name": "stop-km-national-actions-trudeau",
-		"campaign_title": "Stop Kinder Morgan Trudeau",
-		"lat": 44.3001,
-		"lng": -78.3162
-	}, {
-		"title": "Defend Our Waters",
-		"url": "act.350.org/event/stop-km-national-actions-trudeau/14034",
-		"supergroup": "350.org",
-		"group": "350.org",
-		"event_type": "Action",
-		"start_datetime": "2018-05-08T13:00:00",
-		"venue": "Office of MP Andy Fillmore. 1888 Brunswick Street  Halifax  Canada ",
-		"campaign_name": "stop-km-national-actions-trudeau",
-		"campaign_title": "Stop Kinder Morgan Trudeau",
-		"lat": 44.6453,
-		"lng": -63.5724
-	}, {
-		"title": "East Coast against pipelines",
-		"url": "act.350.org/event/stop-km-national-actions-trudeau/14047",
-		"supergroup": "350.org",
-		"group": "350.org",
-		"event_type": "Action",
-		"start_datetime": "2018-05-09T18:00:00",
-		"venue": "Saibt John boardwalk at Market Square. Water street  Saint John  Canada E2p1j5",
-		"campaign_name": "stop-km-national-actions-trudeau",
-		"campaign_title": "Stop Kinder Morgan Trudeau",
-		"lat": 45.2727,
-		"lng": -66.0677
-	}, {
-		"title": "Mindful Monday Meditation",
-		"url": "act.350.org/event/stop-km-national-actions-trudeau/14065",
-		"supergroup": "350.org",
-		"group": "350.org",
-		"event_type": "Action",
-		"start_datetime": "2018-05-07T07:00:00",
-		"venue": "Office of Catherine McKenna MP. Catherine McKenna Community Office, 107 Catherine St  Ottawa  Canada K2P 0P4",
-		"campaign_name": "stop-km-national-actions-trudeau",
-		"campaign_title": "Stop Kinder Morgan Trudeau",
-		"lat": 45.4129,
-		"lng": -75.6901
-	}, {
-		"title": "No Kinder Morgan Bailout Lunchtime Rally 12-1pm",
-		"url": "act.350.org/event/stop-km-national-actions-trudeau/14037",
-		"supergroup": "350.org",
-		"group": "350.org",
-		"event_type": "Action",
-		"start_datetime": "2018-05-07T12:00:00",
-		"venue": "Jody Wilson-Raybould's Constituency Office - Minister of Justice, Liberal MP. #104 - 1245 W Broadway  Vancouver  Canada V6H 1G7",
-		"campaign_name": "stop-km-national-actions-trudeau",
-		"campaign_title": "Stop Kinder Morgan Trudeau",
-		"lat": 49.2661,
-		"lng": -123.128
-	}, {
-		"title": "Terry Beech: No Kinder Morgan Bailout!",
-		"url": "act.350.org/event/stop-km-national-actions-trudeau/14070",
-		"supergroup": "350.org",
-		"group": "350.org",
-		"event_type": "Action",
-		"start_datetime": "2018-05-08T15:30:00",
-		"venue": "Terry Beech's Constituency Office. 3906 Hastings St  Burnaby  Canada V5C 6C1",
-		"campaign_name": "stop-km-national-actions-trudeau",
-		"campaign_title": "Stop Kinder Morgan Trudeau",
-		"lat": 49.2848,
-		"lng": -123.022
+		"start_datetime": "2018-05-25T14:00:00",
+		"venue": "Klerksdorp Library. Voortrekker St, Klerksdorp Central, Klerksdorp, 2570  Klerksdorp  South Africa 2570",
+		"campaign_name": "break-free-fossil-fuels-2018",
+		"campaign_title": "Break Free from Fossil Fuels 2018",
+		"lat": -26.8521,
+		"lng": 26.6667
 	}, {
 		"title": "Break Free From [Asiyifuni iMining]",
 		"url": "act.350.org/event/break-free-fossil-fuels-2018/14080",
@@ -4849,6 +4835,42 @@ window.EVENTS_DATA={
 		"lat": -12.7961,
 		"lng": 28.2477
 	}, {
+		"title": "Break Free From  Use Of Fosil Fuel",
+		"url": "act.350.org/event/break-free-fossil-fuels-2018/14107",
+		"supergroup": "350.org",
+		"group": "350.org",
+		"event_type": "Action",
+		"start_datetime": "2018-05-25T12:00:00",
+		"venue": "Classroom. Jambo Drive  Kitwe  Zambia ",
+		"campaign_name": "break-free-fossil-fuels-2018",
+		"campaign_title": "Break Free from Fossil Fuels 2018",
+		"lat": -12.7961,
+		"lng": 28.2477
+	}, {
+		"title": "Break Free From plastics",
+		"url": "act.350.org/event/break-free-fossil-fuels-2018/14112",
+		"supergroup": "350.org",
+		"group": "350.org",
+		"event_type": "Action",
+		"start_datetime": "2018-05-25T14:00:00",
+		"venue": "Copperbelt University. Riverside Campus, Jambo drive  Kitwe  Zambia 21692",
+		"campaign_name": "break-free-fossil-fuels-2018",
+		"campaign_title": "Break Free from Fossil Fuels 2018",
+		"lat": -12.7961,
+		"lng": 28.2477
+	}, {
+		"title": "Break Free From Sulphur dioxide emissions",
+		"url": "act.350.org/event/break-free-fossil-fuels-2018/14114",
+		"supergroup": "350.org",
+		"group": "350.org",
+		"event_type": "Action",
+		"start_datetime": "2018-05-25T14:00:00",
+		"venue": "Copperbelt University Hall. Copperbelt University, Riverside Campus, Kitwe  Kitwe  Zambia 21692",
+		"campaign_name": "break-free-fossil-fuels-2018",
+		"campaign_title": "Break Free from Fossil Fuels 2018",
+		"lat": -12.7961,
+		"lng": 28.2477
+	}, {
 		"title": "A la d\u00e9couverte des Renouvelables",
 		"url": "act.350.org/event/break-free-fossil-fuels-2018/14079",
 		"supergroup": "350.org",
@@ -4860,6 +4882,54 @@ window.EVENTS_DATA={
 		"campaign_title": "Break Free from Fossil Fuels 2018",
 		"lat": -4.32459,
 		"lng": 15.3215
+	}, {
+		"title": "Environmental Degradation March",
+		"url": "act.350.org/event/break-free-fossil-fuels-2018/14095",
+		"supergroup": "350.org",
+		"group": "350.org",
+		"event_type": "Action",
+		"start_datetime": "2018-05-25T10:00:00",
+		"venue": "Mkunguni (Lamu Town Square). Harambee Road  Lamu  Kenya 55-80500",
+		"campaign_name": "break-free-fossil-fuels-2018",
+		"campaign_title": "Break Free from Fossil Fuels 2018",
+		"lat": -2.27169,
+		"lng": 40.902
+	}, {
+		"title": "Break Free From [AntiCoal Khanga show]",
+		"url": "act.350.org/event/break-free-fossil-fuels-2018/14108",
+		"supergroup": "350.org",
+		"group": "350.org",
+		"event_type": "Action",
+		"start_datetime": "2018-05-25T09:00:00",
+		"venue": "Mwanaarafa Hall. Harambee Road  Lamu  Kenya 341-80500",
+		"campaign_name": "break-free-fossil-fuels-2018",
+		"campaign_title": "Break Free from Fossil Fuels 2018",
+		"lat": -2.27169,
+		"lng": 40.902
+	}, {
+		"title": "Break Free From [Add Your Event Name]",
+		"url": "act.350.org/event/break-free-fossil-fuels-2018/14096",
+		"supergroup": "350.org",
+		"group": "350.org",
+		"event_type": "Action",
+		"start_datetime": "2018-05-25T00:00:00",
+		"venue": "ville de GOMA. PLAGE PUBLIQUE DE GOMA  GOMA  Democratic Republic of the Congo 00243",
+		"campaign_name": "break-free-fossil-fuels-2018",
+		"campaign_title": "Break Free from Fossil Fuels 2018",
+		"lat": -1.67917,
+		"lng": 29.2228
+	}, {
+		"title": "Break Free From [ Fossil Fuels 2018 in Goma/DRC]",
+		"url": "act.350.org/event/break-free-fossil-fuels-2018/14110",
+		"supergroup": "350.org",
+		"group": "350.org",
+		"event_type": "Action",
+		"start_datetime": "2018-05-25T00:00:00",
+		"venue": "Katindo District, Goma City, North Kivu Province in DR Congo. Road Sake, Katindo District 05,  Goma  Democratic Republic of the Congo 84",
+		"campaign_name": "break-free-fossil-fuels-2018",
+		"campaign_title": "Break Free from Fossil Fuels 2018",
+		"lat": -1.67917,
+		"lng": 29.2228
 	}, {
 		"title": "Break Free From Coal Investment in Kenya",
 		"url": "act.350.org/event/break-free-fossil-fuels-2018/14057",
@@ -4921,6 +4991,18 @@ window.EVENTS_DATA={
 		"lat": 5.30966,
 		"lng": -4.01266
 	}, {
+		"title": "DECOALONISE +225 \"SAN-PEDRO\"",
+		"url": "act.350.org/event/break-free-fossil-fuels-2018/14111",
+		"supergroup": "350.org",
+		"group": "350.org",
+		"event_type": "Action",
+		"start_datetime": "2018-05-25T08:30:00",
+		"venue": "Abidjan - San-Pedro, KEBLEKE. 16BP23ABJ16  ABIDJAN  Ivory Coast +225",
+		"campaign_name": "break-free-fossil-fuels-2018",
+		"campaign_title": "Break Free from Fossil Fuels 2018",
+		"lat": 5.30966,
+		"lng": -4.01266
+	}, {
 		"title": "Breaking free from use of kerosine and generators  in generating light",
 		"url": "act.350.org/event/break-free-fossil-fuels-2018/14072",
 		"supergroup": "350.org",
@@ -4945,17 +5027,17 @@ window.EVENTS_DATA={
 		"lat": 6.13748,
 		"lng": 1.21227
 	}, {
-		"title": "Break Free From [Add Your Event Name]",
-		"url": "act.350.org/event/break-free-fossil-fuels-2018/14082",
+		"title": "Break Free From use of firewood, coal and carbon emission devices and machines , let's make our society low carbon society by using renewables energy for sustainable development",
+		"url": "act.350.org/event/break-free-fossil-fuels-2018/14101",
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
 		"start_datetime": "2018-05-25T00:00:00",
-		"venue": "Ministry of agricultural awka. 6 akunwata mbamalu street Onitsha  Onitsha  Nigeria 234",
+		"venue": "Ministry of environment awka. Ministry of environment awka  Awka  Nigeria 234",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
-		"lat": 6.14543,
-		"lng": 6.78845
+		"lat": 6.21009,
+		"lng": 7.07411
 	}, {
 		"title": "Break Free From Coal and Embrace Renewable Energy",
 		"url": "act.350.org/event/break-free-fossil-fuels-2018/14074",
@@ -4969,6 +5051,18 @@ window.EVENTS_DATA={
 		"lat": 6.45306,
 		"lng": 3.39583
 	}, {
+		"title": "Movie Projection and debate",
+		"url": "act.350.org/event/break-free-fossil-fuels-2018/14102",
+		"supergroup": "350.org",
+		"group": "350.org",
+		"event_type": "Action",
+		"start_datetime": "2018-05-25T10:00:00",
+		"venue": "American Corner in National university of Benin. Abomey Calavi  Abomey Calavi  Benin ",
+		"campaign_name": "break-free-fossil-fuels-2018",
+		"campaign_title": "Break Free from Fossil Fuels 2018",
+		"lat": 6.48379993438721,
+		"lng": 2.35245990753174
+	}, {
 		"title": "Afram Plains for Green Energy",
 		"url": "act.350.org/event/break-free-fossil-fuels-2018/14060",
 		"supergroup": "350.org",
@@ -4980,6 +5074,18 @@ window.EVENTS_DATA={
 		"campaign_title": "Break Free from Fossil Fuels 2018",
 		"lat": 6.85865020751953,
 		"lng": -0.302080005407333
+	}, {
+		"title": "DeCARBONize Nigeria",
+		"url": "act.350.org/event/break-free-fossil-fuels-2018/14109",
+		"supergroup": "350.org",
+		"group": "350.org",
+		"event_type": "Action",
+		"start_datetime": "2018-05-25T15:00:00",
+		"venue": "University of Ibadan first gate. University of Ibadan  Ibadan  Nigeria 200284",
+		"campaign_name": "break-free-fossil-fuels-2018",
+		"campaign_title": "Break Free from Fossil Fuels 2018",
+		"lat": 7.38778,
+		"lng": 3.89639
 	}, {
 		"title": "Break Free From Fossil Fuels and Embrace Renewable Energy",
 		"url": "act.350.org/event/break-free-fossil-fuels-2018/14073",
@@ -5017,16 +5123,315 @@ window.EVENTS_DATA={
 		"lat": 30.0081,
 		"lng": 31.2109
 	}, {
-		"title": "Geern Energy day -The  World Environment day",
-		"url": "act.350.org/event/break-free-fossil-fuels-2018/14083",
+		"title": "Green Energy",
+		"url": "act.350.org/event/break-free-fossil-fuels-2018/14106",
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T21:00:00",
+		"start_datetime": "2018-05-25T17:00:00",
 		"venue": "Engineering club. Sababasha,Alexandria ,Egypt  Alexandria  Egypt 21111",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
 		"lat": 31.2156,
 		"lng": 29.9553
+	}, {
+		"title": "350 Everett Monthly meeting and potluck",
+		"event_type": "Action",
+		"supergroup": "350.org",
+		"start_datetime": "6/25/2018 6:30:00 PM",
+		"lat": "47.982272",
+		"lng": "-122.2062429",
+		"url": "https://www.facebook.com/events/894352497389939/?ti=cl",
+		"venue": "Everett United Church of Christ 2624 Rockefeller Ave\nEverett, Washington 98201"
+	}, {
+		"title": "PowerShift 2018",
+		"url": "https://actionnetwork.org/events/powershift-2018",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T13:00:00Z",
+		"venue": "Expocenter VDNH (\u0412\u0414\u041d\u0413). \u043c. \u041a\u0438\u0457\u0432 \u041c\u0421\u041f 03127 \u041f\u0440-\u0442 \u0410\u043a\u0430\u0434\u0435\u043c\u0456\u043a\u0430 \u0413\u043b\u0443\u0448\u043a\u043e\u0432\u0430, 1 Kyiv   04000",
+		"lat": 50.38002930500904,
+		"lng": 30.476509883028363
+	}, {
+		"title": "Save OUR Climate Quality",
+		"url": "https://actionnetwork.org/events/save-our-climate-quality",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T12:00:00Z",
+		"venue": "Capital Steps. Main Street Juneau AK 99801",
+		"lat": 58.301850876171514,
+		"lng": -134.4108059372524
+	}, {
+		"title": "Rise for Climate Action Louisville",
+		"url": "https://actionnetwork.org/events/rise-for-climate-action-louisville",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T11:00:00Z",
+		"venue": "TBD. TBD Louisville KY 40202",
+		"lat": 38.25118000000003,
+		"lng": -85.75270989999996
+	}, {
+		"title": "JUST TRANSITION: Banks and Tanks to Cooperation and Caring",
+		"url": "https://actionnetwork.org/events/just-transition-banks-and-tanks-to-cooperation-and-caring",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T15:30:00Z",
+		"venue": "Salt Lake City and County Bldg . 451 S State Street Salt Lake City UT 84111",
+		"lat": 40.760019,
+		"lng": -111.88818769409691
+	}, {
+		"title": "Alaska Leaping Forward",
+		"url": "https://actionnetwork.org/events/alaska-leaping-forward",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-07T08:00:00Z",
+		"venue": "University of Alaska Fairbanks. 100 Tanana Drive Fairbanks AK 99712",
+		"lat": 64.85750426860581,
+		"lng": -147.81856632456535
+	}, {
+		"title": "Methow Valley Rise for Climate Day of Action",
+		"url": "https://actionnetwork.org/events/methow-valley-rise-for-climate-day-of-action",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T09:00:00Z",
+		"venue": "tbd. tbd Twisp WA 98856",
+		"lat": 48.36362040000006,
+		"lng": -120.12144489999997
+	}, {
+		"title": "Rise for Climate - Seattle",
+		"url": "https://actionnetwork.org/events/rise-for-climate-seattle",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T09:00:00Z",
+		"venue": "TBA. TBA Seattle WA 98101",
+		"lat": 47.611249999999984,
+		"lng": -122.33492999999993
+	}, {
+		"title": "Tosa Green Summit",
+		"url": "https://actionnetwork.org/events/tosa-green-summit",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T10:00:00Z",
+		"venue": "Wauwatosa Public Library. 7725 W. North Ave. Wauwatosa WI 53213",
+		"lat": 43.06070848340984,
+		"lng": -88.00916264348783
+	}, {
+		"title": "Rise for Climate Sandpoint",
+		"url": "https://actionnetwork.org/events/rise-for-climate-sandpoint",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T15:00:00Z",
+		"venue": "East Bonner County Library. 1407 Cedar St Sandpoint ID 83864",
+		"lat": 48.27591424302904,
+		"lng": -116.56807432848852
+	}, {
+		"title": "Oxford Rise for Climate Justice",
+		"url": "https://actionnetwork.org/events/oxford-rise-for-climate-justice",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T12:00:00Z",
+		"venue": "Carfax Tower. Cornmarket Street Oxford  OX1",
+		"lat": 51.75299986063867,
+		"lng": -1.2583289489582186
+	}, {
+		"title": "OUT with the Fossils, WIN with Renewables!",
+		"url": "https://actionnetwork.org/events/out-with-the-fossils-win-with-renewables",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T11:00:00Z",
+		"venue": "Columbus City Hall. 550 South High Street Columbus OH 43215",
+		"lat": 39.950994446852086,
+		"lng": -82.99845816345447
+	}, {
+		"title": "Rise for Climate",
+		"url": "https://actionnetwork.org/events/rise-for-climate-3",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T12:00:00Z",
+		"venue": "TBD. TBD Salem OR 97301",
+		"lat": 44.94237730000003,
+		"lng": -123.03411329999994
+	}, {
+		"title": "Climate, Jobs and Justice: Now is the Time for Action!!",
+		"url": "https://actionnetwork.org/events/climate-jobs-and-justice-now-is-the-time-for-action",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T11:00:00Z",
+		"venue": "Manhattan. Times Square New York NY 10036",
+		"lat": 40.75648000000007,
+		"lng": -73.98617999999993
+	}, {
+		"title": "People's Climate Movement Boston",
+		"url": "https://actionnetwork.org/events/peoples-climate-movement-boston",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T12:00:00Z",
+		"venue": "Boston, MA. TBD Boston MA 02111",
+		"lat": 42.35190990000007,
+		"lng": -71.05988999999994
+	}, {
+		"title": "Rise for the Climate - Albuquerque",
+		"url": "https://actionnetwork.org/events/rise-for-the-climate-albuquerque",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T10:00:00Z",
+		"venue": "Albuquerque - tbd. 202 Harvard Dr. SE Albuquerque NM 87106",
+		"lat": 35.07896683236194,
+		"lng": -106.6207784168448
+	}, {
+		"title": "Fossil Free Fairfax NOW",
+		"url": "https://actionnetwork.org/events/fossil-free-fairfax-now-2",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T10:00:00Z",
+		"venue": "TBD. TBD Fairfax VA 22030",
+		"lat": 38.85367660000003,
+		"lng": -77.34927629999999
+	}, {
+		"title": "Fossil Free Fairfax NOW",
+		"url": "https://actionnetwork.org/events/fossil-free-fairfax-now",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T10:00:00Z",
+		"venue": "TBD. TBD Fairfax VA 22030",
+		"lat": 38.85367660000003,
+		"lng": -77.34927629999999
+	}, {
+		"title": "Rise For Climate Action: New Hampshire",
+		"url": "https://actionnetwork.org/events/rise-for-climate-action-new-hampshire",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T12:00:00Z",
+		"venue": "TBD. TBD TBD NH TBD",
+		"lat": 43.685525247000044,
+		"lng": -71.57759673799995
+	}, {
+		"title": "Minnesotans Rising for Climate Justice!",
+		"url": "https://actionnetwork.org/events/minnesotans-rising-for-climate-justice",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T12:00:00Z",
+		"venue": "TBD. TBD TBD MN 55404",
+		"lat": 44.96440030000008,
+		"lng": -93.26498509999999
+	}, {
+		"title": "Rise for Climate Now!",
+		"url": "https://actionnetwork.org/events/rise-for-climate-now",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T11:30:00Z",
+		"venue": "Capitol Building rotunda. 415 South Beretania St. Honolulu HI 96813",
+		"lat": 21.30725581516525,
+		"lng": -157.85625255060816
+	}, {
+		"title": "Rise for Climate Portland!",
+		"url": "https://actionnetwork.org/events/rise-for-climate-portland",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T10:00:00Z",
+		"venue": "TBD. 1820 NE 21st Avenue Portland OR 97212",
+		"lat": 45.53605850291419,
+		"lng": -122.64479281539639
+	}, {
+		"title": "Rise for Climate Action Raleigh",
+		"url": "https://actionnetwork.org/events/rise-for-climate-action-raleigh",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T10:00:00Z",
+		"venue": "TBD. TBD Raleigh NC 27601",
+		"lat": 35.77431020000006,
+		"lng": -78.63851489999996
+	}, {
+		"title": "Rise for Climate ",
+		"url": "https://actionnetwork.org/events/rise-for-climate",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T10:00:00Z",
+		"venue": "Vernola Family Park.  5211 Wineville Ave Mira Loma CA 91752",
+		"lat": 33.99099643664143,
+		"lng": -117.54079093664143
+	}, {
+		"title": "350 CT Rise for Climate Justice Action",
+		"url": "https://actionnetwork.org/events/350-ct-rise-for-climate-justice-action",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T12:00:00Z",
+		"venue": "To Be Determined. 210 Capitol Ave Hartford CT 06106",
+		"lat": 41.76278644432281,
+		"lng": -72.68192118226307
+	}, {
+		"title": "September 8: Wenatchee Rise for Climate",
+		"url": "https://actionnetwork.org/events/september-8-wenatchee-rise-for-climate",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T14:00:00Z",
+		"venue": "Pybus. 3 N Worthen St,  Wenatchee  WA 98801",
+		"lat": 47.424824714986265,
+		"lng": -120.30767518671065
+	}, {
+		"title": "350Maine Action ",
+		"url": "https://actionnetwork.org/events/350maine-action",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T12:00:00Z",
+		"venue": "TBD. Tbd Portland ME 04101",
+		"lat": 43.65650420000003,
+		"lng": -70.26056529999994
+	}, {
+		"title": "Rise for Climate Action Los Angeles",
+		"url": "https://actionnetwork.org/events/rise-for-climate-action-los-angeles",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T11:00:00Z",
+		"venue": "To Be Determined. TBD Los Angeles CA 90189",
+		"lat": 34.05349000000007,
+		"lng": -118.24531999999999
+	}, {
+		"title": "Rise for Climate Action San Diego!",
+		"url": "https://actionnetwork.org/events/rise-for-climate-action-san-diego",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T10:00:00Z",
+		"venue": "TBD. TBD San Diego CA 92101",
+		"lat": 32.71687490000005,
+		"lng": -117.16124219999995
+	}, {
+		"title": "Rise for Climate, Jobs & Justice California",
+		"url": "https://actionnetwork.org/events/rise-for-climate-jobs-justice-california",
+		"supergroup": "350.org",
+		"group": null,
+		"event_type": "Action",
+		"start_datetime": "2018-09-08T14:00:00Z",
+		"venue": "TBD. TBD San Francisco CA 94102",
+		"lat": 37.782980000000066,
+		"lng": -122.41426999999999
 	}]
 }
