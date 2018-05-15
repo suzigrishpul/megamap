@@ -66,8 +66,6 @@ window.slugify = (text) => text.toString().toLowerCase()
 
   const languageManager = LanguageManager();
 
-  languageManager.initialize(initParams['lang'] || 'en');
-
   const listManager = ListManager();
 
   mapManager = MapManager({
@@ -317,49 +315,56 @@ window.slugify = (text) => text.toString().toLowerCase()
 
   // 7. present group elements
 
-  $.ajax({
-    url: 'https://new-map.350.org/output/350org-new-layout.js.gz', //'|**DATA_SOURCE**|',
-    // url: '/data/test.js', //'|**DATA_SOURCE**|',
-    dataType: 'script',
-    cache: true,
-    success: (data) => {
-      // window.EVENTS_DATA = data;
+  $.when(()=>{})
+    .then(() =>{
+      return languageManager.initialize(initParams['lang'] || 'en');
+    })
+    .done((data) => {})
+    .then(() => {
+      $.ajax({
+          url: 'https://new-map.350.org/output/350org-new-layout.js.gz', //'|**DATA_SOURCE**|',
+          // url: '/data/test.js', //'|**DATA_SOURCE**|',
+          dataType: 'script',
+          cache: true,
+          success: (data) => {
+            // window.EVENTS_DATA = data;
+
+            console.log(window.EVENTS_DATA);
+
+            //Load groups
+            $(document).trigger('trigger-load-groups', { groups: window.EVENTS_DATA.groups });
 
 
+            var parameters = queryManager.getParameters();
 
-      //Load groups
-      $(document).trigger('trigger-load-groups', { groups: window.EVENTS_DATA.groups });
+            window.EVENTS_DATA.data.forEach((item) => {
+              item['event_type'] = !item.event_type ? 'Action' : item.event_type;
+            })
+            $(document).trigger('trigger-list-update', { params: parameters });
+            // $(document).trigger('trigger-list-filter-update', parameters);
+            $(document).trigger('trigger-map-plot', {
+                data: window.EVENTS_DATA.data,
+                params: parameters,
+                groups: window.EVENTS_DATA.groups.reduce((dict, item)=>{ dict[item.supergroup] = item; return dict; }, {})
+            });
+      // });
+            $(document).trigger('trigger-update-embed', parameters);
+            //TODO: Make the geojson conversion happen on the backend
 
+            //Refresh things
+            setTimeout(() => {
+              let p = queryManager.getParameters();
 
-      var parameters = queryManager.getParameters();
+              $(document).trigger('trigger-map-update', p);
+              $(document).trigger('trigger-map-filter', p);
 
-      window.EVENTS_DATA.data.forEach((item) => {
-        item['event_type'] = !item.event_type ? 'Action' : item.event_type;
-      })
-      $(document).trigger('trigger-list-update', { params: parameters });
-      // $(document).trigger('trigger-list-filter-update', parameters);
-      $(document).trigger('trigger-map-plot', {
-          data: window.EVENTS_DATA.data,
-          params: parameters,
-          groups: window.EVENTS_DATA.groups.reduce((dict, item)=>{ dict[item.supergroup] = item; return dict; }, {})
+              $(document).trigger('trigger-list-filter-update', p);
+              $(document).trigger('trigger-list-filter-by-bound', p);
+
+            }, 100);
+          }
+        });
       });
-// });
-      $(document).trigger('trigger-update-embed', parameters);
-      //TODO: Make the geojson conversion happen on the backend
-
-      //Refresh things
-      setTimeout(() => {
-        let p = queryManager.getParameters();
-
-        $(document).trigger('trigger-map-update', p);
-        $(document).trigger('trigger-map-filter', p);
-
-        $(document).trigger('trigger-list-filter-update', p);
-        $(document).trigger('trigger-list-filter-by-bound', p);
-
-      }, 100);
-    }
-  });
 
 
 
