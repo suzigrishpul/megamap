@@ -44,7 +44,7 @@ const LanguageManager = (($) => {
       dictionary,
       initialize: (lang) => {
 
-        $.ajax({
+        return $.ajax({
           // url: 'https://gsx2json.com/api?id=1O3eByjL1vlYf7Z7am-_htRTQi73PafqIfNBdLmXe8SM&sheet=1',
           url: '/data/lang.json',
           dataType: 'json',
