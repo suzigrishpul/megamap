@@ -21,6 +21,17 @@ window.slugify = (text) => text.toString().toLowerCase()
       onInitialized: () => {
 
       },
+      onDropdownShow: () => {
+        setTimeout(() => {
+          $(document).trigger("mobile-update-map-height");
+        }, 10);
+
+      },
+      onDropdownHide: () => {
+        setTimeout(() => {
+          $(document).trigger("mobile-update-map-height");
+        }, 10);
+      },
       optionLabel: (e) => {
         // let el = $( '<div></div>' );
         // el.append(() + "");
@@ -98,6 +109,11 @@ window.slugify = (text) => text.toString().toLowerCase()
   * List Events
   * This will trigger the list update method
   */
+  $(document).on('mobile-update-map-height', (event) => {
+    if ($(window).height() < 600) {
+      $("#map").height($("#events-list").height());
+    }
+  })
   $(document).on('trigger-list-update', (event, options) => {
     listManager.populateList(options.params);
   });

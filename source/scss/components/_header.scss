@@ -172,6 +172,10 @@ div.filter-container span.multiselect-native-select div.btn-group {
     overflow: hidden;
     padding: 0;
     transition: max-height 0.4s;
+
+    @media(max-height: 600px) {
+      transition: none;
+    }
   }
   &.show {
     button {
