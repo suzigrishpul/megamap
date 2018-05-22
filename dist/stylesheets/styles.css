@@ -180,9 +180,9 @@ a {
       overflow: hidden;
       padding: 0;
       transition: max-height 0.4s; }
-      @media (max-height: 600px) {
+      @media (max-width: 600px) {
         #stage div.filter-container span.multiselect-native-select div.btn-group ul.multiselect-container.dropdown-menu {
-          transition: none; } }
+          transition: none !important; } }
     #stage div.filter-container span.multiselect-native-select div.btn-group.show button {
       border-bottom: 1px solid gray; }
     #stage div.filter-container span.multiselect-native-select div.btn-group.show ul.multiselect-container.dropdown-menu {
