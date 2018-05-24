@@ -110,6 +110,7 @@ window.slugify = (text) => text.toString().toLowerCase()
   * This will trigger the list update method
   */
   $(document).on('mobile-update-map-height', (event) => {
+    //This checks if width is for mobile
     if ($(window).width() < 600) {
       $("#map").height($("#events-list").height());
       mapManager.refreshMap();

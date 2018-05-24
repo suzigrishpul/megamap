@@ -24,6 +24,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
     "gulp-webserver": "^0.9.1",
+    "hoek": "5.0.3",
     "jshint": "^2.9.5",
     "package.json": "^2.0.1"
   },
