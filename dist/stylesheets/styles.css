@@ -182,11 +182,14 @@ a {
       transition: max-height 0.4s; }
       @media (max-width: 600px) {
         #stage div.filter-container span.multiselect-native-select div.btn-group ul.multiselect-container.dropdown-menu {
-          transition: none !important; } }
+          transition: max-height 0.001s !important; } }
     #stage div.filter-container span.multiselect-native-select div.btn-group.show button {
       border-bottom: 1px solid gray; }
     #stage div.filter-container span.multiselect-native-select div.btn-group.show ul.multiselect-container.dropdown-menu {
-      max-height: 1000vh; }
+      max-height: 1000vh !important;
+      visibility: visible !important;
+      display: block !important;
+      overflow: visible !important; }
   #stage div#activity-area {
     background-color: green;
     flex-grow: 1;
@@ -583,6 +586,10 @@ div.filter-container span.multiselect-native-select div.btn-group {
   div.filter-container span.multiselect-native-select div.btn-group ul.multiselect-container.dropdown-menu {
     left: auto !important;
     right: 0 !important; }
+    @media (max-width: 600px) {
+      div.filter-container span.multiselect-native-select div.btn-group ul.multiselect-container.dropdown-menu {
+        left: 0 !important;
+        right: auto !important; } }
     div.filter-container span.multiselect-native-select div.btn-group ul.multiselect-container.dropdown-menu li img {
       width: 15px;
       height: 15px;

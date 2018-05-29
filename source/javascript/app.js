@@ -112,8 +112,10 @@ window.slugify = (text) => text.toString().toLowerCase()
   $(document).on('mobile-update-map-height', (event) => {
     //This checks if width is for mobile
     if ($(window).width() < 600) {
-      $("#map").height($("#events-list").height());
-      mapManager.refreshMap();
+      setTimeout(()=> {
+        $("#map").height($("#events-list").height());
+        mapManager.refreshMap();
+      }, 10);
     }
   })
   $(document).on('trigger-list-update', (event, options) => {
