@@ -209,6 +209,7 @@ var MapManager = function ($, d3, leaflet) {
     */
     var _refreshMap = function _refreshMap() {
       overlays.clearLayers();
+      centralMap.invalidateSize();
       initialize();
     };
 

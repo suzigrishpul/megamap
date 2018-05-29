@@ -174,7 +174,7 @@ div.filter-container span.multiselect-native-select div.btn-group {
     transition: max-height 0.4s;
 
     @media(max-width: 600px) {
-      transition: none !important;
+      transition: max-height 0.001s !important;
     }
   }
   &.show {
@@ -182,7 +182,10 @@ div.filter-container span.multiselect-native-select div.btn-group {
       border-bottom: 1px solid gray;
     }
     ul.multiselect-container.dropdown-menu {
-      max-height: 1000vh;
+      max-height: 1000vh !important;
+      visibility: visible !important;
+      display: block !important;
+      overflow: visible !important;
     }
   }
 }
