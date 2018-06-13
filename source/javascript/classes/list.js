@@ -1,14 +1,19 @@
 /* This loads and manages the list! */
 
 const ListManager = (($) => {
-  return (targetList = "#events-list") => {
+  return (options) => {
+    let targetList = options.targetList || "#events-list";
+    // June 13 `18 – referrer and source
+    let {referrer, source} = options;
+
     const $target = typeof targetList === 'string' ? $(targetList) : targetList;
 
-    const renderEvent = (item) => {
-
+    const renderEvent = (item, referrer = null, source = null) => {
+      console.log(referrer, source ,  "~~~~");
       var date = moment(item.start_datetime).format("dddd MMM DD, h:mma");
       let url = item.url.match(/^https{0,1}:/) ? item.url : "//" + item.url;
       // let superGroup = window.slugify(item.supergroup);
+      url = Helper.refSource(url, referrer, source);
 
       return `
       <li class='${window.slugify(item.event_type)} events event-obj' data-lat='${item.lat}' data-lng='${item.lng}'>
@@ -29,9 +34,11 @@ const ListManager = (($) => {
       `
     };
 
-    const renderGroup = (item) => {
+    const renderGroup = (item, referrer = null, source = null) => {
       let url = item.website.match(/^https{0,1}:/) ? item.website : "//" + item.website;
       let superGroup = window.slugify(item.supergroup);
+
+      url = Helper.refSource(url, referrer, source);
 
       return `
       <li class='${item.event_type} ${superGroup} group-obj' data-lat='${item.lat}' data-lng='${item.lng}'>
@@ -106,11 +113,11 @@ const ListManager = (($) => {
 
         var $eventList = window.EVENTS_DATA.data.map(item => {
           if (keySet.length == 0) {
-            return item.event_type && item.event_type.toLowerCase() == 'group' ? renderGroup(item) : renderEvent(item);
+            return item.event_type && item.event_type.toLowerCase() == 'group' ? renderGroup(item) : renderEvent(item, referrer, source);
           } else if (keySet.length > 0 && item.event_type != 'group' && keySet.includes(item.event_type)) {
-            return renderEvent(item);
+            return renderEvent(item, referrer, source);
           } else if (keySet.length > 0 && item.event_type == 'group' && keySet.includes(item.supergroup)) {
-            return renderGroup(item)
+            return renderGroup(item, referrer, source)
           }
 
           return null;
