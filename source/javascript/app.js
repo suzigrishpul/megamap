@@ -13,6 +13,9 @@ window.slugify = (text) => text.toString().toLowerCase()
 
   window.queries =  $.deparam(window.location.search.substring(1));
 
+  if (window.queries.campaign) {
+    $('select#filter-items').parent().css("opacity", "0");
+  }
   const buildFilters = () => {$('select#filter-items').multiselect({
       enableHTML: true,
       templates: {
@@ -356,6 +359,12 @@ window.slugify = (text) => text.toString().toLowerCase()
           cache: true,
           success: (data) => {
             // window.EVENTS_DATA = data;
+            //June 14, 2018 – Changes
+            //TODO: Change supergroup to campaign once connected
+            if(window.queries.campaign) {
+              console.log(window.queries.campaign);
+              window.EVENTS_DATA.data = window.EVENTS_DATA.data.filter((i) => i.supergroup == window.queries.campaign);
+            }
 
             //Load groups
             $(document).trigger('trigger-load-groups', { groups: window.EVENTS_DATA.groups });

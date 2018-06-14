@@ -9,7 +9,6 @@ const ListManager = (($) => {
     const $target = typeof targetList === 'string' ? $(targetList) : targetList;
 
     const renderEvent = (item, referrer = null, source = null) => {
-      console.log(referrer, source ,  "~~~~");
       var date = moment(item.start_datetime).format("dddd MMM DD, h:mma");
       let url = item.url.match(/^https{0,1}:/) ? item.url : "//" + item.url;
       // let superGroup = window.slugify(item.supergroup);
