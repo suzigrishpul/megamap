@@ -74,7 +74,7 @@ gulp.task('inject', function () {
 
   var opts = {
     algorithm: 'sha1',
-    hashLength: 35,
+    hashLength: 38,
     template: '<%= name %><%= ext %>?hash=<%= hash %>'
   }
 
