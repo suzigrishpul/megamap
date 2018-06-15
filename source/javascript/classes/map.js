@@ -1,10 +1,13 @@
 
+
 const MapManager = (($) => {
   let LANGUAGE = 'en';
 
-  const renderEvent = (item) => {
+  const renderEvent = (item, referrer = null, source = null) => {
     var date = moment(item.start_datetime).format("dddd MMM DD, h:mma");
     let url = item.url.match(/^https{0,1}:/) ? item.url : "//" + item.url;
+
+    url = Helper.refSource(url, referrer, source);
 
     let superGroup = window.slugify(item.supergroup);
     return `
@@ -26,9 +29,12 @@ const MapManager = (($) => {
     `
   };
 
-  const renderGroup = (item) => {
+  const renderGroup = (item, referrer = null, source = null) => {
 
     let url = item.website.match(/^https{0,1}:/) ? item.website : "//" + item.website;
+
+    url = Helper.refSource(url, referrer, source);
+
     let superGroup = window.slugify(item.supergroup);
     return `
     <li>
@@ -53,16 +59,16 @@ const MapManager = (($) => {
     `
   };
 
-  const renderGeojson = (list) => {
+  const renderGeojson = (list, ref = null, src = null) => {
     return list.map((item) => {
       // rendered eventType
       let rendered;
 
       if (item.event_type && item.event_type.toLowerCase() == 'group') {
-        rendered = renderGroup(item);
+        rendered = renderGroup(item, ref, src);
 
       } else {
-        rendered = renderEvent(item);
+        rendered = renderEvent(item, ref, src);
       }
 
       // format check
@@ -90,6 +96,8 @@ const MapManager = (($) => {
   return (options) => {
     var accessToken = 'pk.eyJ1IjoibWF0dGhldzM1MCIsImEiOiJaTVFMUkUwIn0.wcM3Xc8BGC6PM-Oyrwjnhg';
     var map = L.map('map', { dragging: !L.Browser.mobile }).setView([34.88593094075317, 5.097656250000001], 2);
+
+    let {referrer, source} = options;
 
     if (!L.Browser.mobile) {
       map.scrollWheelZoom.disable();
@@ -198,7 +206,6 @@ const MapManager = (($) => {
         })
       },
       plotPoints: (list, hardFilters, groups) => {
-
         const keySet = !hardFilters.key ? [] : hardFilters.key.split(',');
 
         if (keySet.length > 0) {
@@ -208,7 +215,7 @@ const MapManager = (($) => {
 
         const geojson = {
           type: "FeatureCollection",
-          features: renderGeojson(list)
+          features: renderGeojson(list, referrer, source)
         };
 
 

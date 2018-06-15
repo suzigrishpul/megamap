@@ -1,16 +1,21 @@
 let autocompleteManager;
 let mapManager;
+
 window.DEFAULT_ICON = "/img/event.png";
-window.slugify = (text) => text.toString().toLowerCase()
+window.slugify = (text) => !text ? text : text.toString().toLowerCase()
                             .replace(/\s+/g, '-')           // Replace spaces with -
                             .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
                             .replace(/\-\-+/g, '-')         // Replace multiple - with single -
                             .replace(/^-+/, '')             // Trim - from start of text
                             .replace(/-+$/, '');            // Trim - from end of text
-
 (function($) {
   // Load things
 
+  window.queries =  $.deparam(window.location.search.substring(1));
+
+  if (window.queries.group) {
+    $('select#filter-items').parent().css("opacity", "0");
+  }
   const buildFilters = () => {$('select#filter-items').multiselect({
       enableHTML: true,
       templates: {
@@ -77,14 +82,20 @@ window.slugify = (text) => text.toString().toLowerCase()
 
   const languageManager = LanguageManager();
 
-  const listManager = ListManager();
+  const listManager = ListManager({
+    referrer: window.queries.referrer,
+    source: window.queries.source
+  });
+
 
   mapManager = MapManager({
     onMove: (sw, ne) => {
       // When the map moves around, we update the list
       queryManager.updateViewportByBound(sw, ne);
       //update Query
-    }
+    },
+    referrer: window.queries.referrer,
+    source: window.queries.source
   });
 
   window.initializeAutocompleteCallback = () => {
@@ -348,8 +359,11 @@ window.slugify = (text) => text.toString().toLowerCase()
           cache: true,
           success: (data) => {
             // window.EVENTS_DATA = data;
-
-            console.log(window.EVENTS_DATA);
+            //June 14, 2018 – Changes
+            if(window.queries.group) {
+              console.log(window.queries.group);
+              window.EVENTS_DATA.data = window.EVENTS_DATA.data.filter((i) => i.campaign == window.queries.group);
+            }
 
             //Load groups
             $(document).trigger('trigger-load-groups', { groups: window.EVENTS_DATA.groups });
