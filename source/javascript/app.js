@@ -2,7 +2,7 @@ let autocompleteManager;
 let mapManager;
 
 window.DEFAULT_ICON = "/img/event.png";
-window.slugify = (text) => text.toString().toLowerCase()
+window.slugify = (text) => !text ? text : text.toString().toLowerCase()
                             .replace(/\s+/g, '-')           // Replace spaces with -
                             .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
                             .replace(/\-\-+/g, '-')         // Replace multiple - with single -
@@ -13,7 +13,7 @@ window.slugify = (text) => text.toString().toLowerCase()
 
   window.queries =  $.deparam(window.location.search.substring(1));
 
-  if (window.queries.campaign) {
+  if (window.queries.group) {
     $('select#filter-items').parent().css("opacity", "0");
   }
   const buildFilters = () => {$('select#filter-items').multiselect({
@@ -360,10 +360,9 @@ window.slugify = (text) => text.toString().toLowerCase()
           success: (data) => {
             // window.EVENTS_DATA = data;
             //June 14, 2018 – Changes
-            //TODO: Change supergroup to campaign once connected
-            if(window.queries.campaign) {
-              console.log(window.queries.campaign);
-              window.EVENTS_DATA.data = window.EVENTS_DATA.data.filter((i) => i.supergroup == window.queries.campaign);
+            if(window.queries.group) {
+              console.log(window.queries.group);
+              window.EVENTS_DATA.data = window.EVENTS_DATA.data.filter((i) => i.campaign == window.queries.group);
             }
 
             //Load groups
