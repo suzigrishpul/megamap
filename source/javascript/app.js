@@ -8,10 +8,30 @@ window.slugify = (text) => !text ? text : text.toString().toLowerCase()
                             .replace(/\-\-+/g, '-')         // Replace multiple - with single -
                             .replace(/^-+/, '')             // Trim - from start of text
                             .replace(/-+$/, '');            // Trim - from end of text
+
+const getQueryString = () => {
+    var queryStringKeyValue = window.parent.location.search.replace('?', '').split('&');
+    var qsJsonObject = {};
+    if (queryStringKeyValue != '') {
+        for (let i = 0; i < queryStringKeyValue.length; i++) {
+            qsJsonObject[queryStringKeyValue[i].split('=')[0]] = queryStringKeyValue[i].split('=')[1];
+        }
+    }
+    return qsJsonObject;
+};
+
 (function($) {
   // Load things
 
   window.queries =  $.deparam(window.location.search.substring(1));
+
+  if ((!window.queries.group || (!window.queries.referrer && !window.queries.source)) && window.parent) {
+    window.queries = {
+      group: getQueryString().group,
+      referrer: getQueryString().referrer,
+      source: getQueryString().source,
+    };
+  }
 
   if (window.queries.group) {
     $('select#filter-items').parent().css("opacity", "0");
