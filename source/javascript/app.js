@@ -33,7 +33,7 @@ const getQueryString = () => {
         source: getQueryString().source,
       };
     }
-  } catch(Exception e) {
+  } catch(e) {
     console.log("Error: ", e);
   }
 
