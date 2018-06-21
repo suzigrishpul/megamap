@@ -25,13 +25,18 @@ const getQueryString = () => {
 
   window.queries =  $.deparam(window.location.search.substring(1));
 
-  if ((!window.queries.group || (!window.queries.referrer && !window.queries.source)) && window.parent) {
-    window.queries = {
-      group: getQueryString().group,
-      referrer: getQueryString().referrer,
-      source: getQueryString().source,
-    };
+  try {
+    if ((!window.queries.group || (!window.queries.referrer && !window.queries.source)) && window.parent) {
+      window.queries = {
+        group: getQueryString().group,
+        referrer: getQueryString().referrer,
+        source: getQueryString().source,
+      };
+    }
+  } catch(Exception e) {
+    console.log("Error: ", e);
   }
+
 
   if (window.queries.group) {
     $('select#filter-items').parent().css("opacity", "0");
