@@ -75,6 +75,9 @@ $font-secondary: 'Overpass Mono',Menlo,monaco,courier,monospace;
   }
 
   div.type-event {
+
+    overflow-x: hidden;
+
     div.address-area {
       margin-bottom: 5px;
     }

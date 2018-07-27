@@ -25,13 +25,18 @@ const getQueryString = () => {
 
   window.queries =  $.deparam(window.location.search.substring(1));
 
-  if ((!window.queries.group || (!window.queries.referrer && !window.queries.source)) && window.parent) {
-    window.queries = {
-      group: getQueryString().group,
-      referrer: getQueryString().referrer,
-      source: getQueryString().source,
-    };
+  try {
+    if ((!window.queries.group || (!window.queries.referrer && !window.queries.source)) && window.parent) {
+      window.queries = {
+        group: getQueryString().group,
+        referrer: getQueryString().referrer,
+        source: getQueryString().source,
+      };
+    }
+  } catch(e) {
+    console.log("Error: ", e);
   }
+
 
   if (window.queries.group) {
     $('select#filter-items').parent().css("opacity", "0");
@@ -381,8 +386,9 @@ const getQueryString = () => {
             // window.EVENTS_DATA = data;
             //June 14, 2018 – Changes
             if(window.queries.group) {
-              console.log(window.queries.group);
-              window.EVENTS_DATA.data = window.EVENTS_DATA.data.filter((i) => i.campaign == window.queries.group);
+              window.EVENTS_DATA.data = window.EVENTS_DATA.data.filter((i) => {
+                return i.campaign == window.queries.group
+              });
             }
 
             //Load groups
