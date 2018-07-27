@@ -59,7 +59,10 @@ a {
 #stage {
   height: inherit;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  width: 1px;
+  min-width: 100%;
+  *width: 100%; }
   #stage header.page-header {
     background-color: #eaedef;
     padding: 1.5em 1.5em 0;
@@ -259,14 +262,16 @@ a {
           font-size: 13px;
           padding: 7px 12px 6px;
           font-weight: 600; }
-        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event div.address-area {
-          margin-bottom: 5px; }
-        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event h2:before {
-          background-image: url(/img/human.svg); }
-        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event h2:after {
-          background-color: #40D7D4; }
-        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event h2 a {
-          color: #003DAA; }
+        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event {
+          overflow-x: hidden; }
+          #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event div.address-area {
+            margin-bottom: 5px; }
+          #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event h2:before {
+            background-image: url(/img/human.svg); }
+          #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event h2:after {
+            background-color: #40D7D4; }
+          #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event h2 a {
+            color: #003DAA; }
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-group div.group-details-area {
           margin-bottom: 5px; }
         #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-group h2:after {
@@ -359,14 +364,16 @@ a {
             font-size: 13px;
             padding: 7px 12px 6px;
             font-weight: 600; }
-          #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event div.address-area {
-            margin-bottom: 5px; }
-          #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event h2:before {
-            background-image: url(/img/human.svg); }
-          #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event h2:after {
-            background-color: #40D7D4; }
-          #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event h2 a {
-            color: #003DAA; }
+          #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event {
+            overflow-x: hidden; }
+            #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event div.address-area {
+              margin-bottom: 5px; }
+            #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event h2:before {
+              background-image: url(/img/human.svg); }
+            #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event h2:after {
+              background-color: #40D7D4; }
+            #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-event h2 a {
+              color: #003DAA; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-group div.group-details-area {
             margin-bottom: 5px; }
           #stage div#activity-area section#events-list-container div#events-list > ul > li div.type-group h2:after {
@@ -470,16 +477,20 @@ a {
         transform: rotate(180deg); }
       #stage div#activity-area #embed-area.open div.viewport {
         max-height: 200px; }
-    #stage div#activity-area #events-list-container #events-list ul li {
-      display: none; }
-    #stage div#activity-area #events-list-container #events-list li.group-obj {
-      display: block; }
-      #stage div#activity-area #events-list-container #events-list li.group-obj:not(.within-bound) {
-        display: none !important; }
-    #stage div#activity-area #events-list-container #events-list.events li.event-obj {
-      display: block; }
-      #stage div#activity-area #events-list-container #events-list.events li.event-obj:not(.within-bound) {
-        display: none !important; }
+    #stage div#activity-area #events-list-container #events-list {
+      overflow-y: scroll;
+      /* has to be scroll, not auto */
+      -webkit-overflow-scrolling: touch; }
+      #stage div#activity-area #events-list-container #events-list ul li {
+        display: none; }
+      #stage div#activity-area #events-list-container #events-list li.group-obj {
+        display: block; }
+        #stage div#activity-area #events-list-container #events-list li.group-obj:not(.within-bound) {
+          display: none !important; }
+      #stage div#activity-area #events-list-container #events-list.events li.event-obj {
+        display: block; }
+        #stage div#activity-area #events-list-container #events-list.events li.event-obj:not(.within-bound) {
+          display: none !important; }
 
 #show-hide-map {
   display: none; }

@@ -60,6 +60,10 @@ a {
   display: flex;
   flex-direction: column;
 
+  width: 1px;
+  min-width: 100%;
+  *width: 100%;
+
   @import 'components/header';
 
   div#activity-area {
@@ -76,6 +80,9 @@ a {
     #events-list-container  {
       #events-list {
         ul li { display: none; }
+
+        overflow-y: scroll; /* has to be scroll, not auto */
+        -webkit-overflow-scrolling: touch;
 
         li.group-obj {
           display: block;

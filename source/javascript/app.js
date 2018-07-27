@@ -386,8 +386,9 @@ const getQueryString = () => {
             // window.EVENTS_DATA = data;
             //June 14, 2018 – Changes
             if(window.queries.group) {
-              console.log(window.queries.group);
-              window.EVENTS_DATA.data = window.EVENTS_DATA.data.filter((i) => i.campaign == window.queries.group);
+              window.EVENTS_DATA.data = window.EVENTS_DATA.data.filter((i) => {
+                return i.campaign == window.queries.group
+              });
             }
 
             //Load groups
