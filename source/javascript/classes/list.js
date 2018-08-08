@@ -91,8 +91,9 @@ const ListManager = (($) => {
           let _lat = $(item).data('lat'),
               _lng = $(item).data('lng');
 
+          const mi5 = 0.0725;
 
-          if (bound1[0] <= _lat && bound2[0] >= _lat && bound1[1] <= _lng && bound2[1] >= _lng) {
+          if (bound1[0] - mi5 <= _lat && bound2[0] + mi5 >= _lat && bound1[1] - mi5 <= _lng && bound2[1] + mi5 >= _lng) {
 
             $(item).addClass('within-bound');
           } else {
