@@ -147,7 +147,7 @@ const MapManager = (($) => {
       setBounds: (bounds1, bounds2) => {
 
         const bounds = [bounds1, bounds2];
-        map.fitBounds(bounds);
+        map.fitBounds(bounds, { animate: false});
       },
       setCenter: (center, zoom = 10) => {
         if (!center || !center[0] || center[0] == ""

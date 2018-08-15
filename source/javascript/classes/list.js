@@ -11,7 +11,6 @@ const ListManager = (($) => {
     const renderEvent = (item, referrer = null, source = null) => {
       let m = moment(new Date(item.start_datetime));
       m = m.utc().subtract(m.utcOffset(), 'm');
-      // console.log(m.utcOffset());
       var date = m.format("dddd MMM DD, h:mma");
       let url = item.url.match(/^https{0,1}:/) ? item.url : "//" + item.url;
       // let superGroup = window.slugify(item.supergroup);
@@ -93,7 +92,7 @@ const ListManager = (($) => {
 
           const mi10 = 0.1449;
 
-          if (bound1[0] - mi10 <= _lat && bound2[0] + mi10 >= _lat && bound1[1] - mi10 <= _lng && bound2[1] + mi10 >= _lng) {
+          if (bound1[0] <= _lat && bound2[0] >= _lat && bound1[1] <= _lng && bound2[1] >= _lng) {
 
             $(item).addClass('within-bound');
           } else {

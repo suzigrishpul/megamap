@@ -64,6 +64,13 @@ const QueryManager = (($) => {
       },
       updateViewport: (viewport) => {
 
+        // Average it if less than 10mi radius
+        if (Math.abs(viewport.f.b - viewport.f.f) < .15 || Math.abs(viewport.b.b - viewport.b.f) < .15) {
+          let fAvg = (viewport.f.b + viewport.f.f) / 2;
+          let bAvg = (viewport.b.b + viewport.b.f) / 2;
+          viewport.f = { b: fAvg - .08, f: fAvg + .08 };
+          viewport.b = { b: bAvg - .08, f: bAvg + .08 };
+        }
         const bounds = [[viewport.f.b, viewport.b.b], [viewport.f.f, viewport.b.f]];
 
         $target.find("input[name=bound1]").val(JSON.stringify(bounds[0]));
