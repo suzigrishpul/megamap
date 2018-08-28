@@ -324,13 +324,30 @@
 </script>
 <script>
 $(function(){
-  var eventFired = false;
-  $('#events-list .event-title a, #events-list .action .call-to-action a').on('click', function(){
-    if (typeof fbq === 'function' && !eventFired) {
-      fbq('track', 'CompleteRegistration', {content_name: window.location.pathname});
-      eventFired = true;
-    }
-  });
+		
+	function attachPixelClickListerer() {
+		var eventFired = false;
+		$('#events-list .event-title a, #events-list .action .call-to-action a').on('click', function(){
+			if (typeof fbq === 'function' && !eventFired) {
+				fbq('track', 'CompleteRegistration', {content_name: window.location.pathname});
+				eventFired = true;
+			}
+		});
+	}
+
+	function waitForMapElementToDisplay(callback) {
+	    if ( $.trim( $('#events-list .event-obj:eq(0) .event-title a').html() ) !== "" ) {
+	        callback();
+	        return;
+	    }
+	    else {
+	        setTimeout(function() {
+	            waitForMapElementToDisplay(callback);
+	        }, 300);
+	    }
+	}
+	waitForMapElementToDisplay(attachPixelClickListerer);
+
 });
 </script>
 </body>
