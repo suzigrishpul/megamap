@@ -271,12 +271,13 @@
     </div>
   </div>
 
-
   <!-- inject:js -->
   <!-- endinject -->
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHjNicQUZks7i0dLFEwskTHF6bdVty8Ck&callback=window.initializeAutocompleteCallback"
     async defer></script>
+  <script src="https://unpkg.com/@joergdietrich/leaflet.terminator"></script>
+
 
   <script type='text/javascript' src=''></script>
 <!-- SOCIAL -->
@@ -308,7 +309,7 @@
 </script>
 <script>
 $(function(){
-		
+
 	function attachPixelClickListerer() {
 		var eventFired = false;
 		$('#events-list .event-title a, #events-list .action .call-to-action a').on('click', function(){
