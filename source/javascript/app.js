@@ -30,11 +30,24 @@ const getQueryString = () => {
         group: getQueryString().group,
         referrer: getQueryString().referrer,
         source: getQueryString().source,
-        "twilight-zone": window.queries['twilight-zone']
+        "twilight-zone": window.queries['twilight-zone'],
+        "annotation": window.queries['annotation'],
+        "full-map": window.queries['full-map']
       };
     }
   } catch(e) {
     console.log("Error: ", e);
+  }
+
+  if (window.queries['full-map']) {
+    if ($(window).width() < 600) {
+      // $("#events-list-container").hide();
+      $("body").addClass("map-view");
+      $(".filter-area").hide();
+      $("section#map").css("height", "calc(100% - 64px)");
+    } else {
+      $("#events-list-container").hide();
+    }
   }
 
 

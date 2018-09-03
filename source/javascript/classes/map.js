@@ -63,6 +63,40 @@ const MapManager = (($) => {
     `
   };
 
+  const renderAnnotationPopup = (item) => {
+    return `
+    <div class='popup-item annotation' data-lat='${item.lat}' data-lng='${item.lng}'>
+      <div class="type-event">
+        <ul class="event-types-list">
+          <li class="tag tag-annotation">Annotation</li>
+        </ul>
+        <h2 class="event-title">${item.name}</h2>
+        <div class="event-address address-area">
+          <p>${item.description}</p>
+        </div>
+      </div>
+    </div>
+    `;
+  }
+
+
+  const renderAnnotationsGeoJson = (list) => {
+    return list.map((item) => {
+      const rendered = renderAnnotationPopup(item);
+      return {
+        "type": "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [item.lng, item.lat]
+        },
+        properties: {
+          annotationProps: item,
+          popupContent: rendered
+        }
+      }
+    })
+  }
+
   const renderGeojson = (list, ref = null, src = null) => {
     return list.map((item) => {
       // rendered eventType
@@ -228,7 +262,7 @@ const MapManager = (($) => {
         };
 
 
-        L.geoJSON(geojson, {
+        const eventsLayer = L.geoJSON(geojson, {
             pointToLayer: (feature, latlng) => {
               // Icons for markers
               const eventType = feature.properties.eventProperties.event_type;
@@ -268,11 +302,51 @@ const MapManager = (($) => {
               layer.bindPopup(feature.properties.popupContent);
             }
 
-            const isPast = new Date(feature.properties.eventProperties.start_datetime) < new Date();
-            const eventType = feature.properties.eventProperties.event_type;
+            // const isPast = new Date(feature.properties.eventProperties.start_datetime) < new Date();
+            // const eventType = feature.properties.eventProperties.event_type;
           }
-        }).addTo(map);
+        });
 
+        eventsLayer.addTo(map);
+        // eventsLayer.bringToBack();
+
+
+        // Add Annotations
+        if (window.queries.annotation) {
+          const annotations = window.EVENTS_DATA.annotations.filter((item)=>item.type===window.queries.annotation);
+
+          const annotationGeoJson = {
+            type: "FeatureCollection",
+            features: renderAnnotationsGeoJson(annotations)
+          }
+
+          const annotLayer = L.geoJSON(annotationGeoJson, {
+              pointToLayer: (feature, latlng) => {
+                const iconUrl = "/img/annotation.png";
+
+                const smallIcon =  L.icon({
+                  iconUrl: iconUrl,
+                  iconSize: [50, 50],
+                  iconAnchor: [25, 25],
+                  className: 'annotation-popup'
+                });
+
+                var geojsonMarkerOptions = {
+                  icon: smallIcon,
+                };
+                return L.marker(latlng, geojsonMarkerOptions);
+              },
+
+            onEachFeature: (feature, layer) => {
+              if (feature.properties && feature.properties.popupContent) {
+                layer.bindPopup(feature.properties.popupContent);
+              }
+            }
+          });
+          // annotLayer.bringToFront();
+          annotLayer.addTo(map);
+
+        }
       },
       update: (p) => {
         if (!p || !p.lat || !p.lng ) return;
