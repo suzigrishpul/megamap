@@ -313,7 +313,7 @@ const MapManager = (($) => {
 
         // Add Annotations
         if (window.queries.annotation) {
-          const annotations = window.EVENTS_DATA.annotations.filter((item)=>item.type===window.queries.annotation);
+          const annotations = !window.EVENTS_DATA.annotations ? [] : window.EVENTS_DATA.annotations.filter((item)=>item.type===window.queries.annotation);
 
           const annotationGeoJson = {
             type: "FeatureCollection",

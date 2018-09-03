@@ -386,8 +386,8 @@ const getQueryString = () => {
     .done((data) => {})
     .then(() => {
       $.ajax({
-          // url: 'https://new-map.350.org/output/350org-new-layout.js.gz', //'|**DATA_SOURCE**|',
-          url: '/data/test.js', //'|**DATA_SOURCE**|',
+          url: 'https://new-map.350.org/output/350org-new-layout.js.gz', //'|**DATA_SOURCE**|',
+          // url: '/data/test.js', //'|**DATA_SOURCE**|',
           dataType: 'script',
           cache: true,
           success: (data) => {
