@@ -315,37 +315,30 @@ const MapManager = (($) => {
         if (window.queries.annotation) {
           const annotations = !window.EVENTS_DATA.annotations ? [] : window.EVENTS_DATA.annotations.filter((item)=>item.type===window.queries.annotation);
 
-          const annotationGeoJson = {
-            type: "FeatureCollection",
-            features: renderAnnotationsGeoJson(annotations)
-          }
-
-          const annotLayer = L.geoJSON(annotationGeoJson, {
-              pointToLayer: (feature, latlng) => {
-                const iconUrl = "/img/annotation.png";
-
-                const smallIcon =  L.icon({
-                  iconUrl: iconUrl,
-                  iconSize: [50, 50],
-                  iconAnchor: [25, 25],
-                  className: 'annotation-popup'
-                });
-
-                var geojsonMarkerOptions = {
-                  icon: smallIcon,
-                };
-                return L.marker(latlng, geojsonMarkerOptions);
-              },
-
-            onEachFeature: (feature, layer) => {
-              if (feature.properties && feature.properties.popupContent) {
-                layer.bindPopup(feature.properties.popupContent);
-              }
-            }
+          const annotIcon =  L.icon({
+            iconUrl: "/img/annotation.png",
+            iconSize: [50, 50],
+            iconAnchor: [25, 25],
+            className: 'annotation-popup'
           });
+          console.log(renderAnnotationPopup);
+          const annotMarkers = annotations.map(item => {
+              return L.marker([item.lat, item.lng], {icon: annotIcon})
+                        .bindPopup(renderAnnotationPopup(item));
+              });
           // annotLayer.bringToFront();
-          annotLayer.addTo(map);
 
+          console.log(annotMarkers);
+
+          // const annotLayerGroup = ;
+
+          const annotLayerGroup = map.addLayer(L.featureGroup(annotMarkers));
+          console.log(annotLayerGroup);
+          // annotLayerGroup.bringToFront();
+          // annotMarkers.forEach(item => {
+          //   item.addTo(map);
+          //   item.bringToFront();
+          // })
         }
       },
       update: (p) => {

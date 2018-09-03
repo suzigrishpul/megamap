@@ -204,6 +204,10 @@ a {
       font-size: 1rem;
       z-index: 0;
       font-family: 'KlimaWeb', -apple-system, BlinkMacSystemFont, 'arial', sans-serif; }
+      #stage div#activity-area section#map img.leaflet-marker-icon.annotation-popup.leaflet-zoom-animated.leaflet-interactive {
+        z-index: 10000 !important; }
+      #stage div#activity-area section#map img.leaflet-marker-icon.events.event-item-popup.event-past-event.leaflet-zoom-animated.leaflet-interactive {
+        z-index: 0 !important; }
       #stage div#activity-area section#map div.leaflet-popup .leaflet-container a.leaflet-popup-close-button {
         top: 10px;
         right: 10px; }
