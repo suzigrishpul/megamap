@@ -24,17 +24,30 @@ const getQueryString = () => {
   // Load things
 
   window.queries =  $.deparam(window.location.search.substring(1));
-
   try {
     if ((!window.queries.group || (!window.queries.referrer && !window.queries.source)) && window.parent) {
       window.queries = {
         group: getQueryString().group,
         referrer: getQueryString().referrer,
         source: getQueryString().source,
+        "twilight-zone": window.queries['twilight-zone'],
+        "annotation": window.queries['annotation'],
+        "full-map": window.queries['full-map']
       };
     }
   } catch(e) {
     console.log("Error: ", e);
+  }
+
+  if (window.queries['full-map']) {
+    if ($(window).width() < 600) {
+      // $("#events-list-container").hide();
+      $("body").addClass("map-view");
+      $(".filter-area").hide();
+      $("section#map").css("height", "calc(100% - 64px)");
+    } else {
+      $("#events-list-container").hide();
+    }
   }
 
 
@@ -337,10 +350,7 @@ const getQueryString = () => {
     if (hash.length == 0) return;
     const parameters = $.deparam(hash.substring(1));
     const oldURL = event.originalEvent.oldURL;
-
-
     const oldHash = $.deparam(oldURL.substring(oldURL.search("#")+1));
-
 
     $(document).trigger('trigger-list-filter-update', parameters);
     $(document).trigger('trigger-map-filter', parameters);
@@ -348,13 +358,11 @@ const getQueryString = () => {
 
     // So that change in filters will not update this
     if (oldHash.bound1 !== parameters.bound1 || oldHash.bound2 !== parameters.bound2) {
-
       $(document).trigger('trigger-list-filter-by-bound', parameters);
     }
 
     if (oldHash.log !== parameters.loc) {
       $(document).trigger('trigger-map-update', parameters);
-
     }
 
     // Change items
@@ -378,7 +386,7 @@ const getQueryString = () => {
     .done((data) => {})
     .then(() => {
       $.ajax({
-          url: 'https://new-map.350.org/output/350org-new-layout.js.gz', //'|**DATA_SOURCE**|',
+          url: 'https://new-map.350.org/output/350org-with-annotation.js.gz', //'|**DATA_SOURCE**|',
           // url: '/data/test.js', //'|**DATA_SOURCE**|',
           dataType: 'script',
           cache: true,
@@ -399,7 +407,17 @@ const getQueryString = () => {
 
             window.EVENTS_DATA.data.forEach((item) => {
               item['event_type'] = !item.event_type ? 'Action' : item.event_type;
-            })
+
+              if (item.start_datetime && !item.start_datetime.match(/Z$/)) {
+                item.start_datetime = item.start_datetime + "Z";
+              }
+            });
+
+            // window.EVENTS_DATA.data.sort((a, b) => {
+            //   return new Date(a.start_datetime) - new Date(b.start_datetime);
+            // })
+
+
             $(document).trigger('trigger-list-update', { params: parameters });
             // $(document).trigger('trigger-list-filter-update', parameters);
             $(document).trigger('trigger-map-plot', {

@@ -63,6 +63,40 @@ const MapManager = (($) => {
     `
   };
 
+  const renderAnnotationPopup = (item) => {
+    return `
+    <div class='popup-item annotation' data-lat='${item.lat}' data-lng='${item.lng}'>
+      <div class="type-event">
+        <ul class="event-types-list">
+          <li class="tag tag-annotation">Annotation</li>
+        </ul>
+        <h2 class="event-title">${item.name}</h2>
+        <div class="event-address address-area">
+          <p>${item.description}</p>
+        </div>
+      </div>
+    </div>
+    `;
+  }
+
+
+  const renderAnnotationsGeoJson = (list) => {
+    return list.map((item) => {
+      const rendered = renderAnnotationPopup(item);
+      return {
+        "type": "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [item.lng, item.lat]
+        },
+        properties: {
+          annotationProps: item,
+          popupContent: rendered
+        }
+      }
+    })
+  }
+
   const renderGeojson = (list, ref = null, src = null) => {
     return list.map((item) => {
       // rendered eventType
@@ -134,6 +168,11 @@ const MapManager = (($) => {
     L.tileLayer('https://api.mapbox.com/styles/v1/matthew350/cja41tijk27d62rqod7g0lx4b/tiles/256/{z}/{x}/{y}?access_token=' + accessToken, {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors • <a href="//350.org">350.org</a>'
     }).addTo(map);
+
+    // console.log(window.queries['twilight-zone'], window.queries['twilight-zone'] === "true");
+    if(window.queries['twilight-zone']) {
+      L.terminator().addTo(map)
+    }
 
     let geocoder = null;
     return {
@@ -223,7 +262,7 @@ const MapManager = (($) => {
         };
 
 
-        L.geoJSON(geojson, {
+        const eventsLayer = L.geoJSON(geojson, {
             pointToLayer: (feature, latlng) => {
               // Icons for markers
               const eventType = feature.properties.eventProperties.event_type;
@@ -231,13 +270,24 @@ const MapManager = (($) => {
               // If no supergroup, it's an event.
               const supergroup = groups[feature.properties.eventProperties.supergroup] ? feature.properties.eventProperties.supergroup : "Events";
               const slugged = window.slugify(supergroup);
-              const iconUrl = groups[supergroup] ? groups[supergroup].iconurl || "/img/event.png"  : "/img/event.png" ;
+
+
+
+              let iconUrl;
+              const isPast = new Date(feature.properties.eventProperties.start_datetime) < new Date();
+              if (eventType == "Action") {
+                iconUrl = isPast ? "/img/past-event.png" : "/img/event.png";
+              } else {
+                iconUrl = groups[supergroup] ? groups[supergroup].iconurl || "/img/event.png"  : "/img/event.png" ;
+              }
+
+
 
               const smallIcon =  L.icon({
                 iconUrl: iconUrl,
                 iconSize: [18, 18],
                 iconAnchor: [9, 9],
-                className: slugged + ' event-item-popup'
+                className: slugged + ' event-item-popup ' + (isPast&&eventType == "Action"?"event-past-event":"")
               });
 
 
@@ -251,9 +301,45 @@ const MapManager = (($) => {
             if (feature.properties && feature.properties.popupContent) {
               layer.bindPopup(feature.properties.popupContent);
             }
-          }
-        }).addTo(map);
 
+            // const isPast = new Date(feature.properties.eventProperties.start_datetime) < new Date();
+            // const eventType = feature.properties.eventProperties.event_type;
+          }
+        });
+
+        eventsLayer.addTo(map);
+        // eventsLayer.bringToBack();
+
+
+        // Add Annotations
+        if (window.queries.annotation) {
+          const annotations = !window.EVENTS_DATA.annotations ? [] : window.EVENTS_DATA.annotations.filter((item)=>item.type===window.queries.annotation);
+
+          const annotIcon =  L.icon({
+            iconUrl: "/img/annotation.png",
+            iconSize: [50, 50],
+            iconAnchor: [25, 25],
+            className: 'annotation-popup'
+          });
+          console.log(renderAnnotationPopup);
+          const annotMarkers = annotations.map(item => {
+              return L.marker([item.lat, item.lng], {icon: annotIcon})
+                        .bindPopup(renderAnnotationPopup(item));
+              });
+          // annotLayer.bringToFront();
+
+          console.log(annotMarkers);
+
+          // const annotLayerGroup = ;
+
+          const annotLayerGroup = map.addLayer(L.featureGroup(annotMarkers));
+          console.log(annotLayerGroup);
+          // annotLayerGroup.bringToFront();
+          // annotMarkers.forEach(item => {
+          //   item.addTo(map);
+          //   item.bringToFront();
+          // })
+        }
       },
       update: (p) => {
         if (!p || !p.lat || !p.lng ) return;
