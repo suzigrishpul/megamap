@@ -135,6 +135,11 @@ const MapManager = (($) => {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors • <a href="//350.org">350.org</a>'
     }).addTo(map);
 
+    // console.log(window.queries['twilight-zone'], window.queries['twilight-zone'] === "true");
+    if(window.queries['twilight-zone']) {
+      L.terminator().addTo(map)
+    }
+
     let geocoder = null;
     return {
       $map: map,
@@ -265,10 +270,6 @@ const MapManager = (($) => {
 
             const isPast = new Date(feature.properties.eventProperties.start_datetime) < new Date();
             const eventType = feature.properties.eventProperties.event_type;
-            // console.log(feature, isPast&&eventType == "Action")
-            if (!(isPast&&eventType == "Action")) {
-              console.log(layer, layer._bringToFront);
-            }
           }
         }).addTo(map);
 

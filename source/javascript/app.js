@@ -24,13 +24,13 @@ const getQueryString = () => {
   // Load things
 
   window.queries =  $.deparam(window.location.search.substring(1));
-
   try {
     if ((!window.queries.group || (!window.queries.referrer && !window.queries.source)) && window.parent) {
       window.queries = {
         group: getQueryString().group,
         referrer: getQueryString().referrer,
         source: getQueryString().source,
+        "twilight-zone": window.queries['twilight-zone']
       };
     }
   } catch(e) {
@@ -337,10 +337,7 @@ const getQueryString = () => {
     if (hash.length == 0) return;
     const parameters = $.deparam(hash.substring(1));
     const oldURL = event.originalEvent.oldURL;
-
-
     const oldHash = $.deparam(oldURL.substring(oldURL.search("#")+1));
-
 
     $(document).trigger('trigger-list-filter-update', parameters);
     $(document).trigger('trigger-map-filter', parameters);
@@ -348,13 +345,11 @@ const getQueryString = () => {
 
     // So that change in filters will not update this
     if (oldHash.bound1 !== parameters.bound1 || oldHash.bound2 !== parameters.bound2) {
-
       $(document).trigger('trigger-list-filter-by-bound', parameters);
     }
 
     if (oldHash.log !== parameters.loc) {
       $(document).trigger('trigger-map-update', parameters);
-
     }
 
     // Change items
