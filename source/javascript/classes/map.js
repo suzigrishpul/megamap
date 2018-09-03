@@ -231,13 +231,24 @@ const MapManager = (($) => {
               // If no supergroup, it's an event.
               const supergroup = groups[feature.properties.eventProperties.supergroup] ? feature.properties.eventProperties.supergroup : "Events";
               const slugged = window.slugify(supergroup);
-              const iconUrl = groups[supergroup] ? groups[supergroup].iconurl || "/img/event.png"  : "/img/event.png" ;
+
+
+
+              let iconUrl;
+              const isPast = new Date(feature.properties.eventProperties.start_datetime) < new Date();
+              if (eventType == "Action") {
+                iconUrl = isPast ? "/img/past-event.png" : "/img/event.png";
+              } else {
+                iconUrl = groups[supergroup] ? groups[supergroup].iconurl || "/img/event.png"  : "/img/event.png" ;
+              }
+
+
 
               const smallIcon =  L.icon({
                 iconUrl: iconUrl,
                 iconSize: [18, 18],
                 iconAnchor: [9, 9],
-                className: slugged + ' event-item-popup'
+                className: slugged + ' event-item-popup ' + (isPast&&eventType == "Action"?"event-past-event":"")
               });
 
 
@@ -250,6 +261,13 @@ const MapManager = (($) => {
           onEachFeature: (feature, layer) => {
             if (feature.properties && feature.properties.popupContent) {
               layer.bindPopup(feature.properties.popupContent);
+            }
+
+            const isPast = new Date(feature.properties.eventProperties.start_datetime) < new Date();
+            const eventType = feature.properties.eventProperties.event_type;
+            // console.log(feature, isPast&&eventType == "Action")
+            if (!(isPast&&eventType == "Action")) {
+              console.log(layer, layer._bringToFront);
             }
           }
         }).addTo(map);

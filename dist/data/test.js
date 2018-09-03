@@ -68,7 +68,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350 NH",
 		"venue": "Sylvia and Neal's Home. 24 Woodridge Rd Durham NH US 03824",
-		"start_datetime": "2018-06-07 18:00:00",
+		"start_datetime": "2018-09-03 18:00:00",
 		"title": "Granite Bridge Awareness House Party",
 		"url": "https://actionnetwork.org/ticketed_events/granite-bridge-awareness-house-party",
 		"lat": 43.1257818,
@@ -78,7 +78,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350 Seattle - 350.org",
 		"venue": "Washington State Labor Council. 321 16th Ave S Seattle WA US 98144",
-		"start_datetime": "2018-06-08 17:00:00",
+		"start_datetime": "2018-09-03 17:00:00",
 		"title": "20 Hour Street Medic Training ",
 		"url": "https://actionnetwork.org/ticketed_events/20-hour-street-medic-training",
 		"lat": 47.5994597,
@@ -88,7 +88,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350 NH",
 		"venue": "Karen and Brent's Home. 22 Daniel Drive Epping NH US 03042",
-		"start_datetime": "2018-06-06 18:00:00",
+		"start_datetime": "2018-09-03 18:00:00",
 		"title": "Granite Bridge Awareness House Party: Protect Epping",
 		"url": "https://actionnetwork.org/ticketed_events/granite-bridge-awareness-house-party-protect-epping",
 		"lat": 43.0598742,
@@ -103,7 +103,7 @@ window.EVENTS_DATA={
 		"lat": 41.58101260172089,
 		"lng": -87.46931049349908,
 		"venue": "Purdue University Northwest. 2440 173rd Street Hammond IN US 46323",
-		"start_datetime": "2018-05-12 08:00:00",
+		"start_datetime": "2018-09-01 08:00:00",
 		"event_type": null
 	}, {
 		"group_url": "https://actionnetwork.org/groups/climate-conversations-north-central-washington",
@@ -114,7 +114,7 @@ window.EVENTS_DATA={
 		"lat": 47.44173726317118,
 		"lng": -120.31973626066008,
 		"venue": "Town Toyota Center Parking Lot. 1300 Walla Walla Ave Wenatchee WA US 98802",
-		"start_datetime": "2018-05-12 10:00:00",
+		"start_datetime": "2018-09-01 10:00:00",
 		"event_type": null
 	}, {
 		"group_url": "https://actionnetwork.org/groups/justica-climatica",
@@ -125,7 +125,7 @@ window.EVENTS_DATA={
 		"lat": 38.7206017283522,
 		"lng": -9.139376970894869,
 		"venue": "Campo dos M\u00e1rtires da P\u00e1tria. Campo dos M\u00e1rtires da P\u00e1tria Lisboa  PT 1150-228",
-		"start_datetime": "2018-05-12 10:00:00",
+		"start_datetime": "2018-09-01 10:00:00",
 		"event_type": "Agenda pelo Clima"
 	}, {
 		"group_url": null,
@@ -136,7 +136,7 @@ window.EVENTS_DATA={
 		"lat": 47.44173726317118,
 		"lng": -120.31973626066008,
 		"venue": "Town Toyota Center. 1300 Walla Walla Ave.   Wenatchee WA US 98802",
-		"start_datetime": "2018-05-12 10:00:00",
+		"start_datetime": "2018-09-01 10:00:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
 		"group_url": null,
@@ -147,7 +147,7 @@ window.EVENTS_DATA={
 		"lat": 39.74399017317799,
 		"lng": -104.99067078463837,
 		"venue": "Meet in front of Hard Rock Cafe at Denver Pavillions. 500 16th St. Denver CO US 80202",
-		"start_datetime": "2018-05-14 10:00:00",
+		"start_datetime": "2018-09-01 10:00:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
 		"group_url": null,
@@ -158,7 +158,7 @@ window.EVENTS_DATA={
 		"lat": 38.911751447754064,
 		"lng": -104.77512536849514,
 		"venue": "East Library. 5550 N Union Colorado Springs CO US 80918",
-		"start_datetime": "2018-05-14 12:00:00",
+		"start_datetime": "2018-09-01 12:00:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
 		"group_url": null,
@@ -169,7 +169,7 @@ window.EVENTS_DATA={
 		"lat": 34.008954727162624,
 		"lng": -81.03701008246271,
 		"venue": "city hall. 1737 Main Street Columbia SC US 29201",
-		"start_datetime": "2018-05-14 15:00:00",
+		"start_datetime": "2018-09-01 15:00:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
 		"group_url": null,
@@ -180,7 +180,7 @@ window.EVENTS_DATA={
 		"lat": 41.92609280824035,
 		"lng": -88.74634298943975,
 		"venue": "Hallgren Park Gabazo. 701 Franklin Street DeKalb IL US 60115",
-		"start_datetime": "2018-05-14 16:00:00",
+		"start_datetime": "2018-09-01 16:00:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
 		"group_url": null,
@@ -191,7 +191,7 @@ window.EVENTS_DATA={
 		"lat": 40.70844037581499,
 		"lng": -74.00834767690023,
 		"venue": "Office of the NYS Comptroller. 59 Maiden Lane New York NY US 10038",
-		"start_datetime": "2018-05-14 16:30:00",
+		"start_datetime": "2018-09-01 16:30:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
 		"group_url": "https://actionnetwork.org/groups/350-santa-barbara",
@@ -202,7 +202,7 @@ window.EVENTS_DATA={
 		"lat": 34.43219795640058,
 		"lng": -119.85659878818338,
 		"venue": "Goleta City Hall. 130 Cremona Drive #B Goleta CA US 93117",
-		"start_datetime": "2018-05-14 17:30:00",
+		"start_datetime": "2018-09-01 17:30:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
 		"group_url": null,
@@ -213,7 +213,7 @@ window.EVENTS_DATA={
 		"lat": 46.871865000000014,
 		"lng": -114.00819015625761,
 		"venue": "Silver Park Picnic Area. Cregg Lane just west of the Missoula Osprey Field Missoula MT US 59801",
-		"start_datetime": "2018-05-14 17:30:00",
+		"start_datetime": "2018-09-01 17:30:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
 		"group_url": "https://actionnetwork.org/groups/350-spokane",
@@ -224,7 +224,7 @@ window.EVENTS_DATA={
 		"lat": 47.660155478792596,
 		"lng": -117.4241324701656,
 		"venue": "City Council Chambers - Spokane City Hall. 808 W Spokane Falls Blvd Spokane WA US 99201",
-		"start_datetime": "2018-05-14 17:30:00",
+		"start_datetime": "2018-09-01 17:30:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
 		"group_url": null,
@@ -235,7 +235,7 @@ window.EVENTS_DATA={
 		"lat": 40.79320644186042,
 		"lng": -73.53543064859504,
 		"venue": "Jericho Public Library. 1 Merry Lane Jericho NY US 11753",
-		"start_datetime": "2018-05-14 18:00:00",
+		"start_datetime": "2018-09-01 18:00:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
 		"group_url": null,
@@ -246,7 +246,7 @@ window.EVENTS_DATA={
 		"lat": 44.4799545925616,
 		"lng": -73.21260303038264,
 		"venue": "350VT Office. 22 Church St, 3rd fl Burlington VT US 05401",
-		"start_datetime": "2018-05-14 19:00:00",
+		"start_datetime": "2018-09-01 19:00:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
 		"group_url": "https://actionnetwork.org/groups/350-dallas",
@@ -257,7 +257,7 @@ window.EVENTS_DATA={
 		"lat": 33.08698744463038,
 		"lng": -96.8275762927171,
 		"venue": "JP Morgan Chase - grassy area close to entrance. 8181 Communications Pkwy Plano TX US 75024",
-		"start_datetime": "2018-05-15 09:00:00",
+		"start_datetime": "2018-09-01 09:00:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
 		"group_url": null,
@@ -268,7 +268,7 @@ window.EVENTS_DATA={
 		"lat": 39.070853360811356,
 		"lng": -108.56278786283058,
 		"venue": "Mesa County Public Library . 443 N 6th Street Grand Junction  CO US 81501",
-		"start_datetime": "2018-05-15 10:00:00",
+		"start_datetime": "2018-09-01 10:00:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
 		"group_url": "https://actionnetwork.org/groups/justica-climatica",
@@ -279,7 +279,7 @@ window.EVENTS_DATA={
 		"lat": 40.63814724101576,
 		"lng": -8.658035931293961,
 		"venue": "F\u00e1brica Centro Ci\u00eancia Viva De Aveiro. Rua dos Santos M\u00e1rtires, n\u00ba 1A Aveiro  PT 3810",
-		"start_datetime": "2018-05-15 18:00:00",
+		"start_datetime": "2018-09-01 18:00:00",
 		"event_type": "Agenda pelo Clima"
 	}, {
 		"group_url": null,
@@ -290,7 +290,7 @@ window.EVENTS_DATA={
 		"lat": 36.97807098092739,
 		"lng": -122.04697969167273,
 		"venue": "Peace United Church. 900 High St Santa Cruz CA US 95060",
-		"start_datetime": "2018-05-15 19:00:00",
+		"start_datetime": "2018-09-01 19:00:00",
 		"event_type": "December Fossil Free Meetings"
 	}, {
 		"group_url": "https://actionnetwork.org/groups/justica-climatica",
@@ -301,7 +301,7 @@ window.EVENTS_DATA={
 		"lat": 38.744650000000206,
 		"lng": -9.146889999999928,
 		"venue": "CIDAC - Centro De Interven\u00e7\u00e3o Para O Desenvolvimento Am\u00edlcar Cabral. Rua Tom\u00e1s Ribeiro, 3-9 Lisboa  PT 1069-069",
-		"start_datetime": "2018-05-15 19:30:00",
+		"start_datetime": "2018-09-01 19:30:00",
 		"event_type": "Agenda pelo Clima"
 	}, {
 		"group_url": "https://actionnetwork.org/groups/350-colorado",
@@ -312,7 +312,7 @@ window.EVENTS_DATA={
 		"lat": 39.66446552262104,
 		"lng": -104.97817784243216,
 		"venue": "Bray Home. 2890 S Clarkson St Englewood CO US 80113",
-		"start_datetime": "2018-05-16 18:00:00",
+		"start_datetime": "2018-09-01 18:00:00",
 		"event_type": null
 	}, {
 		"group_url": "https://actionnetwork.org/groups/justica-climatica",
@@ -323,7 +323,7 @@ window.EVENTS_DATA={
 		"lat": 41.150990095475805,
 		"lng": -8.621196438109502,
 		"venue": "Gato Vadio. Rua do Ros\u00e1rio, 281 Porto  PT 4050-525",
-		"start_datetime": "2018-05-16 19:00:00",
+		"start_datetime": "2018-09-01 19:00:00",
 		"event_type": "Agenda pelo Clima"
 	}, {
 		"group_url": null,
@@ -334,7 +334,7 @@ window.EVENTS_DATA={
 		"lat": 37.315296018581996,
 		"lng": -8.798112035305786,
 		"venue": "C\u00e2mara Municipal de Aljezur. Edif\u00edcio dos Pa\u00e7os do Concelho, Rua Capit\u00e3o Salgueiro Maia Aljezur  PT 8670-005",
-		"start_datetime": "2018-05-17 16:30:00",
+		"start_datetime": "2018-09-01 16:30:00",
 		"event_type": "Agenda pelo Clima"
 	}, {
 		"group_url": "https://actionnetwork.org/groups/justica-climatica",
@@ -345,7 +345,7 @@ window.EVENTS_DATA={
 		"lat": 38.75605200000001,
 		"lng": -9.176429249999991,
 		"venue": "GALP Energia. Rua Tom\u00e1s da Fonseca Lisboa  PT 1600-209",
-		"start_datetime": "2018-05-18 18:00:00",
+		"start_datetime": "2018-09-01 18:00:00",
 		"event_type": "Agenda pelo Clima"
 	}, {
 		"group_url": null,
@@ -356,7 +356,7 @@ window.EVENTS_DATA={
 		"lat": 44.714778537884484,
 		"lng": -67.45786386511051,
 		"venue": "Machias Bay Area Chamber of Commerce. 11 Main Street Machias ME US 04654",
-		"start_datetime": "2018-05-19 11:00:00",
+		"start_datetime": "2018-09-01 11:00:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
 		"group_url": null,
@@ -367,7 +367,7 @@ window.EVENTS_DATA={
 		"lat": 39.756189638323264,
 		"lng": -105.22572611431727,
 		"venue": "Golden Library. 1019 10th St Golden CO US 80401",
-		"start_datetime": "2018-05-19 11:30:00",
+		"start_datetime": "2018-09-01 11:30:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
 		"group_url": "https://actionnetwork.org/groups/justica-climatica",
@@ -378,7 +378,7 @@ window.EVENTS_DATA={
 		"lat": 38.72587826894224,
 		"lng": -9.170191948381289,
 		"venue": "Upaya Ambiente. Cal\u00e7ada dos Sete Moinhos 143A Lisboa  PT 1070-267",
-		"start_datetime": "2018-05-19 20:30:00",
+		"start_datetime": "2018-09-01 20:30:00",
 		"event_type": "Agenda pelo Clima"
 	}, {
 		"group_url": "https://actionnetwork.org/groups/350-fairfax",
@@ -389,7 +389,7 @@ window.EVENTS_DATA={
 		"lat": 38.957697343903135,
 		"lng": -77.27920726464308,
 		"venue": "Blueberry Hill Common House. 9701 Farmside Place Reston VA US 22182",
-		"start_datetime": "2018-05-20 13:00:00",
+		"start_datetime": "2018-09-02 13:00:00",
 		"event_type": null
 	}, {
 		"group_url": null,
@@ -400,7 +400,7 @@ window.EVENTS_DATA={
 		"lat": 38.33462561971395,
 		"lng": -75.08461111222401,
 		"venue": "Town of Ocean City, City Hall. 301 N. Baltimore Ave. Ocean CIty MD US 21842",
-		"start_datetime": "2018-05-21 17:00:00",
+		"start_datetime": "2018-09-02 17:00:00",
 		"event_type": "Spring Forward to Fossil Free"
 	}, {
 		"group_url": "https://actionnetwork.org/groups/justica-climatica",
@@ -411,7 +411,7 @@ window.EVENTS_DATA={
 		"lat": 38.64688892312112,
 		"lng": -8.221063673236026,
 		"venue": "Cooperativa Integral Minga Montemor. Largo Machado dos Santos, n\u00ba10 Montemor-O-Novo  PT 7050-135",
-		"start_datetime": "2018-05-21 18:00:00",
+		"start_datetime": "2018-09-02 18:00:00",
 		"event_type": "Agenda pelo Clima"
 	}, {
 		"group_url": "https://actionnetwork.org/groups/350-nh",
@@ -422,7 +422,7 @@ window.EVENTS_DATA={
 		"lat": 43.1951386843734,
 		"lng": -70.87200758820511,
 		"venue": "350NH Dover Office. 1 Washington Street Suite 320 Dover NH US 03820",
-		"start_datetime": "2018-05-21 19:00:00",
+		"start_datetime": "2018-09-02 19:00:00",
 		"event_type": null
 	}, {
 		"group_url": "https://actionnetwork.org/groups/350-dallas",
@@ -4624,7 +4624,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-07-07T19:00:00",
+		"start_datetime": "2018-09-03T19:00:00",
 		"venue": "\"B\u00fchne 602\" - Kabutzenhof im Stadthafen Rostock. Warnowufer 55  Rostock  Germany D-18057",
 		"campaign_name": "disobedience",
 		"campaign_title": "\"Disobedience\": Movie Screenings and House Parties Copy",
@@ -4636,7 +4636,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-27T10:00:00",
+		"start_datetime": "2018-09-02T10:00:00",
 		"venue": "Bagerhat  City at  Bagerhat district in Bangladesh.. Badhon.org,  Holding # 42/50, Pachadighi Road, Dashani Traffic Moor.  Bagerhat  Bangladesh 9300",
 		"campaign_name": "fossil-free-gathering",
 		"campaign_title": "Fossil Free Gathering",
@@ -4648,7 +4648,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-27T10:00:00",
+		"start_datetime": "2018-09-02T10:00:00",
 		"venue": "Bagerhat  City at  Bagerhat district in Bangladesh.. Badhon (BMUS), Holding # 42/50, Pachadighi Road,, Dashani trafic moor,  Bagerhat  Bangladesh 9300",
 		"campaign_name": "fossil-free-gathering",
 		"campaign_title": "Fossil Free Gathering",
@@ -4660,7 +4660,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-27T10:00:00",
+		"start_datetime": "2018-09-02T10:00:00",
 		"venue": "Bagerhat district in Bangladesh.. Badhon(bmus), Dashani Traffic Moor, holding # 42/50, Rampal road, oppoite of dist. Shilpakala Academy, Bagerhat-930, Bangladesh.  Bagerhat  Bangladesh 9300",
 		"campaign_name": "fossil-free-gathering",
 		"campaign_title": "Fossil Free Gathering",
@@ -4672,7 +4672,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-07-10T17:00:00",
+		"start_datetime": "2018-09-03T17:00:00",
 		"venue": "TSC, Bangladesh Agricultural University, Mymensingh.. TSC,Bangladesh Agricultural University, Mymensingh  Mymensingh  Bangladesh 2202",
 		"campaign_name": "fossil-free-gathering",
 		"campaign_title": "Fossil Free Gathering",
@@ -4696,7 +4696,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-07-10T17:00:00",
+		"start_datetime": "2018-09-03T17:00:00",
 		"venue": "Bangladesh Agricultural University,Mymensingh -2202.. TSC, BAU  Mymensigh  Bangladesh 2202",
 		"campaign_name": "fossil-free-gathering",
 		"campaign_title": "Fossil Free Gathering",
@@ -4708,7 +4708,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-13T10:00:00",
+		"start_datetime": "2018-09-01T10:00:00",
 		"venue": "Marina Farmer's Market on Sundays. Pch and 2nd Street  Long Beach CA United States 90803",
 		"campaign_name": "fossil-free-gathering",
 		"campaign_title": "Fossil Free Gathering",
@@ -4720,7 +4720,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-26T12:00:00",
+		"start_datetime": "2018-09-02T12:00:00",
 		"venue": "Arcata Community Forest. Arcata  Arcata CA United States 95521",
 		"campaign_name": "fossil-free-gathering",
 		"campaign_title": "Fossil Free Gathering",
@@ -4732,7 +4732,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-06-16T20:00:00",
+		"start_datetime": "2018-09-03T20:00:00",
 		"venue": "RESTAURANT LOU REGALIDO. LE MEJANEL  PEGAIROLLES DE BUEGES  France 34380",
 		"campaign_name": "fossil-free-gathering",
 		"campaign_title": "Fossil Free Gathering",
@@ -4744,7 +4744,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-16T14:00:00",
+		"start_datetime": "2018-09-01T14:00:00",
 		"venue": "Rakhiv, \u0446\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u0430 \u043f\u043b\u043e\u0449\u0430. \u041c\u0438\u0440\u0443  Rakhiv  Ukraine 90600",
 		"campaign_name": "fossil-free-gathering",
 		"campaign_title": "Fossil Free Gathering",
@@ -4756,7 +4756,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-06-16T11:00:00",
+		"start_datetime": "2018-09-03T11:00:00",
 		"venue": "Gewerbegebiet in Freinsheim/Pfalz. In den Breitwiesen  Freinsheim  Germany 67251",
 		"campaign_name": "fossil-free-gathering",
 		"campaign_title": "Fossil Free Gathering",
@@ -4768,7 +4768,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-22T14:00:00",
+		"start_datetime": "2018-09-02T14:00:00",
 		"venue": "My living room. 57 Hurleyford Farm Park, Mill Lane, Hurley  Maidenhead  United Kingdom SL6 5ND",
 		"campaign_name": "fossil-free-gathering",
 		"campaign_title": "Fossil Free Gathering",
@@ -4780,7 +4780,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T15:00:00",
+		"start_datetime": "2018-09-02T15:00:00",
 		"venue": "Drodsty Lawns. Drostdy Arch, Somerset St, Grahamstown  Grahamstown  South Africa 6139",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -4792,7 +4792,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T14:00:00",
+		"start_datetime": "2018-09-02T14:00:00",
 		"venue": "Klerksdorp Library. Voortrekker St, Klerksdorp Central, Klerksdorp, 2570  Klerksdorp  South Africa 2570",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -4804,7 +4804,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T10:00:00",
+		"start_datetime": "2018-09-02T10:00:00",
 		"venue": "Ngqwele Community Hall. 1550 kwt 5600  King william's town  South Africa 1550 kwt 5600",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -4816,7 +4816,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T16:00:00",
+		"start_datetime": "2018-09-02T16:00:00",
 		"venue": "Development Bank of Southern Africa. 1258 Level Road, Headway Hill, Midrand  Johannesburg  South Africa 1685",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -4828,7 +4828,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T12:00:00",
+		"start_datetime": "2018-09-02T12:00:00",
 		"venue": "In A Classroom. Jambo Drive  Kitwe  Zambia ",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -4840,7 +4840,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T12:00:00",
+		"start_datetime": "2018-09-02T12:00:00",
 		"venue": "Classroom. Jambo Drive  Kitwe  Zambia ",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -4852,7 +4852,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T14:00:00",
+		"start_datetime": "2018-09-02T14:00:00",
 		"venue": "Copperbelt University. Riverside Campus, Jambo drive  Kitwe  Zambia 21692",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -4864,7 +4864,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T14:00:00",
+		"start_datetime": "2018-09-02T14:00:00",
 		"venue": "Copperbelt University Hall. Copperbelt University, Riverside Campus, Kitwe  Kitwe  Zambia 21692",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -4876,7 +4876,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T10:00:00",
+		"start_datetime": "2018-09-02T10:00:00",
 		"venue": "ISTA/NDOLO. Avenue luozi 01. Kasa vubu kinshasa  Kinshasa  Democratic Republic of the Congo 00",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -4888,7 +4888,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T10:00:00",
+		"start_datetime": "2018-09-02T10:00:00",
 		"venue": "Mkunguni (Lamu Town Square). Harambee Road  Lamu  Kenya 55-80500",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -4900,7 +4900,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T09:00:00",
+		"start_datetime": "2018-09-02T09:00:00",
 		"venue": "Mwanaarafa Hall. Harambee Road  Lamu  Kenya 341-80500",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -4912,7 +4912,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T00:00:00",
+		"start_datetime": "2018-09-02T00:00:00",
 		"venue": "ville de GOMA. PLAGE PUBLIQUE DE GOMA  GOMA  Democratic Republic of the Congo 00243",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -4924,7 +4924,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T00:00:00",
+		"start_datetime": "2018-09-02T00:00:00",
 		"venue": "Katindo District, Goma City, North Kivu Province in DR Congo. Road Sake, Katindo District 05,  Goma  Democratic Republic of the Congo 84",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -4936,7 +4936,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T09:00:00",
+		"start_datetime": "2018-09-02T09:00:00",
 		"venue": "University States International University Africa (USIU). Kasarani area ,Off Thika road  Nairobi  Kenya ",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -4948,7 +4948,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T09:00:00",
+		"start_datetime": "2018-09-02T09:00:00",
 		"venue": "Nairobi. Chiromo Road  Nairobi  Kenya ",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -4960,7 +4960,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T14:00:00",
+		"start_datetime": "2018-09-02T14:00:00",
 		"venue": "The University of Kisubi. Kampala - Entebbe Highway  Entebbe  Uganda ",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -4972,7 +4972,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T09:00:00",
+		"start_datetime": "2018-09-02T09:00:00",
 		"venue": "Tot,. Elgeyo Marakwet  Tot,  Kenya 30100",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -4984,7 +4984,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T08:30:00",
+		"start_datetime": "2018-09-02T08:30:00",
 		"venue": "Abidjan - San-P\u00e9dro. 16BP23ABJ16  Abidjan  Ivory Coast +225",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -4996,7 +4996,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T08:30:00",
+		"start_datetime": "2018-09-02T08:30:00",
 		"venue": "Abidjan - San-Pedro, KEBLEKE. 16BP23ABJ16  ABIDJAN  Ivory Coast +225",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -5008,7 +5008,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T11:00:00",
+		"start_datetime": "2018-09-02T11:00:00",
 		"venue": "Akanu Ibiam Federal polytechnic Unwana Afikpo Ebonyi State Nigeria. Akanu Ibiam Federal polytechnic Unwana Afikpo  Afikpo  Nigeria ",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -5020,7 +5020,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T08:30:00",
+		"start_datetime": "2018-09-02T08:30:00",
 		"venue": "Palace Room. Palace  Lome  Togo 05 BP8",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -5032,7 +5032,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T00:00:00",
+		"start_datetime": "2018-09-02T00:00:00",
 		"venue": "Ministry of environment awka. Ministry of environment awka  Awka  Nigeria 234",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -5044,7 +5044,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T09:00:00",
+		"start_datetime": "2018-09-02T09:00:00",
 		"venue": "Victoria Island Lagos. 12B, Okoawo Close, Victoria Island  Lagos  Nigeria 900242",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -5056,7 +5056,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T10:00:00",
+		"start_datetime": "2018-09-02T10:00:00",
 		"venue": "American Corner in National university of Benin. Abomey Calavi  Abomey Calavi  Benin ",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -5068,7 +5068,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T18:30:00",
+		"start_datetime": "2018-09-02T18:30:00",
 		"venue": "Eastern Region. Dome, Asayansu, Kwesi Kunde, Fori Fori  Afram plains  Ghana 233",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -5080,7 +5080,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T15:00:00",
+		"start_datetime": "2018-09-02T15:00:00",
 		"venue": "University of Ibadan first gate. University of Ibadan  Ibadan  Nigeria 200284",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -5092,7 +5092,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T09:00:00",
+		"start_datetime": "2018-09-02T09:00:00",
 		"venue": "GIFSEP -Febson Mall Abuja.. Plot 2425 Herbert Macaulay Way, Wuse Zone 4  Abuja  Nigeria 900243",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -5104,7 +5104,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T09:00:00",
+		"start_datetime": "2018-09-02T09:00:00",
 		"venue": "BARGNY. KHELCOM STREET  DAKAR  Senegal 99000",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -5116,7 +5116,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T12:00:00",
+		"start_datetime": "2018-09-02T12:00:00",
 		"venue": "My office. El Haram Street.  Giza  Egypt ",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -5128,7 +5128,7 @@ window.EVENTS_DATA={
 		"supergroup": "350.org",
 		"group": "350.org",
 		"event_type": "Action",
-		"start_datetime": "2018-05-25T17:00:00",
+		"start_datetime": "2018-09-02T17:00:00",
 		"venue": "Engineering club. Sababasha,Alexandria ,Egypt  Alexandria  Egypt 21111",
 		"campaign_name": "break-free-fossil-fuels-2018",
 		"campaign_title": "Break Free from Fossil Fuels 2018",
@@ -5433,5 +5433,30 @@ window.EVENTS_DATA={
 		"venue": "TBD. TBD San Francisco CA 94102",
 		"lat": 37.782980000000066,
 		"lng": -122.41426999999999
+	}],
+	"annotations": [{
+		"type": "rise-for-climate",
+		"name": "Actions in the Pacific!",
+		"website": "#pacific-url",
+		"description": "Pacific Pawa! Pacific islands like Fiji and Tonga which are most at risk to climate impacts like sea level rise super-hurricanes, are standing up with a series of beautiful actions.",
+		"lat": "-17.70",
+		"lng": "-178.00",
+		"hide": "No"
+	}, {
+		"type": "rise-for-climate",
+		"name": "California March",
+		"website": "https://ca.riseforclimate.org",
+		"description": "The centerpiece action of Rise \u2014\u00a0as the world leaders who have failed to stop climate change meet in San Francisco,  tens of thousands will be marching in the streets to tell them if they don't rise to stop climate change, we will.",
+		"lat": "37.7749",
+		"lng": "-122.4194",
+		"hide": "No"
+	}, {
+		"type": "rise-for-climate",
+		"name": "London March",
+		"website": "[ london url ]",
+		"description": "The largest Rise event in Europe is happening in London (citation needed) \u2014\u00a0join thousands as we join together and rise to stop climate change.",
+		"lat": "51",
+		"lng": "-0.1",
+		"hide": ""
 	}]
 }

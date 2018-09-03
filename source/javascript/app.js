@@ -378,8 +378,8 @@ const getQueryString = () => {
     .done((data) => {})
     .then(() => {
       $.ajax({
-          url: 'https://new-map.350.org/output/350org-new-layout.js.gz', //'|**DATA_SOURCE**|',
-          // url: '/data/test.js', //'|**DATA_SOURCE**|',
+          // url: 'https://new-map.350.org/output/350org-new-layout.js.gz', //'|**DATA_SOURCE**|',
+          url: '/data/test.js', //'|**DATA_SOURCE**|',
           dataType: 'script',
           cache: true,
           success: (data) => {
@@ -399,7 +399,17 @@ const getQueryString = () => {
 
             window.EVENTS_DATA.data.forEach((item) => {
               item['event_type'] = !item.event_type ? 'Action' : item.event_type;
-            })
+
+              if (item.start_datetime && !item.start_datetime.match(/Z$/)) {
+                item.start_datetime = item.start_datetime + "Z";
+              }
+            });
+
+            // window.EVENTS_DATA.data.sort((a, b) => {
+            //   return new Date(a.start_datetime) - new Date(b.start_datetime);
+            // })
+
+
             $(document).trigger('trigger-list-update', { params: parameters });
             // $(document).trigger('trigger-list-filter-update', parameters);
             $(document).trigger('trigger-map-plot', {
