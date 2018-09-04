@@ -43,10 +43,11 @@ const getQueryString = () => {
     if ($(window).width() < 600) {
       // $("#events-list-container").hide();
       $("body").addClass("map-view");
-      $(".filter-area").hide();
-      $("section#map").css("height", "calc(100% - 64px)");
+      // $(".filter-area").hide();
+      // $("section#map").css("height", "calc(100% - 64px)");
     } else {
-      $("#events-list-container").hide();
+      $("body").addClass("filter-collapsed");
+      // $("#events-list-container").hide();
     }
   }
 
@@ -316,9 +317,14 @@ const getQueryString = () => {
   $(document).on('click', 'button#zoom-out', (e, opt) => {
 
     // mapManager.zoomOutOnce();
-
     mapManager.zoomUntilHit();
-  })
+  });
+
+
+  $(document).on('click', '#show-hide-list-container', (e, opt) => {
+    $('body').toggleClass('filter-collapsed');
+    setTimeout(() => { mapManager.refreshMap() }, 600)
+  });
 
   $(window).on("resize", (e) => {
     mapManager.refreshMap();

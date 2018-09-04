@@ -28,7 +28,7 @@
 			color: '#00',
 			opacity: 0.5,
 			fillColor: '#00',
-			fillOpacity: 0.5,
+			fillOpacity: 0.13,
 			resolution: 2
 		},
 

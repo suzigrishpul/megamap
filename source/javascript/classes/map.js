@@ -133,7 +133,7 @@ const MapManager = (($) => {
 
   return (options) => {
     var accessToken = 'pk.eyJ1IjoibWF0dGhldzM1MCIsImEiOiJaTVFMUkUwIn0.wcM3Xc8BGC6PM-Oyrwjnhg';
-    var map = L.map('map', { dragging: !L.Browser.mobile }).setView([34.88593094075317, 5.097656250000001], 2);
+    var map = L.map('map-proper', { dragging: !L.Browser.mobile }).setView([34.88593094075317, 5.097656250000001], 2);
 
     let {referrer, source} = options;
 
@@ -317,8 +317,8 @@ const MapManager = (($) => {
 
           const annotIcon =  L.icon({
             iconUrl: "/img/annotation.png",
-            iconSize: [40, 40],
-            iconAnchor: [20, 37],
+            iconSize: [22, 22],
+            iconAnchor: [11, 14],
             className: 'annotation-popup'
           });
           console.log(renderAnnotationPopup);
