@@ -619,7 +619,8 @@ a {
         border-right: none;
         visibility: visible;
         border-left: none;
-        width: 100%; }
+        width: 100%;
+        max-width: none !important; }
         body div#stage div#activity-area section#events-list-container header.events-header {
           font-size: 24px;
           padding-top: 5px; }
