@@ -136,6 +136,7 @@
           visibility: visible;
           border-left: none;
           width: 100%;
+          max-width: none !important;
           header.events-header {
             font-size: 24px;
             padding-top: 5px;
