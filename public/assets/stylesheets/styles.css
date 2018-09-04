@@ -613,6 +613,8 @@ a {
         height: calc(100% - 157px);
         bottom: 0;
         left: 0; }
+        body div#stage div#activity-area section#map #show-hide-list-container {
+          display: none !important; }
       body div#stage div#activity-area section#events-list-container {
         border-right: none;
         visibility: visible;

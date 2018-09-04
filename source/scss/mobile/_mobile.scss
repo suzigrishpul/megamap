@@ -119,6 +119,7 @@
         // height: 100%;
         position: relative;
         section#map {
+          #show-hide-list-container { display: none !important; }
           visibility: hidden;
           z-index: -1;
           // opacity: 1;
