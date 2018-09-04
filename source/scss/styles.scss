@@ -96,9 +96,25 @@ a {
       }
     }
 
+
   }
 }
 
+@media(min-width: 600px) {
 
+  body.filter-collapsed {
+    #stage div#activity-area section#events-list-container  {
+      max-width: 0;
+    }
+
+    #stage #map {
+      #show-hide-list-container {
+        left: -42px !important;
+        #hide-list-text { display: none !important; }
+        #show-list-text { display: block !important; }
+      }
+    }
+  }
+}
 @import 'mobile/mobile';
 @import 'components/multiselect';
