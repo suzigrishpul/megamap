@@ -525,7 +525,7 @@ a {
   body.filter-collapsed #stage div#activity-area section#events-list-container {
     max-width: 0; }
   body.filter-collapsed #stage #map #show-hide-list-container {
-    left: -42px !important; }
+    left: -32px !important; }
     body.filter-collapsed #stage #map #show-hide-list-container #hide-list-text {
       display: none !important; }
     body.filter-collapsed #stage #map #show-hide-list-container #show-list-text {

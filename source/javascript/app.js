@@ -49,6 +49,8 @@ const getQueryString = () => {
       $("body").addClass("filter-collapsed");
       // $("#events-list-container").hide();
     }
+  } else {
+    $("#show-hide-list-container").hide();
   }
 
 
