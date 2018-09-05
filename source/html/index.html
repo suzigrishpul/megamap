@@ -268,10 +268,12 @@
 
 
       <section id='map' class='zoomed-out'>
-        <a href='javascript: void(null)' id='show-hide-list-container'>
-          <span id='hide-list-text'>Hide Search</span>
-          <span id='show-list-text'>Search <i class="fa fa-search" aria-hidden="true"></i></span>
-        </a>
+        <div id='show-hide-container'>
+          <a href='javascript: void(null)' id='show-hide-list-container'>
+            <span id='hide-list-text' data-lang-target='text' data-lang-key='hide-search'>Hide Search</span>
+            <span id='show-list-text'><span data-lang-target='text' data-lang-key='search-button'>Search</span> <i class="fa fa-search" aria-hidden="true"></i></span>
+          </a>
+        </div>
         <div id='map-proper'></div>
       </section>
     </div>
