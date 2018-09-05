@@ -317,8 +317,8 @@ const MapManager = (($) => {
 
           const annotIcon =  L.icon({
             iconUrl: "/img/annotation.png",
-            iconSize: [22, 22],
-            iconAnchor: [11, 14],
+            iconSize: [40, 40],
+            iconAnchor: [20, 20], 
             className: 'annotation-popup'
           });
           console.log(renderAnnotationPopup);
