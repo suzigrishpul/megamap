@@ -32,7 +32,8 @@ const getQueryString = () => {
         source: getQueryString().source,
         "twilight-zone": window.queries['twilight-zone'],
         "annotation": window.queries['annotation'],
-        "full-map": window.queries['full-map']
+        "full-map": window.queries['full-map'],
+        "lang": window.queries['lang']
       };
     }
   } catch(e) {
@@ -283,8 +284,9 @@ const getQueryString = () => {
 
   $(document).on('trigger-language-update', (e, opt) => {
 
-    if (opt) {
-
+    if (window.queries.lang) {
+      languageManager.updateLanguage(window.queries.lang);
+    } else if (opt) {
       languageManager.updateLanguage(opt.lang);
     } else {
 

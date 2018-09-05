@@ -6,24 +6,29 @@ section#map {
   z-index: 0;
   @include klima;
   position: relative;
-  #show-hide-list-container {
-      background-color: $indigo;
-      transform: rotate(90deg);
-      position: absolute;
-      z-index: 1000;
-      left: -43px;
-      top: 160px;
-      padding: 5px 10px 5px;
-      color: white;
-      font-size: 12px;
-      text-transform: uppercase;
-      font-weight: 600;
-      font-family: $font-fam;
-      letter-spacing: 1px;
-      border-radius: 4px 4px 0 0;
-      #hide-list-text { display: block; }
-      #show-list-text { display: none; }
+  #show-hide-container {
+    position: absolute;
+    z-index: 1000;
+    left: 28px;
+    top: 160px;
+    #show-hide-list-container {
+        background-color: $indigo;
+        transform: rotate(90deg);
+        transform-origin: left top;
+        padding: 5px 10px 5px;
+        color: white;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-family: $font-fam;
+        letter-spacing: 1px;
+        border-radius: 4px 4px 0 0;
+        display: inline-block;
+        #hide-list-text { display: block; }
+        #show-list-text { display: none; }
+    }
   }
+
 
   div#map-proper {
     width: 100%;
@@ -42,6 +47,11 @@ section#map {
       right: 10px;
     }
     .leaflet-popup-content-wrapper{
+
+      .popup-item.annotation {
+        iframe { width: 100% !important; }
+      }
+
       border-radius:5px;}
     .event-date, .event-address, .group-location.location, .group-description{
       color:rgba(21,35,45,0.8);
