@@ -241,7 +241,9 @@ a {
         top: 10px;
         right: 10px; }
       #stage div#activity-area section#map div.leaflet-popup .leaflet-popup-content-wrapper {
-        border-radius: 5px; }
+        border-radius: 5px;
+        max-height: 300px;
+        overflow-y: scroll; }
         #stage div#activity-area section#map div.leaflet-popup .leaflet-popup-content-wrapper .popup-item.annotation iframe {
           width: 100% !important; }
       #stage div#activity-area section#map div.leaflet-popup .event-date, #stage div#activity-area section#map div.leaflet-popup .event-address, #stage div#activity-area section#map div.leaflet-popup .group-location.location, #stage div#activity-area section#map div.leaflet-popup .group-description {
