@@ -47,12 +47,13 @@ section#map {
       right: 10px;
     }
     .leaflet-popup-content-wrapper{
-
+      border-radius:5px;
+      max-height:300px;
+      overflow-y:scroll;
       .popup-item.annotation {
         iframe { width: 100% !important; }
       }
-
-      border-radius:5px;}
+    }
     .event-date, .event-address, .group-location.location, .group-description{
       color:rgba(21,35,45,0.8);
       font-size:0.95em;}
