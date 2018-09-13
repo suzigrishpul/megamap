@@ -371,7 +371,7 @@ const getQueryString = () => {
       $(document).trigger('trigger-list-filter-by-bound', parameters);
     }
 
-    if (oldHash.log !== parameters.loc) {
+    if (oldHash.loc !== parameters.loc) {
       $(document).trigger('trigger-map-update', parameters);
     }
 
