@@ -318,22 +318,18 @@ const MapManager = (($) => {
           const annotIcon =  L.icon({
             iconUrl: "/img/annotation.png",
             iconSize: [40, 40],
-            iconAnchor: [20, 20], 
+            iconAnchor: [20, 20],
             className: 'annotation-popup'
           });
-          console.log(renderAnnotationPopup);
           const annotMarkers = annotations.map(item => {
               return L.marker([item.lat, item.lng], {icon: annotIcon})
                         .bindPopup(renderAnnotationPopup(item));
               });
           // annotLayer.bringToFront();
 
-          console.log(annotMarkers);
-
           // const annotLayerGroup = ;
 
           const annotLayerGroup = map.addLayer(L.featureGroup(annotMarkers));
-          console.log(annotLayerGroup);
           // annotLayerGroup.bringToFront();
           // annotMarkers.forEach(item => {
           //   item.addTo(map);

@@ -520,16 +520,10 @@ a {
       overflow-y: scroll;
       /* has to be scroll, not auto */
       -webkit-overflow-scrolling: touch; }
-      #stage div#activity-area #events-list-container #events-list ul li {
-        display: none; }
       #stage div#activity-area #events-list-container #events-list li.group-obj {
         display: block; }
-        #stage div#activity-area #events-list-container #events-list li.group-obj:not(.within-bound) {
-          display: none !important; }
       #stage div#activity-area #events-list-container #events-list.events li.event-obj {
         display: block; }
-        #stage div#activity-area #events-list-container #events-list.events li.event-obj:not(.within-bound) {
-          display: none !important; }
 
 @media (min-width: 600px) {
   body.filter-collapsed #stage div#activity-area section#events-list-container {
