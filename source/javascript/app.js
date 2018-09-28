@@ -180,7 +180,7 @@ const getQueryString = () => {
     listManager.updateFilter(options);
   });
 
-  $(document).on('trigger-list-filter-by-bound', (event, options) => {
+  $(document).on('trigger-list-filter', (event, options) => {
     let bound1, bound2;
 
     if (!options || !options.bound1 || !options.bound2) {
@@ -190,7 +190,7 @@ const getQueryString = () => {
       bound2 = JSON.parse(options.bound2);
     }
 
-    listManager.updateBounds(bound1, bound2)
+    listManager.updateBounds(bound1, bound2, options.filter);
   });
 
   $(document).on('trigger-reset-map', (event, options) => {
@@ -229,9 +229,9 @@ const getQueryString = () => {
     mapManager.setBounds(bound1, bound2);
     // mapManager.triggerZoomEnd();
 
-    setTimeout(() => {
-      mapManager.triggerZoomEnd();
-    }, 10);
+    // setTimeout(() => {
+    //   mapManager.triggerZoomEnd();
+    // }, 10);
 
   });
 
@@ -362,14 +362,15 @@ const getQueryString = () => {
     const oldURL = event.originalEvent.oldURL;
     const oldHash = $.deparam(oldURL.substring(oldURL.search("#")+1));
 
-    $(document).trigger('trigger-list-filter-update', parameters);
+    // $(document).trigger('trigger-list-filter-update', parameters);
     $(document).trigger('trigger-map-filter', parameters);
     $(document).trigger('trigger-update-embed', parameters);
 
-    // So that change in filters will not update this
-    if (oldHash.bound1 !== parameters.bound1 || oldHash.bound2 !== parameters.bound2) {
-      $(document).trigger('trigger-list-filter-by-bound', parameters);
-    }
+    $(document).trigger('trigger-list-filter', parameters);
+    // // So that change in filters will not update this
+    // if (oldHash.bound1 !== parameters.bound1 || oldHash.bound2 !== parameters.bound2) {
+    //   $(document).trigger('trigger-list-filter', parameters);
+    // }
 
     if (oldHash.loc !== parameters.loc) {
       $(document).trigger('trigger-map-update', parameters);
@@ -416,7 +417,7 @@ const getQueryString = () => {
             var parameters = queryManager.getParameters();
 
             window.EVENTS_DATA.data.forEach((item) => {
-              item['event_type'] = !item.event_type ? 'Action' : item.event_type;
+              item['event_type'] = item.event_type !== 'group' ? 'events' : item.event_type; //!item.event_type ? 'Event' : item.event_type;
 
               if (item.start_datetime && !item.start_datetime.match(/Z$/)) {
                 item.start_datetime = item.start_datetime + "Z";
@@ -446,8 +447,7 @@ const getQueryString = () => {
               $(document).trigger('trigger-map-update', p);
               $(document).trigger('trigger-map-filter', p);
 
-              $(document).trigger('trigger-list-filter-update', p);
-              $(document).trigger('trigger-list-filter-by-bound', p);
+              $(document).trigger('trigger-list-filter', p);
 
             }, 100);
           }

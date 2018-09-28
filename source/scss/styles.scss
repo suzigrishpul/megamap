@@ -82,19 +82,19 @@ a {
 
     #events-list-container  {
       #events-list {
-        ul li { display: none; }
+        // ul li { display: none; }
 
         overflow-y: scroll; /* has to be scroll, not auto */
         -webkit-overflow-scrolling: touch;
 
         li.group-obj {
           display: block;
-          &:not(.within-bound) { display: none !important; }
+          // &:not(.within-bound) { display: none !important; }
         }
         &.events li.event-obj {
           display: block;
 
-          &:not(.within-bound) { display: none !important; }
+          // &:not(.within-bound) { display: none !important; }
         }
       }
     }
