@@ -237,29 +237,29 @@ a {
           z-index: 10000 !important; }
         #stage div#activity-area section#map div#map-proper img.leaflet-marker-icon.events.event-item-popup.event-past-event.leaflet-zoom-animated.leaflet-interactive {
           z-index: 0 !important; }
-      #stage div#activity-area section#map div.leaflet-popup .leaflet-container a.leaflet-popup-close-button {
+      #stage div#activity-area section#map .leaflet-container a.leaflet-popup-close-button {
         top: 10px;
         right: 10px; }
-      #stage div#activity-area section#map div.leaflet-popup .leaflet-popup-content-wrapper {
+      #stage div#activity-area section#map .leaflet-popup-content-wrapper, #stage div#activity-area section#map div.mapboxgl-popup {
         border-radius: 5px;
         max-height: 300px;
         overflow-y: scroll; }
-        #stage div#activity-area section#map div.leaflet-popup .leaflet-popup-content-wrapper .popup-item.annotation iframe {
+        #stage div#activity-area section#map .leaflet-popup-content-wrapper .popup-item.annotation iframe, #stage div#activity-area section#map div.mapboxgl-popup .popup-item.annotation iframe {
           width: 100% !important; }
-      #stage div#activity-area section#map div.leaflet-popup .event-date, #stage div#activity-area section#map div.leaflet-popup .event-address, #stage div#activity-area section#map div.leaflet-popup .group-location.location, #stage div#activity-area section#map div.leaflet-popup .group-description {
+      #stage div#activity-area section#map .event-date, #stage div#activity-area section#map .event-address, #stage div#activity-area section#map .group-location.location, #stage div#activity-area section#map .group-description {
         color: rgba(21, 35, 45, 0.8);
         font-size: 0.95em; }
-      #stage div#activity-area section#map div.leaflet-popup .event-date, #stage div#activity-area section#map div.leaflet-popup .group-location.location {
+      #stage div#activity-area section#map .event-date, #stage div#activity-area section#map .group-location.location {
         font-weight: bold; }
-      #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content {
+      #stage div#activity-area section#map div.leaflet-popup-content, #stage div#activity-area section#map div.mapboxgl-popup-content {
         min-width: 350px;
         padding: 10px;
         margin: 10px; }
-        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content p {
+        #stage div#activity-area section#map div.leaflet-popup-content p, #stage div#activity-area section#map div.mapboxgl-popup-content p {
           margin-top: 0; }
-        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content ul.event-types-list {
+        #stage div#activity-area section#map div.leaflet-popup-content ul.event-types-list, #stage div#activity-area section#map div.mapboxgl-popup-content ul.event-types-list {
           margin-bottom: 8px; }
-          #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content ul.event-types-list li {
+          #stage div#activity-area section#map div.leaflet-popup-content ul.event-types-list li, #stage div#activity-area section#map div.mapboxgl-popup-content ul.event-types-list li {
             border-radius: 4px;
             display: inline-block;
             background-color: lightgray;
@@ -267,7 +267,7 @@ a {
             margin-bottom: 0.3em;
             padding: 2px 5px 0;
             font-size: 12px; }
-        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content h2 {
+        #stage div#activity-area section#map div.leaflet-popup-content h2, #stage div#activity-area section#map div.mapboxgl-popup-content h2 {
           font-family: 'KlimaWeb', -apple-system, BlinkMacSystemFont, 'arial', sans-serif;
           margin-bottom: 0;
           line-height: 1.2;
@@ -295,30 +295,31 @@ a {
       top: -3px;
       border-radius: 50%;
     } */ }
-        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content a.btn.btn-primary {
+        #stage div#activity-area section#map div.leaflet-popup-content a.btn.btn-primary, #stage div#activity-area section#map div.mapboxgl-popup-content a.btn.btn-primary {
           font-size: 13px;
           padding: 7px 12px 6px;
           font-weight: 600; }
-        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event {
+        #stage div#activity-area section#map div.leaflet-popup-content div.type-event, #stage div#activity-area section#map div.mapboxgl-popup-content div.type-event {
           overflow-x: hidden; }
-          #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event div.address-area {
+          #stage div#activity-area section#map div.leaflet-popup-content div.type-event div.address-area, #stage div#activity-area section#map div.mapboxgl-popup-content div.type-event div.address-area {
             margin-bottom: 5px; }
-          #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event h2:before {
+          #stage div#activity-area section#map div.leaflet-popup-content div.type-event h2:before, #stage div#activity-area section#map div.mapboxgl-popup-content div.type-event h2:before {
             background-image: url(/img/human.svg); }
-          #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event h2:after {
+          #stage div#activity-area section#map div.leaflet-popup-content div.type-event h2:after, #stage div#activity-area section#map div.mapboxgl-popup-content div.type-event h2:after {
             background-color: #40D7D4; }
-          #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-event h2 a {
+          #stage div#activity-area section#map div.leaflet-popup-content div.type-event h2 a, #stage div#activity-area section#map div.mapboxgl-popup-content div.type-event h2 a {
             color: #003DAA; }
-        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-group div.group-details-area {
+        #stage div#activity-area section#map div.leaflet-popup-content div.type-group div.group-details-area, #stage div#activity-area section#map div.mapboxgl-popup-content div.type-group div.group-details-area {
           margin-bottom: 5px; }
-        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-group h2:after {
+        #stage div#activity-area section#map div.leaflet-popup-content div.type-group h2:after, #stage div#activity-area section#map div.mapboxgl-popup-content div.type-group h2:after {
           background-color: #0F81E8; }
-        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content div.type-group h2:before {
+        #stage div#activity-area section#map div.leaflet-popup-content div.type-group h2:before, #stage div#activity-area section#map div.mapboxgl-popup-content div.type-group h2:before {
           background-image: url(/img/flag.svg); }
-        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content a.btn-primary {
+        #stage div#activity-area section#map div.leaflet-popup-content a.btn-primary, #stage div#activity-area section#map div.mapboxgl-popup-content a.btn-primary {
           color: white; }
-        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content .event-title,
-        #stage div#activity-area section#map div.leaflet-popup div.leaflet-popup-content .group-header {
+        #stage div#activity-area section#map div.leaflet-popup-content .event-title,
+        #stage div#activity-area section#map div.leaflet-popup-content .group-header, #stage div#activity-area section#map div.mapboxgl-popup-content .event-title,
+        #stage div#activity-area section#map div.mapboxgl-popup-content .group-header {
           margin-bottom: 0.5rem; }
       #stage div#activity-area section#map.zoomed-out img.local-groups, #stage div#activity-area section#map.zoomed-out img.fossil-free-groups, #stage div#activity-area section#map.zoomed-out img.regional-hubs {
         width: 11px !important;

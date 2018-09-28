@@ -3,6 +3,10 @@
 const MapManager = (($) => {
   let LANGUAGE = 'en';
 
+  const popup = new mapboxgl.Popup({
+    closeOnClick: false
+  });
+
   const renderEvent = (item, referrer = null, source = null) => {
 
     let m = moment(new Date(item.start_datetime));
@@ -131,24 +135,75 @@ const MapManager = (($) => {
     })
   }
 
+  const getEventGeojson = (targets, referrer=null, source=null) => {
+          return ({
+              "type": "FeatureCollection",
+              "features": targets
+                            .sort((x,y) => d3.descending(new Date(x.start_datetime), new Date(y.start_datetime)))
+                            .map(item => (
+                              {
+                                "type": "Feature",
+                                "properties": {
+                                  "id": `${item.lng}-${item.lat}`,
+                                  "description":  renderEvent(item, referrer, source),
+                                  "is_past": new Date(item.start_datetime) < new Date() ? 'yes' : 'no'
+                                },
+                                "geometry": {
+                                  "type": "Point",
+                                  "coordinates": [item.lng, item.lat]
+                                }
+                              })
+                            )
+            });
+        };
+  const getGroupGeojson = (targets, referrer=null, source=null) => {
+    return {
+          "type": "FeatureCollection",
+          "features": targets
+                        .map(item => (
+                          {
+                            "type": "Feature",
+                            "properties": {
+                              "id": `${item.lng}-${item.lat}`,
+                              "description":  renderGroup(item)
+                            },
+                            "geometry": {
+                              "type": "Point",
+                              "coordinates": [item.lng, item.lat]
+                            }
+                          })
+                        )
+        };
+  };
+
   return (options) => {
     var accessToken = 'pk.eyJ1IjoibWF0dGhldzM1MCIsImEiOiJaTVFMUkUwIn0.wcM3Xc8BGC6PM-Oyrwjnhg';
     var map = L.map('map-proper', { dragging: !L.Browser.mobile }).setView([34.88593094075317, 5.097656250000001], 2);
 
+
+    mapboxgl.accessToken = 'pk.eyJ1IjoicmNzY2FzdGlsbG8iLCJhIjoiY2pseDZ2bmp0MDcwYzNwcGp1bjBqNHo4aSJ9.3bD8gQrMAIEqV6yyS-__vg';
+    map = new mapboxgl.Map({
+      container: 'map-proper',
+      style: 'mapbox://styles/rcscastillo/cjmmb2vtclov52rp0sczqomcs',
+      doubleClickZoom: false,
+      center: [34.88593094075317, 5.097656250000001],
+      zoom: 1.5
+    });
+
     let {referrer, source} = options;
 
-    if (!L.Browser.mobile) {
-      map.scrollWheelZoom.disable();
-    }
+    // if (!L.Browser.mobile) {
+    //   map.scrollWheelZoom.disable();
+    // }
 
     LANGUAGE = options.lang || 'en';
 
     if (options.onMove) {
       map.on('dragend', (event) => {
 
-
-        let sw = [map.getBounds()._southWest.lat, map.getBounds()._southWest.lng];
-        let ne = [map.getBounds()._northEast.lat, map.getBounds()._northEast.lng];
+        const bnd = map.getBounds();
+        let sw = [bnd._sw.lat, bnd._sw.lng];
+        let ne = [bnd._ne.lat, bnd._ne.lng];
         options.onMove(sw, ne);
       }).on('zoomend', (event) => {
         if (map.getZoom() <= 4) {
@@ -157,17 +212,19 @@ const MapManager = (($) => {
           $("#map").removeClass("zoomed-out");
         }
 
-        let sw = [map.getBounds()._southWest.lat, map.getBounds()._southWest.lng];
-        let ne = [map.getBounds()._northEast.lat, map.getBounds()._northEast.lng];
+        const bnd = map.getBounds();
+        let sw = [bnd._sw.lat, bnd._sw.lng];
+        let ne = [bnd._ne.lat, bnd._ne.lng];
         options.onMove(sw, ne);
       })
+
     }
 
     // map.fireEvent('zoomend');
 
-    L.tileLayer('https://api.mapbox.com/styles/v1/matthew350/cja41tijk27d62rqod7g0lx4b/tiles/256/{z}/{x}/{y}?access_token=' + accessToken, {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors • <a href="//350.org">350.org</a>'
-    }).addTo(map);
+    // L.tileLayer('https://api.mapbox.com/styles/v1/matthew350/cja41tijk27d62rqod7g0lx4b/tiles/256/{z}/{x}/{y}?access_token=' + accessToken, {
+    //     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors • <a href="//350.org">350.org</a>'
+    // }).addTo(map);
 
     // console.log(window.queries['twilight-zone'], window.queries['twilight-zone'] === "true");
     if(window.queries['twilight-zone']) {
@@ -185,7 +242,9 @@ const MapManager = (($) => {
       },
       setBounds: (bounds1, bounds2) => {
 
-        const bounds = [bounds1, bounds2];
+        // const bounds = [bounds1, bounds2];
+        const bounds = [bounds1.reverse(), bounds2.reverse()]; // mapbox
+        console.log(bounds);
         map.fitBounds(bounds, { animate: false});
       },
       setCenter: (center, zoom = 10) => {
@@ -195,8 +254,9 @@ const MapManager = (($) => {
       },
       getBounds: () => {
 
-        let sw = [map.getBounds()._southWest.lat, map.getBounds()._southWest.lng];
-        let ne = [map.getBounds()._northEast.lat, map.getBounds()._northEast.lng];
+        const bnd = map.getBounds()
+        let sw = [bnd._sw.lat, bnd._sw.lng];
+        let ne = [bnd._ne.lat, bnd._ne.lng];
 
         return [sw, ne];
       },
@@ -211,7 +271,7 @@ const MapManager = (($) => {
         });
       },
       triggerZoomEnd: () => {
-        map.fireEvent('zoomend');
+        // map.fireEvent('zoomend');
       },
       zoomOutOnce: () => {
         map.zoomOut(1);
@@ -230,7 +290,7 @@ const MapManager = (($) => {
         }, 200);
       },
       refreshMap: () => {
-        map.invalidateSize(false);
+        //  map.invalidateSize(false);
         // map._onResize();
         // map.fireEvent('zoomend');
 
@@ -238,41 +298,104 @@ const MapManager = (($) => {
       },
       filterMap: (filters) => {
 
+        // TODO mapbox this.
         $("#map").find(".event-item-popup").hide();
-
-
         if (!filters) return;
-
         filters.forEach((item) => {
-
           $("#map").find(".event-item-popup." + item.toLowerCase()).show();
         })
       },
       plotPoints: (list, hardFilters, groups) => {
         const keySet = !hardFilters.key ? [] : hardFilters.key.split(',');
-
         if (keySet.length > 0) {
           list = list.filter((item) => keySet.includes(item.event_type))
         }
+        console.log(list, hardFilters,groups);
+
+        // Color the map
+        for (let i in groups) {
+          const group = groups[i];
+          const targets = list.filter(item =>
+                                              item.event_type == "group"
+                                                ? item.supergroup == group.supergroup
+                                                : item.event_type == window.slugify(group.supergroup));
+          console.log(targets);
 
 
+
+            // item.categories == "blockwalk";
+          if (i == "Events") {
+            const geojson =getEventGeojson(targets, referrer, source);
+            map.addLayer({
+              "id": "events",
+              "type": "circle",
+              "source": {
+                "type": "geojson",
+                "data": geojson
+              },
+              "paint": {
+                "circle-radius": 5,
+                "circle-color": ['case',
+                                    ['==', ['get', 'is_past'], 'yes'],
+                                    "#40d7d4",
+                                    "#BBBBBB"
+                                ],
+                "circle-opacity": 0.9,
+                "circle-stroke-width": 2,
+                "circle-stroke-color": "white",
+                "circle-stroke-opacity": 1
+              }
+            });
+          } else {
+            const geojson = getGroupGeojson(targets, group, referrer, source);
+            map.loadImage(group.iconurl, (error,groupIcon) => {
+
+              map.addImage(`${window.slugify(i)}-icon`, groupIcon);
+              map.addLayer({
+                "id": window.slugify(i),
+                "type": "symbol",
+                "source": {
+                  "type": "geojson",
+                  "data": geojson
+                },
+                "layout": {
+                  'icon-allow-overlap': true,
+                  'icon-ignore-placement': true,
+                  'text-ignore-placement': true,
+                  'text-allow-overlap': true,
+                  "icon-image": `${window.slugify(i)}-icon`,
+                  "icon-size": 0.15
+                }
+              })
+            });
+          }
+
+          map.on("click", window.slugify(i), (e) => {
+            console.log("Clicked Events")
+            var coordinates = e.features[0].geometry.coordinates.slice();
+            var description = e.features[0].properties.description;
+            popup.setLngLat(coordinates)
+                  .setHTML(description)
+                  .addTo(map)
+          });
+        }
+      },
+      _oldPlotPoints: (list, hardFilters, groups) => {
+        const keySet = !hardFilters.key ? [] : hardFilters.key.split(',');
+        if (keySet.length > 0) {
+          list = list.filter((item) => keySet.includes(item.event_type))
+        }
         const geojson = {
           type: "FeatureCollection",
           features: renderGeojson(list, referrer, source)
         };
-
-
         const eventsLayer = L.geoJSON(geojson, {
             pointToLayer: (feature, latlng) => {
               // Icons for markers
               const eventType = feature.properties.eventProperties.event_type;
-
               // If no supergroup, it's an event.
               const supergroup = groups[feature.properties.eventProperties.supergroup] ? feature.properties.eventProperties.supergroup : "Events";
               const slugged = window.slugify(supergroup);
-
-
-
               let iconUrl;
               const isPast = new Date(feature.properties.eventProperties.start_datetime) < new Date();
               if (eventType == "Action") {
@@ -281,15 +404,12 @@ const MapManager = (($) => {
                 iconUrl = groups[supergroup] ? groups[supergroup].iconurl || "/img/event.png"  : "/img/event.png" ;
               }
 
-
-
               const smallIcon =  L.icon({
                 iconUrl: iconUrl,
                 iconSize: [18, 18],
                 iconAnchor: [9, 9],
                 className: slugged + ' event-item-popup ' + (isPast&&eventType == "Action"?"event-past-event":"")
               });
-
 
               var geojsonMarkerOptions = {
                 icon: smallIcon,
@@ -301,9 +421,6 @@ const MapManager = (($) => {
             if (feature.properties && feature.properties.popupContent) {
               layer.bindPopup(feature.properties.popupContent);
             }
-
-            // const isPast = new Date(feature.properties.eventProperties.start_datetime) < new Date();
-            // const eventType = feature.properties.eventProperties.event_type;
           }
         });
 

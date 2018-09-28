@@ -229,9 +229,9 @@ const getQueryString = () => {
     mapManager.setBounds(bound1, bound2);
     // mapManager.triggerZoomEnd();
 
-    setTimeout(() => {
-      mapManager.triggerZoomEnd();
-    }, 10);
+    // setTimeout(() => {
+    //   mapManager.triggerZoomEnd();
+    // }, 10);
 
   });
 
