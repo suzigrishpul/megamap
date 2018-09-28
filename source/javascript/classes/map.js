@@ -337,8 +337,8 @@ const MapManager = (($) => {
                 "circle-radius": 5,
                 "circle-color": ['case',
                                     ['==', ['get', 'is_past'], 'yes'],
-                                    "#40d7d4",
-                                    "#BBBBBB"
+                                    "#BBBBBB",
+                                    "#40d7d4"
                                 ],
                 "circle-opacity": 0.9,
                 "circle-stroke-width": 2,

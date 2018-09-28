@@ -253,6 +253,7 @@ a {
         font-weight: bold; }
       #stage div#activity-area section#map div.leaflet-popup-content, #stage div#activity-area section#map div.mapboxgl-popup-content {
         min-width: 350px;
+        max-width: 350px;
         padding: 10px;
         margin: 10px; }
         #stage div#activity-area section#map div.leaflet-popup-content p, #stage div#activity-area section#map div.mapboxgl-popup-content p {
