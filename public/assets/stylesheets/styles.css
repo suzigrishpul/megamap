@@ -254,8 +254,7 @@ a {
       #stage div#activity-area section#map div.leaflet-popup-content, #stage div#activity-area section#map div.mapboxgl-popup-content {
         min-width: 350px;
         max-width: 350px;
-        padding: 10px;
-        margin: 10px; }
+        padding: 10px; }
         #stage div#activity-area section#map div.leaflet-popup-content p, #stage div#activity-area section#map div.mapboxgl-popup-content p {
           margin-top: 0; }
         #stage div#activity-area section#map div.leaflet-popup-content ul.event-types-list, #stage div#activity-area section#map div.mapboxgl-popup-content ul.event-types-list {

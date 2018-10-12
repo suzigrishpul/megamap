@@ -181,10 +181,10 @@ const MapManager = (($) => {
     var map = L.map('map-proper', { dragging: !L.Browser.mobile }).setView([34.88593094075317, 5.097656250000001], 2);
 
 
-    mapboxgl.accessToken = 'pk.eyJ1IjoicmNzY2FzdGlsbG8iLCJhIjoiY2pseDZ2bmp0MDcwYzNwcGp1bjBqNHo4aSJ9.3bD8gQrMAIEqV6yyS-__vg';
+    mapboxgl.accessToken = 'pk.eyJ1IjoibWF0dGhldzM1MCIsImEiOiJaTVFMUkUwIn0.wcM3Xc8BGC6PM-Oyrwjnhg';
     map = new mapboxgl.Map({
       container: 'map-proper',
-      style: 'mapbox://styles/rcscastillo/cjmmb2vtclov52rp0sczqomcs',
+      style: 'mapbox://styles/matthew350/cja41tijk27d62rqod7g0lx4b',
       doubleClickZoom: false,
       center: [34.88593094075317, 5.097656250000001],
       zoom: 1.5
@@ -244,7 +244,6 @@ const MapManager = (($) => {
 
         // const bounds = [bounds1, bounds2];
         const bounds = [bounds1.reverse(), bounds2.reverse()]; // mapbox
-        console.log(bounds);
         map.fitBounds(bounds, { animate: false});
       },
       setCenter: (center, zoom = 10) => {
@@ -281,7 +280,7 @@ const MapManager = (($) => {
         map.zoomOut(1);
         let intervalHandler = null;
         intervalHandler = setInterval(() => {
-          var _visible = $(document).find('ul li.event-obj.within-bound, ul li.group-obj.within-bound').length;
+          var _visible = $(document).find('ul li.event-obj, ul li.group-obj').length;
           if (_visible == 0) {
             map.zoomOut(1);
           } else {
@@ -310,7 +309,6 @@ const MapManager = (($) => {
         if (keySet.length > 0) {
           list = list.filter((item) => keySet.includes(item.event_type))
         }
-        console.log(list, hardFilters,groups);
 
         // Color the map
         for (let i in groups) {
@@ -319,7 +317,6 @@ const MapManager = (($) => {
                                               item.event_type == "group"
                                                 ? item.supergroup == group.supergroup
                                                 : item.event_type == window.slugify(group.supergroup));
-          console.log(targets);
 
 
 
@@ -334,7 +331,15 @@ const MapManager = (($) => {
                 "data": geojson
               },
               "paint": {
-                "circle-radius": 5,
+                "circle-radius": [
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    8,
+                    3,
+                    13,
+                    6
+                ],
                 "circle-color": ['case',
                                     ['==', ['get', 'is_past'], 'yes'],
                                     "#BBBBBB",
@@ -348,7 +353,13 @@ const MapManager = (($) => {
             });
           } else {
             const geojson = getGroupGeojson(targets, group, referrer, source);
-            map.loadImage(group.iconurl, (error,groupIcon) => {
+            let icon = null;
+            if (i == "Local Groups") {
+              icon = "/img/group.png";
+            } else if ( i == "Regional Hubs") {
+              icon = "/img/flag.png";
+            }
+            map.loadImage(icon, (error,groupIcon) => {
 
               map.addImage(`${window.slugify(i)}-icon`, groupIcon);
               map.addLayer({
@@ -364,14 +375,21 @@ const MapManager = (($) => {
                   'text-ignore-placement': true,
                   'text-allow-overlap': true,
                   "icon-image": `${window.slugify(i)}-icon`,
-                  "icon-size": 0.15
+                  "icon-size": [
+                      "interpolate",
+                      ["linear"],
+                      ["zoom"],
+                      4,
+                      0.09,
+                      9,
+                      0.15
+                  ]
                 }
               })
             });
           }
 
           map.on("click", window.slugify(i), (e) => {
-            console.log("Clicked Events")
             var coordinates = e.features[0].geometry.coordinates.slice();
             var description = e.features[0].properties.description;
             popup.setLngLat(coordinates)
