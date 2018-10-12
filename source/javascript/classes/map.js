@@ -1,4 +1,4 @@
-
+window.map = null;
 
 const MapManager = (($) => {
   let LANGUAGE = 'en';
@@ -178,16 +178,18 @@ const MapManager = (($) => {
 
   return (options) => {
     var accessToken = 'pk.eyJ1IjoibWF0dGhldzM1MCIsImEiOiJaTVFMUkUwIn0.wcM3Xc8BGC6PM-Oyrwjnhg';
-    var map = L.map('map-proper', { dragging: !L.Browser.mobile }).setView([34.88593094075317, 5.097656250000001], 2);
+    // var map = L.map('map-proper', { dragging: !L.Browser.mobile }).setView([34.88593094075317, 5.097656250000001], 2);
 
 
     mapboxgl.accessToken = 'pk.eyJ1IjoibWF0dGhldzM1MCIsImEiOiJaTVFMUkUwIn0.wcM3Xc8BGC6PM-Oyrwjnhg';
-    map = new mapboxgl.Map({
+    var map;
+    window.map = map = new mapboxgl.Map({
       container: 'map-proper',
       style: 'mapbox://styles/matthew350/cja41tijk27d62rqod7g0lx4b',
       doubleClickZoom: false,
-      center: [34.88593094075317, 5.097656250000001],
-      zoom: 1.5
+      center: [33.09813404798261, 2.7394043304813067],
+      zoom: 1.2,
+      // scrollZoom: false
     });
 
     let {referrer, source} = options;
@@ -232,6 +234,7 @@ const MapManager = (($) => {
     }
 
     let geocoder = null;
+    let main_groups = null;
     return {
       $map: map,
       initialize: (callback) => {
@@ -299,12 +302,27 @@ const MapManager = (($) => {
 
         // TODO mapbox this.
         $("#map").find(".event-item-popup").hide();
-        if (!filters) return;
-        filters.forEach((item) => {
-          $("#map").find(".event-item-popup." + item.toLowerCase()).show();
-        })
+        // if (!filters) return;
+        for (let i in main_groups) {
+          const group = main_groups[i];
+          const slug = window.slugify(i);
+          try {
+            if (map.getLayer(slug) === undefined) {
+              continue;
+            }
+
+            if (filters && filters.includes(slug)) {
+                map.setLayoutProperty(slug, 'visibility', 'visible');
+            } else {
+                map.setLayoutProperty(slug, 'visibility', 'none');
+            }
+          } catch(e) {
+            console.log(e);
+          }
+        }
       },
       plotPoints: (list, hardFilters, groups) => {
+        main_groups = groups;
         const keySet = !hardFilters.key ? [] : hardFilters.key.split(',');
         if (keySet.length > 0) {
           list = list.filter((item) => keySet.includes(item.event_type))
@@ -323,12 +341,16 @@ const MapManager = (($) => {
             // item.categories == "blockwalk";
           if (i == "Events") {
             const geojson =getEventGeojson(targets, referrer, source);
+            const isVisible = hardFilters && hardFilters.filters ? hardFilters.filters.includes("events") : true;
             map.addLayer({
               "id": "events",
               "type": "circle",
               "source": {
                 "type": "geojson",
                 "data": geojson
+              },
+              'layout': {
+                'visibility': isVisible ? 'visible' : 'none'
               },
               "paint": {
                 "circle-radius": [
@@ -359,11 +381,12 @@ const MapManager = (($) => {
             } else if ( i == "Regional Hubs") {
               icon = "/img/flag.png";
             }
+            const slug = window.slugify(i)
+            const isVisible = hardFilters && hardFilters.filters ? hardFilters.filters.includes(slug) : true;
             map.loadImage(icon, (error,groupIcon) => {
-
               map.addImage(`${window.slugify(i)}-icon`, groupIcon);
               map.addLayer({
-                "id": window.slugify(i),
+                "id": slug,
                 "type": "symbol",
                 "source": {
                   "type": "geojson",
@@ -374,6 +397,7 @@ const MapManager = (($) => {
                   'icon-ignore-placement': true,
                   'text-ignore-placement': true,
                   'text-allow-overlap': true,
+                  'visibility': isVisible ? 'visible' : 'none',
                   "icon-image": `${window.slugify(i)}-icon`,
                   "icon-size": [
                       "interpolate",

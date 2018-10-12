@@ -404,9 +404,12 @@ const getQueryString = () => {
           success: (data) => {
             // window.EVENTS_DATA = data;
             //June 14, 2018 – Changes
+
             if(window.queries.group) {
+              const target_group = decodeURIComponent(window.queries.group);
+              console.log(target_group);
               window.EVENTS_DATA.data = window.EVENTS_DATA.data.filter((i) => {
-                return i.campaign == window.queries.group
+                return i.campaign == target_group || i.supergroup == target_group;
               });
             }
 
